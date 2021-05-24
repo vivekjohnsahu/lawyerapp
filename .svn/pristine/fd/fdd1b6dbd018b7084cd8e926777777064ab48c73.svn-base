@@ -1,0 +1,91 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button>
+              
+            </ion-back-button>
+      </ion-buttons>
+      <ion-title>Lawyer Details</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  	<ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col no-padding>
+        <div class="lawyers_img">
+          <div class="blur_img"><img src="{{profile_image}}"></div>
+          <ion-avatar>
+              <img src="{{profile_image}}">
+          </ion-avatar>
+        </div>
+        <div class="lawyer_name">
+          <ion-text><p>{{first_name}} {{last_name}}</p></ion-text>
+        </div>
+      </ion-col>
+      <ion-col no-padding size="12">
+        <div class="lawyer_skill">
+          Skills
+        </div>
+        <div class="skill_type">
+          <a *ngFor="let skill_show of lawyer_skill_show">{{skill_show}}</a>
+        </div>
+      </ion-col>
+      <ion-col no-padding size="12">
+          <div class="lawyer_skill">
+            Basic Information
+          </div>
+          <div class="lawyer_info">
+            <div class="address_icon">
+                <img src="assets/images/address_icon.png">
+            </div>
+            <div class="main_add">
+              <p>{{address_line1}}</p>
+            </div>
+          </div>
+          <div class="email_info">
+              <div><img src="assets/images/email_icon.png"></div> 
+              <div>{{email}}</div>
+          </div>
+          <div class="mobile_info">
+              <div><img src="assets/images/phone_icon.png"></div> 
+              <div>{{contact_number1}}</div>
+          </div>
+      </ion-col>
+      <ion-col no-padding size="12">
+          <!-- <div class="lawyer_skill">
+            Documents
+          </div>
+          <div class="document_uploaded">
+            <div class="dox">
+                <ion-avatar>
+                    <img src="assets/images/avatar2.png">
+                </ion-avatar>
+            </div>
+            <div class="dox">
+                <ion-avatar>
+                    <img src="assets/images/avatar2.png">
+                </ion-avatar>
+            </div>
+            <div class="dox">
+                <ion-avatar>
+                    <img src="assets/images/avatar2.png">
+                </ion-avatar>
+            </div>
+            <div class="dox">
+                <ion-avatar>
+                    <img src="assets/images/avatar2.png">
+                </ion-avatar>
+            </div>
+          </div> -->
+          <div class="enquiry" *ngIf="lawyer_edit_2=='enquiry'">
+            <ion-button shape="round" (click)="user_enquiry()">Enquiry</ion-button>
+          </div>
+          <div class="enquiry" *ngIf="lawyer_edit_2=='edit'">
+            <ion-button style="letter-spacing: 1px;" shape="round" (click)="user_edit()">Edit</ion-button>
+          </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>  
+</ion-content>

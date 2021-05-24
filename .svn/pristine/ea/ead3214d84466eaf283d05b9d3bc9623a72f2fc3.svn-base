@@ -1,0 +1,71 @@
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AlertController, Events, MenuController, Platform } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
+})
+export class AppComponent implements OnInit {
+
+	open_app:string;
+	
+	constructor(
+		private platform: Platform,
+		private splashScreen: SplashScreen,
+		private statusBar: StatusBar,
+		private router: Router,
+		public menu: MenuController,
+		public alertController:AlertController,
+		public events: Events,
+		private storage:Storage
+	) 
+	{
+		let user = JSON.parse(localStorage.getItem('open_app'));
+		if(user!=null || user!=undefined){
+			this.router.navigateByUrl('/home')
+		}else if(user==null || user==undefined){
+			this.router.navigateByUrl('/sign-in')
+		}
+		
+		// user and lawyer login 
+		this.events.subscribe('open_app', (data) =>{
+			this.open_app = data;
+			this.storage.set('open_app', data);	
+		});
+		this.storage.get('open_app').then((val) => {
+			this.open_app = val;
+		});
+		// user and lawyer login 
+
+	}
+
+	ngOnInit(){}
+
+  // user logout start
+	async logOut(){
+		const alert = await this.alertController.create({
+		message: 'You are sure you want to logout now.',
+		buttons: [
+			{
+				text: 'Cancel',
+				role: 'cancel',
+				cssClass: 'secondary',
+			},{
+				text: 'ok',
+				handler: () => {
+					localStorage.removeItem('open_app')
+					this.menu.enable(false);
+					this.router.navigateByUrl("/sign-in")
+				}
+			}]
+		});
+		await alert.present();
+	}
+	// user logout end	
+} 
+
+

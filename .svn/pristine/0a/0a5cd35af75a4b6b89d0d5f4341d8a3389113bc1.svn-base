@@ -1,0 +1,81 @@
+ion-toolbar{
+    --background:#233658;
+}
+ion-title{
+    color:#fff;
+    font-weight: 300;
+    text-transform: capitalize;
+    font-size: 18px;
+    text-align: left;
+}
+ion-back-button {
+    color: #fff;
+}
+.no-padding{
+    padding:0px;
+}
+
+
+.abs_icon{
+    position: absolute;
+    top: 28px;
+    left: 4.5%;
+}
+.abs_icon > img{
+    width:18px;
+}
+.form_container{
+    position:relative;
+    margin:20px 0px;
+    padding-right: 15px;
+}
+.form_container > ion-label{
+    padding-left: 13%;
+}
+.form_container > ion-label::after{
+    content:"*";
+    color: red;
+    margin-left: 3px;
+}
+.form_container ion-input , .form_container ion-textarea{
+    width: 87%;
+    margin: 0 0 0 auto;
+    border-bottom: 1px solid #ccc;
+    font-size:12px;
+    --padding-top: 8px;
+    --padding-bottom: 5px;
+}
+.form_container ion-button{
+    font-weight: 300;
+    width: 80%;
+    box-shadow: 0px 4px 8px 1px #fed19c;
+    border-radius: 30px;
+    --background: #fd8900;
+    --background-activated: #fd8900;
+    margin-top: 30px;
+}
+.error_cls{
+    color: red;
+    font-size: 12px;
+    padding-top: 10px;
+    padding-left: 45px;
+}
+.sign_in_button > button{
+    font-weight: 300;
+    width: 90%;
+    margin-top: 30px;
+    padding:15px;
+    color:#fff;
+    box-shadow: 0px 4px 8px 1px #fed19c;
+    border-radius: 30px;
+    background: #fd8900;
+}
+.sign_in_button > button:focus{
+    outline:none;
+}
+.sign_in_button > button[disabled]{
+    background: rgba(253, 137, 0, 0.48);
+}
+.sign_in_button{
+    text-align: center;
+}

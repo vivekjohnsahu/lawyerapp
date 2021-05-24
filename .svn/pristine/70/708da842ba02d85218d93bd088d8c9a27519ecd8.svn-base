@@ -1,0 +1,138 @@
+.welcome-card ion-img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+ion-toolbar {
+  --background: #233658;
+}
+
+ion-buttons ion-menu-button>img {
+  width: 17px;
+}
+
+.search_icon_container img {
+  width: 17px;
+}
+
+ion-title {
+  text-align: center;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 400;
+  font-family: Proxima-Nova-alt-Regular;
+}
+
+a.search_icon {
+  padding: 0px 6px;
+}
+
+.homepage_img {
+  padding: 10px;
+}
+
+
+.homepage_img img {
+  width: 100%;
+}
+
+.featured_div {
+  padding: 5px 10px 5px 10px;
+}
+
+.featured_div>h3 {
+  font-size: 15px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.featured_div>h3>span {
+  color: #fd8900;
+}
+
+.featured_grid {
+  padding: 10px;
+}
+
+.featured_main {
+  padding: 10px;
+  box-shadow: 0px 3px 25px 2px rgba(0, 0, 0, 0.23);
+  margin-bottom: 15px;
+}
+
+div.featured_image {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.featured_image img {
+  max-height: 71px;
+  min-height: 71px;
+  min-width: 71px;
+  max-width: 71px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+}
+
+div.featured_text {
+  width: 68%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+div.featured_text h4 {
+  margin-top: 0px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+div.featured_text p {
+  margin: 0px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: rgba(31, 31, 31, 0.8);
+}
+
+.sevice_type {
+  margin-bottom: 5px;
+}
+
+.sevice_type a {
+  font-size: 12px;
+  text-transform: capitalize;
+  border: 1px solid #fd8902;
+  padding: 0px 5px;
+  background: #fff9f2;
+  border-radius: 5px;
+  margin-right: 5px;
+  color: #1f1f1f;
+}
+
+.sevice_type a:last-child {
+  font-size: 12px;
+  text-transform: capitalize;
+  border: none;
+  padding: 0px 5px;
+  background: none;
+  border-radius: 5px;
+  margin-right: 5px;
+  color: #fd8902;
+}
+
+.fixed_btn ion-fab-button {
+  --ion-color-base: #f4a14e !important;
+}
+
+.fixed_btn ion-fab-button>img {
+  width: 20px;
+}
+
+.fixed_btn {
+  border-radius: 50%;
+  box-shadow: 1px 1px 23px 1px #f4a14e;
+}
+
+.featured_main:focus {
+  outline: none;
+}

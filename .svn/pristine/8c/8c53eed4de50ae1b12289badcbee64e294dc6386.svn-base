@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button>
+            
+          </ion-back-button>
+    </ion-buttons>
+    <ion-title>Enquiry</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+  <ion-grid class="no-padding">
+    <ion-row no-padding>
+      <ion-col no-padding>
+        <div class="form_container">
+          <ion-label position="stacked">Enquiry No.</ion-label>
+          <ion-input no-padding  placeholder="" type="text" required [(ngModel)]="enquiry.no" disabled></ion-input>
+          <div class="abs_icon"><img src="assets/images/enquiry/time.png"></div>
+        </div>
+        <div class="form_container">
+            <ion-label position="stacked">User Email Address</ion-label>
+            <ion-input no-padding  placeholder="" type="text" required [(ngModel)]="enquiry.email" disabled></ion-input>
+            <div class="abs_icon"><img src="assets/images/email_icon.png"></div>
+          </div>
+        <div class="form_container">
+            <ion-label position="stacked">User Name</ion-label>
+            <ion-input no-padding  placeholder="" type="text" required [(ngModel)]="enquiry.fname" disabled></ion-input>
+            <div class="abs_icon"><img src="assets/images/register/name.png"></div>
+        </div>
+        <div class="form_container">
+            <ion-label position="stacked">Lawyer Name</ion-label>
+            <ion-input no-padding  placeholder="" type="text" required [(ngModel)]="enquiry.lname" disabled></ion-input>
+            <div class="abs_icon"><img src="assets/images/register/name.png"></div>
+        </div>
+        <div class="form_container">
+          <ion-label position="stacked">Date</ion-label>
+          <ion-input no-padding  placeholder="" type="text" required [(ngModel)]="enquiry.date" disabled></ion-input>
+          <div class="abs_icon"><img  src="assets/images/enquiry/time.png"></div>
+        </div>
+        <div class="form_container">
+          <ion-label position="stacked">Time</ion-label>
+          <ion-input no-padding  placeholder="" type="text" required [(ngModel)]="enquiry.time" disabled></ion-input>
+          <div class="abs_icon"><img src="assets/images/enquiry/clock.png"></div>
+        </div>
+        <div class="form_container">
+          <ion-label position="stacked">Remarks</ion-label>
+          <ion-textarea no-padding  placeholder="" type="text" required [(ngModel)]="enquiry.remarks" disabled></ion-textarea>
+          <div class="abs_icon"><img  src="assets/images/message.png"></div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

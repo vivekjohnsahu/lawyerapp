@@ -1,0 +1,117 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["manage-enquiry-manage-enquiry-module"],{
+
+/***/ "./src/app/manage-enquiry/manage-enquiry.module.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/manage-enquiry/manage-enquiry.module.ts ***!
+  \*********************************************************/
+/*! exports provided: ManageEnquiryPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManageEnquiryPageModule", function() { return ManageEnquiryPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _manage_enquiry_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./manage-enquiry.page */ "./src/app/manage-enquiry/manage-enquiry.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _manage_enquiry_page__WEBPACK_IMPORTED_MODULE_6__["ManageEnquiryPage"]
+    }
+];
+var ManageEnquiryPageModule = /** @class */ (function () {
+    function ManageEnquiryPageModule() {
+    }
+    ManageEnquiryPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_manage_enquiry_page__WEBPACK_IMPORTED_MODULE_6__["ManageEnquiryPage"]]
+        })
+    ], ManageEnquiryPageModule);
+    return ManageEnquiryPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/manage-enquiry/manage-enquiry.page.html":
+/*!*********************************************************!*\
+  !*** ./src/app/manage-enquiry/manage-enquiry.page.html ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-back-button>\n              \n            </ion-back-button>\n      </ion-buttons>\n      <ion-title>Manage Enquiry</ion-title>\n    </ion-toolbar>\n  </ion-header> \n  \n  <ion-content>\n    <ion-grid class=\"p-10\">\n      <ion-row no-padding class=\"this_container\">\n        <ion-col size=\"12\" no-padding>\n          <div class=\"main_enquiry_bg\">\n            <div class=\"main_enquiry\">\n              <div class=\"enqiry_id\">\n                <div class=\"img_cont\"><img src=\"assets/images/enquiry/manage_enquiry.png\"></div>\n                <div class=\"id\"><p>Enquiry ID : <span>CMP001</span></p></div>\n              </div>\n              <div class=\"enquired_name\"><ion-text>Vikas Kumar</ion-text></div>\n              <div class=\"enquired_para\">\n                <ion-text><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p></ion-text>\n              </div>\n              <div class=\"enquired_footer\">\n                <div class=\"enquiry_date\">\n                  <p><span><img src=\"assets/images/enquiry/time.png\"></span> 13-12-2018</p>\n                </div>\n                <div class=\"enquiry_time\">\n                    <p><span><img src=\"assets/images/enquiry/clock.png\"></span> 11:12:18</p>\n                </div>\n                <div class=\"view\">\n                  <ion-button shape=\"round\" size=\"small\" routerLink=\"/view-enquiry\">View</ion-button>\n                </div>\n              </div>\n            </div>\n          </div>\n        </ion-col>\n\n        <ion-col size=\"12\" no-padding>\n            <div class=\"main_enquiry_bg\">\n              <div class=\"main_enquiry\">\n                <div class=\"enqiry_id\">\n                  <div class=\"img_cont\"><img src=\"assets/images/enquiry/manage_enquiry.png\"></div>\n                  <div class=\"id\"><p>Enquiry ID : <span>CMP001</span></p></div>\n                </div>\n                <div class=\"enquired_name\"><ion-text>Vikas Kumar</ion-text></div>\n                <div class=\"enquired_para\">\n                  <ion-text><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p></ion-text>\n                </div>\n                <div class=\"enquired_footer\">\n                  <div class=\"enquiry_date\">\n                    <p><span><img src=\"assets/images/enquiry/time.png\"></span> 13-12-2018</p>\n                  </div>\n                  <div class=\"enquiry_time\">\n                      <p><span><img src=\"assets/images/enquiry/clock.png\"></span> 11:12:18</p>\n                  </div>\n                  <div class=\"view\">\n                    <ion-button shape=\"round\" size=\"small\" routerLink=\"/view-enquiry\">View</ion-button>\n                  </div>\n                </div>\n              </div>\n            </div>\n          </ion-col>\n\n          <ion-col size=\"12\" no-padding>\n              <div class=\"main_enquiry_bg\">\n                <div class=\"main_enquiry\">\n                  <div class=\"enqiry_id\">\n                    <div class=\"img_cont\"><img src=\"assets/images/enquiry/manage_enquiry.png\"></div>\n                    <div class=\"id\"><p>Enquiry ID : <span>CMP001</span></p></div>\n                  </div>\n                  <div class=\"enquired_name\"><ion-text>Vikas Kumar</ion-text></div>\n                  <div class=\"enquired_para\">\n                    <ion-text><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p></ion-text>\n                  </div>\n                  <div class=\"enquired_footer\">\n                    <div class=\"enquiry_date\">\n                      <p><span><img src=\"assets/images/enquiry/time.png\"></span> 13-12-2018</p>\n                    </div>\n                    <div class=\"enquiry_time\">\n                        <p><span><img src=\"assets/images/enquiry/clock.png\"></span> 11:12:18</p>\n                    </div>\n                    <div class=\"view\">\n                      <ion-button shape=\"round\" size=\"small\" routerLink=\"/view-enquiry\">View</ion-button>\n                    </div>\n                  </div>\n                </div>\n              </div>\n            </ion-col>\n\n        <ion-col size=\"12\"  no-padding>\n            <div class=\"main_enquiry_bg\">\n              <div class=\"main_enquiry\">\n                <div class=\"enqiry_id\">\n                  <div class=\"img_cont\"><img src=\"assets/images/enquiry/manage_enquiry.png\"></div>\n                  <div class=\"id\"><p>Enquiry ID : <span>CMP001</span></p></div>\n                </div>\n                <div class=\"enquired_name\"><ion-text>Vikas Kumar</ion-text></div>\n                <div class=\"enquired_para\">\n                  <ion-text><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p></ion-text>\n                </div>\n                <div class=\"enquired_footer\">\n                  <div class=\"enquiry_date\">\n                    <p><span><img src=\"assets/images/enquiry/time.png\"></span> 13-12-2018</p>\n                  </div>\n                  <div class=\"enquiry_time\">\n                      <p><span><img src=\"assets/images/enquiry/clock.png\"></span> 11:12:18</p>\n                  </div>\n                  <div class=\"view\">\n                    <ion-button shape=\"round\" size=\"small\" routerLink=\"/view-enquiry\">View</ion-button>\n                  </div>\n                </div>\n              </div>\n            </div>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  \n  </ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/manage-enquiry/manage-enquiry.page.scss":
+/*!*********************************************************!*\
+  !*** ./src/app/manage-enquiry/manage-enquiry.page.scss ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-toolbar {\n  --background: #233658; }\n\nion-title {\n  text-align: left;\n  color: #fff;\n  font-size: 17px;\n  font-weight: 400;\n  font-family: Proxima-Nova-thin; }\n\nion-back-button {\n  color: #fff; }\n\n.p-10 {\n  padding: 10px; }\n\n.main_enquiry_bg {\n  padding-left: 7px;\n  border-radius: 10px;\n  overflow: hidden;\n  background: #82f1fe;\n  margin-bottom: 20px;\n  box-shadow: 0px 3px 15px 2px rgba(0, 0, 0, 0.27); }\n\n.this_container > ion-col:nth-child(4n+1) > .main_enquiry_bg {\n  background: #82f1fe; }\n\n.this_container > ion-col:nth-child(4n+2) > .main_enquiry_bg {\n  background: #d4a8fd; }\n\n.this_container > ion-col:nth-child(4n+3) > .main_enquiry_bg {\n  background: #fed782; }\n\n.this_container > ion-col:nth-child(4n+4) > .main_enquiry_bg {\n  background: #fe8282; }\n\n.main_enquiry {\n  background: #fff; }\n\n.enqiry_id {\n  padding: 10px; }\n\n.enqiry_id > .id {\n  width: 90%;\n  display: inline-block;\n  padding-left: 10px; }\n\n.enqiry_id > .id > p {\n  margin: 0px;\n  font-size: 14px; }\n\n.enqiry_id > .img_cont {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  display: inline-block; }\n\n.enqiry_id > .img_cont > img {\n  width: 20px; }\n\n.enquired_name {\n  font-size: 15px;\n  padding: 0px 10px 10px 10px; }\n\n.enquired_para {\n  padding: 0px 10px; }\n\n.enquired_para p {\n  margin: 0px;\n  font-size: 14px;\n  color: rgba(31, 31, 31, 0.72); }\n\n.enquired_footer {\n  padding: 10px; }\n\n.enquired_footer > .enquiry_date, .enquired_footer > .enquiry_time {\n  width: 49%;\n  display: inline-block;\n  padding: 5px 0px;\n  border-right: 1px solid #cccccc6b; }\n\n.enquired_footer > .enquiry_date > p, .enquired_footer > .enquiry_time > p {\n  font-size: 14px;\n  margin: 0px;\n  color: rgba(31, 31, 31, 0.72); }\n\n.enquired_footer > .enquiry_date > p > span > img, .enquired_footer > .enquiry_time > p > span > img {\n  width: 18px;\n  vertical-align: bottom; }\n\n.enquired_footer > .enquiry_time {\n  padding-left: 10px;\n  border-right: 0px solid #cccccc6b;\n  text-align: right; }\n\n.view {\n  text-align: right;\n  padding-top: 5px; }\n\n.view > ion-button {\n  --background:#fd8900;\n  box-shadow: 0px 3px 9px 1px #fed19b;\n  border-radius: 30px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFuYWdlLWVucXVpcnkvRDpcXHhhbXBwXFxodGRvY3NcXGxhd3llcmFwcFxcbGF3eWVyc0FwcC9zcmNcXGFwcFxcbWFuYWdlLWVucXVpcnlcXG1hbmFnZS1lbnF1aXJ5LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFhLEVBQUE7O0FBSWpCO0VBQ0ksZ0JBQWU7RUFDZixXQUFVO0VBQ1YsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQiw4QkFBOEIsRUFBQTs7QUFFbEM7RUFDSSxXQUFXLEVBQUE7O0FBRWY7RUFDSSxhQUFZLEVBQUE7O0FBRWhCO0VBQ0ksaUJBQWlCO0VBQ2pCLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLG1CQUFtQjtFQUNuQixnREFBZ0QsRUFBQTs7QUFFcEQ7RUFDSSxtQkFBbUIsRUFBQTs7QUFFdkI7RUFDSSxtQkFBbUIsRUFBQTs7QUFFdkI7RUFDSSxtQkFBbUIsRUFBQTs7QUFFdkI7RUFDSSxtQkFBbUIsRUFBQTs7QUFFdkI7RUFDSSxnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxhQUFhLEVBQUE7O0FBRWpCO0VBQ0ksVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixrQkFBa0IsRUFBQTs7QUFFdEI7RUFDSSxXQUFXO0VBQ1gsZUFBZSxFQUFBOztBQUVuQjtFQUNJLDBCQUFrQjtFQUFsQix1QkFBa0I7RUFBbEIsa0JBQWtCO0VBQ2xCLHFCQUFxQixFQUFBOztBQUV6QjtFQUNJLFdBQVcsRUFBQTs7QUFFZjtFQUNJLGVBQWU7RUFDZiwyQkFBMkIsRUFBQTs7QUFFL0I7RUFDSSxpQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxXQUFXO0VBQ1gsZUFBZTtFQUNmLDZCQUE2QixFQUFBOztBQUVqQztFQUNJLGFBQWEsRUFBQTs7QUFFakI7RUFDSSxVQUFVO0VBQ1YscUJBQXFCO0VBQ3JCLGdCQUFnQjtFQUNoQixpQ0FBaUMsRUFBQTs7QUFFckM7RUFDSSxlQUFlO0VBQ2YsV0FBVztFQUNYLDZCQUE2QixFQUFBOztBQUVqQztFQUNJLFdBQVc7RUFDWCxzQkFBc0IsRUFBQTs7QUFFMUI7RUFDSSxrQkFBa0I7RUFDbEIsaUNBQWlDO0VBQ2pDLGlCQUFnQixFQUFBOztBQUVwQjtFQUNJLGlCQUFpQjtFQUNqQixnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxvQkFBYTtFQUNiLG1DQUFtQztFQUNuQyxtQkFBbUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21hbmFnZS1lbnF1aXJ5L21hbmFnZS1lbnF1aXJ5LnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImlvbi10b29sYmFyIHtcclxuICAgIC0tYmFja2dyb3VuZDogIzIzMzY1ODtcclxufVxyXG5cclxuXHJcbmlvbi10aXRsZXtcclxuICAgIHRleHQtYWxpZ246bGVmdDtcclxuICAgIGNvbG9yOiNmZmY7XHJcbiAgICBmb250LXNpemU6IDE3cHg7XHJcbiAgICBmb250LXdlaWdodDogNDAwO1xyXG4gICAgZm9udC1mYW1pbHk6IFByb3hpbWEtTm92YS10aGluO1xyXG59XHJcbmlvbi1iYWNrLWJ1dHRvbiB7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxufVxyXG4ucC0xMHtcclxuICAgIHBhZGRpbmc6MTBweDtcclxufVxyXG4ubWFpbl9lbnF1aXJ5X2Jne1xyXG4gICAgcGFkZGluZy1sZWZ0OiA3cHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIGJhY2tncm91bmQ6ICM4MmYxZmU7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAyMHB4O1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDNweCAxNXB4IDJweCByZ2JhKDAsIDAsIDAsIDAuMjcpO1xyXG59XHJcbi50aGlzX2NvbnRhaW5lciA+IGlvbi1jb2w6bnRoLWNoaWxkKDRuKzEpID4gLm1haW5fZW5xdWlyeV9iZ3tcclxuICAgIGJhY2tncm91bmQ6ICM4MmYxZmU7XHJcbn1cclxuLnRoaXNfY29udGFpbmVyID4gaW9uLWNvbDpudGgtY2hpbGQoNG4rMikgPiAubWFpbl9lbnF1aXJ5X2Jne1xyXG4gICAgYmFja2dyb3VuZDogI2Q0YThmZDtcclxufVxyXG4udGhpc19jb250YWluZXIgPiBpb24tY29sOm50aC1jaGlsZCg0biszKSA+IC5tYWluX2VucXVpcnlfYmd7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZmVkNzgyO1xyXG59XHJcbi50aGlzX2NvbnRhaW5lciA+IGlvbi1jb2w6bnRoLWNoaWxkKDRuKzQpID4gLm1haW5fZW5xdWlyeV9iZ3tcclxuICAgIGJhY2tncm91bmQ6ICNmZTgyODI7XHJcbn1cclxuLm1haW5fZW5xdWlyeXtcclxuICAgIGJhY2tncm91bmQ6ICNmZmY7XHJcbn1cclxuLmVucWlyeV9pZHtcclxuICAgIHBhZGRpbmc6IDEwcHg7XHJcbn1cclxuLmVucWlyeV9pZCA+IC5pZHtcclxuICAgIHdpZHRoOiA5MCU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbn1cclxuLmVucWlyeV9pZCA+IC5pZCAgPiBwe1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbn1cclxuLmVucWlyeV9pZCA+IC5pbWdfY29udHtcclxuICAgIHdpZHRoOiBtYXgtY29udGVudDtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxufVxyXG4uZW5xaXJ5X2lkID4gLmltZ19jb250ID4gaW1ne1xyXG4gICAgd2lkdGg6IDIwcHg7XHJcbn1cclxuLmVucXVpcmVkX25hbWV7XHJcbiAgICBmb250LXNpemU6IDE1cHg7XHJcbiAgICBwYWRkaW5nOiAwcHggMTBweCAxMHB4IDEwcHg7XHJcbn1cclxuLmVucXVpcmVkX3BhcmF7XHJcbiAgICBwYWRkaW5nOiAwcHggMTBweDtcclxufVxyXG4uZW5xdWlyZWRfcGFyYSBwe1xyXG4gICAgbWFyZ2luOiAwcHg7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBjb2xvcjogcmdiYSgzMSwgMzEsIDMxLCAwLjcyKTtcclxufVxyXG4uZW5xdWlyZWRfZm9vdGVye1xyXG4gICAgcGFkZGluZzogMTBweDtcclxufVxyXG4uZW5xdWlyZWRfZm9vdGVyICA+IC5lbnF1aXJ5X2RhdGUsIC5lbnF1aXJlZF9mb290ZXIgID4gLmVucXVpcnlfdGltZXtcclxuICAgIHdpZHRoOiA0OSU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBwYWRkaW5nOiA1cHggMHB4O1xyXG4gICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI2NjY2NjYzZiO1xyXG59XHJcbi5lbnF1aXJlZF9mb290ZXIgID4gLmVucXVpcnlfZGF0ZSA+IHAsIC5lbnF1aXJlZF9mb290ZXIgID4gLmVucXVpcnlfdGltZSA+IHB7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBtYXJnaW46IDBweDtcclxuICAgIGNvbG9yOiByZ2JhKDMxLCAzMSwgMzEsIDAuNzIpO1xyXG59XHJcbi5lbnF1aXJlZF9mb290ZXIgID4gLmVucXVpcnlfZGF0ZSA+IHAgPiBzcGFuID4gaW1nLCAuZW5xdWlyZWRfZm9vdGVyICA+IC5lbnF1aXJ5X3RpbWUgPiBwID4gc3BhbiA+IGltZ3tcclxuICAgIHdpZHRoOiAxOHB4O1xyXG4gICAgdmVydGljYWwtYWxpZ246IGJvdHRvbTtcclxufVxyXG4uZW5xdWlyZWRfZm9vdGVyICA+IC5lbnF1aXJ5X3RpbWV7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEwcHg7XHJcbiAgICBib3JkZXItcmlnaHQ6IDBweCBzb2xpZCAjY2NjY2NjNmI7XHJcbiAgICB0ZXh0LWFsaWduOnJpZ2h0O1xyXG59XHJcbi52aWV3e1xyXG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XHJcbiAgICBwYWRkaW5nLXRvcDogNXB4O1xyXG59XHJcbi52aWV3ID4gaW9uLWJ1dHRvbntcclxuICAgIC0tYmFja2dyb3VuZDojZmQ4OTAwO1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDNweCA5cHggMXB4ICNmZWQxOWI7XHJcbiAgICBib3JkZXItcmFkaXVzOiAzMHB4O1xyXG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/manage-enquiry/manage-enquiry.page.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/manage-enquiry/manage-enquiry.page.ts ***!
+  \*******************************************************/
+/*! exports provided: ManageEnquiryPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManageEnquiryPage", function() { return ManageEnquiryPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+var ManageEnquiryPage = /** @class */ (function () {
+    function ManageEnquiryPage(router) {
+        this.router = router;
+    }
+    ManageEnquiryPage.prototype.ngOnInit = function () {
+    };
+    ManageEnquiryPage.prototype.view_enquiry = function () {
+        this.router.navigateByUrl('/view-enquiry');
+    };
+    ManageEnquiryPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-manage-enquiry',
+            template: __webpack_require__(/*! ./manage-enquiry.page.html */ "./src/app/manage-enquiry/manage-enquiry.page.html"),
+            styles: [__webpack_require__(/*! ./manage-enquiry.page.scss */ "./src/app/manage-enquiry/manage-enquiry.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], ManageEnquiryPage);
+    return ManageEnquiryPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=manage-enquiry-manage-enquiry-module.js.map

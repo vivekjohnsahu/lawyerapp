@@ -1,0 +1,111 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["view-enquiry-view-enquiry-module"],{
+
+/***/ "./src/app/view-enquiry/view-enquiry.module.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/view-enquiry/view-enquiry.module.ts ***!
+  \*****************************************************/
+/*! exports provided: ViewEnquiryPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewEnquiryPageModule", function() { return ViewEnquiryPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _view_enquiry_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./view-enquiry.page */ "./src/app/view-enquiry/view-enquiry.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _view_enquiry_page__WEBPACK_IMPORTED_MODULE_6__["ViewEnquiryPage"]
+    }
+];
+var ViewEnquiryPageModule = /** @class */ (function () {
+    function ViewEnquiryPageModule() {
+    }
+    ViewEnquiryPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_view_enquiry_page__WEBPACK_IMPORTED_MODULE_6__["ViewEnquiryPage"]]
+        })
+    ], ViewEnquiryPageModule);
+    return ViewEnquiryPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/view-enquiry/view-enquiry.page.html":
+/*!*****************************************************!*\
+  !*** ./src/app/view-enquiry/view-enquiry.page.html ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n        <ion-back-button>\n            \n          </ion-back-button>\n    </ion-buttons>\n    <ion-title>Enquiry</ion-title>\n  </ion-toolbar>\n</ion-header> \n\n<ion-content>\n  <ion-grid class=\"no-padding\">\n    <ion-row no-padding>\n      <ion-col no-padding>\n        <div class=\"form_container\">\n          <ion-label position=\"stacked\">Enquiry No.</ion-label>\n          <ion-input no-padding  placeholder=\"\" type=\"text\" required value=\"12345678910\" disabled></ion-input>\n          <div class=\"abs_icon\"><img src=\"assets/images/enquiry/time.png\"></div>\n        </div>\n        <div class=\"form_container\">\n            <ion-label position=\"stacked\">User Email Address</ion-label>\n            <ion-input no-padding  placeholder=\"\" type=\"text\" required value=\"Vikas@gmail.com\" disabled></ion-input>\n            <div class=\"abs_icon\"><img src=\"assets/images/email_icon.png\"></div>\n          </div>\n        <div class=\"form_container\">\n            <ion-label position=\"stacked\">User Name</ion-label>\n            <ion-input no-padding  placeholder=\"\" type=\"text\" required value=\"Vikas Kumar\" disabled></ion-input>\n            <div class=\"abs_icon\"><img src=\"assets/images/register/name.png\"></div>\n        </div>\n        <div class=\"form_container\">\n            <ion-label position=\"stacked\">Lawyer Name</ion-label>\n            <ion-input no-padding  placeholder=\"\" type=\"text\" required value=\"Abhishek Kumar\" disabled></ion-input>\n            <div class=\"abs_icon\"><img src=\"assets/images/register/name.png\"></div>\n        </div>\n        <div class=\"form_container\">\n          <ion-label position=\"stacked\">Date</ion-label>\n          <ion-input no-padding  placeholder=\"\" type=\"text\" required value=\"03-12-2018\" disabled></ion-input>\n          <div class=\"abs_icon\"><img  src=\"assets/images/enquiry/time.png\"></div>\n        </div>\n        <div class=\"form_container\">\n          <ion-label position=\"stacked\">Time</ion-label>\n          <ion-input no-padding  placeholder=\"\" type=\"text\" required value=\"12:00 PM \" disabled></ion-input>\n          <div class=\"abs_icon\"><img src=\"assets/images/enquiry/clock.png\"></div>\n        </div>\n        <div class=\"form_container\">\n          <ion-label position=\"stacked\">Remarks</ion-label>\n          <ion-textarea no-padding  placeholder=\"\" type=\"text\" required value=\"Lorem Ipsum text\" disabled></ion-textarea>\n          <div class=\"abs_icon\"><img  src=\"assets/images/message.png\"></div>\n        </div>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/view-enquiry/view-enquiry.page.scss":
+/*!*****************************************************!*\
+  !*** ./src/app/view-enquiry/view-enquiry.page.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-toolbar {\n  --background: #233658; }\n\nion-title {\n  text-align: left;\n  color: #fff;\n  font-size: 17px;\n  font-weight: 400;\n  font-family: Proxima-Nova-thin; }\n\nion-back-button {\n  color: #fff; }\n\n.no-padding {\n  padding: 0px; }\n\n.register_text > p {\n  padding: 0px 15px;\n  font-size: 15px;\n  color: #1f1f1f;\n  margin-top: 35px; }\n\n.abs_icon {\n  position: absolute;\n  top: 28px;\n  left: 4.5%; }\n\n.abs_icon > img {\n  width: 18px; }\n\n.form_container {\n  position: relative;\n  margin: 10px 0px;\n  padding-right: 15px;\n  border-bottom: 1px solid #e0dddd;\n  padding-bottom: 6px; }\n\n.form_container > ion-label {\n  padding-left: 13%; }\n\n.form_container ion-input, .form_container ion-textarea {\n  width: 87%;\n  margin: 0 0 0 auto;\n  border-bottom: none;\n  font-size: 12px;\n  --padding-top: 8px;\n  --padding-bottom: 5px; }\n\n.native-input[disabled].sc-ion-input-md {\n  opacity: 1; }\n\n.form_container ion-item {\n  width: 87%;\n  margin: 0 0 0 auto;\n  --min-height: 36px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdmlldy1lbnF1aXJ5L0Q6XFxzYWNoaW5cXGxhd2VyX2FwcC9zcmNcXGFwcFxcdmlldy1lbnF1aXJ5XFx2aWV3LWVucXVpcnkucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQWEsRUFBQTs7QUFJakI7RUFDSSxnQkFBZTtFQUNmLFdBQVU7RUFDVixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLDhCQUE4QixFQUFBOztBQUVsQztFQUNJLFdBQVcsRUFBQTs7QUFFZjtFQUNJLFlBQVcsRUFBQTs7QUFFZjtFQUNJLGlCQUFpQjtFQUNqQixlQUFlO0VBQ2YsY0FBYztFQUNkLGdCQUFnQixFQUFBOztBQUdwQjtFQUNJLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsVUFBVSxFQUFBOztBQUVkO0VBQ0ksV0FBVSxFQUFBOztBQUVkO0VBQ0ksa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsZ0NBQWdDO0VBQ2hDLG1CQUFtQixFQUFBOztBQUV2QjtFQUNJLGlCQUFpQixFQUFBOztBQUdyQjtFQUNJLFVBQVU7RUFDVixrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLGVBQWM7RUFDZCxrQkFBYztFQUNkLHFCQUFpQixFQUFBOztBQUVyQjtFQUNJLFVBQVUsRUFBQTs7QUFHZDtFQUNJLFVBQVU7RUFDVixrQkFBa0I7RUFDbEIsa0JBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3ZpZXctZW5xdWlyeS92aWV3LWVucXVpcnkucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXRvb2xiYXIge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjMjMzNjU4O1xyXG59XHJcblxyXG5cclxuaW9uLXRpdGxle1xyXG4gICAgdGV4dC1hbGlnbjpsZWZ0O1xyXG4gICAgY29sb3I6I2ZmZjtcclxuICAgIGZvbnQtc2l6ZTogMTdweDtcclxuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XHJcbiAgICBmb250LWZhbWlseTogUHJveGltYS1Ob3ZhLXRoaW47XHJcbn1cclxuaW9uLWJhY2stYnV0dG9uIHtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG59XHJcbi5uby1wYWRkaW5ne1xyXG4gICAgcGFkZGluZzowcHg7XHJcbn1cclxuLnJlZ2lzdGVyX3RleHQgPiBwe1xyXG4gICAgcGFkZGluZzogMHB4IDE1cHg7XHJcbiAgICBmb250LXNpemU6IDE1cHg7XHJcbiAgICBjb2xvcjogIzFmMWYxZjtcclxuICAgIG1hcmdpbi10b3A6IDM1cHg7XHJcbn1cclxuXHJcbi5hYnNfaWNvbntcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMjhweDtcclxuICAgIGxlZnQ6IDQuNSU7XHJcbn1cclxuLmFic19pY29uID4gaW1ne1xyXG4gICAgd2lkdGg6MThweDtcclxufVxyXG4uZm9ybV9jb250YWluZXJ7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBtYXJnaW46IDEwcHggMHB4O1xyXG4gICAgcGFkZGluZy1yaWdodDogMTVweDtcclxuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCAjZTBkZGRkO1xyXG4gICAgcGFkZGluZy1ib3R0b206IDZweDtcclxufVxyXG4uZm9ybV9jb250YWluZXIgPiBpb24tbGFiZWx7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEzJTtcclxufVxyXG5cclxuLmZvcm1fY29udGFpbmVyIGlvbi1pbnB1dCAsIC5mb3JtX2NvbnRhaW5lciBpb24tdGV4dGFyZWF7XHJcbiAgICB3aWR0aDogODclO1xyXG4gICAgbWFyZ2luOiAwIDAgMCBhdXRvO1xyXG4gICAgYm9yZGVyLWJvdHRvbTogbm9uZTtcclxuICAgIGZvbnQtc2l6ZToxMnB4O1xyXG4gICAgLS1wYWRkaW5nLXRvcDogOHB4O1xyXG4gICAgLS1wYWRkaW5nLWJvdHRvbTogNXB4O1xyXG59XHJcbi5uYXRpdmUtaW5wdXRbZGlzYWJsZWRdLnNjLWlvbi1pbnB1dC1tZCB7XHJcbiAgICBvcGFjaXR5OiAxO1xyXG59XHJcblxyXG4uZm9ybV9jb250YWluZXIgaW9uLWl0ZW17XHJcbiAgICB3aWR0aDogODclO1xyXG4gICAgbWFyZ2luOiAwIDAgMCBhdXRvO1xyXG4gICAgLS1taW4taGVpZ2h0OiAzNnB4O1xyXG59XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/view-enquiry/view-enquiry.page.ts":
+/*!***************************************************!*\
+  !*** ./src/app/view-enquiry/view-enquiry.page.ts ***!
+  \***************************************************/
+/*! exports provided: ViewEnquiryPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ViewEnquiryPage", function() { return ViewEnquiryPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var ViewEnquiryPage = /** @class */ (function () {
+    function ViewEnquiryPage() {
+    }
+    ViewEnquiryPage.prototype.ngOnInit = function () {
+    };
+    ViewEnquiryPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-view-enquiry',
+            template: __webpack_require__(/*! ./view-enquiry.page.html */ "./src/app/view-enquiry/view-enquiry.page.html"),
+            styles: [__webpack_require__(/*! ./view-enquiry.page.scss */ "./src/app/view-enquiry/view-enquiry.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], ViewEnquiryPage);
+    return ViewEnquiryPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=view-enquiry-view-enquiry-module.js.map

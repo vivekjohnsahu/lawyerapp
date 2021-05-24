@@ -1,0 +1,147 @@
+ion-toolbar{
+    --background: #1e3857; 
+  }
+
+    .profile_img{
+      background: #1e3857;
+      text-align: center;
+      position: relative;
+      height: 70px;
+      z-index: 10;
+      box-shadow: 0px -6px 1px 1px #1e3857;
+    }
+    .profile_img > div{
+      position: absolute;
+      top: 0;
+      left: calc(50% - 45px);
+      top: calc(100% - 45px);
+      border: 2px solid #e5e9ed;
+      border-radius: 50%;
+    }
+    .profile_img > div > ion-avatar{
+      width: 90px;
+      height: 90px;
+      border: 2px solid #b9c2cd;
+    }
+    .profile_name{
+      margin-top: 60px;
+      text-align: center;
+    }
+    .profile_name > ion-text{
+      font-size: 18px;
+      color: #1f1f1f;
+      font-weight: 500
+    }
+    .details{
+      padding: 20px 10px;
+    }
+    .details .text{
+      width: 70%;
+      display: inline-block;
+    }
+    .details .text > ion-text{
+      font-size: 19px;
+      font-weight: 600;
+      font-family: AvenirNextLTPro-Regular;
+    }
+    .details .edit{
+      width: 30%;
+      display: inline-block;
+      text-align: right;
+      vertical-align: middle;
+    }
+    .details .edit > ion-text{
+      font-size: 16px;
+      text-transform: capitalize;
+      color: #1e3857;
+      font-weight: 700;
+    }
+    .main_container .profile_bg{
+      background: #f2f2f2;
+      padding: 10px 15px;
+      margin-bottom: 2px;
+    }
+    .main_container .profile_bg > .type, .main_container .profile_bg > .value{
+      width: 50%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .main_container .profile_bg > .type > ion-text,  .main_container .profile_bg > .value > ion-text{
+      margin-left: 15px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #171717;
+      vertical-align: middle;
+      font-family: AvenirNextLTPro-Medium;
+      font-family: AvenirNextLTPro-Regular;
+    }
+    .main_container .profile_bg > .type > img,  .main_container .profile_bg > .value > img{
+      width:22px;
+    }
+    .masterplan_card > ion-card{
+      margin-top: 25px;
+      border-radius: 20px;
+      width: 90%;
+      margin: 25px auto;
+      box-shadow: none;
+      border: 1px solid #e6e6e6;
+    }
+    .masterplan_card > ion-card > ion-card-header{
+      background: #2b4669;
+      color: #fff;
+    }
+    .masterplan_card > ion-card > ion-card-header > ion-card-title{
+      color: #fff;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 400;
+    }
+    .masterplan_card > ion-card > ion-card-content{
+      padding:0px;
+    }
+    .masterplan_card > ion-card > ion-card-content > .image{
+      margin: 20px;
+    }
+    .masterplan_card > ion-card > ion-card-content > .image > img{
+      width: auto;
+      margin: 0 auto;
+    }
+    .masterplan_card > ion-card > ion-card-content > .amt{
+      text-align: center;
+    }
+    .masterplan_card > ion-card > ion-card-content > .amt > img{
+      width: auto;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .masterplan_card > ion-card > ion-card-content > .amt > ion-text{
+      margin-left: 10px;
+      font-size: 20px;
+      vertical-align: middle;
+      font-weight: 500;
+      color: #1f1f1f;
+    }
+    .masterplan_card > ion-card > ion-card-content > .expiry{
+      margin: 10px 0px;
+      border-bottom: 1px solid #e6e6e6;
+      text-align: center;
+    }
+    .masterplan_card > ion-card > ion-card-content > .expiry > ion-text{
+      text-align: center;
+      color: rgba(31, 31, 31, 0.5);
+      font-size: 16px;
+    }
+    .masterplan_card > ion-card > ion-card-content > .about_plan{
+      padding: 10px;
+    }
+    .masterplan_card > ion-card > ion-card-content > .about_plan > ion-text{
+      font-size: 15px;
+      line-height: 24px;
+    }
+    .renew_btn{
+      padding: 20px 10px 10px 10px;
+      text-align: center;
+    }
+    .renew_btn > ion-button{
+      --background: linear-gradient(to right, #233658, #233658);
+    }

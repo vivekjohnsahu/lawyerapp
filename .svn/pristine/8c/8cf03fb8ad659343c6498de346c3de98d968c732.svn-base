@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start" >
+          <ion-back-button>
+          </ion-back-button>
+      </ion-buttons>
+    <ion-title>pay now</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);" size="medium" color="#233658" type="line-scale"></ngx-spinner>
+  <div class="subscribe" >
+    <ion-button (click)="pay_ccavenue()">Pay Now</ion-button>
+  </div>
+</ion-content>

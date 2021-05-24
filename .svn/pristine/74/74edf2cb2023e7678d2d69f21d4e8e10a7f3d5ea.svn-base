@@ -1,0 +1,104 @@
+ion-toolbar {
+    --background: #233658;
+}
+
+
+// ion-title{
+//     text-align:left;
+//     color:#fff;
+//     font-size: 17px;
+//     font-weight: 400;
+//     font-family: Proxima-Nova-thin;
+// }
+ion-back-button {
+    color: #fff;
+}
+.p-10{
+    padding:10px;
+}
+.main_enquiry_bg{
+    padding-left: 7px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #82f1fe;
+    margin-bottom: 20px;
+    box-shadow: 0px 3px 15px 2px rgba(0, 0, 0, 0.27);
+}
+.this_container > ion-col:nth-child(4n+1) > .main_enquiry_bg{
+    background: #82f1fe;
+}
+.this_container > ion-col:nth-child(4n+2) > .main_enquiry_bg{
+    background: #d4a8fd;
+}
+.this_container > ion-col:nth-child(4n+3) > .main_enquiry_bg{
+    background: #fed782;
+}
+.this_container > ion-col:nth-child(4n+4) > .main_enquiry_bg{
+    background: #fe8282;
+}
+.main_enquiry{
+    background: #fff;
+}
+.enqiry_id{
+    padding: 10px;
+}
+.enqiry_id > .id{
+    width: 90%;
+    display: inline-block;
+    padding-left: 10px;
+}
+.enqiry_id > .id  > p{
+    margin: 0px;
+    font-size: 14px;
+}
+.enqiry_id > .img_cont{
+    width: max-content;
+    display: inline-block;
+}
+.enqiry_id > .img_cont > img{
+    width: 20px;
+}
+.enquired_name{
+    font-size: 15px;
+    padding: 0px 10px 10px 10px;
+}
+.enquired_para{
+    padding: 0px 10px;
+}
+.enquired_para p{
+    margin: 0px;
+    font-size: 14px;
+    color: rgba(31, 31, 31, 0.72);
+}
+.enquired_footer{
+    padding: 10px;
+}
+.enquired_footer  > .enquiry_date, .enquired_footer  > .enquiry_time{
+    width: 49%;
+    display: inline-block;
+    padding: 5px 0px;
+    border-right: 1px solid #cccccc6b;
+}
+.enquired_footer  > .enquiry_date > p, .enquired_footer  > .enquiry_time > p{
+    font-size: 14px;
+    margin: 0px;
+    color: rgba(31, 31, 31, 0.72);
+}
+.enquired_footer  > .enquiry_date > p > span > img, .enquired_footer  > .enquiry_time > p > span > img{
+    width: 18px;
+    vertical-align: bottom;
+}
+.enquired_footer  > .enquiry_time{
+    padding-left: 10px;
+    border-right: 0px solid #cccccc6b;
+    text-align:right;
+}
+.view{
+    text-align: right;
+    padding-top: 5px;
+}
+.view > ion-button{
+    --background:#fd8900;
+    box-shadow: 0px 3px 9px 1px #fed19b;
+    border-radius: 30px;
+}

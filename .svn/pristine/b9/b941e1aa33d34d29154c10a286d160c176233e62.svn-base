@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button>
+			</ion-back-button>
+		</ion-buttons>
+    	<ion-title>Forgot Passwprd</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+	  <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+	<ion-text>
+		<h1 class="heading_text">Lawyer <span>App</span></h1>
+	</ion-text>
+	<form novalidate (ngSubmit)="Forgot_Pass()" style="padding-top: 5%;" class="loginFormMargin" [formGroup]="Forgot_Passform">
+		<ion-grid>
+			<ion-row>
+				<ion-col size="12" class="form_container mb-5" style="margin-bottom: 0rem!important">
+					<ion-label position="stacked">Email Address</ion-label>
+					<ion-input no-padding  placeholder="Enter Your Email Address" type="email" required [(ngModel)]="forgotData.email" formControlName="email" [class.error1]="!Forgot_Passform.controls.email.valid && Forgot_Passform.controls.email.dirty" clearInput ></ion-input>
+					<div class="abs_icon"><img src="assets/images/email_icon.png"></div>
+					<div class="error_cls" *ngIf="(Forgot_Passform.get('email').hasError('minlength') || Forgot_Passform.get('email').hasError('pattern') || Forgot_Passform.get('email').hasError('required') ) && Forgot_Passform.get('email').touched">
+						<div class="error" *ngIf="Forgot_Passform.get('email').hasError('required') && Forgot_Passform.get('email').touched">
+							Email ID cannot be blank
+						</div>
+						<div class="error" *ngIf="Forgot_Passform.get('email').hasError('pattern') && Forgot_Passform.get('email').touched">
+							Please enter a valid Email ID
+						</div>
+					</div>
+				</ion-col>
+				<ion-col size="12" class="sign_in_button">
+					<button shape="round" type="submit" [disabled]="Forgot_Passform.invalid">Submit</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</form>
+</ion-content>
+<ion-footer>
+</ion-footer>

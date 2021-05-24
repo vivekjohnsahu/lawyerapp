@@ -1,0 +1,136 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+@font-face {
+  font-family: proxima-nova-alt-regular;
+  src: url('assets/fonts/ProximaNovaAltRegular.otf');
+}
+
+@font-face {
+  font-family: Proxima-Nova-Thin;
+  src: url('assets/fonts/ProximaNovaThin.otf');
+}
+
+@font-face {
+  font-family: Proxima-Nova-Bold;
+  src: url('assets/fonts/ProximaNovaBold.otf');
+}
+
+body {
+  font-family: Proxima-Nova-alt-Regular;
+}
+
+
+
+.background_sidemenu {
+  background-image: url("assets/images/Side_menu_bg.png");
+  background-size: 100% 100%;
+  --background: transparent;
+}
+
+ion-header {
+  --background: transparent;
+  background-image: url(assets/images/Side_menu_bg.png);
+  border-bottom: 0;
+}
+
+.background_sidemenu>ion-list {
+  background: transparent;
+  margin-bottom: 0px;
+}
+
+.background_sidemenu>ion-list>ion-menu-toggle>div>ion-item {
+  --background: transparent;
+  color: rgba(255, 255, 255, 0.47843137254901963);
+  --border-color: rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  --background-focused: #feb560;
+  --background-activated: #feb560;
+}
+
+.background_sidemenu>ion-list>ion-menu-toggle>div>ion-item>ion-label {
+  margin: 25px 10px;
+}
+
+.background_sidemenu>ion-list>ion-menu-toggle>div>ion-item>ion-label>span>img {
+  width: 18px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.background_sidemenu>ion-list>ion-menu-toggle>div>ion-item>ion-label>span:nth-child(2) {
+  float: right;
+}
+
+.background_sidemenu>ion-list>ion-menu-toggle>div>ion-item>ion-label>span:nth-child(2)>i {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.sidemenu_toolbar {
+  --background: transparent;
+  --border-color: #fff0;
+  padding: 50px 0px 10px 0px;
+  padding-top: 35px !important;
+}
+
+.sidemenu_toolbar>ion-title {
+  padding: 15px;
+  text-align: left;
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+}
+ion-title{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 100%;
+  text-align: center;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.modal {
+  display: inherit !important;
+}
+
+.profile_icon{
+  padding: 30px 0px 20px 10px;
+    color: #fff;
+    font-size: 20px;
+    text-transform: capitalize;
+}
+.profile_icon > span{
+  display: inline-block;
+  width: 70px;
+  // height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+/*.modal-wrapper{
+    transform: translate3d(0, 40%, 0) !important;
+  }*/

@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-lawyer-detail',
+  templateUrl: './lawyer-detail.page.html',
+  styleUrls: ['./lawyer-detail.page.scss'],
+})
+export class LawyerDetailPage implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

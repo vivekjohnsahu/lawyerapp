@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button>
+        </ion-back-button>
+    </ion-buttons>
+    <ion-title>Basic Plan</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content no-padding>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col size="12" no-padding>
+        <div class="basic_plan_bg">
+          <div class="basic_plan_main">
+            <div class="img_plan">
+              <ion-avatar>
+                <img src="assets/images/plans/view_plan.png">
+              </ion-avatar>
+            </div>
+            <div class="plan_head">
+              <ion-text>
+                <p>Basic Plan</p>
+              </ion-text>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" no-padding>
+            <div class="tabs_main">
+              <ul class="nav nav-tabs">
+                <li><a data-toggle="tab" href="#home" class="active" *ngFor="let Bronzeplan of plan_Bronze_plan">{{Bronzeplan.plan_name}}</a></li>
+                <li><a data-toggle="tab" href="#menu1" *ngFor="let gold_plan of plan_gold_plan">{{gold_plan.plan_name}}</a></li>
+                <li><a data-toggle="tab" href="#menu2" *ngFor="let silver_plan of plan_silver_plan">{{silver_plan.plan_name}}</a></li>
+              </ul>  
+            <div class="tab-content">
+              <div id="home" class="tab-pane fade in active show" *ngFor="let Bronzeplan of plan_Bronze_plan" >
+                  <div class="plan_cost">
+                    <span class="sign"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                    <span class="actual_cost">{{Bronzeplan.price}}</span>
+                    <span class="monthly">/Monthly</span> 
+                  </div>
+                  <div class="plan_info">
+                    <ion-text><p>Basic Information</p></ion-text>
+                  </div>
+                  <div class="plan_para">
+                    <ion-text><p>Lawyer App makes it simple with three subscription legal plans designed to help our small business owners stay in contact with their legal team, helping them stay focused on their growth.</p></ion-text>
+                  </div>  
+                  <div class="plan_list">
+                    <ion-list no-padding>
+                      <ion-item no-padding>
+                        <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>Speak with a lawyer/team you know!</ion-label>
+                      </ion-item>
+                      <ion-item no-padding>
+                        <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>12 Quick Questions Per Month</ion-label>
+                      </ion-item>
+                      <ion-item no-padding>
+                        <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>15% Discount on Work We Do</ion-label>
+                      </ion-item>
+                      <ion-item no-padding>
+                        <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>4 Document Credits</ion-label>
+                      </ion-item>
+                      <ion-item no-padding>
+                        <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>Quarterly Check-In Call</ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+                  <div class="subscribe">
+                    <ion-button>Subscribe</ion-button>
+                  </div>
+              </div>
+              <div id="menu1" class="tab-pane fade" *ngFor="let gold_plan of plan_gold_plan">
+                  <div class="plan_cost">
+                      <span class="sign"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                      <span class="actual_cost">{{gold_plan.price}}</span>
+                      <span class="monthly">/Half Yearly</span> 
+                    </div>
+                    <div class="plan_info">
+                      <ion-text><p>Basic Information</p></ion-text>
+                    </div>
+                    <div class="plan_para">
+                      <ion-text><p>Lawyer App makes it simple with three subscription legal plans designed to help our small business owners stay in contact with their legal team, helping them stay focused on their growth.</p></ion-text>
+                    </div>  
+                    <div class="plan_list">
+                      <ion-list no-padding>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>Speak with a lawyer/team you know!</ion-label>
+                        </ion-item>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>12 Quick Questions Per Month</ion-label>
+                        </ion-item>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>15% Discount on Work We Do</ion-label>
+                        </ion-item>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>4 Document Credits</ion-label>
+                        </ion-item>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>Quarterly Check-In Call</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </div>
+                    <div class="subscribe">
+                      <ion-button>Subscribe</ion-button>
+                    </div>
+              </div>
+              <div id="menu2" class="tab-pane fade" *ngFor="let silver_plan of plan_silver_plan">
+                  <div class="plan_cost">
+                      <span class="sign"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                      <span class="actual_cost">{{silver_plan.price}}</span>
+                      <span class="monthly">/yearly</span> 
+                    </div>
+                    <div class="plan_info">
+                      <ion-text><p>Basic Information</p></ion-text>
+                    </div>
+                    <div class="plan_para">
+                      <ion-text><p>Lawyer App makes it simple with three subscription legal plans designed to help our small business owners stay in contact with their legal team, helping them stay focused on their growth.</p></ion-text>
+                    </div>  
+                    <div class="plan_list">
+                      <ion-list no-padding>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>Speak with a lawyer/team you know!</ion-label>
+                        </ion-item>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>12 Quick Questions Per Month</ion-label>
+                        </ion-item>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>15% Discount on Work We Do</ion-label>
+                        </ion-item>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>4 Document Credits</ion-label>
+                        </ion-item>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>Quarterly Check-In Call</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </div>
+                    <div class="subscribe">
+                      <ion-button>Subscribe</ion-button>
+                    </div>
+              </div>
+            </div>
+          </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

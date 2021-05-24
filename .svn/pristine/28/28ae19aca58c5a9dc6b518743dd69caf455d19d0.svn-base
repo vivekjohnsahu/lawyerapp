@@ -1,0 +1,65 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Sign In</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-text>
+		<div style="text-align: center;">
+			<img style="padding: 25px 100px 0px 100px;" src="assets\images\LAWYER_blue.gif" alt="LAWYER_blue">
+		</div>
+		<!-- <h1 class="heading_text">Lawyer <span>App</span></h1> -->
+	</ion-text>
+	<ion-text>
+		<p class="signin_text">Sign In with your Registered Email Address and Password</p>
+	</ion-text>
+	<form novalidate (ngSubmit)="login()" class="loginFormMargin" [formGroup]="signupform">
+		<ion-grid>
+			<ion-row>
+				<div class="error_inc_user">
+					<span>{{error_msg_inc}}</span>
+				</div>
+				<ion-col size="12" class="form_container mb-5">
+					<ion-label position="stacked">Email Address</ion-label>
+					<ion-input no-padding  placeholder="Enter Your Email Address" type="text" required [(ngModel)]="LoginData.email" formControlName="email" [class.error1]="!signupform.controls.email.valid && signupform.controls.email.dirty" clearInput ></ion-input>
+					<div class="abs_icon"><img src="assets/images/email_icon.png"></div>
+					<div class="error_cls" *ngIf="(signupform.get('email').hasError('minlength') || signupform.get('email').hasError('pattern') ||signupform.get('email').hasError('required') ) && signupform.get('email').touched">
+						<div class="error" *ngIf="signupform.get('email').hasError('required') && signupform.get('email').touched">
+							Email ID cannot be blank
+						</div>
+						<div class="error" *ngIf="signupform.get('email').hasError('pattern') && signupform.get('email').touched">
+							Please enter a valid Email ID
+						</div>
+					</div>
+				</ion-col>
+				<ion-col size="12" class="form_container mb-10">
+					<ion-label position="stacked">Password</ion-label>
+					<ion-input no-padding placeholder="Enter Your Email Address" type="password" required [(ngModel)]="LoginData.password" formControlName="password" [class.error1]="!signupform.controls.password.valid && signupform.controls.password.dirty" clearInput ></ion-input>
+					<div class="abs_icon"><img src="assets/images/password.png"></div>
+					<div class="error_cls" *ngIf="( signupform.get('password').hasError('minlength') || signupform.get('password').hasError('maxlength') ||signupform.get('password').hasError('required') ) && signupform.get('password').touched">
+						<div class="error" *ngIf="signupform.get('password').hasError('required') && signupform.get('password').touched">
+							Password cannot be blank
+						</div>
+						<div class="error" *ngIf="signupform.get('password').hasError('minlength') && signupform.get('password').touched">
+							Minimum 6 characters
+						</div>
+						<div class="error" *ngIf="signupform.get('password').hasError('maxlength') && signupform.get('password').touched">
+							Maximum 20 characters
+						</div>
+					</div>
+				</ion-col>
+				<ion-col size="12" class="sign_in_button">
+					<button shape="round" type="submit" [disabled]="signupform.invalid">Log In</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+		<span class="forgot_pass">
+			<a routerLink="/forgotpassword">Forgot Password?</a>
+		</span>
+	</form>
+</ion-content>
+<ion-footer>
+	<ion-toolbar style="--background:#fff;">
+		<ion-title style="color:#1f1f1f;">Dont Have An Account, Please <span><a routerLink="/register">Sign Up</a></span> Here</ion-title>
+	</ion-toolbar>
+</ion-footer>

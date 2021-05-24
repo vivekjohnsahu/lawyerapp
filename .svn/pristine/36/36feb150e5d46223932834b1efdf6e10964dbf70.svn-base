@@ -1,0 +1,177 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button>
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title>Manage Lawyer</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content no-padding>
+    <ion-grid no-padding>
+        <ion-row no-padding>
+            <ion-col size="12" no-padding>
+                <div class="basic_plan_bg">
+                    <div class="tabs_main">
+                        <ul class="nav nav-tabs">
+                            <li><a id="tab_1" (click)="step_1()" [ngClass]="{'active': step_contant_1}"><span><img src="assets/images/manage_lawyer/manage_lawyer_step1.png"></span>Step 1</a></li>
+                            <li><a id="tab_2" (click)="step_2()" [ngClass]="{'active': step_contant_2}"><span><img src="assets/images/manage_lawyer/manage_lawyer_step2.png"></span>Step 2</a></li>
+                            <li><a id="tab_3" (click)="step_3()" [ngClass]="{'active': step_contant_3}"><span><img src="assets/images/manage_lawyer/manage_lawyer_step3.png"></span>Step 3</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <div *ngIf="step_contant_1">
+                            <form novalidate (ngSubmit)="Lawyer_stap_1()" [formGroup]="manageLawyer" >
+                            <div id="home" class="tab-pane fade in active show">
+                                <div class="add_profile">
+                                    <ion-avatar item-start (click)="SelectPhoto()">
+                                        <div class="main-edit-profile">
+                                            <div class="round-profile">
+                                                <img style="border-radius: 31px;" id="camera-image" src="{{ImageBind}}"> 
+                                            </div>
+                                        </div>
+                                    </ion-avatar>
+                                </div>
+                                <div class="text">
+                                    <ion-text>
+                                        <p>Please enter lawyer details to add lawyer</p>
+                                    </ion-text>
+                                </div>
+                                <div class="form_container">
+                                    <ion-label position="stacked">Enter Your First Name</ion-label>
+                                    <ion-input no-padding  placeholder="Enter Your First Name" [(ngModel)]="LawyerData.firstname" [class.error1]="!manageLawyer.controls.firstname.valid && manageLawyer.controls.firstname.dirty"  formControlName="firstname" type="text" required></ion-input>
+                                    <div class="abs_icon"><img src="assets/images/register/name.png"></div>
+                                    <div class="error error_cls" *ngIf="manageLawyer.get('firstname').hasError('required') && manageLawyer.get('firstname').touched">
+                                        First name cannot be blank
+                                    </div>
+                                </div>
+                                <div class="form_container">
+                                    <ion-label position="stacked" class="star_not">Enter Your Last Name</ion-label>
+                                    <ion-input no-padding [(ngModel)]="LawyerData.lastname" formControlName="lastname"  placeholder="Enter Your Last Name" type="text"></ion-input>
+                                    <div class="abs_icon"><img src="assets/images/register/name.png"></div>
+                                </div>
+                                <div class="form_container">
+                                    <ion-label position="stacked">Email Address</ion-label>
+                                    <ion-input no-padding  placeholder="Enter Your Email Address" type="email" [(ngModel)]="LawyerData.email" formControlName="email" [class.error1]="!manageLawyer.controls.email.valid && manageLawyer.controls.email.dirty" required></ion-input>
+                                    <div class="abs_icon"><img src="assets/images/email_icon.png"></div>
+                                    <div class="error_cls" *ngIf="( manageLawyer.get('email').hasError('minlength') || manageLawyer.get('email').hasError('pattern') ||manageLawyer.get('email').hasError('required') ) && manageLawyer.get('email').touched">
+                                        <div class="error" *ngIf="manageLawyer.get('email').hasError('required') && manageLawyer.get('email').touched">
+                                            Email ID cannot be blank
+                                        </div>
+                                        <div class="error" *ngIf="manageLawyer.get('email').hasError('pattern') && manageLawyer.get('email').touched">
+                                            Please enter a valid Email ID
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form_container">
+                                    <ion-label position="stacked">Contact Number</ion-label>
+                                    <ion-input no-padding (keypress)="numberAccept($event)"  placeholder="Enter Your Contact Number" [(ngModel)]="LawyerData.number" formControlName="number" [class.error1]="!manageLawyer.controls.number.valid && manageLawyer.controls.number.dirty" type="text" required></ion-input>
+                                    <div class="abs_icon"><img style="width:15px;" src="assets/images/phone_icon.png"></div>
+                                    <div class="error_cls" *ngIf="( manageLawyer.get('number').hasError('minlength') || manageLawyer.get('number').hasError('maxlength') ||manageLawyer.get('number').hasError('required') ) && manageLawyer.get('number').touched">
+                                        <div class="error" *ngIf="manageLawyer.get('number').hasError('required') && manageLawyer.get('number').touched">
+                                            Number cannot be blank
+                                        </div>
+                                        <div class="error" *ngIf="manageLawyer.get('number').hasError('minlength') && manageLawyer.get('number').touched">
+                                            Minimum 8 characters
+                                        </div>
+                                        <div class="error" *ngIf="manageLawyer.get('number').hasError('maxlength') && manageLawyer.get('number').touched">
+                                            Maximum 15 characters
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form_container">
+                                    <ion-label position="stacked">Date OF Birth</ion-label>
+                                    <ion-item no-padding>
+                                        <ion-datetime [(ngModel)]="LawyerData.date" formControlName="date" [class.error1]="!manageLawyer.controls.date.valid && manageLawyer.controls.date.dirty" no-padding displayFormat="DD/MM/YY" placeholder="Select Date"></ion-datetime>
+                                    </ion-item>
+                                    <div class="abs_icon"><img src="assets/images/register/dob.png"></div>
+                                    <div class="error error_cls" *ngIf="manageLawyer.get('date').hasError('required') && manageLawyer.get('date').touched">
+                                        Date cannot be blank
+                                    </div>
+                                </div>
+                                <div class="form_container" style="text-align:center;padding-right: 0px;">
+                                    <ion-col size="12" class="manage_button">
+                                        <button type="submit" id="tab_1" shape="round" [disabled]="manageLawyer.invalid" href="#menu1">
+                                            Next
+                                        </button>
+                                    </ion-col>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div *ngIf="step_contant_2">
+                            <div id="menu1" class="tab-pane">
+                                <div class="add_skills">
+                                    <ion-text>
+                                        <p>Please Add Skills With Tags</p>
+                                    </ion-text>
+                                    <div class="searchbar">
+                                        <!-- <ion-searchbar (ionInput)="getISkill($event.target)" [(ngModel)]="searchText"></ion-searchbar> -->
+                                        <ion-searchbar [(ngModel)]="searchText" (ionInput)="getISkill($event.target)"></ion-searchbar>
+                                        <ion-list>
+                                            <ion-item *ngFor="let skill of skills | grdFilter: {name: searchText, Age:searchText,  blog: searchText};let i = index" (click)="add_lawyer_skills(skill.name,i)">
+                                                    <!-- <ion-item *ngFor="let skill of skills | grdFilter: {name: searchText};let i = index" (click)="add_lawyer_skills(skill.name,i)"> -->
+                                                <ul style="    list-style-type: none;margin-bottom: 0px;padding-left: 14px;">
+                                                    <li value="skill.name"> {{ skill.name }} </li>
+                                                </ul>
+                                            </ion-item>
+                                        </ion-list>
+                                    </div>
+                                </div>
+                                <div class="added_skill">
+                                    <p>Added</p>
+                                    <div class="clear">
+                                        <ion-chip>
+                                            <ion-label (click)="remove_all_skill()">clear</ion-label>
+                                        </ion-chip>
+                                    </div>
+                                </div>
+                                <div class="selected_skills">
+                                    <ion-chip *ngFor="let skill of skill_add;let i = index">
+                                        <ion-label>{{skill}}</ion-label>
+                                        <ion-icon (click)="remove_skill(i)" name="close-circle"></ion-icon>
+                                    </ion-chip>
+                                </div>
+                                <div class="step_3">
+                                    <ion-button (click)="Lawyer_stap_2()" shape="round" >Next</ion-button>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="step_contant_3">
+                            <form novalidate (ngSubmit)="Lawyer_stap_3()" [formGroup]="LawyerAddress">
+                                <div id="menu2" class="tab-pane">
+                                    <div class="form_container">
+                                        <ion-label class="not_asterisk" position="stacked">Address</ion-label>
+                                        <ion-textarea no-padding  placeholder="Enter Your Address Here" type="text" [(ngModel)]="LawyerLocation.address" [class.error1]="!LawyerAddress.controls.address.valid && LawyerAddress.controls.address.dirty"  formControlName="address" required></ion-textarea>
+                                        <div class="abs_icon"><img src="assets/images/register/city.png"></div>
+                                        <div class="error error_cls" *ngIf="LawyerAddress.get('address').hasError('required') && LawyerAddress.get('address').touched">
+                                            Address cannot be blank
+                                        </div>
+                                    </div>
+                                    <div class="form_container">
+                                        <ion-label class="not_asterisk" position="stacked">City</ion-label>
+                                        <ion-item no-padding>
+                                            <ion-select formControlName="city"  [(ngModel)]="LawyerLocation.city" [class.error1]="!LawyerAddress.controls.city.valid && LawyerAddress.controls.city.dirty" required no-padding [interfaceOptions]="customActionSheetOptions" interface="action-sheet" placeholder="Select Country">
+                                                <ion-select-option value="delhi">delhi</ion-select-option>
+                                                <ion-select-option value="Noida">Noida</ion-select-option>
+                                                <ion-select-option value="Gaziabad">Gaziabad</ion-select-option>
+                                                <ion-select-option value="gurgaon">gurgaon</ion-select-option>
+                                            </ion-select>
+                                        </ion-item>
+                                        <div class="abs_icon"><img src="assets/images/register/city.png"></div>
+                                        <div class="error error_cls" *ngIf="LawyerAddress.get('city').hasError('required') && LawyerAddress.get('city').touched">
+                                            Select city
+                                        </div>
+                                    </div>
+                                    <div class="last_step last_stap_button">
+                                        <button type="submit" [disabled]="LawyerAddress.invalid" shape="round">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

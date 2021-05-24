@@ -1,0 +1,80 @@
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AlertController, Events, MenuController, Platform } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
+})
+export class AppComponent implements OnInit {
+
+	open_app:string;
+	
+	constructor(
+		private platform: Platform,
+		private splashScreen: SplashScreen,
+		private statusBar: StatusBar,
+		private router: Router,
+		public menu: MenuController,
+		public alertController:AlertController,
+		public events: Events,
+		private storage:Storage
+	) 
+	{
+		
+		this.events.subscribe('open_app', (data) =>{
+			this.open_app = data;
+			this.storage.set('open_app', data);	
+			if(this.open_app!=null && this.open_app!=undefined && this.open_app!=''){
+				console.log('home1')
+				this.router.navigateByUrl('/home')
+			}else{
+				console.log('sign-up1')
+				this.router.navigateByUrl('/sign-in')
+			}
+		});
+
+		this.storage.get('open_app').then((val) => {
+			this.open_app = val;
+			if(this.open_app!=null && this.open_app!=undefined && this.open_app!=''){
+				console.log('home2')
+				this.router.navigateByUrl('/home')
+			}else{
+				console.log('sign-up2')
+				this.router.navigateByUrl('/sign-in')
+			}
+		});
+		// user and lawyer login 
+
+	}
+
+	ngOnInit(){}
+
+  // user logout start
+	async logOut(){
+		const alert = await this.alertController.create({
+		message: 'You are sure you want to logout now.',
+		buttons: [
+			{
+				text: 'Cancel',
+				role: 'cancel',
+				cssClass: 'secondary',
+			},{
+				text: 'ok',
+				handler: () => {
+					localStorage.removeItem('open_app')
+					this.menu.enable(false);
+					this.events.publish('open_app', '');
+					this.router.navigateByUrl("/sign-in")
+				}
+			}]
+		});
+		await alert.present();
+	}
+	// user logout end	
+} 
+
+

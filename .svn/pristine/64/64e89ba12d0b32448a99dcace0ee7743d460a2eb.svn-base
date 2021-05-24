@@ -1,0 +1,64 @@
+import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { ToastController } from '@ionic/angular';
+
+@Component({
+  selector: 'app-lawyer-detail',
+  templateUrl: './lawyer-detail.page.html',
+  styleUrls: ['./lawyer-detail.page.scss'],
+})
+export class LawyerDetailPage implements OnInit {
+
+	constructor(
+		public alertController:AlertController,
+		public toastController: ToastController
+	) { }
+
+	ngOnInit() {
+	}
+
+	async user_enquiry() {
+		const alert = await this.alertController.create({
+			header: 'Remarks!',
+			inputs: [{
+					name: 'user_enq',
+					type: 'text',
+					placeholder: 'remarks'
+				},],
+			buttons: [{
+					text: 'Cancel',
+					role: 'cancel',
+					cssClass: 'secondary',
+				}, {
+				text: 'Ok',
+					handler: (user_remaek) => {
+						this.userremarkValue(user_remaek)
+					}
+				}
+			]
+		});
+		await alert.present();
+	}
+
+	async userremarkValue(user_remaek){
+		if(user_remaek.user_enq==""){
+			const toast = await this.toastController.create({
+				message: 'cannot be blank remarks',
+				color:"dark",
+				position:'bottom',
+				duration: 2000
+			});
+			toast.present();
+		}else{
+			const toast = await this.toastController.create({
+				message: 'Remarks successfully submitted',
+				position:'bottom',
+				color:"success",
+				duration: 2000
+			});
+			toast.present();
+			console.log(user_remaek)
+		}
+	}
+
+}

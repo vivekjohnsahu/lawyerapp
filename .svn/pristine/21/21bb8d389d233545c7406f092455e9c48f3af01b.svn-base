@@ -1,0 +1,121 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button>
+              
+            </ion-back-button>
+      </ion-buttons>
+      <ion-title>Manage Enquiry</ion-title>
+    </ion-toolbar>
+  </ion-header> 
+  
+  <ion-content>
+    <ion-grid class="p-10">
+      <ion-row no-padding class="this_container">
+        <ion-col size="12" no-padding>
+          <div class="main_enquiry_bg">
+            <div class="main_enquiry">
+              <div class="enqiry_id">
+                <div class="img_cont"><img src="assets/images/enquiry/manage_enquiry.png"></div>
+                <div class="id"><p>Enquiry ID : <span>CMP001</span></p></div>
+              </div>
+              <div class="enquired_name"><ion-text>Vikas Kumar</ion-text></div>
+              <div class="enquired_para">
+                <ion-text><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p></ion-text>
+              </div>
+              <div class="enquired_footer">
+                <div class="enquiry_date">
+                  <p><span><img src="assets/images/enquiry/time.png"></span> 13-12-2018</p>
+                </div>
+                <div class="enquiry_time">
+                    <p><span><img src="assets/images/enquiry/clock.png"></span> 11:12:18</p>
+                </div>
+                <div class="view">
+                  <ion-button shape="round" size="small" routerLink="/view-enquiry">View</ion-button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+
+        <ion-col size="12" no-padding>
+            <div class="main_enquiry_bg">
+              <div class="main_enquiry">
+                <div class="enqiry_id">
+                  <div class="img_cont"><img src="assets/images/enquiry/manage_enquiry.png"></div>
+                  <div class="id"><p>Enquiry ID : <span>CMP001</span></p></div>
+                </div>
+                <div class="enquired_name"><ion-text>Vikas Kumar</ion-text></div>
+                <div class="enquired_para">
+                  <ion-text><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p></ion-text>
+                </div>
+                <div class="enquired_footer">
+                  <div class="enquiry_date">
+                    <p><span><img src="assets/images/enquiry/time.png"></span> 13-12-2018</p>
+                  </div>
+                  <div class="enquiry_time">
+                      <p><span><img src="assets/images/enquiry/clock.png"></span> 11:12:18</p>
+                  </div>
+                  <div class="view">
+                    <ion-button shape="round" size="small" routerLink="/view-enquiry">View</ion-button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ion-col>
+
+          <ion-col size="12" no-padding>
+              <div class="main_enquiry_bg">
+                <div class="main_enquiry">
+                  <div class="enqiry_id">
+                    <div class="img_cont"><img src="assets/images/enquiry/manage_enquiry.png"></div>
+                    <div class="id"><p>Enquiry ID : <span>CMP001</span></p></div>
+                  </div>
+                  <div class="enquired_name"><ion-text>Vikas Kumar</ion-text></div>
+                  <div class="enquired_para">
+                    <ion-text><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p></ion-text>
+                  </div>
+                  <div class="enquired_footer">
+                    <div class="enquiry_date">
+                      <p><span><img src="assets/images/enquiry/time.png"></span> 13-12-2018</p>
+                    </div>
+                    <div class="enquiry_time">
+                        <p><span><img src="assets/images/enquiry/clock.png"></span> 11:12:18</p>
+                    </div>
+                    <div class="view">
+                      <ion-button shape="round" size="small" routerLink="/view-enquiry">View</ion-button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ion-col>
+
+        <ion-col size="12"  no-padding>
+            <div class="main_enquiry_bg">
+              <div class="main_enquiry">
+                <div class="enqiry_id">
+                  <div class="img_cont"><img src="assets/images/enquiry/manage_enquiry.png"></div>
+                  <div class="id"><p>Enquiry ID : <span>CMP001</span></p></div>
+                </div>
+                <div class="enquired_name"><ion-text>Vikas Kumar</ion-text></div>
+                <div class="enquired_para">
+                  <ion-text><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy</p></ion-text>
+                </div>
+                <div class="enquired_footer">
+                  <div class="enquiry_date">
+                    <p><span><img src="assets/images/enquiry/time.png"></span> 13-12-2018</p>
+                  </div>
+                  <div class="enquiry_time">
+                      <p><span><img src="assets/images/enquiry/clock.png"></span> 11:12:18</p>
+                  </div>
+                  <div class="view">
+                    <ion-button shape="round" size="small" routerLink="/view-enquiry">View</ion-button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  </ion-content>

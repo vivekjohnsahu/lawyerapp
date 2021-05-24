@@ -1,0 +1,38 @@
+import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../../globalServices/global.service';
+
+@Component({
+  selector: 'app-active-plan',
+  templateUrl: './active-plan.page.html',
+  styleUrls: ['./active-plan.page.scss'],
+})
+export class ActivePlanPage implements OnInit {
+    active_plan: any;
+
+  constructor(
+    public gobalService:GlobalService,
+  ) { }
+
+  ngOnInit() {
+      this.plan_list()
+  }
+
+  plan_list(){
+    var User = JSON.parse(localStorage.getItem('details_user'));
+       let key = {
+            'apikey':this.gobalService.APIKey,
+            'user_id':User[0].id
+        }
+        this.gobalService.plan(key)
+        .then(data => {
+            this.active_plan = data
+            this.active_plan = this.active_plan.data
+            console.log( this.active_plan)
+            // for(let i=0;this.active_plan.length>i;i++){
+            //     this.active_plan = this.active_plan[i].plan_status
+            //     console.log(this.active_plan)
+            // }
+        })
+    }
+
+}

@@ -1,0 +1,43 @@
+import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-modalpage',
+  templateUrl: './modalpage.page.html',
+  styleUrls: ['./modalpage.page.scss'],
+})
+export class ModalpagePage implements OnInit {
+
+	lowyerChek: FormGroup;
+	lawyerAdd = {
+		lawyerType:"",
+		location:"",
+	};
+
+ 	constructor(
+		public modalController: ModalController
+	) 
+	{ 
+		 //  validation pattern start
+		this.lowyerChek = new FormGroup({
+			lawyerType: new FormControl('', [Validators.required]),
+			location: new FormControl('', [Validators.required]),
+		});
+		 //  validation pattern end
+	}
+
+	ngOnInit() {
+	}
+
+	dismiss(){
+		this.modalController.dismiss();
+	}
+
+	// lowyer search function start
+	lawyerbtn(){
+		console.log(this.lawyerAdd)
+	}
+	// lowyer search function end
+
+}

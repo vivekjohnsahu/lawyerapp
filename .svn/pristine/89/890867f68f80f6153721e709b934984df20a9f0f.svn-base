@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Edit</ion-title>
+      <ion-back-button>      
+      </ion-back-button>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+    <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+    <ion-grid class="no-padding">
+    <ion-row no-padding>
+        <ion-col no-padding>
+            <form novalidate (ngSubmit)="edit_Up()" class="loginFormMargin" [formGroup]="signupUser">
+                <div class="form_container">
+                    <ion-label position="stacked">Enter Your First Name</ion-label>
+                    <ion-input no-padding [(ngModel)]="userData.first_name" formControlName="first_name" placeholder="Enter Your First Name" type="text" required [class.error1]="!signupUser.controls.first_name.valid && signupUser.controls.first_name.dirty" clearInput></ion-input>
+                    <div class="abs_icon"><img src="assets/images/register/name.png"></div>
+                    <div class="error_cls" *ngIf="( signupUser.get('first_name').hasError('required') ) && signupUser.get('first_name').touched">
+                        <div class="error" *ngIf="signupUser.get('first_name').hasError('required') && signupUser.get('first_name').touched">
+                            First name cannot be blank
+                        </div>
+                    </div>
+                </div>
+                <div class="form_container">
+                    <ion-label position="stacked" class="star_not">Enter Your Last Name</ion-label>
+                    <ion-input no-padding [(ngModel)]="userData.last_name" formControlName="last_name"  placeholder="Enter Your Last Name" type="text"></ion-input>
+                    <div class="abs_icon"><img src="assets/images/register/name.png"></div>
+                </div>
+                <div class="form_container">
+                    <ion-label position="stacked">Contact Number</ion-label>
+                    <ion-input no-padding (keypress)="numberAccept($event)"  placeholder="Enter Your Number" type="tel" [(ngModel)]="userData.mobile" formControlName="mobile" [class.error1]="!signupUser.controls.mobile.valid && signupUser.controls.mobile.dirty" clearInput required></ion-input>
+                    <div class="abs_icon"><img style="width:15px;" src="assets/images/phone_icon.png"></div>
+                    <div class="error_cls" *ngIf="( signupUser.get('mobile').hasError('minlength') || signupUser.get('mobile').hasError('maxlength') ||signupUser.get('mobile').hasError('required') ) && signupUser.get('mobile').touched">
+                        <div class="error" *ngIf="signupUser.get('mobile').hasError('required') && signupUser.get('mobile').touched">
+                            mobile number cannot be blank
+                        </div>
+                        <div class="error" *ngIf="signupUser.get('mobile').hasError('minlength') && signupUser.get('mobile').touched">
+                            Minimum 8 characters
+                        </div>
+                        <div class="error" *ngIf="signupUser.get('mobile').hasError('maxlength') && signupUser.get('mobile').touched">
+                            Maximum 15 characters
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <ion-col size="12" class="sign_in_button">
+                        <button shape="round" type="submit" [disabled]="signupUser.invalid">Register</button>
+                    </ion-col>
+                </div>
+            </form>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-content>
+  

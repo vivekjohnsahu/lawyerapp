@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+			<ion-back-button>
+			</ion-back-button>
+		</ion-buttons>
+    <ion-title>My Profile</ion-title>
+    <ion-buttons slot="end" class="search_icon_container">
+			<a routerLink="/edit-profile-firm" class="search_icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+		</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-content>
+    <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+    <ion-grid class="featured_grid">
+      <ion-row *ngFor="let lawyer of lawyer_details;">
+        <ion-col size="3" class="featured_image">
+          <ion-avatar>
+            <img src="{{lawyer.profile_image}}">
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="9">
+          <div class="featured_text">
+            <div class="heading">
+              <h4>{{lawyer.company_name}}</h4>
+              <p>{{lawyer.location}} - {{lawyer.country}}</p>
+              <p>Established {{lawyer.establishment_date | date: 'dd-MM-yyyy'}}</p>
+            </div>
+            <!-- {{lawyer_skill_show.length}} -->
+            <div class="sevice_type" *ngIf="lawyer_skill_show.length>1">
+              <a *ngFor="let skill_show of lawyer_skill_show">{{skill_show}}</a>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <div class="address_icon">
+            <img src="assets/images/address_icon.png">
+          </div>
+          <div class="main_add">
+            <p>{{lawyer.address}}, {{lawyer.location}}, {{lawyer.country}}</p>
+          </div>
+          <div class="email_info">
+            <div><img src="assets/images/email_icon.png"></div>
+            <div>{{lawyer.email}}</div>
+          </div>
+          <div class="mobile_info">
+            <div><img src="assets/images/phone_icon.png"></div>
+            <div>{{lawyer.contact_number}}</div>
+          </div>
+        </ion-col>
+  
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="no-padding">
+      <ion-row class="">
+        <ion-col size="12" class="no-padding">
+          <div class="lawyers_type_head">Our Lawyers</div>
+        </ion-col>
+        <ion-col size="12">
+          <div *ngIf="lawyer_not_found_vl=='1'" style="text-align: center;margin-top: 10px;letter-spacing: 0.5px;font-size: 14px;">Lawyer not add </div>
+          <ion-col size-lg="3" size-sm="4" size-xs="6" class="float" *ngFor="let lawyer_pr of lawyer_list;let i = index">
+            <ion-card class="lawyers_card" (click)="lawyer_detail(lawyer_pr.id)" >
+              <ion-avatar>
+                <img src="{{lawyer_pr.lawyer_image}}">
+              </ion-avatar>
+              <ion-card-content class="lawyers_profile">
+                <p>{{lawyer_pr.first_name}} {{lawyer_pr.last_name}}</p>
+                <p>{{lawyer_pr.add_skills[0].practice_area}}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <div class="enquiry">
+      <ion-button style="letter-spacing: 1px;" shape="round" (click)="user_edit()">Add Lawyer</ion-button>
+    </div>
+    <ion-grid class="no-padding">
+      <ion-row class="">
+        <ion-col size="12" class="no-padding" *ngFor="let lawyer of lawyer_details;">
+          <div class="lawyers_type_head">About {{lawyer.company_name}}</div>
+        </ion-col>
+        <ion-col size="12" class="no-padding">
+          <ion-text class="about_text">
+            <p>
+              {{lawyer_description}}
+            </p>
+            <!-- <p style="display:none" id="hidden_para">
+              It is a long established fact that a reader will be distracted by the readable content of a page when
+              looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
+              letters, as opposed to using 'Content here, content here', making it look like readable English. Many
+              desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
+              search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved
+              over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+              <span><a (click)="less()">Read Less <span><i class="fa fa-angle-up" aria-hidden="true"></i></span></a></span>
+            </p> -->
+  
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

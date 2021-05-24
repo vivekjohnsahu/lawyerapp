@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button>
+           
+          </ion-back-button>
+    </ion-buttons>
+    <ion-title>search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+    <ion-searchbar [(ngModel)]="term" (ionInput)="getISkill($event.target)"></ion-searchbar>
+      <ul *ngFor="let cmt of search_cmt | filter:term" class="search_icon">
+          <li class="icon_li_one"><img src="https://www.w3schools.com/howto/img_avatar.png"></li>
+          <li class="icon_li_two" value="cmt.name" (click)="selet_vls(cmt.name)"> {{ cmt.name }} </li>
+      </ul>
+</ion-content> 

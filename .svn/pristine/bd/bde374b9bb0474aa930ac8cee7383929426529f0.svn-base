@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button>
+              
+            </ion-back-button>
+      </ion-buttons>
+      <ion-title>Manage Enquiry</ion-title>
+    </ion-toolbar>
+  </ion-header> 
+  
+  <ion-content>
+    <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+    <ion-grid class="p-10">
+      <div [hidden]="user_enquiry!=null" style="font-size:22px;text-align: center;margin-top: 15px;">no deta found</div>
+      <ion-row [hidden]="user_enquiry==null" no-padding class="this_container" *ngFor="let enquiry of user_enquiry">
+        <ion-col size="12" no-padding *ngFor="let enquiry of user_enquiry">
+          <div class="main_enquiry_bg">
+            <div class="main_enquiry">
+              <div class="enqiry_id">
+                <div class="img_cont"><img src="assets/images/enquiry/manage_enquiry.png"></div>
+                <div class="id"><p>Enquiry ID : <span>{{enquiry.enquiry_no}}</span></p></div>
+              </div>
+              <div class="enquired_name"><ion-text>{{enquiry.name}}</ion-text></div>
+              <div class="enquired_para">
+                <ion-text><p>{{enquiry.remarks}}</p></ion-text>
+              </div>
+              <div class="enquired_footer">
+                <div class="enquiry_date">
+                  <p><span><img src="assets/images/enquiry/time.png"></span> {{enquiry.created_date | date: 'dd/MM/yyyy'}}</p>
+                </div>
+                <div class="enquiry_time">
+                    <p><span><img src="assets/images/enquiry/clock.png"></span> {{enquiry.created_date | date:'HH:mm:ss'}}</p>
+                </div>
+                <div class="view" (click)="view_enquiry(enquiry.id)">
+                  <ion-button shape="round" size="small">View</ion-button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  </ion-content>

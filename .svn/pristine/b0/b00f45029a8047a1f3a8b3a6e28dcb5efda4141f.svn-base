@@ -1,0 +1,118 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AlertController, ToastController, MenuController, IonSlides, Platform  } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { GlobalService } from '../../globalServices/global.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+
+@Component({
+  selector: 'app-create-password',
+  templateUrl: './create-password.page.html',
+  styleUrls: ['./create-password.page.scss'],
+})
+export class CreatePasswordPage implements OnInit {
+
+	public _status:any;
+	user_change_pasw:any;
+	changePassword: FormGroup;
+	change_pw = {
+		new_password:"",
+		comf_password:"",
+	};
+
+	@ViewChild('slides') slides: IonSlides;
+
+  	constructor(
+		public alertController: AlertController,
+		public toastController:ToastController,
+		public menu: MenuController,
+		private splashScreen: SplashScreen,
+		private statusBar: StatusBar,
+		public globalService:GlobalService,
+		private spinner: NgxSpinnerService,
+	){
+//  validation pattern start
+    this.changePassword = new FormGroup({
+        new_password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]),
+        comf_password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)])
+      });
+  }
+
+// alert box start
+	async changePass(){
+		if (this.change_pw.new_password !=  this.change_pw.comf_password){
+			const alert = await this.alertController.create({
+				message: 'Confirm Password does not match the New Password .',
+				buttons: ['OK']
+			});
+		await alert.present();
+		}else if(this.change_pw.new_password && this.change_pw.comf_password){
+			this.user_change_pasw = {
+				"new_password":this.change_pw.new_password ,
+			}
+			const toast = await this.toastController.create({
+				message: 'successfully changed your password.',
+				position:'bottom',
+				color:"success",
+				duration: 3000
+			});
+			toast.present();
+			console.log(this.user_change_pasw)
+			this.changePassword.reset();
+		}
+	}
+
+
+	// async changePass(){
+	// 	if (this.change_pw.new_password !=  this.change_pw.comf_password){
+	// 		const alert = await this.alertController.create({
+	// 			message: 'Confirm Password does not match the New Password .',
+	// 			buttons: ['OK']
+	// 		});
+	// 	await alert.present();
+	// 	}else if(this.change_pw.new_password && this.change_pw.comf_password){
+	// 		this.spinner.show();
+	// 		this.globalService.create_new_pass(this.change_pw.new_password)
+	// 		.then(async data => {
+	// 			this._status = data['status']
+	// 			this.spinner.hide();
+	// 			if(this._status=='200'){
+	// 				const toast = await this.toastController.create({
+	// 					message: 'successfully changed your password.',
+	// 					position:'bottom',
+	// 					color:"success",
+	// 					duration: 3000
+	// 				});
+	// 				toast.present();
+	// 				this.changePassword.reset();
+	// 			}else{
+	// 				const toast = await this.toastController.create({
+	// 					message: 'Your password not changed sume error.',
+	// 					position:'bottom',
+	// 					color:"success",
+	// 					duration: 3000
+	// 				});
+	// 				toast.present();
+	// 			}
+	// 		})
+	// 	}
+	// }
+
+	ngOnInit() {
+		// set status bar color
+		this.statusBar.overlaysWebView(false);
+		this.statusBar.backgroundColorByHexString('#233658;');
+	}
+
+// manu bar hide
+	ionViewWillEnter() {
+		this.menu.enable(false);
+	}
+
+// manu bar show leave page
+	ionViewDidLeave() {
+		this.menu.enable(false);
+	}
+
+}

@@ -1,0 +1,40 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button>
+			</ion-back-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-text>
+		<h1 class="heading_text">Verification Code</h1>
+	</ion-text>
+	<ion-text>
+		<p class="signin_text">Please type the verification code sent to your mobile and email.</p>
+	</ion-text>
+	<form novalidate (ngSubmit)="otp()" [formGroup]="sent_otp">
+		<ion-grid>
+			<ion-row>
+				<ion-col size="12" class="form_container mb-5" style="margin-bottom: 0rem!important">
+					<div id="divOuter">
+						<div id="divInner">
+							<ion-input style="
+
+							font-size: 18px;
+							padding-left: 11px !important;" 
+							no-padding id="partitioned" maxlength="4" type="tel" (keypress)="numberAccept($event)" required [(ngModel)]="get_otp.otp" formControlName="otp" [class.error1]="!sent_otp.controls.otp.valid && sent_otp.controls.otp.dirty"></ion-input>
+						</div>
+					</div>
+					<div class="error_cls" *ngIf="sent_otp.get('otp').hasError('required') && sent_otp.get('otp').touched">
+						Otp cannot be blank
+					</div>
+				</ion-col>
+				<ion-col size="12" class="otp_button">
+					<button shape="round" type="submit" [disabled]="sent_otp.invalid">Submit</button>
+					<div class="right resend" (click)="resend_otp()">Resend OTP</div>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</form>
+</ion-content>

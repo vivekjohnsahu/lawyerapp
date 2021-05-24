@@ -1,0 +1,7 @@
+ion-toolbar {
+    --background: #233658;
+}
+
+ion-back-button {
+    color: #fff;
+}

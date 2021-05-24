@@ -1,0 +1,113 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastController,AlertController, MenuController, IonSlides, Platform } from '@ionic/angular';
+import { Router, Navigation } from '@angular/router';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+@Component({
+  selector: 'app-otp',
+  templateUrl: './otp.page.html',
+  styleUrls: ['./otp.page.scss'],
+})
+export class OtpPage implements OnInit {
+
+	sent_otp: FormGroup;
+	get_otp = {
+		otp:"",
+	  
+	};
+
+	@ViewChild('slides') slides: IonSlides;
+
+	constructor(
+		public toastController:ToastController,
+		public router:Router,
+		public alertController:AlertController,
+		public menu: MenuController,
+		private splashScreen: SplashScreen,
+		private statusBar: StatusBar,
+	){
+		//  validation pattern start
+		this.sent_otp = new FormGroup({
+			otp: new FormControl('', [Validators.required]),            
+		});
+		//  validation pattern end
+	}
+
+	ngOnInit() {
+		// set status bar color
+		this.statusBar.overlaysWebView(false);
+		this.statusBar.backgroundColorByHexString('#233658;');
+	}
+
+	// manu bar hide
+	ionViewWillEnter() {
+		this.menu.enable(false);
+	}
+
+	// manu bar show leave page
+	ionViewDidLeave() {
+		this.menu.enable(false);
+	}
+
+	// otp fill code start
+	async otp(){
+		let len_otp = this.get_otp.otp.length
+		if(len_otp < 4){
+			const toast = await this.toastController.create({
+				message: 'Please fill the valid Otp',
+				position:'bottom',
+				color:"dark",
+				duration: 3000
+			});
+			toast.present();
+		}else{
+			console.log(this.get_otp.otp)
+			this.router.navigateByUrl('/create-password')
+			this.sent_otp.reset();
+		}
+	}
+	// otp fill code end
+
+	// resend otp code start
+	async resend_otp(){
+		const alert = await this.alertController.create({
+			message: 'Are you sure you want to resent otp.',
+			buttons: [{
+				text: 'Cancel',
+				role: 'cancel',
+				cssClass: 'secondary',
+				},
+				{
+				text: 'ok',
+				handler: () => {
+					this.re_sent_otp()
+				}
+			}]
+		});
+		await alert.present();
+	}
+
+	async re_sent_otp(){
+		const toast = await this.toastController.create({
+			message: 'sent otp your register email id and mobile no.',
+			position:'bottom',
+			color:"success",
+			duration: 3000
+		});
+		toast.present();
+	}
+	// resend otp code end
+
+	// number Accept only start
+	numberAccept(event): boolean {
+		const charCode = (event.which) ? event.which : event.keyCode;
+		if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+		  return false;
+		}
+		return true;
+	}
+	// number Accept only end
+
+}

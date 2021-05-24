@@ -1,0 +1,56 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ModalpagePage } from '../modalpage/modalpage.page'; 
+import { ActivatedRoute } from '@angular/router';
+import { MenuController, IonSlides, AlertController } from '@ionic/angular';
+
+
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+})
+export class HomePage implements OnInit {
+
+  // @ViewChild('slides') slides: IonSlides;
+
+  constructor(
+    private router: Router, 
+    private route: ActivatedRoute, 
+    public modalController: ModalController,
+    public menu:MenuController
+    // public menu: MenuController,
+  ){
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalpagePage
+    });
+    await modal.present();
+  } 
+
+  user_id:any;
+
+  ngOnInit(){
+    this.route.params.subscribe(params => {
+      this.user_id = params['id']; 
+   });
+  }
+
+  // ionViewWillEnter() {
+  //   this.menu.enable(true);
+  // }
+  
+  // ionViewDidLeave() {
+  //   this.menu.enable(true);
+  // }
+
+  search(){
+    this.router.navigateByUrl('/search')
+  }
+  firm_details(){
+    this.router.navigateByUrl('/firm-details')
+  }
+}

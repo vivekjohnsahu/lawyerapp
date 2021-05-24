@@ -1,0 +1,158 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, Navigation } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MenuController, IonSlides, AlertController, Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Storage } from '@ionic/storage';
+import { Events } from '@ionic/angular';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { GlobalService } from '../../globalServices/global.service'
+
+@Component({
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.page.html',
+  styleUrls: ['./sign-in.page.scss'],
+})
+export class SignInPage implements OnInit {
+
+//   public alertShown:boolean = false;
+	public _status:any;
+	signupform: FormGroup;
+	LoginData = {
+		email:"user@yopmail.com",
+		password:"12345678",
+	};
+
+	@ViewChild('slides') slides: IonSlides;
+
+  	constructor(
+		private router : Router, 
+		public menu: MenuController,
+		public alertController: AlertController,
+		private splashScreen: SplashScreen,
+		private statusBar: StatusBar,
+		private platform: Platform,
+		private storage: Storage,
+		public events: Events,
+		private spinner: NgxSpinnerService,
+		public gobalService:GlobalService,
+	) {
+		//  validation pattern start
+		let email_pattern = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+		this.signupform = new FormGroup({
+			email: new FormControl('', [Validators.required, Validators.pattern(email_pattern)]),            
+			password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(20)])
+		});
+		//  validation pattern end
+
+		platform.ready().then(() => {
+			statusBar.styleDefault();
+			splashScreen.hide();
+			this.platform.backButton.subscribe(() => {
+				if (this.router.url=="/sign-in"){
+					this.presentConfirm();  
+				}
+			})
+		});	
+	}
+
+	ngOnInit() {
+		// set status bar color
+		// this.statusBar.overlaysWebView(false);
+		this.statusBar.backgroundColorByHexString('#fff;');
+	}
+
+// manu bar hide
+	ionViewWillEnter() {
+		this.menu.enable(false);
+	}
+
+// manu bar show leave page
+	ionViewDidLeave() {
+		this.menu.enable(true);
+	}
+
+// user login validation start
+	async login(){
+		this.spinner.show();
+		if(this.LoginData.email=='user@yopmail.com' && this.LoginData.password=="12345678"){
+			this.events.publish('open_app', 'user');
+			setTimeout(() => {
+				this.spinner.hide();
+				this.router.navigateByUrl('/home')
+			},1200);
+			localStorage.setItem('open_app',JSON.stringify('user'))
+		}else if(this.LoginData.email=='lawyer@yopmail.com' && this.LoginData.password=="12345678"){
+			this.events.publish('open_app', 'lawyer');
+			setTimeout(() => {
+				this.spinner.hide();
+				this.router.navigateByUrl('/home')
+			},1200);
+			localStorage.setItem('open_app',JSON.stringify('lawyer'))
+		}else{
+			this.spinner.hide();
+			const alert = await this.alertController.create({
+				message: 'please fill correct email id and password.',
+				buttons: ['OK']
+			});
+			await alert.present();
+		}
+	}
+
+	// async login(){
+	// 	let loginData={
+	// 		email:this.LoginData.email,
+	// 		password:this.LoginData.password
+	// 	}
+	// 	this.gobalService.login_user(loginData)
+	// 	.then(async data => {
+	// 		this._status = data['status']
+	// 		this.spinner.show();
+	// 		if(this._status=='200'){
+	// 			this.spinner.hide();
+	// 			this.events.publish('open_app', 'user');
+	// 			localStorage.setItem('open_app',JSON.stringify('user'))
+	// 			this.router.navigateByUrl('/home')
+	// 		}else if(this._status=='202'){
+	// 			this.spinner.hide();
+	// 			this.events.publish('open_app', 'lawyer');
+	// 			localStorage.setItem('open_app',JSON.stringify('lawyer'))
+	// 			this.router.navigateByUrl('/home')
+	// 		}else{
+	//          this.spinner.hide();
+	// 			const alert = await this.alertController.create({
+	// 				message: 'please fill correct email id and password.',
+	// 				buttons: ['OK']
+	// 			});
+	// 			await alert.present();
+	// 		}
+	        
+	// 	});  
+	// }
+// user login validation end
+
+// app exit code start
+  async presentConfirm() {
+	let alert = await this.alertController.create({
+		message: 'Do you want Exit?',
+		buttons: [
+			{
+				text: 'Cancel',
+				role: 'cancel',
+			},
+			{
+				text: 'Yes',
+				handler: () => {
+					navigator['app'].exitApp();
+				}
+			}
+		]
+	});
+	await alert.present().then(()=>{
+		// this.alertShown=true;
+		});
+	}
+// app exit code end
+
+}

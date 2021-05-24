@@ -1,0 +1,40 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import * as $ from 'jquery';
+
+@Component({
+  selector: 'app-firm-details',
+  templateUrl: './firm-details.page.html',
+  styleUrls: ['./firm-details.page.scss'],
+})
+export class FirmDetailsPage implements OnInit {
+
+  constructor(private router:Router) { }
+
+  ngOnInit() {
+    $(".view_more > button").click(function(){
+      $(".hidden_lawyer").slideToggle(300);
+      $(this).toggleClass("view_less");
+      // $(this).toggleClass("view_less", "");
+    });
+    
+  }
+
+  more(){
+    let element=document.getElementById("hidden_para");
+    element.style.display="block";
+    let anchor=document.getElementById("more");
+    anchor.style.display="none";
+  }
+  
+  less(){
+    let element=document.getElementById("hidden_para");
+    element.style.display="none";
+    let anchor=document.getElementById("more");
+    anchor.style.display="inline-block";
+  }
+
+  lawyer_detail(){
+    this.router.navigateByUrl('/lawyer-detail')
+  }
+}

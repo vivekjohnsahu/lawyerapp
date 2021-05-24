@@ -1,0 +1,120 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["sign-in-sign-in-module"],{
+
+/***/ "./src/app/sign-in/sign-in.module.ts":
+/*!*******************************************!*\
+  !*** ./src/app/sign-in/sign-in.module.ts ***!
+  \*******************************************/
+/*! exports provided: SignInPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignInPageModule", function() { return SignInPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _sign_in_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sign-in.page */ "./src/app/sign-in/sign-in.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _sign_in_page__WEBPACK_IMPORTED_MODULE_6__["SignInPage"]
+    }
+];
+var SignInPageModule = /** @class */ (function () {
+    function SignInPageModule() {
+    }
+    SignInPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_sign_in_page__WEBPACK_IMPORTED_MODULE_6__["SignInPage"]]
+        })
+    ], SignInPageModule);
+    return SignInPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/sign-in/sign-in.page.html":
+/*!*******************************************!*\
+  !*** ./src/app/sign-in/sign-in.page.html ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Sign In</ion-title> \n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-text>\n    <h1 class=\"heading_text\">Lawyer <span>App</span></h1>\n  </ion-text>\n  <ion-text>\n    <p class=\"signin_text\">Sign In with your Registered Email Address and Password</p>\n  </ion-text>\n  <ion-grid>\n    <ion-row>\n      <ion-col size=\"12\" class=\"form_container mb-30\">\n          <ion-label position=\"stacked\">Email Address</ion-label>\n          <ion-input no-padding  placeholder=\"Enter Your Email Address\" type=\"text\" required></ion-input>\n          <div class=\"abs_icon\"><img src=\"assets/images/email_icon.png\"></div>\n      </ion-col>\n\n      <ion-col size=\"12\" class=\"form_container mb-10\">\n          <ion-label position=\"stacked\">Password</ion-label>\n          <ion-input no-padding placeholder=\"Enter Your Email Address\" type=\"password\" required></ion-input>\n          <div class=\"abs_icon\"><img src=\"assets/images/password.png\"></div>\n      </ion-col>\n\n      <ion-col size=\"12\" class=\"sign_in_button\">\n          <ion-button shape=\"round\" routerLink=\"/home\">Log In</ion-button>\n      </ion-col> \n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n<ion-footer>\n  <ion-toolbar style=\"--background:#fff;\">\n    <ion-title style=\"color:#1f1f1f;\">Dont Have An Account, Please <span><a routerLink=\"/register\">Sign Up</a></span> Here</ion-title>\n  </ion-toolbar>\n</ion-footer>\n"
+
+/***/ }),
+
+/***/ "./src/app/sign-in/sign-in.page.scss":
+/*!*******************************************!*\
+  !*** ./src/app/sign-in/sign-in.page.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-toolbar {\n  --background:#233658; }\n\nion-title {\n  color: #fff;\n  font-weight: 300;\n  text-transform: capitalize;\n  font-size: 18px;\n  text-align: center; }\n\nh1.heading_text {\n  text-align: center;\n  margin-top: 40px;\n  font-weight: 400;\n  text-transform: uppercase;\n  font-size: 30px;\n  color: #1f1f1f;\n  letter-spacing: 1px; }\n\nh1.heading_text > span {\n  color: #fd8900;\n  font-weight: 600;\n  font-family: Proxima-Nova-Bold;\n  font-size: 32PX; }\n\np.signin_text {\n  margin-top: 40px;\n  text-align: center;\n  color: #1f1f1fbf;\n  font-family: Proxima-Nova-Thin;\n  font-weight: 600;\n  padding: 0px 12px;\n  font-size: 15px; }\n\n.abs_icon {\n  position: absolute;\n  top: 34px;\n  left: 4.5%; }\n\n.abs_icon > img {\n  width: 20px; }\n\n.form_container > ion-label {\n  padding-left: 13%; }\n\n.form_container ion-input {\n  width: 87%;\n  margin: 0 0 0 auto;\n  border-bottom: 1px solid #ccc;\n  font-size: 12px;\n  --padding-top: 10px;\n  --padding-bottom: 10px; }\n\n.sign_in_button {\n  text-align: center; }\n\n.sign_in_button > ion-button {\n  font-weight: 300;\n  width: 90%;\n  margin-top: 30px;\n  box-shadow: 0px 4px 8px 1px #fed19c;\n  border-radius: 30px;\n  --background: #fd8900;\n  --background-activated: #fd8900; }\n\n.form_container > ion-label::after {\n  content: \"*\";\n  color: red;\n  margin-left: 3px; }\n\nion-footer ion-title {\n  color: #1f1f1f;\n  padding: 0px;\n  font-size: 12px;\n  word-spacing: 2px;\n  font-family: proxima-nova-alt-regular; }\n\nion-footer ion-title > span > a {\n  color: #fd8900;\n  font-weight: 500;\n  text-decoration: none; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvc2lnbi1pbi9EOlxceGFtcHBcXGh0ZG9jc1xcbGF3ZXJfYXBwL3NyY1xcYXBwXFxzaWduLWluXFxzaWduLWluLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG9CQUFhLEVBQUE7O0FBRWpCO0VBQ0ksV0FBVTtFQUNWLGdCQUFnQjtFQUNoQiwwQkFBMEI7RUFDMUIsZUFBZTtFQUNmLGtCQUFrQixFQUFBOztBQUV0QjtFQUNJLGtCQUFrQjtFQUNsQixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLHlCQUF5QjtFQUN6QixlQUFlO0VBQ2YsY0FBYztFQUNkLG1CQUFrQixFQUFBOztBQUV0QjtFQUNJLGNBQWM7RUFDZCxnQkFBZ0I7RUFDaEIsOEJBQThCO0VBQzlCLGVBQWUsRUFBQTs7QUFFbkI7RUFDSSxnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQiw4QkFBOEI7RUFDOUIsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixlQUFlLEVBQUE7O0FBRW5CO0VBQ0ksa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxVQUFVLEVBQUE7O0FBRWQ7RUFDSSxXQUFVLEVBQUE7O0FBRWQ7RUFDSSxpQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxVQUFVO0VBQ1Ysa0JBQWtCO0VBQ2xCLDZCQUE2QjtFQUM3QixlQUFjO0VBQ2QsbUJBQWM7RUFDZCxzQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxrQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLGdCQUFnQjtFQUNoQixtQ0FBbUM7RUFDbkMsbUJBQW1CO0VBQ25CLHFCQUFhO0VBQ2IsK0JBQXVCLEVBQUE7O0FBRTNCO0VBQ0ksWUFBVztFQUNYLFVBQVU7RUFDVixnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxjQUFjO0VBQ2QsWUFBWTtFQUNaLGVBQWU7RUFDZixpQkFBaUI7RUFDakIscUNBQXFDLEVBQUE7O0FBRXpDO0VBQ0ksY0FBYztFQUNkLGdCQUFnQjtFQUNoQixxQkFBcUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3NpZ24taW4vc2lnbi1pbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tdG9vbGJhcntcclxuICAgIC0tYmFja2dyb3VuZDojMjMzNjU4O1xyXG59XHJcbmlvbi10aXRsZXtcclxuICAgIGNvbG9yOiNmZmY7XHJcbiAgICBmb250LXdlaWdodDogMzAwO1xyXG4gICAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XHJcbiAgICBmb250LXNpemU6IDE4cHg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuaDEuaGVhZGluZ190ZXh0e1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgbWFyZ2luLXRvcDogNDBweDtcclxuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XHJcbiAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG4gICAgZm9udC1zaXplOiAzMHB4O1xyXG4gICAgY29sb3I6ICMxZjFmMWY7XHJcbiAgICBsZXR0ZXItc3BhY2luZzoxcHg7XHJcbn1cclxuaDEuaGVhZGluZ190ZXh0ID4gc3BhbntcclxuICAgIGNvbG9yOiAjZmQ4OTAwO1xyXG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcclxuICAgIGZvbnQtZmFtaWx5OiBQcm94aW1hLU5vdmEtQm9sZDtcclxuICAgIGZvbnQtc2l6ZTogMzJQWDtcclxufVxyXG5wLnNpZ25pbl90ZXh0e1xyXG4gICAgbWFyZ2luLXRvcDogNDBweDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGNvbG9yOiAjMWYxZjFmYmY7XHJcbiAgICBmb250LWZhbWlseTogUHJveGltYS1Ob3ZhLVRoaW47XHJcbiAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgcGFkZGluZzogMHB4IDEycHg7XHJcbiAgICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuLmFic19pY29ue1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiAzNHB4O1xyXG4gICAgbGVmdDogNC41JTtcclxufVxyXG4uYWJzX2ljb24gPiBpbWd7XHJcbiAgICB3aWR0aDoyMHB4O1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciA+IGlvbi1sYWJlbHtcclxuICAgIHBhZGRpbmctbGVmdDogMTMlO1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciBpb24taW5wdXR7XHJcbiAgICB3aWR0aDogODclO1xyXG4gICAgbWFyZ2luOiAwIDAgMCBhdXRvO1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkICNjY2M7XHJcbiAgICBmb250LXNpemU6MTJweDtcclxuICAgIC0tcGFkZGluZy10b3A6IDEwcHg7XHJcbiAgICAtLXBhZGRpbmctYm90dG9tOiAxMHB4O1xyXG59XHJcbi5zaWduX2luX2J1dHRvbntcclxuICAgIHRleHQtYWxpZ246Y2VudGVyO1xyXG59XHJcbi5zaWduX2luX2J1dHRvbiA+IGlvbi1idXR0b257XHJcbiAgICBmb250LXdlaWdodDogMzAwO1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICAgIG1hcmdpbi10b3A6IDMwcHg7XHJcbiAgICBib3gtc2hhZG93OiAwcHggNHB4IDhweCAxcHggI2ZlZDE5YztcclxuICAgIGJvcmRlci1yYWRpdXM6IDMwcHg7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNmZDg5MDA7XHJcbiAgICAtLWJhY2tncm91bmQtYWN0aXZhdGVkOiAjZmQ4OTAwO1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciA+IGlvbi1sYWJlbDo6YWZ0ZXJ7XHJcbiAgICBjb250ZW50OlwiKlwiO1xyXG4gICAgY29sb3I6IHJlZDtcclxuICAgIG1hcmdpbi1sZWZ0OiAzcHg7XHJcbn1cclxuaW9uLWZvb3RlciBpb24tdGl0bGV7XHJcbiAgICBjb2xvcjogIzFmMWYxZjtcclxuICAgIHBhZGRpbmc6IDBweDtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIHdvcmQtc3BhY2luZzogMnB4O1xyXG4gICAgZm9udC1mYW1pbHk6IHByb3hpbWEtbm92YS1hbHQtcmVndWxhcjtcclxufSBcclxuaW9uLWZvb3RlciBpb24tdGl0bGUgID4gc3BhbiA+IGF7XHJcbiAgICBjb2xvcjogI2ZkODkwMDtcclxuICAgIGZvbnQtd2VpZ2h0OiA1MDA7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbn0gXHJcblxyXG5cclxuIl19 */"
+
+/***/ }),
+
+/***/ "./src/app/sign-in/sign-in.page.ts":
+/*!*****************************************!*\
+  !*** ./src/app/sign-in/sign-in.page.ts ***!
+  \*****************************************/
+/*! exports provided: SignInPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignInPage", function() { return SignInPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+var SignInPage = /** @class */ (function () {
+    function SignInPage(router) {
+        this.router = router;
+    }
+    SignInPage.prototype.ngOnInit = function () {
+    };
+    SignInPage.prototype.home = function () {
+        this.router.navigateByUrl('/home');
+    };
+    SignInPage.prototype.register = function () {
+        this.router.navigateByUrl('/register');
+    };
+    SignInPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-sign-in',
+            template: __webpack_require__(/*! ./sign-in.page.html */ "./src/app/sign-in/sign-in.page.html"),
+            styles: [__webpack_require__(/*! ./sign-in.page.scss */ "./src/app/sign-in/sign-in.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], SignInPage);
+    return SignInPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=sign-in-sign-in-module.js.map

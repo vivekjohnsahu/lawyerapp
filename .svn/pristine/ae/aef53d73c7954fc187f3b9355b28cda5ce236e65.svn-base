@@ -1,0 +1,261 @@
+import { Component, OnInit } from '@angular/core';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { NavController,AlertController,ActionSheetController  } from '@ionic/angular';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { compileDirective } from '@angular/core/src/render3/jit/directive';
+
+@Component({
+  selector: 'app-manage-lawyer',
+  templateUrl: './manage-lawyer.page.html',
+  styleUrls: ['./manage-lawyer.page.scss'],
+})
+
+
+export class ManageLawyerPage implements OnInit {
+ 
+	step_contant_1:boolean=true;
+	step_contant_2:boolean;
+	step_contant_3:boolean;
+	fill_step_:number=0;
+	ImageBind:any = 'https://www.w3schools.com/howto/img_avatar.png';
+	ImageData: string;
+	skills:any;
+	skill_add=[];  
+	public searchText : string;
+	manageLawyer: FormGroup;
+	LawyerData = {
+		firstname:"asas",
+		lastname:"asasa",
+		email:"john@gmail.com",
+		number:"2132332321",
+		date:"12-12-12",
+	};
+
+	LawyerAddress: FormGroup;
+	LawyerLocation = {
+		address:"",
+		city:"",
+	};
+
+	constructor(
+		public navCtrl: NavController,
+		private camera:Camera, 
+		private actionSheetController:ActionSheetController,
+		public alertController:AlertController,
+	) {
+
+    //  validation pattern start
+		let email_pattern = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+		this.manageLawyer = new FormGroup({
+			firstname: new FormControl('', [Validators.required]),
+			lastname: new FormControl(),       
+			email: new FormControl('', [Validators.required, Validators.pattern(email_pattern)]),            
+			number: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(14)]),
+			date: new FormControl('', [Validators.required]),
+		});
+
+		this.LawyerAddress = new FormGroup({
+			address: new FormControl('', [Validators.required]),   
+			city: new FormControl('', [Validators.required]),           
+		});
+	//  validation pattern end
+	
+  	}
+
+	ngOnInit() {
+	}
+
+	// template html code start
+	async step_1(){
+		if(this.step_contant_1!=true){
+			const alert = await this.alertController.create({
+				message: 'Conform back to first step',
+				buttons: [{
+					text: 'Cancel',
+					role: 'cancel',
+					cssClass: 'secondary',
+					},
+					{
+						text: 'ok',
+					  	handler: () => {
+							this.step_contant_1=true;
+							this.step_contant_2=false;
+							this.step_contant_3=false;
+							this.fill_step_=0;
+					}
+				}]
+			});
+			await alert.present();
+		}
+	}
+		
+	async step_2(){
+		if(this.step_contant_2!=true){
+			if(this.fill_step_==0){
+				const alert = await this.alertController.create({
+					message: 'Fill the frist step and move next step',
+					buttons: ['OK']
+				});
+				await alert.present();
+			}else if(this.fill_step_==1 || this.fill_step_==2){
+				const alert = await this.alertController.create({
+					message: 'Conform back to second step',
+					buttons: [{
+						text: 'Cancel',
+						role: 'cancel',
+						cssClass: 'secondary',
+						},
+						{
+						text: 'ok',
+						handler: () => {
+							this.step_contant_2=true;
+							this.step_contant_1=false;
+							this.step_contant_3=false;
+							this.fill_step_=1;
+						}
+					}]
+				});
+				await alert.present();
+			}
+		}
+	}
+	
+	async step_3(){
+		if(this.step_contant_3!=true){
+			if(this.fill_step_==2){
+				const alert = await this.alertController.create({
+					message: 'Fill the frist step and move next step',
+					buttons: ['OK']
+				});
+				await alert.present();
+			}else if(this.fill_step_==1){
+				const alert = await this.alertController.create({
+					message: 'Fill the second step and move next step',
+					buttons: ['OK']
+				});
+				await alert.present();
+			}else if(this.fill_step_==0){
+				const alert = await this.alertController.create({
+					message: 'Fill the frist and second step and move third step',
+					buttons: ['OK']
+				});
+				await alert.present();
+			}
+		}
+	}
+	// template html code end
+
+	// form validation start
+	Lawyer_stap_1(){
+		this.step_contant_2=true;
+		this.step_contant_1=false;
+		this.step_contant_3=false;
+		this.fill_step_=1;
+	}
+
+	async Lawyer_stap_2(){
+		console.log(this.skill_add.length)
+		if(this.skill_add.length == 0){
+			const alert = await this.alertController.create({
+				message: 'Add your skill',
+				buttons: ['OK']
+			});
+			await alert.present();
+		}else{
+			this.step_contant_3=true;
+			this.step_contant_1=false;
+			this.step_contant_2=false;
+			this.fill_step_=2;
+		}
+	}
+
+	Lawyer_stap_3(){
+		// this.fill_step_=3;
+		console.log(this.LawyerLocation)
+	}
+	// form validation end
+ 
+  // image popup start
+	async SelectPhoto() {
+		const actionSheet = await this.actionSheetController.create({
+		buttons: [{
+			text: 'Camera',
+			icon: 'Camera',
+			handler: () => {
+				let sourceType =1;
+				this.takePhoto(1);
+			}
+		}, {
+			text: 'Gallery',
+			icon: 'images',
+			handler: () => {
+				let sourceType =2;
+				this.takePhoto(2);
+			}
+		}, {
+			text: 'Cancel',
+			icon: 'close',
+			role: 'cancel',
+				handler: () => {
+				}
+		}]
+		});
+		await actionSheet.present();
+	}
+	// image popup end
+
+	// //  get image path start
+	takePhoto(sourceType:number) {
+		const options: CameraOptions = {
+			quality: 50,
+			destinationType: this.camera.DestinationType.DATA_URL,
+			encodingType: this.camera.EncodingType.JPEG,
+			mediaType: this.camera.MediaType.PICTURE,
+			correctOrientation: true,
+			sourceType: sourceType==1?this.camera.PictureSourceType.CAMERA:this.camera.PictureSourceType.PHOTOLIBRARY,     //this.camera.PictureSourceType.CAMERA,
+		}
+		this.camera.getPicture(options).then((imgData) => {
+			this.ImageData = "data:image/jpg;base64," + imgData;
+			this.ImageBind =  this.ImageData
+		});
+	}
+		//  get image path end
+		
+	add_skill=[
+		{name:'Business'},
+		{name:'Divorce'}, 
+		{name:'Employement & labour'}, 
+		{name:'Family Lawyer'}, 
+		{name:'Corporate Laywer'}	
+	]
+
+	// search and add skills start
+	getISkill(e){
+		this.skills = this.add_skill;
+	}
+
+	add_lawyer_skills(vl,i){
+		this.skills.splice(i,1)
+		this.skill_add.push(vl)
+	}
+
+	remove_skill(index){
+		this.skill_add.splice(index,1)
+	}
+
+	remove_all_skill(){
+		this.skill_add = []
+	}
+	// search and add skills end
+
+	// number Accept only start
+	numberAccept(event): boolean {
+		const charCode = (event.which) ? event.which : event.keyCode;
+		if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+		  return false;
+		}
+		return true;
+	}
+	  // number Accept only end
+}
+

@@ -1,0 +1,81 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button>
+				<img src="assets/images/ham_icon.png">
+			</ion-menu-button>
+		</ion-buttons>
+		<div *ngIf="banner_hide">
+			<ion-title *ngIf="open_app=='user'">
+				Home
+			</ion-title>
+			<ion-title *ngIf="open_app=='lawyer'">
+				Law Firm Dashboard
+			</ion-title>
+		</div>
+		<div *ngIf="!banner_hide">
+			<ion-title>
+				Filter
+			</ion-title>
+		</div>
+		<ion-buttons slot="end" class="search_icon_container">
+			<a routerLink="/search" class="search_icon"><img src="assets/images/search_icon.png"></a>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ngx-spinner bdColor="rgba(255, 255, 255, 0.4)" size="medium" color="#233658" type="line-scale"></ngx-spinner>
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="crescent">
+		</ion-refresher-content>
+	</ion-refresher>
+	<button (click)="scheduleNotification('day')">click</button>
+
+	<div *ngIf="banner_hide">
+		<div class="homepage_img" *ngIf="open_app=='user'">
+			<a><img src="assets/images/Dashboard_img.png"></a>
+		</div>
+		<div class="homepage_img" *ngIf="open_app=='lawyer'">
+			<a><img src="assets\images\images.jpg"></a>
+		</div>
+	</div>
+	<div class="featured_div">
+		<h3>Featured <span>Law Firms</span></h3>
+	</div>
+	<ion-fab class="fixed_btn" vertical="bottom" horizontal="end" slot="fixed">
+		<ion-fab-button color="light" routerLink="/modalpage"><img src="assets/images/filter_icon.png"></ion-fab-button>
+	</ion-fab>
+	<div *ngIf="lawyer_not_found_vl=='1'" style="text-align: center;margin-top: 10px;letter-spacing: 0.5px;font-size: 14px;">Data not found</div>
+	<ion-grid class="featured_grid">
+		<ion-row>
+			<ion-col size="12" class="featured_main" *ngFor="let list of lawyerFirm | slice:0:limit" (click)="lawyer_details(list.id)">
+				<ion-col size-xs="3" size-sm="3" class="featured_image">
+					<div *ngIf="list.profile_image!=''" class="image_div">
+						<img src="{{list.profile_image}}">
+					</div>
+					<div *ngIf="list.profile_image=='' || list.profile_image=='undefined'" class="image_div">
+						<img src="assets/images/download.jpg">
+					</div>
+				</ion-col>
+				<div class="featured_text">
+					<div class="heading">
+						<h4>{{list.company_name}}</h4>
+						<p>{{list.location}} -<span> {{list.country}}</span></p>
+						<p>Established {{list.establishment_date | date: 'dd-MM-yyyy'}}</p>
+					</div>
+					<div class="sevice_type" *ngIf="list.skill_count > 0">
+						<a>{{list.lawyer_skill[0].practice_area}}</a>
+						<a>{{list.lawyer_skill[1].practice_area}}</a>
+						<a *ngIf="list.skill_count>2">+ {{list.skill_count -2}} more</a>
+					</div>
+					<div class="last_text">
+						<p>{{list.description}}</p>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+		<ion-infinite-scroll-content loadingSpinner="crescent"></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+</ion-content>

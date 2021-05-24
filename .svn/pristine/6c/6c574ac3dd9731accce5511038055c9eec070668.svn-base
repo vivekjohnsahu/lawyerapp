@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-view-enquiry',
+  templateUrl: './view-enquiry.page.html',
+  styleUrls: ['./view-enquiry.page.scss'],
+})
+export class ViewEnquiryPage implements OnInit {
+
+  enquiry = {
+    no:"12345678910",
+    email:"Vikas@gmail.com",
+    fname:"Vikas",
+    lname:"Kumer",
+    date:"06-12-19",
+    time:"12:00 PM",
+    remarks:"Lorem Ipsum text"
+  }
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

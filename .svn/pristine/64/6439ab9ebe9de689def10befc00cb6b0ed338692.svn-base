@@ -1,0 +1,44 @@
+import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
+
+@Component({
+  selector: 'app-search',
+  templateUrl: './search.page.html',
+  styleUrls: ['./search.page.scss'],
+})
+export class SearchPage implements OnInit {
+
+  public term : string;
+
+  constructor(private spinner: NgxSpinnerService) { 
+  }
+  search_cmt:any;
+  user_name=[
+		{name:'Business'},
+		{name:'Divorce'}, 
+		{name:'Employement & labour'}, 
+		{name:'Family Lawyer'}, 
+    {name:'Corporate Laywer'},
+    {name:'Vivek'},
+		{name:'Sachin'}, 
+		{name:'Deepak'}, 
+		{name:'Lawyer'}, 
+		{name:'User'}	
+  ]
+  
+  getISkill(e){
+		this.search_cmt = this.user_name;
+	}
+  selet_vls(vls){
+    this.term=vls;
+    this.search_cmt=[];
+    this.spinner.show();
+    setTimeout(() => {
+        this.spinner.hide();
+    },1200);
+  }
+
+  ngOnInit() {
+  }
+
+}

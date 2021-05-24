@@ -1,0 +1,74 @@
+import { Component } from '@angular/core';
+
+import { Platform } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Router } from '@angular/router';
+import { MenuController, IonSlides, AlertController } from '@ionic/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
+})
+export class AppComponent {
+  public appPages = [
+    {
+      title: 'Home',
+      url: '/home',
+      icon: 'home'
+    },
+    {
+      title: 'List',
+      url: '/list',
+      icon: 'list'
+    }
+  ];
+
+  user_access:boolean;
+
+  constructor(
+    private platform: Platform,
+    private splashScreen: SplashScreen,
+    private statusBar: StatusBar,
+    private router: Router,
+    public menu: MenuController,
+    public alertController:AlertController
+  ) {
+    this.initializeApp();
+    let user_access =JSON.parse(localStorage.getItem('login'));
+    console.log('user_access')
+    console.log(user_access)
+    if(user_access=='user'){
+      this.user_access=true;
+    }else{
+      this.user_access=false;
+    }
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.splashScreen.hide();
+    });
+  }
+
+  async logOut(){
+    const alert = await this.alertController.create({
+      message: 'You are sure you want to logout now.',
+      buttons: [{
+        text: 'Cancel',
+        role: 'cancel',
+        cssClass: 'secondary',
+          handler: () => {  }
+        },{
+          text: 'ok',
+          handler: () => {
+            localStorage.removeItem('login')
+            this.menu.enable(false);
+            this.router.navigateByUrl("/sign-in")
+          }
+        }]
+    });
+    await alert.present();
+  }
+}

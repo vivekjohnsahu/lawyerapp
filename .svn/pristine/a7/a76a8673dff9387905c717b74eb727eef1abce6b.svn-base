@@ -1,0 +1,241 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["home-home-module"],{
+
+/***/ "./src/app/home/home.module.ts":
+/*!*************************************!*\
+  !*** ./src/app/home/home.module.ts ***!
+  \*************************************/
+/*! exports provided: HomePageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _home_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./home.page */ "./src/app/home/home.page.ts");
+/* harmony import */ var _modalpage_modalpage_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../modalpage/modalpage.page */ "./src/app/modalpage/modalpage.page.ts");
+
+
+
+
+
+
+
+
+
+var HomePageModule = /** @class */ (function () {
+    function HomePageModule() {
+    }
+    HomePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild([
+                    {
+                        path: '',
+                        component: _home_page__WEBPACK_IMPORTED_MODULE_6__["HomePage"]
+                    }
+                ])
+            ],
+            declarations: [_home_page__WEBPACK_IMPORTED_MODULE_6__["HomePage"], _modalpage_modalpage_page__WEBPACK_IMPORTED_MODULE_7__["ModalpagePage"]],
+            entryComponents: [_modalpage_modalpage_page__WEBPACK_IMPORTED_MODULE_7__["ModalpagePage"]]
+        })
+    ], HomePageModule);
+    return HomePageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/home/home.page.html":
+/*!*************************************!*\
+  !*** ./src/app/home/home.page.html ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-menu-button>\n\t\t\t\t<img src=\"assets/images/ham_icon.png\">\n\t\t\t</ion-menu-button>\n\t\t</ion-buttons>\n\t\t<ion-title *ngIf=\"open_app=='user'\">\n\t\t\tHome\n\t\t</ion-title>\n\t\t<ion-title *ngIf=\"open_app=='lawyer'\">\n\t\t\tLawyer Dashboard\n\t\t</ion-title>\n\t\t<ion-buttons slot=\"end\" class=\"search_icon_container\">\n\t\t\t<a routerLink=\"/search\" class=\"search_icon\"><img src=\"assets/images/search_icon.png\"></a>\n\t\t</ion-buttons>\n\t</ion-toolbar>\n</ion-header>\n<ion-content>\n\t<ion-refresher (ionRefresh)=\"doRefresh($event)\">\n\t\t<ion-refresher-content \n\t\t\tpullingIcon=\"arrow-dropdown\" \n\t\t\tpullingText=\"Pull to refresh\" \n\t\t\trefreshingSpinner=\"crescent\">\n\t\t</ion-refresher-content>\n\t</ion-refresher>\n\t<div class=\"homepage_img\" *ngIf=\"open_app=='user'\">\n\t\t<a><img src=\"assets/images/Dashboard_img.png\"></a>\n\t</div>\n\t<div class=\"homepage_img\" *ngIf=\"open_app=='lawyer'\">\n\t\t<a><img src=\"assets\\images\\images.jpg\"></a>\n\t</div>\n\t<div class=\"featured_div\">\n\t\t<h3>Featured <span>Law Firms</span></h3>\n\t</div>\n\t<ion-fab class=\"fixed_btn\" vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n\t\t<ion-fab-button color=\"light\" (click)=\"presentModal()\"><img src=\"assets/images/filter_icon.png\"></ion-fab-button>\n\t</ion-fab>\n\t<ion-grid class=\"featured_grid\">\n\t\t<ion-row>\n\t\t\t<ion-col size=\"12\" class=\"featured_main\" routerLink=\"/firm-details\">\n\t\t\t\t<ion-col size-xs=\"3\" size-sm=\"3\" class=\"featured_image\">\n\t\t\t\t\t<img src=\"assets/images/featured_1.png\">\n\t\t\t\t</ion-col>\n\t\t\t\t<div class=\"featured_text\">\n\t\t\t\t\t<div class=\"heading\">\n\t\t\t\t\t\t<h4>HHS Lawyers And Legal Consultants</h4>\n\t\t\t\t\t\t<p>Dubai - United Arab Emirates</p>\n\t\t\t\t\t\t<p>Established 2002</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"sevice_type\">\n\t\t\t\t\t\t<a>criminal</a>\n\t\t\t\t\t\t<a>Divorce</a>\n\t\t\t\t\t\t<a>+6 more</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"last_text\">\n\t\t\t\t\t\t<p>HHS Lawyers provide high quality legal services including Litigation,</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ion-col>\n\t\t\t<ion-col size=\"12\" class=\"featured_main\" routerLink=\"/firm-details\">\n\t\t\t\t<ion-col size-xs=\"3\" size-sm=\"3\" class=\"featured_image\">\n\t\t\t\t\t<img src=\"assets/images/featured_2.png\">\n\t\t\t\t</ion-col>\n\t\t\t\t<div class=\"featured_text\">\n\t\t\t\t\t<div class=\"heading\">\n\t\t\t\t\t\t<h4>HHS Lawyers And Legal Consultants</h4>\n\t\t\t\t\t\t<p>Dubai - United Arab Emirates</p>\n\t\t\t\t\t\t<p>Established 2002</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"sevice_type\">\n\t\t\t\t\t\t<a>criminal</a>\n\t\t\t\t\t\t<a>Divorce</a>\n\t\t\t\t\t\t<a>+6 more</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"last_text\">\n\t\t\t\t\t\t<p>HHS Lawyers provide high quality legal services including Litigation,</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ion-col>\n\t\t\t<ion-col size=\"12\" class=\"featured_main\" routerLink=\"/firm-details\">\n\t\t\t\t<ion-col size-xs=\"3\" size-sm=\"3\" class=\"featured_image\">\n\t\t\t\t\t<img src=\"assets/images/featured_3.png\">\n\t\t\t\t</ion-col>\n\t\t\t\t<div class=\"featured_text\">\n\t\t\t\t\t<div class=\"heading\">\n\t\t\t\t\t\t<h4>HHS Lawyers And Legal Consultants</h4>\n\t\t\t\t\t\t<p>Dubai - United Arab Emirates</p>\n\t\t\t\t\t\t<p>Established 2002</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"sevice_type\">\n\t\t\t\t\t\t<a>criminal</a>\n\t\t\t\t\t\t<a>Divorce</a>\n\t\t\t\t\t\t<a>+6 more</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"last_text\">\n\t\t\t\t\t\t<p>HHS Lawyers provide high quality legal services including Litigation,</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ion-col>\n\t\t\t<ion-col size=\"12\" class=\"featured_main\" routerLink=\"/firm-details\">\n\t\t\t\t<ion-col size-xs=\"3\" size-sm=\"3\" class=\"featured_image\">\n\t\t\t\t\t<img src=\"assets/images/featured_2.png\">\n\t\t\t\t</ion-col>\n\t\t\t\t<div class=\"featured_text\">\n\t\t\t\t\t<div class=\"heading\">\n\t\t\t\t\t\t<h4>HHS Lawyers And Legal Consultants</h4>\n\t\t\t\t\t\t<p>Dubai - United Arab Emirates</p>\n\t\t\t\t\t\t<p>Established 2002</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"sevice_type\">\n\t\t\t\t\t\t<a>criminal</a>\n\t\t\t\t\t\t<a>Divorce</a>\n\t\t\t\t\t\t<a>+6 more</a>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"last_text\">\n\t\t\t\t\t\t<p>HHS Lawyers provide high quality legal services including Litigation,</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</ion-col>\n\t\t</ion-row>\n\t</ion-grid>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/home/home.page.scss":
+/*!*************************************!*\
+  !*** ./src/app/home/home.page.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden; }\n\nion-toolbar {\n  --background: #233658; }\n\nion-buttons ion-menu-button > img {\n  width: 17px; }\n\n.search_icon_container img {\n  width: 17px; }\n\nion-title {\n  text-align: center;\n  color: #fff;\n  font-size: 17px;\n  font-weight: 400;\n  font-family: Proxima-Nova-alt-Regular; }\n\na.search_icon {\n  padding: 0px 6px; }\n\n.homepage_img {\n  padding: 10px; }\n\n.homepage_img img {\n  width: 100%; }\n\n.featured_div {\n  padding: 5px 10px 5px 10px; }\n\n.featured_div > h3 {\n  font-size: 15px;\n  margin-top: 0px;\n  margin-bottom: 0px; }\n\n.featured_div > h3 > span {\n  color: #fd8900; }\n\n.featured_grid {\n  padding: 10px; }\n\n.featured_main {\n  padding: 10px;\n  box-shadow: 0px 3px 25px 2px rgba(0, 0, 0, 0.23);\n  margin-bottom: 15px; }\n\ndiv.featured_image {\n  width: 30%;\n  display: inline-block;\n  vertical-align: top; }\n\n.featured_image img {\n  max-height: 71px;\n  min-height: 71px;\n  min-width: 71px;\n  max-width: 71px;\n  border: 1px solid #ccc;\n  border-radius: 50%; }\n\ndiv.featured_text {\n  width: 68%;\n  display: inline-block;\n  vertical-align: top; }\n\ndiv.featured_text h4 {\n  margin-top: 0px;\n  font-size: 15px;\n  margin-bottom: 5px; }\n\ndiv.featured_text p {\n  margin: 0px;\n  margin-bottom: 5px;\n  font-size: 12px;\n  color: rgba(31, 31, 31, 0.8); }\n\n.sevice_type {\n  margin-bottom: 5px; }\n\n.sevice_type a {\n  font-size: 12px;\n  text-transform: capitalize;\n  border: 1px solid #fd8902;\n  padding: 0px 5px;\n  background: #fff9f2;\n  border-radius: 5px;\n  margin-right: 5px;\n  color: #1f1f1f; }\n\n.sevice_type a:last-child {\n  font-size: 12px;\n  text-transform: capitalize;\n  border: none;\n  padding: 0px 5px;\n  background: none;\n  border-radius: 5px;\n  margin-right: 5px;\n  color: #fd8902; }\n\n.fixed_btn ion-fab-button {\n  --ion-color-base: #f4a14e !important; }\n\n.fixed_btn ion-fab-button > img {\n  width: 20px; }\n\n.fixed_btn {\n  border-radius: 50%;\n  box-shadow: 1px 1px 23px 1px #f4a14e; }\n\n.featured_main:focus {\n  outline: none; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9EOlxceGFtcHBcXGh0ZG9jc1xcbGF3eWVyYXBwXFxsYXd5ZXJzQXBwL3NyY1xcYXBwXFxob21lXFxob21lLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQixnQkFBZ0IsRUFBQTs7QUFHbEI7RUFDRSxxQkFBYSxFQUFBOztBQUdmO0VBQ0UsV0FBVyxFQUFBOztBQUdiO0VBQ0UsV0FBVyxFQUFBOztBQUdiO0VBQ0Usa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLHFDQUFxQyxFQUFBOztBQUd2QztFQUNFLGdCQUFnQixFQUFBOztBQUdsQjtFQUNFLGFBQWEsRUFBQTs7QUFJZjtFQUNFLFdBQVcsRUFBQTs7QUFHYjtFQUNFLDBCQUEwQixFQUFBOztBQUc1QjtFQUNFLGVBQWU7RUFDZixlQUFlO0VBQ2Ysa0JBQWtCLEVBQUE7O0FBR3BCO0VBQ0UsY0FBYyxFQUFBOztBQUdoQjtFQUNFLGFBQWEsRUFBQTs7QUFHZjtFQUNFLGFBQWE7RUFDYixnREFBZ0Q7RUFDaEQsbUJBQW1CLEVBQUE7O0FBR3JCO0VBQ0UsVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixtQkFBbUIsRUFBQTs7QUFHckI7RUFDRSxnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLGVBQWU7RUFDZixlQUFlO0VBQ2Ysc0JBQXNCO0VBQ3RCLGtCQUFrQixFQUFBOztBQUdwQjtFQUNFLFVBQVU7RUFDVixxQkFBcUI7RUFDckIsbUJBQW1CLEVBQUE7O0FBR3JCO0VBQ0UsZUFBZTtFQUNmLGVBQWU7RUFDZixrQkFBa0IsRUFBQTs7QUFHcEI7RUFDRSxXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGVBQWU7RUFDZiw0QkFBNEIsRUFBQTs7QUFHOUI7RUFDRSxrQkFBa0IsRUFBQTs7QUFHcEI7RUFDRSxlQUFlO0VBQ2YsMEJBQTBCO0VBQzFCLHlCQUF5QjtFQUN6QixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLGtCQUFrQjtFQUNsQixpQkFBaUI7RUFDakIsY0FBYyxFQUFBOztBQUdoQjtFQUNFLGVBQWU7RUFDZiwwQkFBMEI7RUFDMUIsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLGlCQUFpQjtFQUNqQixjQUFjLEVBQUE7O0FBR2hCO0VBQ0Usb0NBQWlCLEVBQUE7O0FBR25CO0VBQ0UsV0FBVyxFQUFBOztBQUdiO0VBQ0Usa0JBQWtCO0VBQ2xCLG9DQUFvQyxFQUFBOztBQUd0QztFQUNFLGFBQWEsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud2VsY29tZS1jYXJkIGlvbi1pbWcge1xuICBtYXgtaGVpZ2h0OiAzNXZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xufVxuXG5pb24tdG9vbGJhciB7XG4gIC0tYmFja2dyb3VuZDogIzIzMzY1ODtcbn1cblxuaW9uLWJ1dHRvbnMgaW9uLW1lbnUtYnV0dG9uPmltZyB7XG4gIHdpZHRoOiAxN3B4O1xufVxuXG4uc2VhcmNoX2ljb25fY29udGFpbmVyIGltZyB7XG4gIHdpZHRoOiAxN3B4O1xufVxuXG5pb24tdGl0bGUge1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGNvbG9yOiAjZmZmO1xuICBmb250LXNpemU6IDE3cHg7XG4gIGZvbnQtd2VpZ2h0OiA0MDA7XG4gIGZvbnQtZmFtaWx5OiBQcm94aW1hLU5vdmEtYWx0LVJlZ3VsYXI7XG59XG5cbmEuc2VhcmNoX2ljb24ge1xuICBwYWRkaW5nOiAwcHggNnB4O1xufVxuXG4uaG9tZXBhZ2VfaW1nIHtcbiAgcGFkZGluZzogMTBweDtcbn1cblxuXG4uaG9tZXBhZ2VfaW1nIGltZyB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4uZmVhdHVyZWRfZGl2IHtcbiAgcGFkZGluZzogNXB4IDEwcHggNXB4IDEwcHg7XG59XG5cbi5mZWF0dXJlZF9kaXY+aDMge1xuICBmb250LXNpemU6IDE1cHg7XG4gIG1hcmdpbi10b3A6IDBweDtcbiAgbWFyZ2luLWJvdHRvbTogMHB4O1xufVxuXG4uZmVhdHVyZWRfZGl2PmgzPnNwYW4ge1xuICBjb2xvcjogI2ZkODkwMDtcbn1cblxuLmZlYXR1cmVkX2dyaWQge1xuICBwYWRkaW5nOiAxMHB4O1xufVxuXG4uZmVhdHVyZWRfbWFpbiB7XG4gIHBhZGRpbmc6IDEwcHg7XG4gIGJveC1zaGFkb3c6IDBweCAzcHggMjVweCAycHggcmdiYSgwLCAwLCAwLCAwLjIzKTtcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcbn1cblxuZGl2LmZlYXR1cmVkX2ltYWdlIHtcbiAgd2lkdGg6IDMwJTtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICB2ZXJ0aWNhbC1hbGlnbjogdG9wO1xufVxuXG4uZmVhdHVyZWRfaW1hZ2UgaW1nIHtcbiAgbWF4LWhlaWdodDogNzFweDtcbiAgbWluLWhlaWdodDogNzFweDtcbiAgbWluLXdpZHRoOiA3MXB4O1xuICBtYXgtd2lkdGg6IDcxcHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbn1cblxuZGl2LmZlYXR1cmVkX3RleHQge1xuICB3aWR0aDogNjglO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIHZlcnRpY2FsLWFsaWduOiB0b3A7XG59XG5cbmRpdi5mZWF0dXJlZF90ZXh0IGg0IHtcbiAgbWFyZ2luLXRvcDogMHB4O1xuICBmb250LXNpemU6IDE1cHg7XG4gIG1hcmdpbi1ib3R0b206IDVweDtcbn1cblxuZGl2LmZlYXR1cmVkX3RleHQgcCB7XG4gIG1hcmdpbjogMHB4O1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgY29sb3I6IHJnYmEoMzEsIDMxLCAzMSwgMC44KTtcbn1cblxuLnNldmljZV90eXBlIHtcbiAgbWFyZ2luLWJvdHRvbTogNXB4O1xufVxuXG4uc2V2aWNlX3R5cGUgYSB7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XG4gIGJvcmRlcjogMXB4IHNvbGlkICNmZDg5MDI7XG4gIHBhZGRpbmc6IDBweCA1cHg7XG4gIGJhY2tncm91bmQ6ICNmZmY5ZjI7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiA1cHg7XG4gIGNvbG9yOiAjMWYxZjFmO1xufVxuXG4uc2V2aWNlX3R5cGUgYTpsYXN0LWNoaWxkIHtcbiAgZm9udC1zaXplOiAxMnB4O1xuICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcbiAgYm9yZGVyOiBub25lO1xuICBwYWRkaW5nOiAwcHggNXB4O1xuICBiYWNrZ3JvdW5kOiBub25lO1xuICBib3JkZXItcmFkaXVzOiA1cHg7XG4gIG1hcmdpbi1yaWdodDogNXB4O1xuICBjb2xvcjogI2ZkODkwMjtcbn1cblxuLmZpeGVkX2J0biBpb24tZmFiLWJ1dHRvbiB7XG4gIC0taW9uLWNvbG9yLWJhc2U6ICNmNGExNGUgIWltcG9ydGFudDtcbn1cblxuLmZpeGVkX2J0biBpb24tZmFiLWJ1dHRvbj5pbWcge1xuICB3aWR0aDogMjBweDtcbn1cblxuLmZpeGVkX2J0biB7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgYm94LXNoYWRvdzogMXB4IDFweCAyM3B4IDFweCAjZjRhMTRlO1xufVxuXG4uZmVhdHVyZWRfbWFpbjpmb2N1cyB7XG4gIG91dGxpbmU6IG5vbmU7XG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/home/home.page.ts":
+/*!***********************************!*\
+  !*** ./src/app/home/home.page.ts ***!
+  \***********************************/
+/*! exports provided: HomePage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePage", function() { return HomePage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _modalpage_modalpage_page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modalpage/modalpage.page */ "./src/app/modalpage/modalpage.page.ts");
+/* harmony import */ var _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic-native/splash-screen/ngx */ "./node_modules/@ionic-native/splash-screen/ngx/index.js");
+/* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+
+
+
+
+
+
+
+
+
+var HomePage = /** @class */ (function () {
+    function HomePage(router, route, modalController, menu, splashScreen, statusBar, platform, alertCtrl, storage, events) {
+        var _this = this;
+        this.router = router;
+        this.route = route;
+        this.modalController = modalController;
+        this.menu = menu;
+        this.splashScreen = splashScreen;
+        this.statusBar = statusBar;
+        this.platform = platform;
+        this.alertCtrl = alertCtrl;
+        this.storage = storage;
+        this.events = events;
+        // user and lawyer login 
+        this.events.subscribe('open_app', function (data) {
+            _this.open_app = data;
+            _this.storage.set('open_app', data);
+        });
+        this.storage.get('open_app').then(function (val) {
+            _this.open_app = val;
+        });
+        // user and lawyer login  
+        platform.ready().then(function () {
+            statusBar.styleDefault();
+            splashScreen.hide();
+            _this.statusBar.overlaysWebView(false);
+            _this.statusBar.backgroundColorByHexString('#233658;');
+            _this.platform.backButton.subscribe(function () {
+                if (_this.router.url == "/home") {
+                    _this.presentConfirm();
+                }
+            });
+        });
+        var user = JSON.parse(localStorage.getItem('open_app'));
+        if (user != null || user != undefined) {
+            this.router.navigateByUrl('/home');
+        }
+    }
+    HomePage.prototype.presentModal = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var modal;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.modalController.create({
+                            component: _modalpage_modalpage_page__WEBPACK_IMPORTED_MODULE_4__["ModalpagePage"]
+                        })];
+                    case 1:
+                        modal = _a.sent();
+                        return [4 /*yield*/, modal.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    HomePage.prototype.ngOnInit = function () {
+        // this.platform.ready().then(() => {
+        // 	this.statusBar.styleDefault();
+        // 	this.splashScreen.hide();
+        // 	this.statusBar.overlaysWebView(false);
+        // 	this.statusBar.backgroundColorByHexString('#233658;');
+        // });
+    };
+    // app exit popup start 
+    HomePage.prototype.presentConfirm = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.alertCtrl.create({
+                            message: 'Do you want Exit?',
+                            buttons: [
+                                {
+                                    text: 'Cancel',
+                                    role: 'cancel',
+                                    handler: function () {
+                                        console.log('Cancel clicked');
+                                        // this.alertShown=false;
+                                    }
+                                },
+                                {
+                                    text: 'Yes',
+                                    handler: function () {
+                                        console.log('Yes clicked');
+                                        navigator['app'].exitApp();
+                                    }
+                                }
+                            ]
+                        })];
+                    case 1:
+                        alert = _a.sent();
+                        return [4 /*yield*/, alert.present().then(function () {
+                                // this.alertShown=true;
+                            })];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // app exit popup end 
+    // Refresher Content start
+    HomePage.prototype.doRefresh = function (event) {
+        setTimeout(function () {
+            event.target.complete();
+        }, 2000);
+    };
+    HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-home',
+            template: __webpack_require__(/*! ./home.page.html */ "./src/app/home/home.page.html"),
+            styles: [__webpack_require__(/*! ./home.page.scss */ "./src/app/home/home.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["MenuController"],
+            _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
+            _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"],
+            _ionic_storage__WEBPACK_IMPORTED_MODULE_7__["Storage"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Events"]])
+    ], HomePage);
+    return HomePage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=home-home-module.js.map

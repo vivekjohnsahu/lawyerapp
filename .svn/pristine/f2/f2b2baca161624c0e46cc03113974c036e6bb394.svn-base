@@ -1,0 +1,111 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["plan-plan-module"],{
+
+/***/ "./src/app/plan/plan.module.ts":
+/*!*************************************!*\
+  !*** ./src/app/plan/plan.module.ts ***!
+  \*************************************/
+/*! exports provided: PlanPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlanPageModule", function() { return PlanPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _plan_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./plan.page */ "./src/app/plan/plan.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _plan_page__WEBPACK_IMPORTED_MODULE_6__["PlanPage"]
+    }
+];
+var PlanPageModule = /** @class */ (function () {
+    function PlanPageModule() {
+    }
+    PlanPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_plan_page__WEBPACK_IMPORTED_MODULE_6__["PlanPage"]]
+        })
+    ], PlanPageModule);
+    return PlanPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/plan/plan.page.html":
+/*!*************************************!*\
+  !*** ./src/app/plan/plan.page.html ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n        <ion-back-button>\n            \n          </ion-back-button>\n    </ion-buttons>\n    <ion-title>Basic Plan</ion-title>\n  </ion-toolbar>\n</ion-header> \n\n<ion-content no-padding>\n  <ion-grid no-padding>\n    <ion-row no-padding>\n      <ion-col size=\"12\" no-padding>\n        <div class=\"basic_plan_bg\">\n          <div class=\"basic_plan_main\">\n            <div class=\"img_plan\">\n              <ion-avatar>\n                <img src=\"assets/images/plans/view_plan.png\">\n              </ion-avatar>\n            </div>\n            <div class=\"plan_head\">\n              <ion-text>\n                <p>Basic Plan</p>\n              </ion-text>\n            </div>\n          </div>\n        </div>\n      </ion-col>\n      <ion-col size=\"12\" no-padding>\n            <div class=\"tabs_main\">\n              <ul class=\"nav nav-tabs\">\n                <li><a data-toggle=\"tab\" href=\"#home\" class=\"active\">Monthly</a></li>\n                <li><a data-toggle=\"tab\" href=\"#menu1\">Yearly</a></li>\n              </ul>\n          \n            <div class=\"tab-content\">\n              <div id=\"home\" class=\"tab-pane fade in active show\">\n                  <div class=\"plan_cost\">\n                    <span class=\"sign\"><i class=\"fa fa-usd\" aria-hidden=\"true\"></i></span>\n                    <span class=\"actual_cost\">199</span>\n                    <span class=\"monthly\">/Monthly</span> \n                  </div>\n                  <div class=\"plan_info\">\n                    <ion-text><p>Basic Information</p></ion-text>\n                  </div>\n                  <div class=\"plan_para\">\n                    <ion-text><p>Lawyer App makes it simple with three subscription legal plans designed to help our small business owners stay in contact with their legal team, helping them stay focused on their growth.</p></ion-text>\n                  </div>  \n                  <div class=\"plan_list\">\n                    <ion-list no-padding>\n                      <ion-item no-padding>\n                        <ion-label><span class=\"checked\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>Speak with a lawyer/team you know!</ion-label>\n                      </ion-item>\n                      <ion-item no-padding>\n                        <ion-label><span class=\"checked\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>12 Quick Questions Per Month</ion-label>\n                      </ion-item>\n                      <ion-item no-padding>\n                        <ion-label><span class=\"checked\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>15% Discount on Work We Do</ion-label>\n                      </ion-item>\n                      <ion-item no-padding>\n                        <ion-label><span class=\"checked\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>4 Document Credits</ion-label>\n                      </ion-item>\n                      <ion-item no-padding>\n                        <ion-label><span class=\"checked\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>Quarterly Check-In Call</ion-label>\n                      </ion-item>\n                    </ion-list>\n                  </div>\n                  <div class=\"subscribe\">\n                    <ion-button>Subscribe</ion-button>\n                  </div>\n              </div>\n              <div id=\"menu1\" class=\"tab-pane fade\">\n                  <div class=\"plan_cost\">\n                      <span class=\"sign\"><i class=\"fa fa-usd\" aria-hidden=\"true\"></i></span>\n                      <span class=\"actual_cost\">699</span>\n                      <span class=\"monthly\">/Monthly</span> \n                    </div>\n                    <div class=\"plan_info\">\n                      <ion-text><p>Basic Information</p></ion-text>\n                    </div>\n                    <div class=\"plan_para\">\n                      <ion-text><p>Lawyer App makes it simple with three subscription legal plans designed to help our small business owners stay in contact with their legal team, helping them stay focused on their growth.</p></ion-text>\n                    </div>  \n                    <div class=\"plan_list\">\n                      <ion-list no-padding>\n                        <ion-item no-padding>\n                          <ion-label><span class=\"checked\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>Speak with a lawyer/team you know!</ion-label>\n                        </ion-item>\n                        <ion-item no-padding>\n                          <ion-label><span class=\"checked\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>12 Quick Questions Per Month</ion-label>\n                        </ion-item>\n                        <ion-item no-padding>\n                          <ion-label><span class=\"checked\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>15% Discount on Work We Do</ion-label>\n                        </ion-item>\n                        <ion-item no-padding>\n                          <ion-label><span class=\"checked\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>4 Document Credits</ion-label>\n                        </ion-item>\n                        <ion-item no-padding>\n                          <ion-label><span class=\"checked\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span>Quarterly Check-In Call</ion-label>\n                        </ion-item>\n                      </ion-list>\n                    </div>\n                    <div class=\"subscribe\">\n                      <ion-button>Subscribe</ion-button>\n                    </div>\n              </div>\n              \n            </div>\n          </div>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  \n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/plan/plan.page.scss":
+/*!*************************************!*\
+  !*** ./src/app/plan/plan.page.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-toolbar {\n  --background: #233658; }\n\nion-header {\n  z-index: 1; }\n\nion-title {\n  text-align: left;\n  color: #fff;\n  font-size: 17px;\n  font-weight: 400;\n  font-family: Proxima-Nova-thin; }\n\nion-back-button {\n  color: #fff; }\n\n.basic_plan_bg {\n  background: #233658;\n  z-index: 9;\n  position: relative;\n  height: 50px;\n  margin-bottom: 50px; }\n\n.basic_plan_main {\n  text-align: center;\n  width: 90%;\n  margin: 0 auto;\n  top: 0;\n  position: absolute;\n  left: 5%;\n  padding-top: 10px;\n  /* border: 1px solid #ccc; */\n  background: #fff;\n  border-radius: 10px;\n  box-shadow: 0px 4px 16px 1px rgba(0, 0, 0, 0.18); }\n\n.basic_plan_main > .img_plan > ion-avatar {\n  margin: 0 auto;\n  width: 70px;\n  height: auto; }\n\n.plan_head > ion-text {\n  font-size: 14px;\n  font-weight: 500; }\n\n.tabs_main {\n  padding: 30px 0px; }\n\n.tabs_main > ul {\n  width: 70%;\n  margin: 0 auto;\n  border: 1px solid #233658;\n  border-radius: 5px; }\n\n.tabs_main > ul > li {\n  width: 50%;\n  display: inline-block;\n  text-align: center; }\n\n.tabs_main > ul > li > a {\n  display: inline-block;\n  text-decoration: none;\n  color: rgba(31, 31, 31, 0.5);\n  font-size: 14px; }\n\n.tabs_main > ul > li > a.active {\n  width: 100%;\n  background: #233658;\n  color: #fff;\n  font-size: 14px;\n  padding: 3px; }\n\n.plan_cost {\n  margin: 20px auto;\n  width: 55%;\n  text-align: center;\n  padding: 15px 10px;\n  border: 1px dashed #d47300;\n  background: #fdf8f2;\n  border-radius: 10px; }\n\n.plan_cost > span.actual_cost {\n  font-size: 24px;\n  margin: 0px 5px 0px 5px;\n  color: #233658; }\n\n.plan_cost > span.monthly {\n  font-size: 14px;\n  font-weight: 300; }\n\n.plan_info {\n  background: rgba(237, 197, 149, 0.48);\n  padding: 5px 10px;\n  margin-bottom: 10px; }\n\n.plan_info ion-text p {\n  margin-bottom: 0px; }\n\n.plan_para {\n  padding: 0px 10px; }\n\n.plan_para > ion-text {\n  font-size: 14px;\n  color: rgba(31, 31, 31, 0.6); }\n\n.plan_list ion-list {\n  width: 80%;\n  margin: 0 auto; }\n\n.plan_list ion-list > ion-item {\n  --border-bottom: 0px;\n  --inner-border-width: 0px; }\n\n.plan_list ion-list > ion-item > ion-label {\n  margin: 0;\n  font-size: 14px;\n  color: rgba(31, 31, 31, 0.5); }\n\n.plan_list ion-list > ion-item > ion-label > span {\n  display: inline-block;\n  width: 30px;\n  height: 30px;\n  border: 1px solid #dee1e6;\n  text-align: center;\n  padding-top: 3px;\n  border-radius: 50%;\n  margin-right: 8px;\n  background: #dee1e6; }\n\n.plan_list ion-list > ion-item > ion-label > span > i {\n  color: #f99521; }\n\n.subscribe {\n  padding: 10px 0px;\n  text-align: center;\n  width: 80%;\n  margin: 0 auto; }\n\n.subscribe > ion-button {\n  width: 100%;\n  --background: #f99521;\n  --border-radius: 30px;\n  overflow: hidden;\n  font-size: 14px;\n  text-transform: uppercase;\n  font-weight: 400;\n  --background-activated: #ff8900; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGxhbi9EOlxcc2FjaGluXFxsYXdlcl9hcHAvc3JjXFxhcHBcXHBsYW5cXHBsYW4ucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQWEsRUFBQTs7QUFHakI7RUFDSSxVQUFVLEVBQUE7O0FBRWQ7RUFDSSxnQkFBZTtFQUNmLFdBQVU7RUFDVixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLDhCQUE4QixFQUFBOztBQUVsQztFQUNJLFdBQVcsRUFBQTs7QUFFZjtFQUNJLG1CQUFtQjtFQUNuQixVQUFVO0VBQ1Ysa0JBQWtCO0VBQ2xCLFlBQVk7RUFDWixtQkFBa0IsRUFBQTs7QUFFdEI7RUFDSSxrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLGNBQWM7RUFDZCxNQUFNO0VBQ04sa0JBQWtCO0VBQ2xCLFFBQVE7RUFDUixpQkFBaUI7RUFDakIsNEJBQUE7RUFDQSxnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLGdEQUFnRCxFQUFBOztBQUVwRDtFQUNJLGNBQWM7RUFDZCxXQUFXO0VBQ1gsWUFBWSxFQUFBOztBQUVoQjtFQUNJLGVBQWU7RUFDZixnQkFDSixFQUFBOztBQUNBO0VBQ0ksaUJBQWlCLEVBQUE7O0FBRXJCO0VBQ0ksVUFBVTtFQUNWLGNBQWM7RUFDZCx5QkFBeUI7RUFDekIsa0JBQWtCLEVBQUE7O0FBRXRCO0VBQ0ksVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixrQkFBa0IsRUFBQTs7QUFFdEI7RUFDSSxxQkFBcUI7RUFDckIscUJBQXFCO0VBQ3JCLDRCQUE0QjtFQUM1QixlQUFlLEVBQUE7O0FBRW5CO0VBQ0ksV0FBVztFQUNYLG1CQUFtQjtFQUNuQixXQUFXO0VBQ1gsZUFBZTtFQUNmLFlBQVksRUFBQTs7QUFFaEI7RUFDSSxpQkFBaUI7RUFDakIsVUFBVTtFQUNWLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIsMEJBQTBCO0VBQzFCLG1CQUFtQjtFQUNuQixtQkFBbUIsRUFBQTs7QUFFdkI7RUFDSSxlQUFlO0VBQ2YsdUJBQXVCO0VBQ3ZCLGNBQWMsRUFBQTs7QUFFbEI7RUFDSSxlQUFlO0VBQ2YsZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0kscUNBQXFDO0VBQ3JDLGlCQUFpQjtFQUNqQixtQkFBbUIsRUFBQTs7QUFFdkI7RUFDSSxrQkFBa0IsRUFBQTs7QUFFdEI7RUFDSSxpQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxlQUFlO0VBQ2YsNEJBQTZCLEVBQUE7O0FBRWpDO0VBQ0ksVUFBVTtFQUNWLGNBQWMsRUFBQTs7QUFFbEI7RUFDSSxvQkFBZ0I7RUFDaEIseUJBQXFCLEVBQUE7O0FBRXpCO0VBQ0ksU0FBUztFQUNULGVBQWU7RUFDZiw0QkFBNEIsRUFBQTs7QUFFaEM7RUFDSSxxQkFBcUI7RUFDckIsV0FBVztFQUNYLFlBQVk7RUFDWix5QkFBeUI7RUFDekIsa0JBQWtCO0VBQ2xCLGdCQUFnQjtFQUNoQixrQkFBa0I7RUFDbEIsaUJBQWlCO0VBQ2pCLG1CQUFtQixFQUFBOztBQUV2QjtFQUNJLGNBQWMsRUFBQTs7QUFFbEI7RUFDSSxpQkFBaUI7RUFDakIsa0JBQWtCO0VBQ2xCLFVBQVU7RUFDVixjQUFjLEVBQUE7O0FBRWxCO0VBQ0ksV0FBVztFQUNYLHFCQUFhO0VBQ2IscUJBQWdCO0VBQ2hCLGdCQUFnQjtFQUNoQixlQUFlO0VBQ2YseUJBQXlCO0VBQ3pCLGdCQUFnQjtFQUNoQiwrQkFBdUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL3BsYW4vcGxhbi5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tdG9vbGJhciB7XHJcbiAgICAtLWJhY2tncm91bmQ6ICMyMzM2NTg7XHJcbn1cclxuXHJcbmlvbi1oZWFkZXJ7XHJcbiAgICB6LWluZGV4OiAxO1xyXG59XHJcbmlvbi10aXRsZXtcclxuICAgIHRleHQtYWxpZ246bGVmdDtcclxuICAgIGNvbG9yOiNmZmY7XHJcbiAgICBmb250LXNpemU6IDE3cHg7XHJcbiAgICBmb250LXdlaWdodDogNDAwO1xyXG4gICAgZm9udC1mYW1pbHk6IFByb3hpbWEtTm92YS10aGluO1xyXG59XHJcbmlvbi1iYWNrLWJ1dHRvbiB7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxufVxyXG4uYmFzaWNfcGxhbl9iZ3tcclxuICAgIGJhY2tncm91bmQ6ICMyMzM2NTg7XHJcbiAgICB6LWluZGV4OiA5O1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgaGVpZ2h0OiA1MHB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTo1MHB4O1xyXG59XHJcbi5iYXNpY19wbGFuX21haW57XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICB0b3A6IDA7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBsZWZ0OiA1JTtcclxuICAgIHBhZGRpbmctdG9wOiAxMHB4O1xyXG4gICAgLyogYm9yZGVyOiAxcHggc29saWQgI2NjYzsgKi9cclxuICAgIGJhY2tncm91bmQ6ICNmZmY7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMHB4O1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDRweCAxNnB4IDFweCByZ2JhKDAsIDAsIDAsIDAuMTgpO1xyXG59XHJcbi5iYXNpY19wbGFuX21haW4gPiAuaW1nX3BsYW4gPiBpb24tYXZhdGFye1xyXG4gICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICB3aWR0aDogNzBweDtcclxuICAgIGhlaWdodDogYXV0bztcclxufVxyXG4ucGxhbl9oZWFkID4gaW9uLXRleHR7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBmb250LXdlaWdodDogNTAwXHJcbn0gXHJcbi50YWJzX21haW57XHJcbiAgICBwYWRkaW5nOiAzMHB4IDBweDtcclxufVxyXG4udGFic19tYWluID4gdWx7XHJcbiAgICB3aWR0aDogNzAlO1xyXG4gICAgbWFyZ2luOiAwIGF1dG87XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjMjMzNjU4O1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG59XHJcbi50YWJzX21haW4gPiB1bCA+IGxpe1xyXG4gICAgd2lkdGg6IDUwJTtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4udGFic19tYWluID4gdWwgPiBsaSA+IGF7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBjb2xvcjogcmdiYSgzMSwgMzEsIDMxLCAwLjUpO1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG59XHJcbi50YWJzX21haW4gPiB1bCA+IGxpID4gYS5hY3RpdmV7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJhY2tncm91bmQ6ICMyMzM2NTg7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIHBhZGRpbmc6IDNweDtcclxufVxyXG4ucGxhbl9jb3N0e1xyXG4gICAgbWFyZ2luOiAyMHB4IGF1dG87XHJcbiAgICB3aWR0aDogNTUlO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgcGFkZGluZzogMTVweCAxMHB4O1xyXG4gICAgYm9yZGVyOiAxcHggZGFzaGVkICNkNDczMDA7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZmRmOGYyO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTBweDtcclxufVxyXG4ucGxhbl9jb3N0ID4gc3Bhbi5hY3R1YWxfY29zdHtcclxuICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgIG1hcmdpbjogMHB4IDVweCAwcHggNXB4O1xyXG4gICAgY29sb3I6ICMyMzM2NTg7XHJcbn1cclxuLnBsYW5fY29zdCA+IHNwYW4ubW9udGhseXtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIGZvbnQtd2VpZ2h0OiAzMDA7XHJcblxyXG59XHJcbi5wbGFuX2luZm97XHJcbiAgICBiYWNrZ3JvdW5kOiByZ2JhKDIzNywgMTk3LCAxNDksIDAuNDgpO1xyXG4gICAgcGFkZGluZzogNXB4IDEwcHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxMHB4O1xyXG59XHJcbi5wbGFuX2luZm8gaW9uLXRleHQgcHtcclxuICAgIG1hcmdpbi1ib3R0b206IDBweDtcclxufVxyXG4ucGxhbl9wYXJhe1xyXG4gICAgcGFkZGluZzogMHB4IDEwcHg7XHJcbn1cclxuLnBsYW5fcGFyYSA+IGlvbi10ZXh0e1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgY29sb3I6IHJnYmEoMzEsIDMxLCAzMSwgMC42MCk7XHJcbn1cclxuLnBsYW5fbGlzdCBpb24tbGlzdHtcclxuICAgIHdpZHRoOiA4MCU7XHJcbiAgICBtYXJnaW46IDAgYXV0bztcclxufVxyXG4ucGxhbl9saXN0IGlvbi1saXN0ID4gaW9uLWl0ZW17XHJcbiAgICAtLWJvcmRlci1ib3R0b206IDBweDtcclxuICAgIC0taW5uZXItYm9yZGVyLXdpZHRoOiAwcHg7XHJcbn1cclxuLnBsYW5fbGlzdCBpb24tbGlzdCA+IGlvbi1pdGVtID4gaW9uLWxhYmVse1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgY29sb3I6IHJnYmEoMzEsIDMxLCAzMSwgMC41KTtcclxufVxyXG4ucGxhbl9saXN0IGlvbi1saXN0ID4gaW9uLWl0ZW0gPiBpb24tbGFiZWwgPiBzcGFue1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgd2lkdGg6IDMwcHg7XHJcbiAgICBoZWlnaHQ6IDMwcHg7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZGVlMWU2O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgcGFkZGluZy10b3A6IDNweDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgIG1hcmdpbi1yaWdodDogOHB4O1xyXG4gICAgYmFja2dyb3VuZDogI2RlZTFlNjtcclxufVxyXG4ucGxhbl9saXN0IGlvbi1saXN0ID4gaW9uLWl0ZW0gPiBpb24tbGFiZWwgPiBzcGFuID4gaXtcclxuICAgIGNvbG9yOiAjZjk5NTIxO1xyXG59XHJcbi5zdWJzY3JpYmV7XHJcbiAgICBwYWRkaW5nOiAxMHB4IDBweDtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIHdpZHRoOiA4MCU7XHJcbiAgICBtYXJnaW46IDAgYXV0bztcclxufVxyXG4uc3Vic2NyaWJlID4gaW9uLWJ1dHRvbntcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjZjk5NTIxO1xyXG4gICAgLS1ib3JkZXItcmFkaXVzOiAzMHB4O1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgICBmb250LXdlaWdodDogNDAwO1xyXG4gICAgLS1iYWNrZ3JvdW5kLWFjdGl2YXRlZDogI2ZmODkwMDtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/plan/plan.page.ts":
+/*!***********************************!*\
+  !*** ./src/app/plan/plan.page.ts ***!
+  \***********************************/
+/*! exports provided: PlanPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlanPage", function() { return PlanPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var PlanPage = /** @class */ (function () {
+    function PlanPage() {
+    }
+    PlanPage.prototype.ngOnInit = function () {
+    };
+    PlanPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-plan',
+            template: __webpack_require__(/*! ./plan.page.html */ "./src/app/plan/plan.page.html"),
+            styles: [__webpack_require__(/*! ./plan.page.scss */ "./src/app/plan/plan.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], PlanPage);
+    return PlanPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=plan-plan-module.js.map

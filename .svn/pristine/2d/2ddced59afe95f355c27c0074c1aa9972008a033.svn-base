@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filter</ion-title>
+    <ion-buttons slot="end" class="">
+        <ion-icon routerLink="/home" name="close" class="close_circle"></ion-icon>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+	<ion-grid class="no-padding">
+		<ion-row no-padding>
+			<ion-col no-padding>
+				<form novalidate (submit)="lawyerbtn()" [formGroup]="lowyerChek">
+					<ion-col size="12">
+						<ion-text class="select_text">
+						<h4>By Lawyer's Type:</h4>
+						</ion-text>
+					</ion-col>
+					<ion-col size="12" class="mb-20">
+						<ion-item class="select_div">
+							<ion-label>By Lawyer Type:</ion-label>
+							<ion-select no-padding placeholder="Select One" [interfaceOptions]="customActionSheetOptions" formControlName="lawyerType" interface="action-sheet" [(ngModel)]="lawyerAdd.lawyerType" [class.error1]="!lowyerChek.controls.lawyerType.valid && lowyerChek.controls.lawyerType.dirty" required cancelText="Dismiss" clearInput>
+								<ion-select-option *ngFor="let skill of skills;let i = index" [value]="skill.id">{{skill.skill_name}}</ion-select-option>
+							
+							</ion-select>
+						</ion-item>
+						<div class="error error_cls" *ngIf="lowyerChek.get('lawyerType').hasError('required') && lowyerChek.get('lawyerType').touched">
+							Select lawyer Type
+						</div>
+					</ion-col>
+					<ion-col size="12">
+						<ion-text class="select_text">
+						<h4>By Location:</h4>
+						</ion-text>
+					</ion-col>
+					<ion-col size="12">
+						<ion-item class="select_div">
+							<ion-label>By Location:</ion-label>
+							<ion-select no-padding [interfaceOptions]="customActionSheetOptions" formControlName="location" [(ngModel)]="lawyerAdd.location" [class.error1]="!lowyerChek.controls.location.valid && lowyerChek.controls.location.dirty" required interface="action-sheet" cancelText="Dismiss" placeholder="Select One" clearInput>
+								<ion-select-option value="noida">Noida</ion-select-option>
+								<ion-select-option value="delhi">Delhi</ion-select-option>
+								<ion-select-option value="gurugram">Gurugram</ion-select-option>
+								<ion-select-option value="ghaziabad">Ghaziabad</ion-select-option>
+							</ion-select>
+						</ion-item>
+						<div class="error error_cls" *ngIf="lowyerChek.get('location').hasError('required') && lowyerChek.get('location').touched">
+							Select location
+						</div>
+					</ion-col>
+					<div class="submit_filter">
+						<button shape="round" type="submit" [disabled]="lowyerChek.invalid">Submit</button>
+					</div>
+				</form>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

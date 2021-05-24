@@ -1,0 +1,111 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["change-password-change-password-module"],{
+
+/***/ "./src/app/change-password/change-password.module.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/change-password/change-password.module.ts ***!
+  \***********************************************************/
+/*! exports provided: ChangePasswordPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangePasswordPageModule", function() { return ChangePasswordPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _change_password_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./change-password.page */ "./src/app/change-password/change-password.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _change_password_page__WEBPACK_IMPORTED_MODULE_6__["ChangePasswordPage"]
+    }
+];
+var ChangePasswordPageModule = /** @class */ (function () {
+    function ChangePasswordPageModule() {
+    }
+    ChangePasswordPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_change_password_page__WEBPACK_IMPORTED_MODULE_6__["ChangePasswordPage"]]
+        })
+    ], ChangePasswordPageModule);
+    return ChangePasswordPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/change-password/change-password.page.html":
+/*!***********************************************************!*\
+  !*** ./src/app/change-password/change-password.page.html ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n  <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-back-button>\n              \n            </ion-back-button>\n      </ion-buttons>\n      <ion-title>Change Password</ion-title>\n  </ion-toolbar>\n</ion-header> \n\n<ion-content>\n    <ion-grid class=\"no-padding\">\n        <ion-row no-padding>\n          <ion-col no-padding>\n            <div class=\"form_container\">\n              <ion-label position=\"stacked\">Enter Your Old Password</ion-label>\n              <ion-input no-padding  placeholder=\"Old Password\" type=\"text\" required></ion-input>\n              <div class=\"abs_icon\"><img src=\"assets/images/password.png\"></div>\n            </div>\n            <div class=\"form_container\">\n                <ion-label position=\"stacked\">Enter Your New Password</ion-label>\n                <ion-input no-padding  placeholder=\"New Password\" type=\"text\" required></ion-input>\n                <div class=\"abs_icon\"><img src=\"assets/images/password.png\"></div>\n              </div>\n            <div class=\"form_container\">\n                <ion-label position=\"stacked\">Confirm Your New Password</ion-label>\n                <ion-input no-padding  placeholder=\"Confirm Password\" type=\"email\" required></ion-input>\n                <div class=\"abs_icon\"><img src=\"assets/images/password.png\"></div>\n            </div>\n            <div class=\"form_container\" style=\"text-align:center;padding-right: 0px;\">\n                <ion-button shape=\"round\">\n                  Submit\n                </ion-button>\n            </div>\n        </ion-col>\n      </ion-row>\n  </ion-grid>\n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/change-password/change-password.page.scss":
+/*!***********************************************************!*\
+  !*** ./src/app/change-password/change-password.page.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-toolbar {\n  --background:#233658; }\n\nion-title {\n  color: #fff;\n  font-weight: 300;\n  text-transform: capitalize;\n  font-size: 18px;\n  text-align: left; }\n\nion-back-button {\n  color: #fff; }\n\n.no-padding {\n  padding: 0px; }\n\n.abs_icon {\n  position: absolute;\n  top: 28px;\n  left: 4.5%; }\n\n.abs_icon > img {\n  width: 18px; }\n\n.form_container {\n  position: relative;\n  margin: 20px 0px;\n  padding-right: 15px; }\n\n.form_container > ion-label {\n  padding-left: 13%; }\n\n.form_container > ion-label::after {\n  content: \"*\";\n  color: red;\n  margin-left: 3px; }\n\n.form_container ion-input, .form_container ion-textarea {\n  width: 87%;\n  margin: 0 0 0 auto;\n  border-bottom: 1px solid #ccc;\n  font-size: 12px;\n  --padding-top: 8px;\n  --padding-bottom: 5px; }\n\n.form_container ion-button {\n  font-weight: 300;\n  width: 80%;\n  box-shadow: 0px 4px 8px 1px #fed19c;\n  border-radius: 30px;\n  --background: #fd8900;\n  --background-activated: #fd8900;\n  margin-top: 30px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhbmdlLXBhc3N3b3JkL0Q6XFxzYWNoaW5cXGxhd2VyX2FwcC9zcmNcXGFwcFxcY2hhbmdlLXBhc3N3b3JkXFxjaGFuZ2UtcGFzc3dvcmQucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksb0JBQWEsRUFBQTs7QUFFakI7RUFDSSxXQUFVO0VBQ1YsZ0JBQWdCO0VBQ2hCLDBCQUEwQjtFQUMxQixlQUFlO0VBQ2YsZ0JBQWdCLEVBQUE7O0FBRXBCO0VBQ0ksV0FBVyxFQUFBOztBQUVmO0VBQ0ksWUFBVyxFQUFBOztBQUlmO0VBQ0ksa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxVQUFVLEVBQUE7O0FBRWQ7RUFDSSxXQUFVLEVBQUE7O0FBRWQ7RUFDSSxrQkFBaUI7RUFDakIsZ0JBQWU7RUFDZixtQkFBbUIsRUFBQTs7QUFFdkI7RUFDSSxpQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxZQUFXO0VBQ1gsVUFBVTtFQUNWLGdCQUFnQixFQUFBOztBQUVwQjtFQUNJLFVBQVU7RUFDVixrQkFBa0I7RUFDbEIsNkJBQTZCO0VBQzdCLGVBQWM7RUFDZCxrQkFBYztFQUNkLHFCQUFpQixFQUFBOztBQUVyQjtFQUNJLGdCQUFnQjtFQUNoQixVQUFVO0VBQ1YsbUNBQW1DO0VBQ25DLG1CQUFtQjtFQUNuQixxQkFBYTtFQUNiLCtCQUF1QjtFQUN2QixnQkFBZ0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2NoYW5nZS1wYXNzd29yZC9jaGFuZ2UtcGFzc3dvcmQucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXRvb2xiYXJ7XHJcbiAgICAtLWJhY2tncm91bmQ6IzIzMzY1ODtcclxufVxyXG5pb24tdGl0bGV7XHJcbiAgICBjb2xvcjojZmZmO1xyXG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICAgIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxufVxyXG5pb24tYmFjay1idXR0b24ge1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbn1cclxuLm5vLXBhZGRpbmd7XHJcbiAgICBwYWRkaW5nOjBweDtcclxufVxyXG5cclxuXHJcbi5hYnNfaWNvbntcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMjhweDtcclxuICAgIGxlZnQ6IDQuNSU7XHJcbn1cclxuLmFic19pY29uID4gaW1ne1xyXG4gICAgd2lkdGg6MThweDtcclxufVxyXG4uZm9ybV9jb250YWluZXJ7XHJcbiAgICBwb3NpdGlvbjpyZWxhdGl2ZTtcclxuICAgIG1hcmdpbjoyMHB4IDBweDtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDE1cHg7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyID4gaW9uLWxhYmVse1xyXG4gICAgcGFkZGluZy1sZWZ0OiAxMyU7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyID4gaW9uLWxhYmVsOjphZnRlcntcclxuICAgIGNvbnRlbnQ6XCIqXCI7XHJcbiAgICBjb2xvcjogcmVkO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDNweDtcclxufVxyXG4uZm9ybV9jb250YWluZXIgaW9uLWlucHV0ICwgLmZvcm1fY29udGFpbmVyIGlvbi10ZXh0YXJlYXtcclxuICAgIHdpZHRoOiA4NyU7XHJcbiAgICBtYXJnaW46IDAgMCAwIGF1dG87XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2NjYztcclxuICAgIGZvbnQtc2l6ZToxMnB4O1xyXG4gICAgLS1wYWRkaW5nLXRvcDogOHB4O1xyXG4gICAgLS1wYWRkaW5nLWJvdHRvbTogNXB4O1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciBpb24tYnV0dG9ue1xyXG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICAgIHdpZHRoOiA4MCU7XHJcbiAgICBib3gtc2hhZG93OiAwcHggNHB4IDhweCAxcHggI2ZlZDE5YztcclxuICAgIGJvcmRlci1yYWRpdXM6IDMwcHg7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNmZDg5MDA7XHJcbiAgICAtLWJhY2tncm91bmQtYWN0aXZhdGVkOiAjZmQ4OTAwO1xyXG4gICAgbWFyZ2luLXRvcDogMzBweDtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/change-password/change-password.page.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/change-password/change-password.page.ts ***!
+  \*********************************************************/
+/*! exports provided: ChangePasswordPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangePasswordPage", function() { return ChangePasswordPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var ChangePasswordPage = /** @class */ (function () {
+    function ChangePasswordPage() {
+    }
+    ChangePasswordPage.prototype.ngOnInit = function () {
+    };
+    ChangePasswordPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-change-password',
+            template: __webpack_require__(/*! ./change-password.page.html */ "./src/app/change-password/change-password.page.html"),
+            styles: [__webpack_require__(/*! ./change-password.page.scss */ "./src/app/change-password/change-password.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], ChangePasswordPage);
+    return ChangePasswordPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=change-password-change-password-module.js.map

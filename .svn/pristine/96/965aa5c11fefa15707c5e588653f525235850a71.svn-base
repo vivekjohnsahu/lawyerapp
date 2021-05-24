@@ -1,0 +1,477 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["manage-lawyer-manage-lawyer-module"],{
+
+/***/ "./src/app/manage-lawyer/manage-lawyer.module.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/manage-lawyer/manage-lawyer.module.ts ***!
+  \*******************************************************/
+/*! exports provided: ManageLawyerPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManageLawyerPageModule", function() { return ManageLawyerPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _manage_lawyer_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./manage-lawyer.page */ "./src/app/manage-lawyer/manage-lawyer.page.ts");
+/* harmony import */ var _src_search_filter_searchFilter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../src/search-filter/searchFilter */ "./src/search-filter/searchFilter.ts");
+
+
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _manage_lawyer_page__WEBPACK_IMPORTED_MODULE_6__["ManageLawyerPage"]
+    }
+];
+var ManageLawyerPageModule = /** @class */ (function () {
+    function ManageLawyerPageModule() {
+    }
+    ManageLawyerPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            // exports:[GrdFilterPipe],
+            declarations: [_manage_lawyer_page__WEBPACK_IMPORTED_MODULE_6__["ManageLawyerPage"],
+                _src_search_filter_searchFilter__WEBPACK_IMPORTED_MODULE_7__["GrdFilterPipe"]
+            ]
+        })
+    ], ManageLawyerPageModule);
+    return ManageLawyerPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/manage-lawyer/manage-lawyer.page.html":
+/*!*******************************************************!*\
+  !*** ./src/app/manage-lawyer/manage-lawyer.page.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-back-button>\n            </ion-back-button>\n        </ion-buttons>\n        <ion-title>Manage Lawyer</ion-title>\n    </ion-toolbar>\n</ion-header>\n<ion-content no-padding>\n    <ion-grid no-padding>\n        <ion-row no-padding>\n            <ion-col size=\"12\" no-padding>\n                <div class=\"basic_plan_bg\">\n                    <div class=\"tabs_main\">\n                        <ul class=\"nav nav-tabs\">\n                            <li><a id=\"tab_1\" (click)=\"step_1()\" [ngClass]=\"{'active': step_contant_1}\"><span><img src=\"assets/images/manage_lawyer/manage_lawyer_step1.png\"></span>Step 1</a></li>\n                            <li><a id=\"tab_2\" (click)=\"step_2()\" [ngClass]=\"{'active': step_contant_2}\"><span><img src=\"assets/images/manage_lawyer/manage_lawyer_step2.png\"></span>Step 2</a></li>\n                            <li><a id=\"tab_3\" (click)=\"step_3()\" [ngClass]=\"{'active': step_contant_3}\"><span><img src=\"assets/images/manage_lawyer/manage_lawyer_step3.png\"></span>Step 3</a></li>\n                        </ul>\n                    </div>\n                    <div class=\"tab-content\">\n                        <div *ngIf=\"step_contant_1\">\n                            <form novalidate (ngSubmit)=\"Lawyer_stap_1()\" [formGroup]=\"manageLawyer\" >\n                            <div id=\"home\" class=\"tab-pane fade in active show\">\n                                <div class=\"add_profile\">\n                                    <ion-avatar item-start (click)=\"SelectPhoto()\">\n                                        <div class=\"main-edit-profile\">\n                                            <div class=\"round-profile\">\n                                                <img style=\"border-radius: 31px;\" id=\"camera-image\" src=\"{{ImageBind}}\"> \n                                            </div>\n                                        </div>\n                                    </ion-avatar>\n                                </div>\n                                <div class=\"text\">\n                                    <ion-text>\n                                        <p>Please enter lawyer details to add lawyer</p>\n                                    </ion-text>\n                                </div>\n                                <div class=\"form_container\">\n                                    <ion-label position=\"stacked\">Enter Your First Name</ion-label>\n                                    <ion-input no-padding  placeholder=\"Enter Your First Name\" [(ngModel)]=\"LawyerData.firstname\" [class.error1]=\"!manageLawyer.controls.firstname.valid && manageLawyer.controls.firstname.dirty\"  formControlName=\"firstname\" type=\"text\" required></ion-input>\n                                    <div class=\"abs_icon\"><img src=\"assets/images/register/name.png\"></div>\n                                    <div class=\"error error_cls\" *ngIf=\"manageLawyer.get('firstname').hasError('required') && manageLawyer.get('firstname').touched\">\n                                        First name cannot be blank\n                                    </div>\n                                </div>\n                                <div class=\"form_container\">\n                                    <ion-label position=\"stacked\" class=\"star_not\">Enter Your Last Name</ion-label>\n                                    <ion-input no-padding [(ngModel)]=\"LawyerData.lastname\" formControlName=\"lastname\"  placeholder=\"Enter Your Last Name\" type=\"text\"></ion-input>\n                                    <div class=\"abs_icon\"><img src=\"assets/images/register/name.png\"></div>\n                                </div>\n                                <div class=\"form_container\">\n                                    <ion-label position=\"stacked\">Email Address</ion-label>\n                                    <ion-input no-padding  placeholder=\"Enter Your Email Address\" type=\"email\" [(ngModel)]=\"LawyerData.email\" formControlName=\"email\" [class.error1]=\"!manageLawyer.controls.email.valid && manageLawyer.controls.email.dirty\" required></ion-input>\n                                    <div class=\"abs_icon\"><img src=\"assets/images/email_icon.png\"></div>\n                                    <div class=\"error_cls\" *ngIf=\"( manageLawyer.get('email').hasError('minlength') || manageLawyer.get('email').hasError('pattern') ||manageLawyer.get('email').hasError('required') ) && manageLawyer.get('email').touched\">\n                                        <div class=\"error\" *ngIf=\"manageLawyer.get('email').hasError('required') && manageLawyer.get('email').touched\">\n                                            Email ID cannot be blank\n                                        </div>\n                                        <div class=\"error\" *ngIf=\"manageLawyer.get('email').hasError('pattern') && manageLawyer.get('email').touched\">\n                                            Please enter a valid Email ID\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"form_container\">\n                                    <ion-label position=\"stacked\">Contact Number</ion-label>\n                                    <ion-input no-padding (keypress)=\"numberAccept($event)\"  placeholder=\"Enter Your Contact Number\" [(ngModel)]=\"LawyerData.number\" formControlName=\"number\" [class.error1]=\"!manageLawyer.controls.number.valid && manageLawyer.controls.number.dirty\" type=\"text\" required></ion-input>\n                                    <div class=\"abs_icon\"><img style=\"width:15px;\" src=\"assets/images/phone_icon.png\"></div>\n                                    <div class=\"error_cls\" *ngIf=\"( manageLawyer.get('number').hasError('minlength') || manageLawyer.get('number').hasError('maxlength') ||manageLawyer.get('number').hasError('required') ) && manageLawyer.get('number').touched\">\n                                        <div class=\"error\" *ngIf=\"manageLawyer.get('number').hasError('required') && manageLawyer.get('number').touched\">\n                                            Number cannot be blank\n                                        </div>\n                                        <div class=\"error\" *ngIf=\"manageLawyer.get('number').hasError('minlength') && manageLawyer.get('number').touched\">\n                                            Minimum 8 characters\n                                        </div>\n                                        <div class=\"error\" *ngIf=\"manageLawyer.get('number').hasError('maxlength') && manageLawyer.get('number').touched\">\n                                            Maximum 15 characters\n                                        </div>\n                                    </div>\n                                </div>\n                                <div class=\"form_container\">\n                                    <ion-label position=\"stacked\">Date OF Birth</ion-label>\n                                    <ion-item no-padding>\n                                        <ion-datetime [(ngModel)]=\"LawyerData.date\" formControlName=\"date\" [class.error1]=\"!manageLawyer.controls.date.valid && manageLawyer.controls.date.dirty\" no-padding displayFormat=\"DD/MM/YY\" placeholder=\"Select Date\"></ion-datetime>\n                                    </ion-item>\n                                    <div class=\"abs_icon\"><img src=\"assets/images/register/dob.png\"></div>\n                                    <div class=\"error error_cls\" *ngIf=\"manageLawyer.get('date').hasError('required') && manageLawyer.get('date').touched\">\n                                        Date cannot be blank\n                                    </div>\n                                </div>\n                                <div class=\"form_container\" style=\"text-align:center;padding-right: 0px;\">\n                                    <ion-col size=\"12\" class=\"manage_button\">\n                                        <button type=\"submit\" id=\"tab_1\" shape=\"round\" [disabled]=\"manageLawyer.invalid\" href=\"#menu1\">\n                                            Next\n                                        </button>\n                                    </ion-col>\n                                </div>\n                            </div>\n                            </form>\n                        </div>\n                        <div *ngIf=\"step_contant_2\">\n                            <div id=\"menu1\" class=\"tab-pane\">\n                                <div class=\"add_skills\">\n                                    <ion-text>\n                                        <p>Please Add Skills With Tags</p>\n                                    </ion-text>\n                                    <div class=\"searchbar\">\n                                        <!-- <ion-searchbar (ionInput)=\"getISkill($event.target)\" [(ngModel)]=\"searchText\"></ion-searchbar> -->\n                                        <ion-searchbar [(ngModel)]=\"searchText\" (ionInput)=\"getISkill($event.target)\"></ion-searchbar>\n                                        <ion-list>\n                                            <ion-item *ngFor=\"let skill of skills | grdFilter: {name: searchText, Age:searchText,  blog: searchText};let i = index\" (click)=\"add_lawyer_skills(skill.name,i)\">\n                                                    <!-- <ion-item *ngFor=\"let skill of skills | grdFilter: {name: searchText};let i = index\" (click)=\"add_lawyer_skills(skill.name,i)\"> -->\n                                                <ul style=\"list-style-type: none;margin-bottom: 0px;padding-left: 14px;\">\n                                                    <li value=\"skill.name\"> {{ skill.name }} </li>\n                                                </ul>\n                                            </ion-item>\n                                        </ion-list>\n                                    </div>\n                                </div>\n                                <div class=\"added_skill\">\n                                    <p>Added</p>\n                                    <div class=\"clear\">\n                                        <ion-chip>\n                                            <ion-label (click)=\"remove_all_skill()\">clear</ion-label>\n                                        </ion-chip>\n                                    </div>\n                                </div>\n                                <div class=\"selected_skills\">\n                                    <ion-chip *ngFor=\"let skill of skill_add;let i = index\">\n                                        <ion-label>{{skill}}</ion-label>\n                                        <ion-icon (click)=\"remove_skill(i)\" name=\"close-circle\"></ion-icon>\n                                    </ion-chip>\n                                </div>\n                                <div class=\"step_3\">\n                                    <ion-button (click)=\"Lawyer_stap_2()\" shape=\"round\" >Next</ion-button>\n                                </div>\n                            </div>\n                        </div>\n                        <div *ngIf=\"step_contant_3\">\n                            <form novalidate (ngSubmit)=\"Lawyer_stap_3()\" [formGroup]=\"LawyerAddress\">\n                                <div id=\"menu2\" class=\"tab-pane\">\n                                    <div class=\"form_container\">\n                                        <ion-label class=\"not_asterisk\" position=\"stacked\">Address</ion-label>\n                                        <ion-textarea no-padding  placeholder=\"Enter Your Address Here\" type=\"text\" [(ngModel)]=\"LawyerLocation.address\" [class.error1]=\"!LawyerAddress.controls.address.valid && LawyerAddress.controls.address.dirty\"  formControlName=\"address\" required></ion-textarea>\n                                        <div class=\"abs_icon\"><img src=\"assets/images/register/city.png\"></div>\n                                        <div class=\"error error_cls\" *ngIf=\"LawyerAddress.get('address').hasError('required') && LawyerAddress.get('address').touched\">\n                                            Address cannot be blank\n                                        </div>\n                                    </div>\n                                    <div class=\"form_container\">\n                                        <ion-label class=\"not_asterisk\" position=\"stacked\">City</ion-label>\n                                        <ion-item no-padding>\n                                            <ion-select formControlName=\"city\"  [(ngModel)]=\"LawyerLocation.city\" [class.error1]=\"!LawyerAddress.controls.city.valid && LawyerAddress.controls.city.dirty\" required no-padding [interfaceOptions]=\"customActionSheetOptions\" interface=\"action-sheet\" placeholder=\"Select Country\">\n                                                <ion-select-option value=\"delhi\">delhi</ion-select-option>\n                                                <ion-select-option value=\"Noida\">Noida</ion-select-option>\n                                                <ion-select-option value=\"Gaziabad\">Gaziabad</ion-select-option>\n                                                <ion-select-option value=\"gurgaon\">gurgaon</ion-select-option>\n                                            </ion-select>\n                                        </ion-item>\n                                        <div class=\"abs_icon\"><img src=\"assets/images/register/city.png\"></div>\n                                        <div class=\"error error_cls\" *ngIf=\"LawyerAddress.get('city').hasError('required') && LawyerAddress.get('city').touched\">\n                                            Select city\n                                        </div>\n                                    </div>\n                                    <div class=\"last_step last_stap_button\">\n                                        <button type=\"submit\" [disabled]=\"LawyerAddress.invalid\" shape=\"round\">Submit</button>\n                                    </div>\n                                </div>\n                            </form>\n                        </div>\n                    </div>\n                </div>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/manage-lawyer/manage-lawyer.page.scss":
+/*!*******************************************************!*\
+  !*** ./src/app/manage-lawyer/manage-lawyer.page.scss ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-toolbar {\n  --background: #233658; }\n\nion-header {\n  z-index: 1; }\n\nion-title {\n  text-align: center;\n  color: #fff;\n  font-size: 17px;\n  font-weight: 400;\n  font-family: Proxima-Nova-thin; }\n\nion-back-button {\n  color: #fff; }\n\nion-text p {\n  text-align: center; }\n\n#file_Input {\n  display: none; }\n\n.basic_plan_bg {\n  background: #233658;\n  z-index: 9;\n  position: relative;\n  height: 50px;\n  margin-bottom: 50px; }\n\n.tabs_main {\n  padding: 10px 0px;\n  background: #fff;\n  width: 90%;\n  margin: 0 auto;\n  border-radius: 10px;\n  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.27); }\n\n.tabs_main > ul {\n  width: 95%;\n  margin: 0 auto;\n  border-bottom: 0; }\n\n.tabs_main > ul > li {\n  width: 25%;\n  display: inline-block;\n  text-align: center;\n  margin: auto; }\n\n.tabs_main > ul > li > a {\n  display: inline-block;\n  text-decoration: none;\n  color: rgba(31, 31, 31, 0.5);\n  font-size: 14px; }\n\n.tabs_main > ul > li > a > span {\n  display: block; }\n\n.tabs_main > ul > li > a > span > img {\n  width: 30px; }\n\n.tabs_main > ul > li > a.active {\n  width: 100%;\n  background: none;\n  color: #f99521;\n  font-size: 14px;\n  padding: 3px; }\n\n.form_container {\n  position: relative;\n  margin: 20px 0px;\n  padding-right: 15px; }\n\n.form_container > ion-label {\n  padding-left: 13%; }\n\n.form_container > ion-label::after {\n  content: \"*\";\n  color: red;\n  margin-left: 3px; }\n\n.form_container > .star_not::after {\n  content: \"\" !important;\n  color: red;\n  margin-left: 3px; }\n\n.form_container > ion-label.not_asterisk::after {\n  content: \"\"; }\n\n.form_container ion-input, .form_container ion-textarea {\n  width: 87%;\n  margin: 0 0 0 auto;\n  border-bottom: 1px solid #ccc;\n  font-size: 12px;\n  --padding-top: 8px;\n  --padding-bottom: 5px; }\n\n.relative_cls {\n  position: relative; }\n\n.form_container ion-item > ion-select {\n  min-width: 100%;\n  --padding-start: 0px;\n  font-size: 12px;\n  --padding-bottom: 0px; }\n\n.form_container ion-button {\n  font-weight: 300;\n  width: 80%;\n  box-shadow: 0px 4px 8px 1px #fed19c;\n  border-radius: 30px;\n  --background: #fd8900;\n  --background-activated: #fd8900;\n  text-transform: capitalize; }\n\nion-button {\n  --background: #f99521;\n  --background-activated:#f99521; }\n\n.abs_icon {\n  position: absolute;\n  top: 28px;\n  left: 4.5%; }\n\n.abs_icon > img {\n  width: 18px; }\n\n.form_container ion-item {\n  width: 87%;\n  margin: 0 0 0 auto;\n  --min-height: 36px; }\n\n.form_container ion-item > ion-datetime {\n  font-size: 12px;\n  --padding-start: 0px !important; }\n\n.form_container ion-item > ion-datetime {\n  font-size: 12px;\n  --padding-start: 0px !important; }\n\n.add_profile > ion-avatar {\n  margin: 20px auto;\n  border: 2px solid #fff;\n  box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.62);\n  width: 70px;\n  height: 70px;\n  overflow: hidden; }\n\n.round-profile img {\n  width: 80px;\n  height: 80px; }\n\n.text {\n  padding: 0px 15px; }\n\n.text > ion-text {\n  font-size: 16px;\n  color: #1f1f1f; }\n\n.add_skills {\n  margin: 40px 0px 30px 0px;\n  padding: 0px 10px; }\n\n.add_skills > ion-text {\n  color: #1f1f1f;\n  font-size: 15px; }\n\n.add_skills > ion-text > p {\n  margin-bottom: 0px; }\n\n.add_skills > .searchbar {\n  margin-top: 15px; }\n\n.add_skills > .searchbar ion-searchbar {\n  padding: 0px;\n  --background: #fff;\n  border: 1px solid #efefef;\n  border-radius: 30px;\n  overflow: hidden;\n  height: 35px; }\n\n.added_skill {\n  background: rgba(237, 197, 149, 0.48);\n  padding: 5px 10px; }\n\n.added_skill > p {\n  width: 70%;\n  display: inline-block;\n  margin-bottom: 0px;\n  font-size: 14px;\n  font-weight: 500; }\n\n.added_skill > .clear {\n  width: 30%;\n  display: inline-block;\n  text-align: right; }\n\n.added_skill > .clear > ion-chip {\n  margin: 0;\n  padding: 0px 15px;\n  --background: #fd9e2f;\n  color: #fff;\n  box-shadow: 0px 3px 12px -1px #f4a14e;\n  height: 25px;\n  font-size: 13px; }\n\n.selected_skills {\n  padding: 15px 10px; }\n\n.selected_skills > ion-chip {\n  width: -webkit-max-content;\n  width: -moz-max-content;\n  width: max-content;\n  display: inline-flex; }\n\n.selected_skills > ion-chip:nth-child(3n+1) {\n  --background: #fddab1; }\n\n.selected_skills > ion-chip:nth-child(3n+2) {\n  --background: rgba(58, 92, 153, 0.28); }\n\n.selected_skills > ion-chip:nth-child(3n+3) {\n  --background:#ddd; }\n\n.step_3, .last_step {\n  margin: 20px 0px 20px 0px;\n  text-align: center;\n  padding: 0px 20px; }\n\n.last_step {\n  margin-top: 40px; }\n\n.step_3 > ion-button, .last_step > ion-button {\n  width: 100%;\n  --background: #fd9e2f;\n  box-shadow: 0px 5px 8px 0px #fddab1;\n  border-radius: 30px;\n  text-transform: capitalize;\n  font-weight: 300; }\n\n/*manage lawyer*/\n\n.avatar-upload {\n  position: relative;\n  width: 100%;\n  margin: 20px auto;\n  text-align: center; }\n\n.avatar-upload .avatar-edit {\n  position: absolute;\n  right: calc(50% - 50px);\n  z-index: 1;\n  bottom: 0; }\n\n.avatar-upload .avatar-edit input {\n  display: none; }\n\n.avatar-upload .avatar-edit input + label {\n  display: inline-block;\n  width: 34px;\n  height: 34px;\n  margin-bottom: 0;\n  border-radius: 100%;\n  background: #ffffff;\n  border: 1px solid transparent;\n  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);\n  cursor: pointer;\n  font-weight: normal;\n  transition: all 0.2s ease-in-out; }\n\n.avatar-upload .avatar-edit input + label:hover {\n  background: #f1f1f1;\n  border-color: #d6d6d6; }\n\n.avatar-upload .avatar-edit input + label:after {\n  content: \"\\f040\";\n  font-family: \"FontAwesome\";\n  color: #757575;\n  position: absolute;\n  top: 10px;\n  left: 0;\n  right: 0;\n  text-align: center;\n  margin: auto; }\n\n.avatar-upload .avatar-preview {\n  width: 90px;\n  height: 90px;\n  position: relative;\n  margin: 0 auto;\n  border-radius: 100%;\n  border: 2px solid #ffffff;\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.29); }\n\n.avatar-upload .avatar-preview > div {\n  width: 100%;\n  height: 100%;\n  border-radius: 100%;\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center; }\n\n.cls_red {\n  color: red; }\n\n.error_cls {\n  font-size: 13px;\n  padding-left: 46px;\n  color: red; }\n\n.manage_button > button {\n  width: 90%;\n  margin-top: 10px;\n  margin-bottom: 15px;\n  padding: 15px;\n  color: #fff;\n  box-shadow: 0px 4px 8px 1px #fed19c;\n  border-radius: 30px;\n  background: #fd8900; }\n\n.manage_button > button:focus {\n  outline: none; }\n\n.manage_button > button[disabled] {\n  background: rgba(253, 137, 0, 0.48); }\n\n.manage_button {\n  text-align: center; }\n\n.last_stap_button > button {\n  width: 90%;\n  margin-top: 10px;\n  margin-bottom: 15px;\n  padding: 15px;\n  color: #fff;\n  box-shadow: 0px 4px 8px 1px #fed19c;\n  border-radius: 30px;\n  background: #fd8900; }\n\n.last_stap_button > button:focus {\n  outline: none; }\n\n.last_stap_button > button[disabled] {\n  background: rgba(253, 137, 0, 0.48); }\n\n.last_stap_button {\n  text-align: center; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbWFuYWdlLWxhd3llci9EOlxceGFtcHBcXGh0ZG9jc1xcbGF3eWVyYXBwXFxsYXd5ZXJzQXBwL3NyY1xcYXBwXFxtYW5hZ2UtbGF3eWVyXFxtYW5hZ2UtbGF3eWVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFhLEVBQUE7O0FBR2pCO0VBQ0ksVUFBVSxFQUFBOztBQUVkO0VBQ0ksa0JBQWlCO0VBQ2pCLFdBQVU7RUFDVixlQUFlO0VBQ2YsZ0JBQWdCO0VBQ2hCLDhCQUE4QixFQUFBOztBQUVsQztFQUNJLFdBQVcsRUFBQTs7QUFFZjtFQUNJLGtCQUFrQixFQUFBOztBQUd0QjtFQUNJLGFBQWEsRUFBQTs7QUFFakI7RUFDSSxtQkFBbUI7RUFDbkIsVUFBVTtFQUNWLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osbUJBQWtCLEVBQUE7O0FBR3RCO0VBQ0ksaUJBQWlCO0VBQ2pCLGdCQUFnQjtFQUNoQixVQUFVO0VBQ1YsY0FBYztFQUNkLG1CQUFtQjtFQUNuQixnREFBZ0QsRUFBQTs7QUFFcEQ7RUFDSSxVQUFVO0VBQ1YsY0FBYztFQUNkLGdCQUFnQixFQUFBOztBQUVwQjtFQUNJLFVBQVU7RUFDVixxQkFBcUI7RUFDckIsa0JBQWtCO0VBQ2xCLFlBQVksRUFBQTs7QUFFaEI7RUFDSSxxQkFBcUI7RUFDckIscUJBQXFCO0VBQ3JCLDRCQUE0QjtFQUM1QixlQUFlLEVBQUE7O0FBRW5CO0VBQ0ksY0FBYSxFQUFBOztBQUVqQjtFQUNJLFdBQVUsRUFBQTs7QUFFZDtFQUNJLFdBQVc7RUFDWCxnQkFBZ0I7RUFDaEIsY0FBYztFQUNkLGVBQWU7RUFDZixZQUFZLEVBQUE7O0FBRWhCO0VBQ0ksa0JBQWlCO0VBQ2pCLGdCQUFlO0VBQ2YsbUJBQW1CLEVBQUE7O0FBRXZCO0VBQ0ksaUJBQWlCLEVBQUE7O0FBRXJCO0VBQ0ksWUFBVztFQUNYLFVBQVU7RUFDVixnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxzQkFBb0I7RUFDcEIsVUFBVTtFQUNWLGdCQUFnQixFQUFBOztBQUdwQjtFQUNJLFdBQVUsRUFBQTs7QUFFZDtFQUNJLFVBQVU7RUFDVixrQkFBa0I7RUFDbEIsNkJBQTZCO0VBQzdCLGVBQWM7RUFDZCxrQkFBYztFQUNkLHFCQUFpQixFQUFBOztBQUVyQjtFQUNJLGtCQUFpQixFQUFBOztBQUVyQjtFQUNJLGVBQWU7RUFDZixvQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLHFCQUFpQixFQUFBOztBQUVyQjtFQUNJLGdCQUFnQjtFQUNoQixVQUFVO0VBQ1YsbUNBQW1DO0VBQ25DLG1CQUFtQjtFQUNuQixxQkFBYTtFQUNiLCtCQUF1QjtFQUN2QiwwQkFBMEIsRUFBQTs7QUFFOUI7RUFDSSxxQkFBYTtFQUNiLDhCQUF1QixFQUFBOztBQUUzQjtFQUNJLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsVUFBVSxFQUFBOztBQUVkO0VBQ0ksV0FBVSxFQUFBOztBQUVkO0VBQ0ksVUFBVTtFQUNWLGtCQUFrQjtFQUNsQixrQkFBYSxFQUFBOztBQUdqQjtFQUNJLGVBQWU7RUFDZiwrQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxlQUFlO0VBQ2YsK0JBQWdCLEVBQUE7O0FBRXBCO0VBQ0ksaUJBQWlCO0VBQ2pCLHNCQUFzQjtFQUN0QixpREFBaUQ7RUFDakQsV0FBVztFQUNYLFlBQVk7RUFDWixnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxXQUFXO0VBQ1gsWUFBWSxFQUFBOztBQUVoQjtFQUNJLGlCQUFpQixFQUFBOztBQUVyQjtFQUNJLGVBQWU7RUFDZixjQUEwQixFQUFBOztBQUU5QjtFQUNJLHlCQUF5QjtFQUN6QixpQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxjQUFjO0VBQ2QsZUFBZSxFQUFBOztBQUVuQjtFQUNJLGtCQUFpQixFQUFBOztBQUVyQjtFQUNJLGdCQUFlLEVBQUE7O0FBRW5CO0VBQ0ksWUFBWTtFQUNaLGtCQUFhO0VBQ2IseUJBQXlCO0VBQ3pCLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsWUFBWSxFQUFBOztBQUVoQjtFQUNJLHFDQUFxQztFQUNyQyxpQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxVQUFVO0VBQ1YscUJBQXFCO0VBQ3JCLGtCQUFrQjtFQUNsQixlQUFlO0VBQ2YsZ0JBQWdCLEVBQUE7O0FBRXBCO0VBQ0ksVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixpQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxTQUFTO0VBQ1QsaUJBQWlCO0VBQ2pCLHFCQUFhO0VBQ2IsV0FBVztFQUNYLHFDQUFxQztFQUNyQyxZQUFZO0VBQ1osZUFBZSxFQUFBOztBQUVuQjtFQUNJLGtCQUFrQixFQUFBOztBQUV0QjtFQUNJLDBCQUFrQjtFQUFsQix1QkFBa0I7RUFBbEIsa0JBQWtCO0VBQ2xCLG9CQUFvQixFQUFBOztBQUV4QjtFQUNJLHFCQUFhLEVBQUE7O0FBRWpCO0VBQ0kscUNBQWEsRUFBQTs7QUFFakI7RUFDSSxpQkFBYSxFQUFBOztBQUVqQjtFQUNJLHlCQUF5QjtFQUN6QixrQkFBa0I7RUFDbEIsaUJBQWlCLEVBQUE7O0FBRXJCO0VBQ0ksZ0JBQWUsRUFBQTs7QUFFbkI7RUFDSSxXQUFXO0VBQ1gscUJBQWE7RUFDYixtQ0FBbUM7RUFDbkMsbUJBQW1CO0VBQ25CLDBCQUEwQjtFQUMxQixnQkFBZ0IsRUFBQTs7QUFJcEIsZ0JBQUE7O0FBQ0E7RUFDSSxrQkFBa0I7RUFDbEIsV0FBVztFQUNYLGlCQUFpQjtFQUNqQixrQkFBa0IsRUFBQTs7QUFFcEI7RUFDRSxrQkFBa0I7RUFDbEIsdUJBQXVCO0VBQ3ZCLFVBQVU7RUFDVixTQUFTLEVBQUE7O0FBRVg7RUFDRSxhQUFhLEVBQUE7O0FBRWY7RUFDRSxxQkFBcUI7RUFDckIsV0FBVztFQUNYLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLG1CQUFtQjtFQUNuQiw2QkFBNkI7RUFDN0IsK0NBQStDO0VBQy9DLGVBQWU7RUFDZixtQkFBbUI7RUFDbkIsZ0NBQWdDLEVBQUE7O0FBRWxDO0VBQ0UsbUJBQW1CO0VBQ25CLHFCQUFxQixFQUFBOztBQUV2QjtFQUNFLGdCQUFnQjtFQUNoQiwwQkFBMEI7RUFDMUIsY0FBYztFQUNkLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsT0FBTztFQUNQLFFBQVE7RUFDUixrQkFBa0I7RUFDbEIsWUFBWSxFQUFBOztBQUVkO0VBQ0UsV0FBVztFQUNYLFlBQVk7RUFDWixrQkFBa0I7RUFDbEIsY0FBYztFQUNkLG1CQUFtQjtFQUNuQix5QkFBeUI7RUFDekIsZ0RBQWdELEVBQUE7O0FBRWxEO0VBQ0UsV0FBVztFQUNYLFlBQVk7RUFDWixtQkFBbUI7RUFDbkIsc0JBQXNCO0VBQ3RCLDRCQUE0QjtFQUM1QiwyQkFBMkIsRUFBQTs7QUFFN0I7RUFDRSxVQUFVLEVBQUE7O0FBR1o7RUFDRSxlQUFlO0VBQ2Ysa0JBQWtCO0VBQ2xCLFVBQVUsRUFBQTs7QUFHZDtFQUNJLFVBQVU7RUFDVixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLGFBQVk7RUFDWixXQUFVO0VBQ1YsbUNBQW1DO0VBQ25DLG1CQUFtQjtFQUNuQixtQkFBbUIsRUFBQTs7QUFFdkI7RUFDSSxhQUFZLEVBQUE7O0FBRWhCO0VBQ0ksbUNBQW1DLEVBQUE7O0FBRXZDO0VBQ0ksa0JBQWlCLEVBQUE7O0FBSXJCO0VBQ0ksVUFBVTtFQUNWLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsYUFBWTtFQUNaLFdBQVU7RUFDVixtQ0FBbUM7RUFDbkMsbUJBQW1CO0VBQ25CLG1CQUFtQixFQUFBOztBQUV2QjtFQUNJLGFBQVksRUFBQTs7QUFFaEI7RUFDSSxtQ0FBbUMsRUFBQTs7QUFFdkM7RUFDSSxrQkFBaUIsRUFBQSIsImZpbGUiOiJzcmMvYXBwL21hbmFnZS1sYXd5ZXIvbWFuYWdlLWxhd3llci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tdG9vbGJhciB7XHJcbiAgICAtLWJhY2tncm91bmQ6ICMyMzM2NTg7XHJcbn1cclxuXHJcbmlvbi1oZWFkZXJ7XHJcbiAgICB6LWluZGV4OiAxO1xyXG59XHJcbmlvbi10aXRsZXtcclxuICAgIHRleHQtYWxpZ246Y2VudGVyO1xyXG4gICAgY29sb3I6I2ZmZjtcclxuICAgIGZvbnQtc2l6ZTogMTdweDtcclxuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XHJcbiAgICBmb250LWZhbWlseTogUHJveGltYS1Ob3ZhLXRoaW47XHJcbn1cclxuaW9uLWJhY2stYnV0dG9uIHtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG59XHJcbmlvbi10ZXh0IHB7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbiNmaWxlX0lucHV0e1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxufVxyXG4uYmFzaWNfcGxhbl9iZ3tcclxuICAgIGJhY2tncm91bmQ6ICMyMzM2NTg7XHJcbiAgICB6LWluZGV4OiA5O1xyXG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgaGVpZ2h0OiA1MHB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTo1MHB4O1xyXG59XHJcbiBcclxuLnRhYnNfbWFpbntcclxuICAgIHBhZGRpbmc6IDEwcHggMHB4O1xyXG4gICAgYmFja2dyb3VuZDogI2ZmZjtcclxuICAgIHdpZHRoOiA5MCU7XHJcbiAgICBtYXJnaW46IDAgYXV0bztcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgICBib3gtc2hhZG93OiAwcHggNHB4IDEycHggMHB4IHJnYmEoMCwgMCwgMCwgMC4yNyk7XHJcbn1cclxuLnRhYnNfbWFpbiA+IHVse1xyXG4gICAgd2lkdGg6IDk1JTtcclxuICAgIG1hcmdpbjogMCBhdXRvO1xyXG4gICAgYm9yZGVyLWJvdHRvbTogMDtcclxufVxyXG4udGFic19tYWluID4gdWwgPiBsaXtcclxuICAgIHdpZHRoOiAyNSU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbn1cclxuLnRhYnNfbWFpbiA+IHVsID4gbGkgPiBhe1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgY29sb3I6IHJnYmEoMzEsIDMxLCAzMSwgMC41KTtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG4udGFic19tYWluID4gdWwgPiBsaSA+IGEgPiBzcGFue1xyXG4gICAgZGlzcGxheTpibG9jaztcclxufVxyXG4udGFic19tYWluID4gdWwgPiBsaSA+IGEgPiBzcGFuID4gaW1ne1xyXG4gICAgd2lkdGg6MzBweDtcclxufVxyXG4udGFic19tYWluID4gdWwgPiBsaSA+IGEuYWN0aXZle1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBiYWNrZ3JvdW5kOiBub25lO1xyXG4gICAgY29sb3I6ICNmOTk1MjE7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBwYWRkaW5nOiAzcHg7XHJcbn1cclxuLmZvcm1fY29udGFpbmVye1xyXG4gICAgcG9zaXRpb246cmVsYXRpdmU7XHJcbiAgICBtYXJnaW46MjBweCAwcHg7XHJcbiAgICBwYWRkaW5nLXJpZ2h0OiAxNXB4O1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciA+IGlvbi1sYWJlbHtcclxuICAgIHBhZGRpbmctbGVmdDogMTMlO1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciA+IGlvbi1sYWJlbDo6YWZ0ZXJ7XHJcbiAgICBjb250ZW50OlwiKlwiO1xyXG4gICAgY29sb3I6IHJlZDtcclxuICAgIG1hcmdpbi1sZWZ0OiAzcHg7IFxyXG59XHJcbi5mb3JtX2NvbnRhaW5lciA+IC5zdGFyX25vdDo6YWZ0ZXJ7XHJcbiAgICBjb250ZW50OlwiXCIhaW1wb3J0YW50O1xyXG4gICAgY29sb3I6IHJlZDtcclxuICAgIG1hcmdpbi1sZWZ0OiAzcHg7IFxyXG59XHJcblxyXG4uZm9ybV9jb250YWluZXIgPiBpb24tbGFiZWwubm90X2FzdGVyaXNrOjphZnRlcntcclxuICAgIGNvbnRlbnQ6XCJcIjtcclxufVxyXG4uZm9ybV9jb250YWluZXIgaW9uLWlucHV0ICwgLmZvcm1fY29udGFpbmVyIGlvbi10ZXh0YXJlYXtcclxuICAgIHdpZHRoOiA4NyU7XHJcbiAgICBtYXJnaW46IDAgMCAwIGF1dG87XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2NjYztcclxuICAgIGZvbnQtc2l6ZToxMnB4O1xyXG4gICAgLS1wYWRkaW5nLXRvcDogOHB4O1xyXG4gICAgLS1wYWRkaW5nLWJvdHRvbTogNXB4O1xyXG59XHJcbi5yZWxhdGl2ZV9jbHN7XHJcbiAgICBwb3NpdGlvbjpyZWxhdGl2ZTtcclxufVxyXG4uZm9ybV9jb250YWluZXIgaW9uLWl0ZW0gPiBpb24tc2VsZWN0e1xyXG4gICAgbWluLXdpZHRoOiAxMDAlO1xyXG4gICAgLS1wYWRkaW5nLXN0YXJ0OiAwcHg7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICAtLXBhZGRpbmctYm90dG9tOiAwcHg7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyIGlvbi1idXR0b257XHJcbiAgICBmb250LXdlaWdodDogMzAwO1xyXG4gICAgd2lkdGg6IDgwJTtcclxuICAgIGJveC1zaGFkb3c6IDBweCA0cHggOHB4IDFweCAjZmVkMTljO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcclxuICAgIC0tYmFja2dyb3VuZDogI2ZkODkwMDtcclxuICAgIC0tYmFja2dyb3VuZC1hY3RpdmF0ZWQ6ICNmZDg5MDA7XHJcbiAgICB0ZXh0LXRyYW5zZm9ybTogY2FwaXRhbGl6ZTtcclxufVxyXG5pb24tYnV0dG9ue1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjZjk5NTIxO1xyXG4gICAgLS1iYWNrZ3JvdW5kLWFjdGl2YXRlZDojZjk5NTIxOyBcclxufVxyXG4uYWJzX2ljb257XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDI4cHg7XHJcbiAgICBsZWZ0OiA0LjUlO1xyXG59XHJcbi5hYnNfaWNvbiA+IGltZ3tcclxuICAgIHdpZHRoOjE4cHg7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyIGlvbi1pdGVte1xyXG4gICAgd2lkdGg6IDg3JTtcclxuICAgIG1hcmdpbjogMCAwIDAgYXV0bztcclxuICAgIC0tbWluLWhlaWdodDogMzZweDtcclxuXHJcbn1cclxuLmZvcm1fY29udGFpbmVyIGlvbi1pdGVtID4gaW9uLWRhdGV0aW1le1xyXG4gICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgLS1wYWRkaW5nLXN0YXJ0OiAwcHggIWltcG9ydGFudDtcclxufVxyXG4uZm9ybV9jb250YWluZXIgaW9uLWl0ZW0gPiBpb24tZGF0ZXRpbWV7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICAtLXBhZGRpbmctc3RhcnQ6IDBweCAhaW1wb3J0YW50O1xyXG59XHJcbi5hZGRfcHJvZmlsZSA+IGlvbi1hdmF0YXJ7XHJcbiAgICBtYXJnaW46IDIwcHggYXV0bztcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkICNmZmY7XHJcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDE0cHggLTFweCByZ2JhKDAsIDAsIDAsIDAuNjIpO1xyXG4gICAgd2lkdGg6IDcwcHg7XHJcbiAgICBoZWlnaHQ6IDcwcHg7XHJcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG59XHJcbi5yb3VuZC1wcm9maWxlIGltZ3tcclxuICAgIHdpZHRoOiA4MHB4O1xyXG4gICAgaGVpZ2h0OiA4MHB4O1xyXG59XHJcbi50ZXh0e1xyXG4gICAgcGFkZGluZzogMHB4IDE1cHg7ICBcclxufVxyXG4udGV4dCA+IGlvbi10ZXh0e1xyXG4gICAgZm9udC1zaXplOiAxNnB4O1xyXG4gICAgY29sb3I6IHJnYmEoMzEsIDMxLCAzMSwgMSk7ICBcclxufVxyXG4uYWRkX3NraWxsc3tcclxuICAgIG1hcmdpbjogNDBweCAwcHggMzBweCAwcHg7XHJcbiAgICBwYWRkaW5nOiAwcHggMTBweDtcclxufVxyXG4uYWRkX3NraWxscyA+IGlvbi10ZXh0e1xyXG4gICAgY29sb3I6ICMxZjFmMWY7XHJcbiAgICBmb250LXNpemU6IDE1cHg7XHJcbn1cclxuLmFkZF9za2lsbHMgPiBpb24tdGV4dCA+IHB7XHJcbiAgICBtYXJnaW4tYm90dG9tOjBweDtcclxufVxyXG4uYWRkX3NraWxscyA+IC5zZWFyY2hiYXJ7XHJcbiAgICBtYXJnaW4tdG9wOjE1cHg7XHJcbn1cclxuLmFkZF9za2lsbHMgPiAuc2VhcmNoYmFyIGlvbi1zZWFyY2hiYXJ7XHJcbiAgICBwYWRkaW5nOiAwcHg7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNmZmY7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZWZlZmVmO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICBoZWlnaHQ6IDM1cHg7XHJcbn1cclxuLmFkZGVkX3NraWxse1xyXG4gICAgYmFja2dyb3VuZDogcmdiYSgyMzcsIDE5NywgMTQ5LCAwLjQ4KTtcclxuICAgIHBhZGRpbmc6IDVweCAxMHB4O1xyXG59XHJcbi5hZGRlZF9za2lsbCA+IHB7XHJcbiAgICB3aWR0aDogNzAlO1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMHB4O1xyXG4gICAgZm9udC1zaXplOiAxNHB4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDUwMDtcclxufVxyXG4uYWRkZWRfc2tpbGwgPiAuY2xlYXJ7XHJcbiAgICB3aWR0aDogMzAlO1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgdGV4dC1hbGlnbjogcmlnaHQ7XHJcbn1cclxuLmFkZGVkX3NraWxsID4gLmNsZWFyID4gaW9uLWNoaXB7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBwYWRkaW5nOiAwcHggMTVweDtcclxuICAgIC0tYmFja2dyb3VuZDogI2ZkOWUyZjtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDNweCAxMnB4IC0xcHggI2Y0YTE0ZTtcclxuICAgIGhlaWdodDogMjVweDtcclxuICAgIGZvbnQtc2l6ZTogMTNweDtcclxufVxyXG4uc2VsZWN0ZWRfc2tpbGxze1xyXG4gICAgcGFkZGluZzogMTVweCAxMHB4O1xyXG59XHJcbi5zZWxlY3RlZF9za2lsbHMgPiBpb24tY2hpcHtcclxuICAgIHdpZHRoOiBtYXgtY29udGVudDtcclxuICAgIGRpc3BsYXk6IGlubGluZS1mbGV4O1xyXG59XHJcbi5zZWxlY3RlZF9za2lsbHMgPiBpb24tY2hpcDpudGgtY2hpbGQoM24rMSl7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNmZGRhYjE7XHJcbn1cclxuLnNlbGVjdGVkX3NraWxscyA+IGlvbi1jaGlwOm50aC1jaGlsZCgzbisyKXtcclxuICAgIC0tYmFja2dyb3VuZDogcmdiYSg1OCwgOTIsIDE1MywgMC4yOCk7XHJcbn1cclxuLnNlbGVjdGVkX3NraWxscyA+IGlvbi1jaGlwOm50aC1jaGlsZCgzbiszKXtcclxuICAgIC0tYmFja2dyb3VuZDojZGRkO1xyXG59XHJcbi5zdGVwXzMsIC5sYXN0X3N0ZXB7XHJcbiAgICBtYXJnaW46IDIwcHggMHB4IDIwcHggMHB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgcGFkZGluZzogMHB4IDIwcHg7XHJcbn1cclxuLmxhc3Rfc3RlcHtcclxuICAgIG1hcmdpbi10b3A6NDBweDtcclxufVxyXG4uc3RlcF8zID4gaW9uLWJ1dHRvbiwgLmxhc3Rfc3RlcCA+IGlvbi1idXR0b257XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIC0tYmFja2dyb3VuZDogI2ZkOWUyZjtcclxuICAgIGJveC1zaGFkb3c6IDBweCA1cHggOHB4IDBweCAjZmRkYWIxO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcclxuICAgIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xyXG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcclxufVxyXG5cclxuXHJcbi8qbWFuYWdlIGxhd3llciovXHJcbi5hdmF0YXItdXBsb2FkIHtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgbWFyZ2luOiAyMHB4IGF1dG87XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgfVxyXG4gIC5hdmF0YXItdXBsb2FkIC5hdmF0YXItZWRpdCB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICByaWdodDogY2FsYyg1MCUgLSA1MHB4KTtcclxuICAgIHotaW5kZXg6IDE7XHJcbiAgICBib3R0b206IDA7XHJcbiAgfVxyXG4gIC5hdmF0YXItdXBsb2FkIC5hdmF0YXItZWRpdCBpbnB1dCB7XHJcbiAgICBkaXNwbGF5OiBub25lO1xyXG4gIH1cclxuICAuYXZhdGFyLXVwbG9hZCAuYXZhdGFyLWVkaXQgaW5wdXQgKyBsYWJlbCB7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB3aWR0aDogMzRweDtcclxuICAgIGhlaWdodDogMzRweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDA7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgYmFja2dyb3VuZDogI2ZmZmZmZjtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkIHRyYW5zcGFyZW50O1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDJweCA0cHggMHB4IHJnYmEoMCwgMCwgMCwgMC4xMik7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBmb250LXdlaWdodDogbm9ybWFsO1xyXG4gICAgdHJhbnNpdGlvbjogYWxsIDAuMnMgZWFzZS1pbi1vdXQ7XHJcbiAgfVxyXG4gIC5hdmF0YXItdXBsb2FkIC5hdmF0YXItZWRpdCBpbnB1dCArIGxhYmVsOmhvdmVyIHtcclxuICAgIGJhY2tncm91bmQ6ICNmMWYxZjE7XHJcbiAgICBib3JkZXItY29sb3I6ICNkNmQ2ZDY7XHJcbiAgfVxyXG4gIC5hdmF0YXItdXBsb2FkIC5hdmF0YXItZWRpdCBpbnB1dCArIGxhYmVsOmFmdGVyIHtcclxuICAgIGNvbnRlbnQ6IFwiXFxmMDQwXCI7XHJcbiAgICBmb250LWZhbWlseTogXCJGb250QXdlc29tZVwiO1xyXG4gICAgY29sb3I6ICM3NTc1NzU7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IDEwcHg7XHJcbiAgICBsZWZ0OiAwO1xyXG4gICAgcmlnaHQ6IDA7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgfVxyXG4gIC5hdmF0YXItdXBsb2FkIC5hdmF0YXItcHJldmlldyB7XHJcbiAgICB3aWR0aDogOTBweDtcclxuICAgIGhlaWdodDogOTBweDtcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIG1hcmdpbjogMCBhdXRvO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkICNmZmZmZmY7XHJcbiAgICBib3gtc2hhZG93OiAwcHggMHB4IDEycHggMHB4IHJnYmEoMCwgMCwgMCwgMC4yOSk7XHJcbiAgfVxyXG4gIC5hdmF0YXItdXBsb2FkIC5hdmF0YXItcHJldmlldyA+IGRpdiB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMTAwJTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICBiYWNrZ3JvdW5kLXNpemU6IGNvdmVyO1xyXG4gICAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICAgIGJhY2tncm91bmQtcG9zaXRpb246IGNlbnRlcjtcclxuICB9XHJcbiAgLmNsc19yZWR7XHJcbiAgICBjb2xvcjogcmVkO1xyXG4gIH1cclxuXHJcbiAgLmVycm9yX2Nsc3tcclxuICAgIGZvbnQtc2l6ZTogMTNweDtcclxuICAgIHBhZGRpbmctbGVmdDogNDZweDtcclxuICAgIGNvbG9yOiByZWQ7XHJcbn1cclxuXHJcbi5tYW5hZ2VfYnV0dG9uID4gYnV0dG9ue1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gICAgcGFkZGluZzoxNXB4O1xyXG4gICAgY29sb3I6I2ZmZjtcclxuICAgIGJveC1zaGFkb3c6IDBweCA0cHggOHB4IDFweCAjZmVkMTljO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcclxuICAgIGJhY2tncm91bmQ6ICNmZDg5MDA7XHJcbn1cclxuLm1hbmFnZV9idXR0b24gPiBidXR0b246Zm9jdXN7XHJcbiAgICBvdXRsaW5lOm5vbmU7XHJcbn1cclxuLm1hbmFnZV9idXR0b24gPiBidXR0b25bZGlzYWJsZWRde1xyXG4gICAgYmFja2dyb3VuZDogcmdiYSgyNTMsIDEzNywgMCwgMC40OCk7XHJcbn1cclxuLm1hbmFnZV9idXR0b257XHJcbiAgICB0ZXh0LWFsaWduOmNlbnRlcjtcclxufVxyXG5cclxuXHJcbi5sYXN0X3N0YXBfYnV0dG9uID4gYnV0dG9ue1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gICAgcGFkZGluZzoxNXB4O1xyXG4gICAgY29sb3I6I2ZmZjtcclxuICAgIGJveC1zaGFkb3c6IDBweCA0cHggOHB4IDFweCAjZmVkMTljO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcclxuICAgIGJhY2tncm91bmQ6ICNmZDg5MDA7XHJcbn1cclxuLmxhc3Rfc3RhcF9idXR0b24gPiBidXR0b246Zm9jdXN7XHJcbiAgICBvdXRsaW5lOm5vbmU7XHJcbn1cclxuLmxhc3Rfc3RhcF9idXR0b24gPiBidXR0b25bZGlzYWJsZWRde1xyXG4gICAgYmFja2dyb3VuZDogcmdiYSgyNTMsIDEzNywgMCwgMC40OCk7XHJcbn1cclxuLmxhc3Rfc3RhcF9idXR0b257XHJcbiAgICB0ZXh0LWFsaWduOmNlbnRlcjtcclxufVxyXG4iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/manage-lawyer/manage-lawyer.page.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/manage-lawyer/manage-lawyer.page.ts ***!
+  \*****************************************************/
+/*! exports provided: ManageLawyerPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManageLawyerPage", function() { return ManageLawyerPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+
+
+
+
+
+var ManageLawyerPage = /** @class */ (function () {
+    function ManageLawyerPage(navCtrl, camera, actionSheetController, alertController) {
+        this.navCtrl = navCtrl;
+        this.camera = camera;
+        this.actionSheetController = actionSheetController;
+        this.alertController = alertController;
+        this.step_contant_1 = true;
+        this.fill_step_ = 0;
+        this.ImageBind = 'https://www.w3schools.com/howto/img_avatar.png';
+        this.skill_add = [];
+        this.LawyerData = {
+            firstname: "asas",
+            lastname: "asasa",
+            email: "john@gmail.com",
+            number: "2132332321",
+            date: "12-12-12",
+        };
+        this.LawyerLocation = {
+            address: "",
+            city: "",
+        };
+        //  get image path end
+        this.add_skill = [
+            { name: 'Business' },
+            { name: 'Divorce' },
+            { name: 'Employement & labour' },
+            { name: 'Family Lawyer' },
+            { name: 'Corporate Laywer' }
+        ];
+        //  validation pattern start
+        var email_pattern = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+        this.manageLawyer = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
+            firstname: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]),
+            lastname: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"](),
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].pattern(email_pattern)]),
+            number: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].minLength(8), _angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].maxLength(14)]),
+            date: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]),
+        });
+        this.LawyerAddress = new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormGroup"]({
+            address: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]),
+            city: new _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_4__["Validators"].required]),
+        });
+        //  validation pattern end
+    }
+    ManageLawyerPage.prototype.ngOnInit = function () {
+    };
+    // template html code start
+    ManageLawyerPage.prototype.step_1 = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert_1;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(this.step_contant_1 != true)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.alertController.create({
+                                message: 'Conform back to first step',
+                                buttons: [{
+                                        text: 'Cancel',
+                                        role: 'cancel',
+                                        cssClass: 'secondary',
+                                    },
+                                    {
+                                        text: 'ok',
+                                        handler: function () {
+                                            _this.step_contant_1 = true;
+                                            _this.step_contant_2 = false;
+                                            _this.step_contant_3 = false;
+                                            _this.fill_step_ = 0;
+                                        }
+                                    }]
+                            })];
+                    case 1:
+                        alert_1 = _a.sent();
+                        return [4 /*yield*/, alert_1.present()];
+                    case 2:
+                        _a.sent();
+                        _a.label = 3;
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ManageLawyerPage.prototype.step_2 = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert_2, alert_3;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(this.step_contant_2 != true)) return [3 /*break*/, 6];
+                        if (!(this.fill_step_ == 0)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.alertController.create({
+                                message: 'Fill the frist step and move next step',
+                                buttons: ['OK']
+                            })];
+                    case 1:
+                        alert_2 = _a.sent();
+                        return [4 /*yield*/, alert_2.present()];
+                    case 2:
+                        _a.sent();
+                        return [3 /*break*/, 6];
+                    case 3:
+                        if (!(this.fill_step_ == 1 || this.fill_step_ == 2)) return [3 /*break*/, 6];
+                        return [4 /*yield*/, this.alertController.create({
+                                message: 'Conform back to second step',
+                                buttons: [{
+                                        text: 'Cancel',
+                                        role: 'cancel',
+                                        cssClass: 'secondary',
+                                    },
+                                    {
+                                        text: 'ok',
+                                        handler: function () {
+                                            _this.step_contant_2 = true;
+                                            _this.step_contant_1 = false;
+                                            _this.step_contant_3 = false;
+                                            _this.fill_step_ = 1;
+                                        }
+                                    }]
+                            })];
+                    case 4:
+                        alert_3 = _a.sent();
+                        return [4 /*yield*/, alert_3.present()];
+                    case 5:
+                        _a.sent();
+                        _a.label = 6;
+                    case 6: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ManageLawyerPage.prototype.step_3 = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert_4, alert_5, alert_6;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(this.step_contant_3 != true)) return [3 /*break*/, 9];
+                        if (!(this.fill_step_ == 2)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.alertController.create({
+                                message: 'Fill the frist step and move next step',
+                                buttons: ['OK']
+                            })];
+                    case 1:
+                        alert_4 = _a.sent();
+                        return [4 /*yield*/, alert_4.present()];
+                    case 2:
+                        _a.sent();
+                        return [3 /*break*/, 9];
+                    case 3:
+                        if (!(this.fill_step_ == 1)) return [3 /*break*/, 6];
+                        return [4 /*yield*/, this.alertController.create({
+                                message: 'Fill the second step and move next step',
+                                buttons: ['OK']
+                            })];
+                    case 4:
+                        alert_5 = _a.sent();
+                        return [4 /*yield*/, alert_5.present()];
+                    case 5:
+                        _a.sent();
+                        return [3 /*break*/, 9];
+                    case 6:
+                        if (!(this.fill_step_ == 0)) return [3 /*break*/, 9];
+                        return [4 /*yield*/, this.alertController.create({
+                                message: 'Fill the frist and second step and move third step',
+                                buttons: ['OK']
+                            })];
+                    case 7:
+                        alert_6 = _a.sent();
+                        return [4 /*yield*/, alert_6.present()];
+                    case 8:
+                        _a.sent();
+                        _a.label = 9;
+                    case 9: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // template html code end
+    // form validation start
+    ManageLawyerPage.prototype.Lawyer_stap_1 = function () {
+        this.step_contant_2 = true;
+        this.step_contant_1 = false;
+        this.step_contant_3 = false;
+        this.fill_step_ = 1;
+    };
+    ManageLawyerPage.prototype.Lawyer_stap_2 = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert_7;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        console.log(this.skill_add.length);
+                        if (!(this.skill_add.length == 0)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.alertController.create({
+                                message: 'Add your skill',
+                                buttons: ['OK']
+                            })];
+                    case 1:
+                        alert_7 = _a.sent();
+                        return [4 /*yield*/, alert_7.present()];
+                    case 2:
+                        _a.sent();
+                        return [3 /*break*/, 4];
+                    case 3:
+                        this.step_contant_3 = true;
+                        this.step_contant_1 = false;
+                        this.step_contant_2 = false;
+                        this.fill_step_ = 2;
+                        _a.label = 4;
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ManageLawyerPage.prototype.Lawyer_stap_3 = function () {
+        // this.fill_step_=3;
+        console.log(this.LawyerLocation);
+    };
+    // form validation end
+    // image popup start
+    ManageLawyerPage.prototype.SelectPhoto = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var actionSheet;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.actionSheetController.create({
+                            buttons: [{
+                                    text: 'Camera',
+                                    icon: 'Camera',
+                                    handler: function () {
+                                        var sourceType = 1;
+                                        _this.takePhoto(1);
+                                    }
+                                }, {
+                                    text: 'Gallery',
+                                    icon: 'images',
+                                    handler: function () {
+                                        var sourceType = 2;
+                                        _this.takePhoto(2);
+                                    }
+                                }, {
+                                    text: 'Cancel',
+                                    icon: 'close',
+                                    role: 'cancel',
+                                    handler: function () {
+                                    }
+                                }]
+                        })];
+                    case 1:
+                        actionSheet = _a.sent();
+                        return [4 /*yield*/, actionSheet.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // image popup end
+    // //  get image path start
+    ManageLawyerPage.prototype.takePhoto = function (sourceType) {
+        var _this = this;
+        var options = {
+            quality: 50,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            correctOrientation: true,
+            sourceType: sourceType == 1 ? this.camera.PictureSourceType.CAMERA : this.camera.PictureSourceType.PHOTOLIBRARY,
+        };
+        this.camera.getPicture(options).then(function (imgData) {
+            _this.ImageData = "data:image/jpg;base64," + imgData;
+            _this.ImageBind = _this.ImageData;
+        });
+    };
+    // search and add skills start
+    ManageLawyerPage.prototype.getISkill = function (e) {
+        this.skills = this.add_skill;
+    };
+    ManageLawyerPage.prototype.add_lawyer_skills = function (vl, i) {
+        this.skills.splice(i, 1);
+        this.skill_add.push(vl);
+    };
+    ManageLawyerPage.prototype.remove_skill = function (index) {
+        this.skill_add.splice(index, 1);
+    };
+    ManageLawyerPage.prototype.remove_all_skill = function () {
+        this.skill_add = [];
+    };
+    // search and add skills end
+    // number Accept only start
+    ManageLawyerPage.prototype.numberAccept = function (event) {
+        var charCode = (event.which) ? event.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    };
+    ManageLawyerPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-manage-lawyer',
+            template: __webpack_require__(/*! ./manage-lawyer.page.html */ "./src/app/manage-lawyer/manage-lawyer.page.html"),
+            styles: [__webpack_require__(/*! ./manage-lawyer.page.scss */ "./src/app/manage-lawyer/manage-lawyer.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"],
+            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_2__["Camera"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ActionSheetController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]])
+    ], ManageLawyerPage);
+    return ManageLawyerPage;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/search-filter/searchFilter.ts":
+/*!*******************************************!*\
+  !*** ./src/search-filter/searchFilter.ts ***!
+  \*******************************************/
+/*! exports provided: GrdFilterPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GrdFilterPipe", function() { return GrdFilterPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var GrdFilterPipe = /** @class */ (function () {
+    function GrdFilterPipe() {
+    }
+    GrdFilterPipe.prototype.transform = function (items, filter, defaultFilter) {
+        if (!filter) {
+            return items;
+        }
+        if (!Array.isArray(items)) {
+            return items;
+        }
+        if (filter && Array.isArray(items)) {
+            var filterKeys_1 = Object.keys(filter);
+            if (defaultFilter) {
+                return items.filter(function (item) {
+                    return filterKeys_1.reduce(function (x, keyName) {
+                        return (x && new RegExp(filter[keyName], 'gi').test(item[keyName])) || filter[keyName] == "";
+                    }, true);
+                });
+            }
+            else {
+                return items.filter(function (item) {
+                    return filterKeys_1.some(function (keyName) {
+                        return new RegExp(filter[keyName], 'gi').test(item[keyName]) || filter[keyName] == "";
+                    });
+                });
+            }
+        }
+    };
+    GrdFilterPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+            name: 'grdFilter'
+        })
+    ], GrdFilterPipe);
+    return GrdFilterPipe;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=manage-lawyer-manage-lawyer-module.js.map

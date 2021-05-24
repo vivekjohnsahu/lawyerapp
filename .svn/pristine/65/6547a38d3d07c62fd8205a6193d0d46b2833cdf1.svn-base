@@ -1,0 +1,109 @@
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AlertController, Events, MenuController, Platform } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { GlobalService } from '../globalServices/global.service'
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
+})
+export class AppComponent implements OnInit {
+
+	open_app:string;
+	user_name: string;
+	profile_image:any;
+	
+	constructor(
+		private platform: Platform,
+		private splashScreen: SplashScreen,
+		private statusBar: StatusBar,
+		private router: Router,
+		public menu: MenuController,
+		public alertController:AlertController,
+		public events: Events,
+		private storage:Storage,
+		public gobalService:GlobalService,
+	) 
+	{
+		platform.ready().then(() => {
+			statusBar.styleDefault();
+			splashScreen.hide();
+		});
+		
+		this.events.subscribe('open_app', (data) =>{
+			this.open_app = data;
+			this.storage.set('open_app', data);	
+		});
+
+		this.storage.get('open_app').then((val) => {
+			this.open_app = val;
+		});
+
+		var user = JSON.parse(localStorage.getItem('open_app'));
+		if(user!=null || user!=undefined){
+			this.router.navigateByUrl('/home')
+		}else{
+			this.router.navigateByUrl('/sign-in')
+		}
+		
+	}
+
+	managelawyer(){
+		let firm_id = JSON.parse(localStorage.getItem('details_user'));
+		let key ={
+			"apikey":this.gobalService.APIKey,
+			"user_id":firm_id[0].id
+		}
+		this.gobalService.subscribe_chek(key)
+		.then(async data => {
+			if(data!=''){
+				this.router.navigateByUrl('/plan')
+			}else{
+				this.router.navigateByUrl("/manage-lawyer")
+			}
+		})
+
+	}
+
+	ngOnInit(){
+		setTimeout(() => {
+			let user = JSON.parse(localStorage.getItem('details_user'));
+			this.user_name = user[0].company_name;
+			if(user[0].profile_image==undefined || user[0].profile_image==null || user[0].profile_image==''){
+				this.profile_image = 'https://www.w3schools.com/howto/img_avatar.png';
+			}else{
+				this.profile_image = user[0].profile_image;
+			}	
+		}, 500);
+	}
+
+  // user logout start
+	async logOut(){
+		const alert = await this.alertController.create({
+		message: 'You are sure you want to logout now.',
+		buttons: [
+			{
+				text: 'Cancel',
+				role: 'cancel',
+				cssClass: 'secondary',
+			},{
+				text: 'ok',
+				handler: () => {
+					this.menu.enable(false);
+					this.router.navigateByUrl("/sign-in")
+					localStorage.removeItem('open_app')
+					localStorage.removeItem('lawyer_all_data')
+					setTimeout(() => {
+						this.events.publish('open_app', '');
+					}, 1000);	
+				}
+			}]
+		});
+		await alert.present();
+	}
+} 
+
+

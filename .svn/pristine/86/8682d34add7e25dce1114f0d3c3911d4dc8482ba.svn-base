@@ -1,0 +1,111 @@
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ModalpagePage } from '../modalpage/modalpage.page'; 
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AlertController, Events, MenuController, Platform } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: 'home.page.html',
+  styleUrls: ['home.page.scss'],
+})
+export class HomePage implements OnInit {
+
+	// public alertShown:boolean = false;
+	open_app:string;
+
+	constructor(
+		private router: Router, 
+		private route: ActivatedRoute, 
+		public modalController: ModalController,
+		public menu:MenuController,
+		private splashScreen: SplashScreen,
+		private statusBar: StatusBar,
+		private platform: Platform,
+		public alertCtrl: AlertController,
+		private storage:Storage,
+		public events: Events
+	){
+		// user and lawyer login 
+		this.events.subscribe('open_app', (data) =>{
+			this.open_app = data;
+			this.storage.set('open_app', data);	
+		});
+		this.storage.get('open_app').then((val) => {
+			this.open_app = val;
+		});
+		// user and lawyer login  
+		
+		platform.ready().then(() => {
+			statusBar.styleDefault();
+			splashScreen.hide();
+			this.statusBar.overlaysWebView(false);
+			this.statusBar.backgroundColorByHexString('#233658;');
+			this.platform.backButton.subscribe(() => {
+				if (this.router.url=="/home"){
+					this.presentConfirm();  
+				}
+			})
+		});
+		let user = JSON.parse(localStorage.getItem('open_app'));
+		if(user==null || user==undefined){
+			this.router.navigateByUrl('/sign-in')
+		}
+	}
+
+	async presentModal() {
+		const modal = await this.modalController.create({
+			component: ModalpagePage
+		});
+		await modal.present();
+	} 
+
+	ngOnInit(){ 
+		// this.platform.ready().then(() => {
+		// 	this.statusBar.styleDefault();
+		// 	this.splashScreen.hide();
+		// 	this.statusBar.overlaysWebView(false);
+		// 	this.statusBar.backgroundColorByHexString('#233658;');
+		// });
+	}
+
+// app exit popup start 
+	async presentConfirm() {
+		let alert = await this.alertCtrl.create({
+			message: 'Do you want Exit?',
+			buttons: [
+				{
+					text: 'Cancel',
+					role: 'cancel',
+					handler: () => {
+						console.log('Cancel clicked');
+						// this.alertShown=false;
+					}
+				},
+				{
+					text: 'Yes',
+					handler: () => {
+						console.log('Yes clicked');
+						navigator['app'].exitApp();
+					}
+				}
+			]
+		});
+		await alert.present().then(()=>{
+		// this.alertShown=true;
+		});
+	}
+// app exit popup end 
+
+// Refresher Content start
+	doRefresh(event) {
+		setTimeout(() => {
+			event.target.complete();
+		}, 2000);
+	}
+// Refresher Content start
+
+}

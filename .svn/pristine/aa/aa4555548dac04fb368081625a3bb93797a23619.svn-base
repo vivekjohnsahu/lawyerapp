@@ -1,0 +1,107 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AlertController, MenuController, Platform } from '@ionic/angular';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: 'app.component.html'
+})
+export class AppComponent implements OnInit {
+
+	user_access:boolean;
+	public alertShown:boolean = false;
+	public appPages = [
+		{
+			title: 'Home',
+			url: '/home',
+			icon: 'home'
+		},
+		{
+			title: 'List',
+			url: '/list',
+			icon: 'list'
+		}
+	];
+	
+    constructor(
+		private platform: Platform,
+		private splashScreen: SplashScreen,
+		private statusBar: StatusBar,
+		private router: Router,
+		public menu: MenuController,
+		public alertController:AlertController,
+		public alertCtrl: AlertController
+    ) {
+		this.initializeApp();
+		let user_access =JSON.parse(localStorage.getItem('login'));
+		if(user_access=='user'){
+			this.user_access=true;
+		}else{
+			this.user_access=false;
+		}
+	}
+
+	ngOnInit(){
+		// app exit popup start 
+		this.platform.registerBackButtonAction(function(e) {
+			e.preventDefault();
+				function showConfirm() {
+					var confirmPopup = this.ionicPopup.show({
+						title : 'Exit Lawyer App',
+						template : 'Are you sure you want to exit Lawyer App',
+							buttons : [{
+								text : 'Cancel',
+								type : 'button-royal button-outline',
+							}, {
+								text : 'Ok',
+								type : 'button-royal',
+								onTap : function() {
+									this.Platform.exitApp();
+								}
+							}]
+						});
+					};
+			if(this.backView()){
+			 // Go back in history
+			 this.backView().go();
+			}else{
+			 // This is the last page: Show confirmation popup
+			 showConfirm();
+			}
+			return false;
+		}, 101);
+		// app exit popup end	   
+	}
+
+	initializeApp() {
+		this.platform.ready().then(() => {
+			this.statusBar.styleDefault();
+			this.splashScreen.hide();
+		});
+	}
+
+  // user logout start
+	async logOut(){
+		const alert = await this.alertController.create({
+		message: 'You are sure you want to logout now.',
+		buttons: [{
+			text: 'Cancel',
+			role: 'cancel',
+			cssClass: 'secondary',
+				handler: () => {  }
+			},
+			{
+			text: 'ok',
+			handler: () => {
+				localStorage.removeItem('login')
+				this.menu.enable(false);
+				this.router.navigateByUrl("/sign-in")
+			}
+			}]
+		});
+		await alert.present();
+	}
+  // user logout end
+}

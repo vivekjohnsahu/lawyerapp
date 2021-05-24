@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+			<ion-back-button>
+			</ion-back-button>
+		</ion-buttons>
+    <ion-title>
+      Payment
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid>
+        <ion-row >
+          <ion-col class="width_set" *ngFor="let lawyer of plane_seleted;">
+              <div class="div">
+                  <strong>Plan</strong><span>{{lawyer.plan_name}}</span>
+              </div>
+              <div class="div">
+                  <strong>Price</strong><span>{{lawyer.price}}</span>
+              </div>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div (click)="Payment()" class="subscribe">
+        <ion-button>Make Payment</ion-button>
+    </div>
+</ion-content>

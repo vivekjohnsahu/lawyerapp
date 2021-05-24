@@ -1,0 +1,33 @@
+ion-toolbar{
+    --background:#233658;
+}
+ion-title{
+    color:#fff;
+    font-weight: 300;
+    text-transform: capitalize;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+ion-back-button {
+    color: #fff;
+}
+.bg_img_user{
+    background-color: #233658;
+    margin-bottom: 11px;
+    margin-top: 22px;
+}
+.bg_img_lawyer{
+    background-color: #233658;
+    margin-bottom: 22px;
+    margin-top: 11px;
+}
+ion-slides{
+    color: white;
+    letter-spacing: 1px;
+}
+h1{
+    font-size: 18px;
+    display: inline-block;
+    width: 80%;
+}

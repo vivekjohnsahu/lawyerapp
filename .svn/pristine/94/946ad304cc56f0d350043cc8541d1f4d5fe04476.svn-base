@@ -1,0 +1,22 @@
+.subscribe{
+    padding: 10px 0px;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+.subscribe > ion-button{
+    width: 100%;
+    --background: #f99521;
+    --border-radius: 30px;
+    overflow: hidden;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    --background-activated: #ff8900;
+}
+ion-toolbar {
+    --background: #233658;
+}
+ion-back-button {
+    color: #fff;
+}

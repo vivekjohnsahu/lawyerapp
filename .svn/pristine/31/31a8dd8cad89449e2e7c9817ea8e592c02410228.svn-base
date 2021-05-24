@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <!-- routerLink="/home" -->
+        <ion-back-button >
+        </ion-back-button>
+    </ion-buttons>
+    <ion-title>Basic Plan</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content no-padding>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col size="12" no-padding>
+        <div class="basic_plan_bg">
+          <div class="basic_plan_main">
+            <div class="img_plan">
+              <ion-avatar>
+                <img src="assets/images/plans/view_plan.png">
+              </ion-avatar>
+            </div>
+            <div class="plan_head">
+              <ion-text>
+                <p>Basic Plan</p>
+              </ion-text>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" no-padding>
+          <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+            <div class="tabs_main">
+              <ul class="nav nav-tabs">
+                <li><a data-toggle="tab" href="#menu1" class="active" *ngFor="let gold_plan of plan_gold_plan" (click)="selected_plan(plan_gold_plan)">{{gold_plan.plan_name}}</a></li>
+                <li><a data-toggle="tab" href="#menu2" *ngFor="let silver_plan of plan_silver_plan" (click)="selected_plan(plan_silver_plan)">{{silver_plan.plan_name}}</a></li>
+                <li><a data-toggle="tab" href="#home"  *ngFor="let Bronzeplan of plan_Bronze_plan" (click)="selected_plan(plan_Bronze_plan)">{{Bronzeplan.plan_name}}</a></li>
+              </ul>  
+            <div class="tab-content">
+              <div id="menu1" class="tab-pane fade in active show" *ngFor="let gold_plan of plan_gold_plan">
+                  <div class="plan_cost">
+                      <span class="sign"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                      <span class="actual_cost">{{gold_plan.price}}</span>
+                      <span class="monthly"> / {{gold_plan.validity}} year</span> 
+                    </div>
+                    <div class="plan_info">
+                      <ion-text><p>Basic Information</p></ion-text>
+                    </div>
+                    <div class="plan_para">
+                      <ion-text><p>{{gold_plan.plan_desc}}</p></ion-text>
+                    </div>  
+                    <div class="plan_list">
+                      <ion-list no-padding>
+                        <ion-item no-padding *ngIf="gold_plan.featured_listing!='No'">
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>Featured listing active</ion-label>
+                        </ion-item>
+                        <ion-item no-padding>
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>{{gold_plan.number_of_request}} lawyer add</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </div>
+                    <div class="subscribe" (click)="subscribe()">
+                      <ion-button>Subscribe</ion-button>
+                    </div>
+              </div>
+              <div id="menu2" class="tab-pane fade" *ngFor="let silver_plan of plan_silver_plan">
+                  <div class="plan_cost">
+                      <span class="sign"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                      <span class="actual_cost">{{silver_plan.price}}</span>
+                      <span class="monthly"> / {{silver_plan.validity}} year</span> 
+                    </div>
+                    <div class="plan_info">
+                      <ion-text><p>Basic Information</p></ion-text>
+                    </div>
+                    <div class="plan_para">
+                      <ion-text><p>{{silver_plan.plan_desc}}</p></ion-text>
+                    </div>  
+                    <div class="plan_list">
+                      <ion-list no-padding>
+                        <ion-item no-padding *ngIf="silver_plan.featured_listing!='No'">
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>Featured listing active</ion-label>
+                        </ion-item>
+                        <ion-item no-padding>
+                          <!-- {{number_of_request.length}} -->
+                          <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>{{silver_plan.number_of_request}} lawyer add</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </div>
+                    <div class="subscribe" (click)="subscribe()">
+                      <ion-button>Subscribe</ion-button>
+                    </div>
+              </div>
+              <div id="home" class="tab-pane fade" *ngFor="let Bronzeplan of plan_Bronze_plan" >
+                  <div class="plan_cost">
+                    <span class="sign"><i class="fa fa-usd" aria-hidden="true"></i></span>
+                    <span class="actual_cost">{{Bronzeplan.price}}</span>
+                    <span class="monthly"> / {{Bronzeplan.validity}} year</span> 
+                  </div>
+                  <div class="plan_info">
+                    <ion-text><p>Basic Information</p></ion-text>
+                  </div>
+                  <div class="plan_para">
+                    <ion-text><p>{{Bronzeplan.plan_desc}}</p></ion-text>
+                  </div>  
+                  <div class="plan_list">
+                    <ion-list no-padding>
+                      <ion-item no-padding *ngIf="Bronzeplan.featured_listing!='No'">
+                        <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>Featured listing active</ion-label>
+                      </ion-item>
+                      <ion-item no-padding>
+                        <ion-label><span class="checked"><i class="fa fa-check" aria-hidden="true"></i></span>{{Bronzeplan.number_of_request}} lawyer add</ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+                  <div class="subscribe" (click)="subscribe()">
+                    <ion-button>Subscribe</ion-button>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

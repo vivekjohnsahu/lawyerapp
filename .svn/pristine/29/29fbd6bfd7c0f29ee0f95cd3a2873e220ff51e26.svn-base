@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <img src="assets/images/ham_icon.png">
+      </ion-menu-button>
+    </ion-buttons>
+    <ion-title *ngIf="user_id=='1'">
+      Home
+    </ion-title>
+    <ion-title *ngIf="user_id=='2'">
+      Lawyer Dashboard
+    </ion-title>
+    <ion-buttons slot="end" class="search_icon_container">
+      <a routerLink="/search" class="search_icon"><img src="assets/images/search_icon.png"></a>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="homepage_img" *ngIf="user_id=='1'">
+    <a><img src="assets/images/Dashboard_img.png"></a>
+  </div>
+  <div class="homepage_img" *ngIf="user_id=='2'">
+      <a><img src="assets\images\images.jpg"></a>
+  </div>
+
+  <div class="featured_div">
+    <h3>Featured <span>Law Firms</span></h3>
+  </div>
+
+  <ion-fab class="fixed_btn" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="light" (click)="presentModal()"><img src="assets/images/filter_icon.png"></ion-fab-button>
+  </ion-fab>
+
+
+  <ion-grid class="featured_grid">
+    <ion-row>
+      <ion-col size="12" class="featured_main" routerLink="/firm-details">
+        <ion-col size-xs="3" size-sm="3" class="featured_image">
+          <img src="assets/images/featured_1.png">
+        </ion-col>
+        <div class="featured_text">
+          <div class="heading">
+            <h4>HHS Lawyers And Legal Consultants</h4>
+            <p>Dubai - United Arab Emirates</p>
+            <p>Established 2002</p>
+          </div>
+          <div class="sevice_type">
+            <a>criminal</a>
+            <a>Divorce</a>
+            <a>+6 more</a>
+          </div>
+          <div class="last_text">
+            <p>HHS Lawyers provide high quality legal services including Litigation,</p>
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" class="featured_main" routerLink="/firm-details">
+        <ion-col size-xs="3" size-sm="3" class="featured_image">
+          <img src="assets/images/featured_2.png">
+        </ion-col>
+        <div class="featured_text">
+          <div class="heading">
+            <h4>HHS Lawyers And Legal Consultants</h4>
+            <p>Dubai - United Arab Emirates</p>
+            <p>Established 2002</p>
+          </div>
+          <div class="sevice_type">
+            <a>criminal</a>
+            <a>Divorce</a>
+            <a>+6 more</a>
+          </div>
+          <div class="last_text">
+            <p>HHS Lawyers provide high quality legal services including Litigation,</p>
+          </div>
+        </div>
+      </ion-col>
+
+      <ion-col size="12" class="featured_main" routerLink="/firm-details">
+        <ion-col size-xs="3" size-sm="3" class="featured_image">
+          <img src="assets/images/featured_3.png">
+        </ion-col>
+        <div class="featured_text">
+          <div class="heading">
+            <h4>HHS Lawyers And Legal Consultants</h4>
+            <p>Dubai - United Arab Emirates</p>
+            <p>Established 2002</p>
+          </div>
+          <div class="sevice_type">
+            <a>criminal</a>
+            <a>Divorce</a>
+            <a>+6 more</a>
+          </div>
+          <div class="last_text">
+            <p>HHS Lawyers provide high quality legal services including Litigation,</p>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12" class="featured_main" routerLink="/firm-details">
+        <ion-col size-xs="3" size-sm="3" class="featured_image">
+          <img src="assets/images/featured_2.png">
+        </ion-col>
+        <div class="featured_text">
+          <div class="heading">
+            <h4>HHS Lawyers And Legal Consultants</h4>
+            <p>Dubai - United Arab Emirates</p>
+            <p>Established 2002</p>
+          </div>
+          <div class="sevice_type">
+            <a>criminal</a>
+            <a>Divorce</a>
+            <a>+6 more</a>
+          </div>
+          <div class="last_text">
+            <p>HHS Lawyers provide high quality legal services including Litigation,</p>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

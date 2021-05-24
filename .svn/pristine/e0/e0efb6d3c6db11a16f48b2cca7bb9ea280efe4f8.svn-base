@@ -1,0 +1,257 @@
+ion-toolbar {
+    --background: #233658;
+}
+
+ion-back-button {
+    color: #fff;
+}
+
+// ion-title {
+//     font-size: 16px;
+//     color: #fff;
+//     font-weight: 300;
+// }
+
+.featured_image {
+    text-align: center;
+}
+
+div.featured_text {
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0px 10px;
+}
+
+div.featured_text h4 {
+    margin-top: 0px;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+div.featured_text p {
+    margin: 0px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: rgba(31, 31, 31, 0.71);
+}
+
+.sevice_type {
+    margin-bottom: 5px;
+}
+
+.sevice_type a {
+    font-size: 12px;
+    text-transform: capitalize;
+    border: 1px solid #fd8902;
+    padding: 0px 5px;
+    background: #fff9f2;
+    border-radius: 5px;
+    margin-right: 5px;
+    color: #1f1f1f;
+    display: inline-block;
+}
+
+.inner-scroll.scroll-y.overscroll {
+    padding: 0px !important;
+}
+
+.address_icon {
+    width: 10%;
+    display: inline-block;
+    text-align: center;
+    padding: 2px 1px;
+}
+
+.address_icon>img {
+    width: 15px;
+}
+
+.main_add {
+    width: 89%;
+    display: inline-block;
+    padding: 0px 5px;
+    vertical-align: top;
+}
+
+.main_add>p {
+    margin-top: 0px;
+    text-align: left;
+    font-size: 12px;
+    color: rgba(31, 31, 31, 0.71);
+}
+
+.email_info,
+.mobile_info {
+    width: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    min-height: 33px;
+}
+
+.email_info>div:nth-child(1),
+.mobile_info>div:nth-child(1) {
+    width: 20%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.mobile_info>div:nth-child(1) {
+    text-align: right;
+}
+
+.email_info {
+    border-right: 1px solid rgba(204, 204, 204, 0.4117647058823529);
+}
+
+.email_info>div:nth-child(2),
+.mobile_info>div:nth-child(2) {
+    width: 80%;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 5px;
+    font-size: 12px;
+    color: rgba(31, 31, 31, 0.71);
+}
+
+.mobile_info>div:nth-child(2) {
+    vertical-align: middle;
+}
+
+.email_info>div:nth-child(1)>img {
+    width: 18px;
+}
+
+.mobile_info>div:nth-child(1)>img {
+    width: 12px;
+}
+
+.no-padding {
+    padding: 0px;
+}
+
+.lawyers_type_head {
+    padding: 10px;
+    background: #fff1e1;
+    margin-top: 14px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.lawyers_card:focus {
+    outline: none;
+}
+
+.lawyers_card {
+    margin: 0px 1px 0px 1px;
+    border-radius: 10px;
+    border: 1px solid rgba(236, 235, 235, 0.37);
+    box-shadow: 0px 2px 19px 0px rgba(187, 181, 181, 0.23);
+}
+
+.lawyers_card ion-avatar {
+    margin: 10px auto;
+}
+
+.lawyers_card ion-card-content {
+    padding: 5px 5px 10px 5px;
+}
+
+.lawyers_card ion-card-content>p:nth-child(1) {
+    font-size: 13px;
+    color: #1f1f1f;
+    font-weight: 500;
+    margin-bottom: 0px;
+    line-height: 17px;
+    text-align: center;
+}
+
+.featured_image>ion-avatar {
+    margin: 0 auto;
+    width: 65px;
+    height: 65px;
+    // width: 80%;
+    // height: 84%;
+    /* border: 1px solid #fff; */
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.3);
+}
+
+.lawyers_card ion-card-content>p:nth-child(2) {
+    font-size: 13px;
+    color: rgba(31, 31, 31, 0.68);
+    font-weight: 600;
+    margin-bottom: 0px;
+    line-height: 16px;
+    text-align: center;
+}
+
+ion-col.float {
+    width: auto;
+    display: inline-block;
+}
+
+.view_more {
+    padding: 10px;
+    width: 100%;
+}
+
+.view_more>button {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid rgba(237, 237, 237, 0.4);
+    border-radius: 10px;
+    box-shadow: 0px 1px 14px 0px rgba(0, 0, 0, 0.13);
+    font-size: 13px;
+}
+
+.view_more>button:focus {
+    outline-color: #fff1e1;
+}
+
+ion-text.about_text {
+    font-size: 12px;
+    color: #1f1f1f;
+}
+
+ion-text.about_text>p {
+    margin-top: 15px;
+    padding: 0px 10px;
+    text-align: justify;
+    line-height: 17px;
+}
+
+ion-text.about_text>p>span>a {
+    color: #fd8900;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.hidden_lawyer {
+    display: none;
+    float: left;
+    overflow: hidden;
+}
+
+.view_more>button i {
+    margin-left: 10px;
+    font-weight: 600;
+    color: #7a787b;
+    transition: 0.5s;
+}
+
+.view_more>button.view_less i {
+    transform: rotate(180deg)
+}
+// .lawyer_head{
+//     height: 270px;
+//     overflow: hidden;
+//     transition: ease all 0.5; 
+// }
+// .lawyer_head_all{
+//     height: auto;
+//     transition: ease all 0.5;
+// }

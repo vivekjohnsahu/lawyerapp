@@ -1,0 +1,72 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button>
+			</ion-back-button>
+		</ion-buttons>
+		<ion-title>Change Password</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<form novalidate (ngSubmit)="changePass(form_reset)" [formGroup]="changePassword">
+	<ion-grid class="no-padding">
+		<ion-row no-padding>
+			<ion-col no-padding>
+				<div class="form_container">
+					<ion-label position="stacked">Enter Your Old Password</ion-label>
+					<ion-input no-padding  placeholder="Old Password" type="text" required [(ngModel)]="change_pw.old_password" formControlName="old_password" [class.error1]="!changePassword.controls.old_password.valid && changePassword.controls.old_password.dirty"></ion-input>
+					<div class="abs_icon"><img src="assets/images/password.png"></div>
+					<div class="error_cls" *ngIf="( changePassword.get('old_password').hasError('minlength') || changePassword.get('old_password').hasError('maxlength') ||changePassword.get('old_password').hasError('required') ) && changePassword.get('old_password').touched">
+						<div class="error" *ngIf="changePassword.get('old_password').hasError('required') && changePassword.get('old_password').touched">
+							Old password cannot be blank
+						</div>
+						<div class="error" *ngIf="changePassword.get('old_password').hasError('minlength') && changePassword.get('old_password').touched">
+							Minimum 6 characters
+						</div>
+						<div class="error" *ngIf="changePassword.get('old_password').hasError('maxlength') && changePassword.get('old_password').touched">
+							Maximum 20 characters
+						</div>
+					</div>
+				</div>
+				<div class="form_container">
+					<ion-label position="stacked">Enter Your New Password</ion-label>
+					<ion-input no-padding  placeholder="New Password" type="text" required [(ngModel)]="change_pw.new_password" formControlName="new_password" [class.error1]="!changePassword.controls.new_password.valid && changePassword.controls.new_password.dirty"></ion-input>
+					<div class="abs_icon"><img src="assets/images/password.png"></div>
+					<div class="error_cls" *ngIf="( changePassword.get('new_password').hasError('minlength') || changePassword.get('new_password').hasError('maxlength') ||changePassword.get('new_password').hasError('required') ) && changePassword.get('new_password').touched">
+						<div class="error" *ngIf="changePassword.get('new_password').hasError('required') && changePassword.get('new_password').touched">
+							New password cannot be blank
+						</div>
+						<div class="error" *ngIf="changePassword.get('new_password').hasError('minlength') && changePassword.get('new_password').touched">
+							Minimum 6 characters
+						</div>
+						<div class="error" *ngIf="changePassword.get('new_password').hasError('maxlength') && changePassword.get('new_password').touched">
+							Maximum 20 characters
+						</div>
+					</div>
+				</div>
+				<div class="form_container">
+					<ion-label position="stacked">Confirm Your New Password</ion-label>
+					<ion-input no-padding Equalvalidate="change_pw.new_password" placeholder="Confirm Password" type="text" required [(ngModel)]="change_pw.comf_password" formControlName="comf_password" [class.error1]="!changePassword.controls.comf_password.valid && changePassword.controls.comf_password.dirty"></ion-input>
+					<div class="abs_icon"><img src="assets/images/password.png"></div>
+					<div class="error_cls" *ngIf="( changePassword.get('comf_password').hasError('minlength') || changePassword.get('comf_password').hasError('maxlength') ||changePassword.get('comf_password').hasError('required') ) && changePassword.get('comf_password').touched">
+						<div class="error" *ngIf="changePassword.get('comf_password').hasError('required') && changePassword.get('comf_password').touched">
+							Confirm password cannot be blank
+						</div>
+						<div class="error" *ngIf="changePassword.get('comf_password').hasError('minlength') && changePassword.get('comf_password').touched">
+							Minimum 6 characters
+						</div>
+						<div class="error" *ngIf="changePassword.get('comf_password').hasError('maxlength') && changePassword.get('comf_password').touched">
+							Maximum 20 characters
+						</div>
+					</div>
+				</div>
+				<div class="form_container" style="text-align:center;padding-right: 0px;">
+					<ion-col size="12" class="sign_in_button">
+						<button shape="round" type="submit" [disabled]="changePassword.invalid">Submit</button>
+					</ion-col>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	</form>
+</ion-content>

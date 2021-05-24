@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond $1 !^(index.html\fonts\css\js)
+RewriteCond %{HTTP_HOST} ^buyyourkart.com [NC]
+RewriteRule ^(.*)$ http://www.buyyourkart.com/$1 [L,R=301,NC]

@@ -1,0 +1,174 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["change-password-change-password-module"],{
+
+/***/ "./src/app/change-password/change-password.module.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/change-password/change-password.module.ts ***!
+  \***********************************************************/
+/*! exports provided: ChangePasswordPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangePasswordPageModule", function() { return ChangePasswordPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _change_password_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./change-password.page */ "./src/app/change-password/change-password.page.ts");
+
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _change_password_page__WEBPACK_IMPORTED_MODULE_6__["ChangePasswordPage"]
+    }
+];
+var ChangePasswordPageModule = /** @class */ (function () {
+    function ChangePasswordPageModule() {
+    }
+    ChangePasswordPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]
+            ],
+            declarations: [_change_password_page__WEBPACK_IMPORTED_MODULE_6__["ChangePasswordPage"]]
+        })
+    ], ChangePasswordPageModule);
+    return ChangePasswordPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/change-password/change-password.page.html":
+/*!***********************************************************!*\
+  !*** ./src/app/change-password/change-password.page.html ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-back-button>\n\t\t\t</ion-back-button>\n\t\t</ion-buttons>\n\t\t<ion-title>Change Password</ion-title>\n\t</ion-toolbar>\n</ion-header>\n<ion-content>\n\t<form novalidate (ngSubmit)=\"changePass(form_reset)\" [formGroup]=\"changePassword\">\n\t<ion-grid class=\"no-padding\">\n\t\t<ion-row no-padding>\n\t\t\t<ion-col no-padding>\n\t\t\t\t<div class=\"form_container\">\n\t\t\t\t\t<ion-label position=\"stacked\">Enter Your Old Password</ion-label>\n\t\t\t\t\t<ion-input no-padding  placeholder=\"Old Password\" type=\"text\" required [(ngModel)]=\"change_pw.old_password\" formControlName=\"old_password\" [class.error1]=\"!changePassword.controls.old_password.valid && changePassword.controls.old_password.dirty\"></ion-input>\n\t\t\t\t\t<div class=\"abs_icon\"><img src=\"assets/images/password.png\"></div>\n\t\t\t\t\t<div class=\"error_cls\" *ngIf=\"( changePassword.get('old_password').hasError('minlength') || changePassword.get('old_password').hasError('maxlength') ||changePassword.get('old_password').hasError('required') ) && changePassword.get('old_password').touched\">\n\t\t\t\t\t\t<div class=\"error\" *ngIf=\"changePassword.get('old_password').hasError('required') && changePassword.get('old_password').touched\">\n\t\t\t\t\t\t\tOld password cannot be blank\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"error\" *ngIf=\"changePassword.get('old_password').hasError('minlength') && changePassword.get('old_password').touched\">\n\t\t\t\t\t\t\tMinimum 6 characters\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"error\" *ngIf=\"changePassword.get('old_password').hasError('maxlength') && changePassword.get('old_password').touched\">\n\t\t\t\t\t\t\tMaximum 20 characters\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"form_container\">\n\t\t\t\t\t<ion-label position=\"stacked\">Enter Your New Password</ion-label>\n\t\t\t\t\t<ion-input no-padding  placeholder=\"New Password\" type=\"text\" required [(ngModel)]=\"change_pw.new_password\" formControlName=\"new_password\" [class.error1]=\"!changePassword.controls.new_password.valid && changePassword.controls.new_password.dirty\"></ion-input>\n\t\t\t\t\t<div class=\"abs_icon\"><img src=\"assets/images/password.png\"></div>\n\t\t\t\t\t<div class=\"error_cls\" *ngIf=\"( changePassword.get('new_password').hasError('minlength') || changePassword.get('new_password').hasError('maxlength') ||changePassword.get('new_password').hasError('required') ) && changePassword.get('new_password').touched\">\n\t\t\t\t\t\t<div class=\"error\" *ngIf=\"changePassword.get('new_password').hasError('required') && changePassword.get('new_password').touched\">\n\t\t\t\t\t\t\tNew password cannot be blank\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"error\" *ngIf=\"changePassword.get('new_password').hasError('minlength') && changePassword.get('new_password').touched\">\n\t\t\t\t\t\t\tMinimum 6 characters\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"error\" *ngIf=\"changePassword.get('new_password').hasError('maxlength') && changePassword.get('new_password').touched\">\n\t\t\t\t\t\t\tMaximum 20 characters\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"form_container\">\n\t\t\t\t\t<ion-label position=\"stacked\">Confirm Your New Password</ion-label>\n\t\t\t\t\t<ion-input no-padding Equalvalidate=\"change_pw.new_password\" placeholder=\"Confirm Password\" type=\"text\" required [(ngModel)]=\"change_pw.comf_password\" formControlName=\"comf_password\" [class.error1]=\"!changePassword.controls.comf_password.valid && changePassword.controls.comf_password.dirty\"></ion-input>\n\t\t\t\t\t<div class=\"abs_icon\"><img src=\"assets/images/password.png\"></div>\n\t\t\t\t\t<div class=\"error_cls\" *ngIf=\"( changePassword.get('comf_password').hasError('minlength') || changePassword.get('comf_password').hasError('maxlength') ||changePassword.get('comf_password').hasError('required') ) && changePassword.get('comf_password').touched\">\n\t\t\t\t\t\t<div class=\"error\" *ngIf=\"changePassword.get('comf_password').hasError('required') && changePassword.get('comf_password').touched\">\n\t\t\t\t\t\t\tConfirm password cannot be blank\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"error\" *ngIf=\"changePassword.get('comf_password').hasError('minlength') && changePassword.get('comf_password').touched\">\n\t\t\t\t\t\t\tMinimum 6 characters\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"error\" *ngIf=\"changePassword.get('comf_password').hasError('maxlength') && changePassword.get('comf_password').touched\">\n\t\t\t\t\t\t\tMaximum 20 characters\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"form_container\" style=\"text-align:center;padding-right: 0px;\">\n\t\t\t\t\t<ion-col size=\"12\" class=\"sign_in_button\">\n\t\t\t\t\t\t<button shape=\"round\" type=\"submit\" [disabled]=\"changePassword.invalid\">Submit</button>\n\t\t\t\t\t</ion-col>\n\t\t\t\t</div>\n\t\t\t</ion-col>\n\t\t</ion-row>\n\t</ion-grid>\n\t</form>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/change-password/change-password.page.scss":
+/*!***********************************************************!*\
+  !*** ./src/app/change-password/change-password.page.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-toolbar {\n  --background:#233658; }\n\nion-title {\n  color: #fff;\n  font-weight: 300;\n  text-transform: capitalize;\n  font-size: 18px;\n  text-align: left; }\n\nion-back-button {\n  color: #fff; }\n\n.no-padding {\n  padding: 0px; }\n\n.abs_icon {\n  position: absolute;\n  top: 28px;\n  left: 4.5%; }\n\n.abs_icon > img {\n  width: 18px; }\n\n.form_container {\n  position: relative;\n  margin: 20px 0px;\n  padding-right: 15px; }\n\n.form_container > ion-label {\n  padding-left: 13%; }\n\n.form_container > ion-label::after {\n  content: \"*\";\n  color: red;\n  margin-left: 3px; }\n\n.form_container ion-input, .form_container ion-textarea {\n  width: 87%;\n  margin: 0 0 0 auto;\n  border-bottom: 1px solid #ccc;\n  font-size: 12px;\n  --padding-top: 8px;\n  --padding-bottom: 5px; }\n\n.form_container ion-button {\n  font-weight: 300;\n  width: 80%;\n  box-shadow: 0px 4px 8px 1px #fed19c;\n  border-radius: 30px;\n  --background: #fd8900;\n  --background-activated: #fd8900;\n  margin-top: 30px; }\n\n.error_cls {\n  color: red;\n  font-size: 12px;\n  padding-top: 10px;\n  padding-left: 45px; }\n\n.sign_in_button > button {\n  font-weight: 300;\n  width: 90%;\n  margin-top: 30px;\n  padding: 15px;\n  color: #fff;\n  box-shadow: 0px 4px 8px 1px #fed19c;\n  border-radius: 30px;\n  background: #fd8900; }\n\n.sign_in_button > button:focus {\n  outline: none; }\n\n.sign_in_button > button[disabled] {\n  background: rgba(253, 137, 0, 0.48); }\n\n.sign_in_button {\n  text-align: center; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY2hhbmdlLXBhc3N3b3JkL0Q6XFx4YW1wcFxcaHRkb2NzXFxsYXd5ZXJhcHBcXGxhd3llcnNBcHAvc3JjXFxhcHBcXGNoYW5nZS1wYXNzd29yZFxcY2hhbmdlLXBhc3N3b3JkLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLG9CQUFhLEVBQUE7O0FBRWpCO0VBQ0ksV0FBVTtFQUNWLGdCQUFnQjtFQUNoQiwwQkFBMEI7RUFDMUIsZUFBZTtFQUNmLGdCQUFnQixFQUFBOztBQUVwQjtFQUNJLFdBQVcsRUFBQTs7QUFFZjtFQUNJLFlBQVcsRUFBQTs7QUFJZjtFQUNJLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsVUFBVSxFQUFBOztBQUVkO0VBQ0ksV0FBVSxFQUFBOztBQUVkO0VBQ0ksa0JBQWlCO0VBQ2pCLGdCQUFlO0VBQ2YsbUJBQW1CLEVBQUE7O0FBRXZCO0VBQ0ksaUJBQWlCLEVBQUE7O0FBRXJCO0VBQ0ksWUFBVztFQUNYLFVBQVU7RUFDVixnQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxVQUFVO0VBQ1Ysa0JBQWtCO0VBQ2xCLDZCQUE2QjtFQUM3QixlQUFjO0VBQ2Qsa0JBQWM7RUFDZCxxQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLG1DQUFtQztFQUNuQyxtQkFBbUI7RUFDbkIscUJBQWE7RUFDYiwrQkFBdUI7RUFDdkIsZ0JBQWdCLEVBQUE7O0FBRXBCO0VBQ0ksVUFBVTtFQUNWLGVBQWU7RUFDZixpQkFBaUI7RUFDakIsa0JBQWtCLEVBQUE7O0FBRXRCO0VBQ0ksZ0JBQWdCO0VBQ2hCLFVBQVU7RUFDVixnQkFBZ0I7RUFDaEIsYUFBWTtFQUNaLFdBQVU7RUFDVixtQ0FBbUM7RUFDbkMsbUJBQW1CO0VBQ25CLG1CQUFtQixFQUFBOztBQUV2QjtFQUNJLGFBQVksRUFBQTs7QUFFaEI7RUFDSSxtQ0FBbUMsRUFBQTs7QUFFdkM7RUFDSSxrQkFBa0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2NoYW5nZS1wYXNzd29yZC9jaGFuZ2UtcGFzc3dvcmQucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXRvb2xiYXJ7XHJcbiAgICAtLWJhY2tncm91bmQ6IzIzMzY1ODtcclxufVxyXG5pb24tdGl0bGV7XHJcbiAgICBjb2xvcjojZmZmO1xyXG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICAgIHRleHQtdHJhbnNmb3JtOiBjYXBpdGFsaXplO1xyXG4gICAgZm9udC1zaXplOiAxOHB4O1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxufVxyXG5pb24tYmFjay1idXR0b24ge1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbn1cclxuLm5vLXBhZGRpbmd7XHJcbiAgICBwYWRkaW5nOjBweDtcclxufVxyXG5cclxuXHJcbi5hYnNfaWNvbntcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMjhweDtcclxuICAgIGxlZnQ6IDQuNSU7XHJcbn1cclxuLmFic19pY29uID4gaW1ne1xyXG4gICAgd2lkdGg6MThweDtcclxufVxyXG4uZm9ybV9jb250YWluZXJ7XHJcbiAgICBwb3NpdGlvbjpyZWxhdGl2ZTtcclxuICAgIG1hcmdpbjoyMHB4IDBweDtcclxuICAgIHBhZGRpbmctcmlnaHQ6IDE1cHg7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyID4gaW9uLWxhYmVse1xyXG4gICAgcGFkZGluZy1sZWZ0OiAxMyU7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyID4gaW9uLWxhYmVsOjphZnRlcntcclxuICAgIGNvbnRlbnQ6XCIqXCI7XHJcbiAgICBjb2xvcjogcmVkO1xyXG4gICAgbWFyZ2luLWxlZnQ6IDNweDtcclxufVxyXG4uZm9ybV9jb250YWluZXIgaW9uLWlucHV0ICwgLmZvcm1fY29udGFpbmVyIGlvbi10ZXh0YXJlYXtcclxuICAgIHdpZHRoOiA4NyU7XHJcbiAgICBtYXJnaW46IDAgMCAwIGF1dG87XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2NjYztcclxuICAgIGZvbnQtc2l6ZToxMnB4O1xyXG4gICAgLS1wYWRkaW5nLXRvcDogOHB4O1xyXG4gICAgLS1wYWRkaW5nLWJvdHRvbTogNXB4O1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciBpb24tYnV0dG9ue1xyXG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICAgIHdpZHRoOiA4MCU7XHJcbiAgICBib3gtc2hhZG93OiAwcHggNHB4IDhweCAxcHggI2ZlZDE5YztcclxuICAgIGJvcmRlci1yYWRpdXM6IDMwcHg7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNmZDg5MDA7XHJcbiAgICAtLWJhY2tncm91bmQtYWN0aXZhdGVkOiAjZmQ4OTAwO1xyXG4gICAgbWFyZ2luLXRvcDogMzBweDtcclxufVxyXG4uZXJyb3JfY2xze1xyXG4gICAgY29sb3I6IHJlZDtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIHBhZGRpbmctdG9wOiAxMHB4O1xyXG4gICAgcGFkZGluZy1sZWZ0OiA0NXB4O1xyXG59XHJcbi5zaWduX2luX2J1dHRvbiA+IGJ1dHRvbntcclxuICAgIGZvbnQtd2VpZ2h0OiAzMDA7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgbWFyZ2luLXRvcDogMzBweDtcclxuICAgIHBhZGRpbmc6MTVweDtcclxuICAgIGNvbG9yOiNmZmY7XHJcbiAgICBib3gtc2hhZG93OiAwcHggNHB4IDhweCAxcHggI2ZlZDE5YztcclxuICAgIGJvcmRlci1yYWRpdXM6IDMwcHg7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZmQ4OTAwO1xyXG59XHJcbi5zaWduX2luX2J1dHRvbiA+IGJ1dHRvbjpmb2N1c3tcclxuICAgIG91dGxpbmU6bm9uZTtcclxufVxyXG4uc2lnbl9pbl9idXR0b24gPiBidXR0b25bZGlzYWJsZWRde1xyXG4gICAgYmFja2dyb3VuZDogcmdiYSgyNTMsIDEzNywgMCwgMC40OCk7XHJcbn1cclxuLnNpZ25faW5fYnV0dG9ue1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/change-password/change-password.page.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/change-password/change-password.page.ts ***!
+  \*********************************************************/
+/*! exports provided: ChangePasswordPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangePasswordPage", function() { return ChangePasswordPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+
+
+
+
+var ChangePasswordPage = /** @class */ (function () {
+    function ChangePasswordPage(alertController, toastController) {
+        this.alertController = alertController;
+        this.toastController = toastController;
+        this.change_pw = {
+            old_password: "",
+            new_password: "",
+            comf_password: "",
+        };
+        //  validation pattern start
+        this.changePassword = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            old_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]),
+            new_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)]),
+            comf_password: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(20)])
+        });
+        //  validation pattern end
+    }
+    // alert box start
+    ChangePasswordPage.prototype.changePass = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var alert_1, toast;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        if (!(this.change_pw.new_password != this.change_pw.comf_password)) return [3 /*break*/, 3];
+                        return [4 /*yield*/, this.alertController.create({
+                                message: 'Confirm Password does not match the New Password .',
+                                buttons: ['OK']
+                            })];
+                    case 1:
+                        alert_1 = _a.sent();
+                        return [4 /*yield*/, alert_1.present()];
+                    case 2:
+                        _a.sent();
+                        return [3 /*break*/, 5];
+                    case 3:
+                        if (!(this.change_pw.old_password && this.change_pw.new_password && this.change_pw.comf_password)) return [3 /*break*/, 5];
+                        this.user_change_pasw = {
+                            "old_password": this.change_pw.old_password,
+                            "new_password": this.change_pw.new_password,
+                        };
+                        return [4 /*yield*/, this.toastController.create({
+                                message: 'successfully changed your password.',
+                                position: 'bottom',
+                                color: "success",
+                                duration: 3000
+                            })];
+                    case 4:
+                        toast = _a.sent();
+                        toast.present();
+                        console.log(this.user_change_pasw);
+                        this.changePassword.reset();
+                        _a.label = 5;
+                    case 5: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    // alert box end
+    ChangePasswordPage.prototype.ngOnInit = function () {
+    };
+    ChangePasswordPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-change-password',
+            template: __webpack_require__(/*! ./change-password.page.html */ "./src/app/change-password/change-password.page.html"),
+            styles: [__webpack_require__(/*! ./change-password.page.scss */ "./src/app/change-password/change-password.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"]])
+    ], ChangePasswordPage);
+    return ChangePasswordPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=change-password-change-password-module.js.map

@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+    <ion-back-button>      
+    </ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!-- <ion-text>
+        <div style="text-align: center;">
+          <img style="padding: 25px 100px 0px 100px;" src="assets\images\LAWYER_blue.gif" alt="LAWYER_blue">
+        </div>
+    </ion-text> -->
+  <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+  <ion-slides effect="coverflow" (ionSlideDrag)="slideChanged('user')" (click)="slideChanged('user')">
+    <ion-slide class="bg_img_user">
+        <div style="display: inline-block;width: 12%;padding: 0px;">
+            <img style="width: 60%;" src="assets\images\user-icon-png-transparent-white-2.png" alt="">
+        </div>
+        <div style="display: inline-block;width: 66%;position: relative;top: -5px;">
+            <h1>I AM USER</h1>
+        </div>
+      <div>
+        <i class="fa fa-angle-right" aria-hidden="true"></i> 
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </div>
+    </ion-slide>
+  </ion-slides>
+  <ion-slides effect="coverflow" (ionSlideDrag)="slideChanged('lawyer_firm')" (click)="slideChanged('lawyer_firm')">
+    <ion-slide class="bg_img_lawyer">
+      <div style="display: inline-block;width: 11%;padding: 0px;">
+          <img src="assets\images\policy makers-icon-white.png" alt="">
+      </div>
+      <div style="display: inline-block;width: 66%;position: relative;top: -5px;">
+        <h1>I AM LAW FIRM</h1>
+      </div>
+      <div>
+         <i class="fa fa-angle-right" aria-hidden="true"></i>
+         <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

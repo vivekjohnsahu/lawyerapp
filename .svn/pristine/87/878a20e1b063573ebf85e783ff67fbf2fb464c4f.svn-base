@@ -1,0 +1,61 @@
+import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../../globalServices/global.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router, Navigation } from '@angular/router';
+import { NavController,AlertController,ActionSheetController, ToastController } from '@ionic/angular';
+
+@Component({
+  selector: 'app-plan',
+  templateUrl: './plan.page.html',
+  styleUrls: ['./plan.page.scss'],
+})
+export class PlanPage implements OnInit {
+	plan_Bronze_plan:any;
+	plan_firm_f:any;
+	plan_firm_s:any;
+	plan_firm_t:any;
+	plan_gold_plan:any;
+	plan_silver_plan:any;
+	successcribed_app:any;
+
+  constructor(
+    public alertController:AlertController,
+		public gobalService:GlobalService,
+		private spinner: NgxSpinnerService,
+		private router : Router,
+		public toastController:ToastController, 
+  ) {
+	 }
+
+  ngOnInit() {
+    this.plan_list()
+  }
+
+  plan_list(){
+			let key = {
+				'apikey':this.gobalService.APIKey
+			}
+				this.gobalService.plan(key)
+				.then(data => {
+				this.plan_Bronze_plan=data;
+				this.plan_firm_f = this.plan_Bronze_plan.data[0]	
+				this.plan_Bronze_plan = new Array;
+				this.plan_Bronze_plan.push(this.plan_firm_f)
+
+				this.plan_gold_plan=data;
+				this.plan_firm_s = this.plan_gold_plan.data[1]	
+				this.plan_gold_plan = new Array;
+				this.plan_gold_plan.push(this.plan_firm_s)
+
+				this.plan_silver_plan=data;
+				this.plan_firm_t = this.plan_silver_plan.data[2]	
+				this.plan_silver_plan = new Array;
+				this.plan_silver_plan.push(this.plan_firm_t)
+				
+			})
+	}
+
+	subscribe(){
+		this.router.navigateByUrl("/manage-lawyer")
+	}					
+}

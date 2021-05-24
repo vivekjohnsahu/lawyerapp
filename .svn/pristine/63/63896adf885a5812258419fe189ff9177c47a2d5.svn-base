@@ -1,0 +1,75 @@
+import { Component, OnInit } from '@angular/core';
+import { GlobalService } from '../../globalServices/global.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router, Navigation } from '@angular/router';
+import { NavController,AlertController,ActionSheetController, ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+
+@Component({
+  selector: 'app-plan',
+  templateUrl: './plan.page.html',
+  styleUrls: ['./plan.page.scss'],
+})
+export class PlanPage implements OnInit {
+	plan_Bronze_plan:any;
+	plan_gold_plan:any;
+	plan_silver_plan:any;
+	plan_firm_f:any;
+	plan_firm_s:any;
+	plan_firm_t:any;
+	plane_seleted: any;
+	key:any;
+	plan_Bronze_plan_page_shoe=0
+	plan_gold_plan_page_shoe=0
+	plan_silver_plan_page_shoe=0
+
+  	constructor(
+    	public alertController:AlertController,
+		public gobalService:GlobalService,
+		private spinner: NgxSpinnerService,
+		private router : Router,
+		public toastController:ToastController, 
+		public storage:Storage
+  	) {}
+
+	ngOnInit() {
+		this.plan_list()
+	}
+
+	plan_list(){
+		this.spinner.show()
+		this.key = {
+			'apikey':this.gobalService.APIKey
+		}
+		this.gobalService.plan(this.key)
+		.then(data => {
+			this.spinner.hide()
+			
+			this.plan_gold_plan=data;
+			this.plan_firm_s = this.plan_gold_plan.data[2]	
+			this.plan_gold_plan = new Array;
+			this.plan_gold_plan.push(this.plan_firm_s)
+
+			this.plan_silver_plan=data;
+			this.plan_firm_t = this.plan_silver_plan.data[1]	
+			this.plan_silver_plan = new Array;
+			this.plan_silver_plan.push(this.plan_firm_t)
+
+			this.plan_Bronze_plan=data;
+			this.plan_firm_f = this.plan_Bronze_plan.data[0]	
+			this.plan_Bronze_plan = new Array;
+			this.plan_Bronze_plan.push(this.plan_firm_f)
+			// this.plane_seleted = this.plan_Bronze_plan
+
+		})
+	}
+
+	selected_plan(plan){
+		this.plane_seleted = plan
+	}
+
+	subscribe(){
+		this.storage.set('plane_seleted', this.plane_seleted);	
+		this.router.navigateByUrl("/pay-now")
+	}					
+}

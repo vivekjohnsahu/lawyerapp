@@ -1,0 +1,101 @@
+p.signin_text{
+    margin-top: 40px;
+    text-align: center;
+    color: #1f1f1fbf;
+    font-family: Proxima-Nova-Thin;
+    font-weight: 600;
+    padding: 0px 12px;
+    font-size: 15px;
+}
+h1.heading_text{
+    text-align: center;
+    margin-top: 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+h1.heading_text > span{
+    color: #fd8900;
+    font-weight: 600;
+    font-family: Proxima-Nova-Bold;
+    font-size: 32PX;
+}
+.form_container > ion-label{
+    padding-left: 13%;
+}
+.form_container ion-input{
+    width: 87%;
+    margin: 0 0 0 auto;
+    border-bottom: 1px solid #ccc;
+    font-size:12px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+}
+.error_cls{
+    color: red;
+    font-size: 12px;
+    padding-top: 10px;
+    text-align: center;
+}
+.otp_button{
+    text-align:center;
+}
+.otp_button > ion-button{
+    font-weight: 300;
+    width: 90%;
+    margin-top: 30px;
+    box-shadow: 0px 4px 8px 1px #fed19c;
+    border-radius: 30px;
+    --background: #fd8900;
+    --background-activated: #fd8900;
+}
+.otp_button > button{
+    font-weight: 300;
+    width: 90%;
+    margin-top: 30px;
+    padding:15px;
+    color:#fff;
+    box-shadow: 0px 4px 8px 1px #fed19c;
+    border-radius: 30px;
+    background: #fd8900;
+}
+.otp_button > button:focus{
+    outline:none;
+}
+.otp_button > button[disabled]{
+    background: rgba(253, 137, 0, 0.48);
+}
+.resend{
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: 5%;
+    color: #fd8900;
+}
+#partitioned {
+    padding-left: 15px;
+    letter-spacing: 40px;
+    border: 0;
+    background-image: linear-gradient(to left, black 70%, rgba(255, 255, 255, 0) 0%);
+    background-position: bottom;
+    background-size: 50px 1px;
+    background-repeat: repeat-x;
+    background-position-x: 35px;
+    width: 220px;
+    min-width:220px;
+}
+#divInner{
+    left: 0;
+    position: sticky;
+} 
+#divOuter{
+    width: 184px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+} 
+ion-toolbar{
+    --background:#233658;
+}
+ion-back-button {
+    color: #fff;
+}

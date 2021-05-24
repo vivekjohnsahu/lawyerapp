@@ -1,0 +1,111 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["lawyer-detail-lawyer-detail-module"],{
+
+/***/ "./src/app/lawyer-detail/lawyer-detail.module.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/lawyer-detail/lawyer-detail.module.ts ***!
+  \*******************************************************/
+/*! exports provided: LawyerDetailPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LawyerDetailPageModule", function() { return LawyerDetailPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _lawyer_detail_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./lawyer-detail.page */ "./src/app/lawyer-detail/lawyer-detail.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _lawyer_detail_page__WEBPACK_IMPORTED_MODULE_6__["LawyerDetailPage"]
+    }
+];
+var LawyerDetailPageModule = /** @class */ (function () {
+    function LawyerDetailPageModule() {
+    }
+    LawyerDetailPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_lawyer_detail_page__WEBPACK_IMPORTED_MODULE_6__["LawyerDetailPage"]]
+        })
+    ], LawyerDetailPageModule);
+    return LawyerDetailPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/lawyer-detail/lawyer-detail.page.html":
+/*!*******************************************************!*\
+  !*** ./src/app/lawyer-detail/lawyer-detail.page.html ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar>\n      <ion-buttons slot=\"start\">\n          <ion-back-button>\n              \n            </ion-back-button>\n      </ion-buttons>\n      <ion-title>Lawyer Details</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n<ion-content>\n  <ion-grid no-padding>\n    <ion-row no-padding>\n      <ion-col no-padding>\n        <div class=\"lawyers_img\">\n          <div class=\"blur_img\"><img src=\"assets/images/avatar2.png\"></div>\n          <ion-avatar>\n              <img src=\"assets/images/avatar2.png\">\n          </ion-avatar>\n        </div>\n        <div class=\"lawyer_name\">\n          <ion-text><p>Shahradan Abdullah</p></ion-text>\n        </div>\n      </ion-col>\n      <ion-col no-padding size=\"12\">\n        <div class=\"lawyer_skill\">\n          Skills\n        </div>\n        <div class=\"skill_type\">\n          <a>criminal</a>\n          <a>divorce</a>\n          <a>employement</a>\n          <a>corporate</a>\n          <a>immigration</a>\n          <a>criminal</a>\n          <a>corporate</a>\n        </div>\n      </ion-col>\n      <ion-col no-padding size=\"12\">\n          <div class=\"lawyer_skill\">\n            Basic Information\n          </div>\n          <div class=\"lawyer_info\">\n            <div class=\"address_icon\">\n                <img src=\"assets/images/address_icon.png\">\n            </div>\n            <div class=\"main_add\">\n              <p>Plot Number NH 01, Gautam Budh Nagar Landmark: Near 110 Market Sector 110, Noida</p>\n            </div>\n          </div>\n          <div class=\"email_info\">\n              <div><img src=\"assets/images/email_icon.png\"></div> \n              <div>info@hhslawers.com</div>\n          </div>\n          <div class=\"mobile_info\">\n              <div><img src=\"assets/images/phone_icon.png\"></div> \n              <div>0-123456789</div>\n          </div>\n      </ion-col>\n      <ion-col no-padding size=\"12\">\n          <div class=\"lawyer_skill\">\n            Documents\n          </div>\n          <div class=\"document_uploaded\">\n            <div class=\"dox\">\n                <ion-avatar>\n                    <img src=\"assets/images/avatar2.png\">\n                </ion-avatar>\n            </div>\n            <div class=\"dox\">\n                <ion-avatar>\n                    <img src=\"assets/images/avatar2.png\">\n                </ion-avatar>\n            </div>\n            <div class=\"dox\">\n                <ion-avatar>\n                    <img src=\"assets/images/avatar2.png\">\n                </ion-avatar>\n            </div>\n            <div class=\"dox\">\n                <ion-avatar>\n                    <img src=\"assets/images/avatar2.png\">\n                </ion-avatar>\n            </div>\n          </div>\n          <div class=\"enquiry\">\n            <ion-button shape=\"round\">Enquiry</ion-button>\n          </div>\n      </ion-col>\n    </ion-row>\n  </ion-grid>  \n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/lawyer-detail/lawyer-detail.page.scss":
+/*!*******************************************************!*\
+  !*** ./src/app/lawyer-detail/lawyer-detail.page.scss ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-toolbar {\n  --background: #233658; }\n\nion-back-button {\n  color: #fff; }\n\nion-title {\n  font-size: 16px;\n  color: #fff;\n  font-weight: 300; }\n\n.lawyers_img {\n  position: relative; }\n\n.blur_img {\n  width: 100%;\n  height: 150px;\n  overflow: hidden; }\n\n.blur_img > img {\n  width: 100%;\n  -webkit-filter: blur(2px);\n          filter: blur(2px); }\n\n.lawyers_img > ion-avatar {\n  position: absolute;\n  bottom: -35px;\n  left: calc(50% - 35px);\n  width: 70px;\n  height: 70px;\n  border: 2px solid #fff;\n  box-shadow: 0px 0px 16px 1px #000; }\n\n.lawyer_name {\n  margin-top: 45px;\n  text-align: center; }\n\n.lawyer_name > ion-text {\n  font-size: 14px;\n  color: #1f1f1f; }\n\n.lawyer_skill {\n  background: #fff1e1;\n  padding: 5px 10px;\n  font-size: 15px;\n  color: #1f1f1f;\n  font-weight: 500; }\n\n.skill_type {\n  padding: 10px 10px; }\n\n.skill_type > a {\n  display: inline-flex;\n  padding: 2px 10px;\n  border: 1px solid #fd8902;\n  font-size: 12px;\n  background: #fff1e1;\n  border-radius: 5px;\n  margin: 0px 5px 5px 0px; }\n\n.lawyer_info {\n  padding: 20px 10px 0px 10px; }\n\n.lawyer_info .address_icon {\n  width: 10%;\n  display: inline-block;\n  text-align: center; }\n\n.lawyer_info .address_icon > img {\n  width: 15px; }\n\n.lawyer_info .main_add {\n  width: 90%;\n  display: inline-block;\n  vertical-align: text-top; }\n\n.lawyer_info .main_add > p {\n  color: #1f1f1f;\n  font-size: 13px;\n  margin-bottom: 0px; }\n\n.email_info, .mobile_info {\n  padding: 10px 15px; }\n\n.email_info > div:nth-child(1), .mobile_info > div:nth-child(1) {\n  width: 10%;\n  display: inline-block;\n  text-align: center; }\n\n.email_info > div:nth-child(1) > img, .mobile_info > div:nth-child(1) > img {\n  width: 15px; }\n\n.email_info > div:nth-child(2), .mobile_info > div:nth-child(2) {\n  width: 90%;\n  display: inline-block;\n  color: #1f1f1f;\n  font-size: 13px; }\n\n.document_uploaded {\n  padding: 20px; }\n\n.document_uploaded > .dox {\n  width: 20%;\n  padding: 10px 5px;\n  overflow: hidden;\n  /* border: 1px solid #e2e2e2; */\n  text-align: center;\n  display: inline-block;\n  box-shadow: 0px 3px 23px 0px rgba(0, 0, 0, 0.21);\n  margin: 0% 2.5%; }\n\n.document_uploaded > .dox > ion-avatar {\n  width: 100%;\n  height: auto;\n  border: 2px solid #233658; }\n\n.enquiry {\n  text-align: center;\n  margin: 0px 0px 10px 0px; }\n\n.enquiry > ion-button {\n  font-size: 11px;\n  text-transform: capitalize;\n  font-weight: 400;\n  --background: #233658; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbGF3eWVyLWRldGFpbC9EOlxcc2FjaGluXFxsYXdlcl9hcHAvc3JjXFxhcHBcXGxhd3llci1kZXRhaWxcXGxhd3llci1kZXRhaWwucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQWEsRUFBQTs7QUFFakI7RUFDSSxXQUFVLEVBQUE7O0FBRWQ7RUFDSSxlQUFlO0VBQ2YsV0FBVztFQUNYLGdCQUFnQixFQUFBOztBQUVwQjtFQUNJLGtCQUFrQixFQUFBOztBQUV0QjtFQUNJLFdBQVc7RUFDWCxhQUFhO0VBQ2IsZ0JBQWdCLEVBQUE7O0FBRXBCO0VBQ0ksV0FBVztFQUNYLHlCQUFpQjtVQUFqQixpQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLHNCQUFzQjtFQUN0QixXQUFXO0VBQ1gsWUFBWTtFQUNaLHNCQUFzQjtFQUN0QixpQ0FBaUMsRUFBQTs7QUFFckM7RUFDSSxnQkFBZ0I7RUFDaEIsa0JBQWtCLEVBQUE7O0FBRXRCO0VBQ0ksZUFBZTtFQUNmLGNBQWMsRUFBQTs7QUFFbEI7RUFDSSxtQkFBbUI7RUFDbkIsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixjQUFjO0VBQ2QsZ0JBQWdCLEVBQUE7O0FBRXBCO0VBQ0ksa0JBQWtCLEVBQUE7O0FBRXRCO0VBQ0ksb0JBQW9CO0VBQ3BCLGlCQUFpQjtFQUNqQix5QkFBeUI7RUFDekIsZUFBZTtFQUNmLG1CQUFtQjtFQUNuQixrQkFBa0I7RUFDbEIsdUJBQXVCLEVBQUE7O0FBRTNCO0VBQ0ksMkJBQTJCLEVBQUE7O0FBRS9CO0VBQ0ksVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixrQkFBa0IsRUFBQTs7QUFFdEI7RUFDSSxXQUFXLEVBQUE7O0FBRWY7RUFDSSxVQUFVO0VBQ1YscUJBQXFCO0VBQ3JCLHdCQUF3QixFQUFBOztBQUU1QjtFQUNJLGNBQWM7RUFDZCxlQUFlO0VBQ2Ysa0JBQWtCLEVBQUE7O0FBRXRCO0VBQ0ksa0JBQWtCLEVBQUE7O0FBRXRCO0VBQ0ksVUFBVTtFQUNWLHFCQUFxQjtFQUNyQixrQkFBa0IsRUFBQTs7QUFFdEI7RUFDSSxXQUFXLEVBQUE7O0FBRWY7RUFDSSxVQUFVO0VBQ1YscUJBQXFCO0VBQ3JCLGNBQWM7RUFDZCxlQUFlLEVBQUE7O0FBRW5CO0VBQ0ksYUFBYSxFQUFBOztBQUVqQjtFQUNJLFVBQVU7RUFDVixpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLCtCQUFBO0VBQ0Esa0JBQWtCO0VBQ2xCLHFCQUFxQjtFQUNyQixnREFBZ0Q7RUFDaEQsZUFBZSxFQUFBOztBQUVuQjtFQUNJLFdBQVc7RUFDWCxZQUFZO0VBQ1oseUJBQXlCLEVBQUE7O0FBRTdCO0VBQ0ksa0JBQWtCO0VBQ2xCLHdCQUF3QixFQUFBOztBQUU1QjtFQUNJLGVBQWU7RUFDZiwwQkFBMEI7RUFDMUIsZ0JBQWdCO0VBQ2hCLHFCQUFhLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9sYXd5ZXItZGV0YWlsL2xhd3llci1kZXRhaWwucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXRvb2xiYXJ7XHJcbiAgICAtLWJhY2tncm91bmQ6ICMyMzM2NTg7XHJcbn1cclxuaW9uLWJhY2stYnV0dG9ue1xyXG4gICAgY29sb3I6I2ZmZjsgXHJcbn1cclxuaW9uLXRpdGxle1xyXG4gICAgZm9udC1zaXplOiAxNnB4O1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbiAgICBmb250LXdlaWdodDogMzAwO1xyXG59XHJcbi5sYXd5ZXJzX2ltZ3tcclxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxufVxyXG4uYmx1cl9pbWd7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogMTUwcHg7XHJcbiAgICBvdmVyZmxvdzogaGlkZGVuO1xyXG59XHJcbi5ibHVyX2ltZyA+IGltZ3tcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgZmlsdGVyOiBibHVyKDJweCk7XHJcbn1cclxuLmxhd3llcnNfaW1nID4gaW9uLWF2YXRhcntcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGJvdHRvbTogLTM1cHg7XHJcbiAgICBsZWZ0OiBjYWxjKDUwJSAtIDM1cHgpO1xyXG4gICAgd2lkdGg6IDcwcHg7XHJcbiAgICBoZWlnaHQ6IDcwcHg7XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjZmZmO1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDBweCAxNnB4IDFweCAjMDAwO1xyXG59XHJcbi5sYXd5ZXJfbmFtZXtcclxuICAgIG1hcmdpbi10b3A6IDQ1cHg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLmxhd3llcl9uYW1lID4gaW9uLXRleHR7XHJcbiAgICBmb250LXNpemU6IDE0cHg7XHJcbiAgICBjb2xvcjogIzFmMWYxZjtcclxufVxyXG4ubGF3eWVyX3NraWxse1xyXG4gICAgYmFja2dyb3VuZDogI2ZmZjFlMTtcclxuICAgIHBhZGRpbmc6IDVweCAxMHB4O1xyXG4gICAgZm9udC1zaXplOiAxNXB4O1xyXG4gICAgY29sb3I6ICMxZjFmMWY7XHJcbiAgICBmb250LXdlaWdodDogNTAwO1xyXG59XHJcbi5za2lsbF90eXBle1xyXG4gICAgcGFkZGluZzogMTBweCAxMHB4O1xyXG59XHJcbi5za2lsbF90eXBlID4gYXtcclxuICAgIGRpc3BsYXk6IGlubGluZS1mbGV4O1xyXG4gICAgcGFkZGluZzogMnB4IDEwcHg7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZmQ4OTAyO1xyXG4gICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgYmFja2dyb3VuZDogI2ZmZjFlMTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICAgIG1hcmdpbjogMHB4IDVweCA1cHggMHB4O1xyXG59XHJcbi5sYXd5ZXJfaW5mb3tcclxuICAgIHBhZGRpbmc6IDIwcHggMTBweCAwcHggMTBweDtcclxufVxyXG4ubGF3eWVyX2luZm8gLmFkZHJlc3NfaWNvbntcclxuICAgIHdpZHRoOiAxMCU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuLmxhd3llcl9pbmZvIC5hZGRyZXNzX2ljb24gPiBpbWd7XHJcbiAgICB3aWR0aDogMTVweDtcclxufVxyXG4ubGF3eWVyX2luZm8gLm1haW5fYWRke1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHZlcnRpY2FsLWFsaWduOiB0ZXh0LXRvcDtcclxufVxyXG4ubGF3eWVyX2luZm8gLm1haW5fYWRkID4gcHtcclxuICAgIGNvbG9yOiAjMWYxZjFmO1xyXG4gICAgZm9udC1zaXplOiAxM3B4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMHB4O1xyXG59XHJcbi5lbWFpbF9pbmZvLCAubW9iaWxlX2luZm97XHJcbiAgICBwYWRkaW5nOiAxMHB4IDE1cHg7XHJcbn1cclxuLmVtYWlsX2luZm8gPiBkaXY6bnRoLWNoaWxkKDEpLCAubW9iaWxlX2luZm8gPiBkaXY6bnRoLWNoaWxkKDEpe1xyXG4gICAgd2lkdGg6IDEwJTtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uZW1haWxfaW5mbyA+IGRpdjpudGgtY2hpbGQoMSkgPiBpbWcsIC5tb2JpbGVfaW5mbyA+IGRpdjpudGgtY2hpbGQoMSkgPiBpbWd7XHJcbiAgICB3aWR0aDogMTVweDtcclxufVxyXG4uZW1haWxfaW5mbyA+IGRpdjpudGgtY2hpbGQoMiksIC5tb2JpbGVfaW5mbyA+IGRpdjpudGgtY2hpbGQoMil7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgY29sb3I6ICMxZjFmMWY7XHJcbiAgICBmb250LXNpemU6IDEzcHg7XHJcbn1cclxuLmRvY3VtZW50X3VwbG9hZGVke1xyXG4gICAgcGFkZGluZzogMjBweDtcclxufVxyXG4uZG9jdW1lbnRfdXBsb2FkZWQgPiAuZG94e1xyXG4gICAgd2lkdGg6IDIwJTtcclxuICAgIHBhZGRpbmc6IDEwcHggNXB4O1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgIC8qIGJvcmRlcjogMXB4IHNvbGlkICNlMmUyZTI7ICovXHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBib3gtc2hhZG93OiAwcHggM3B4IDIzcHggMHB4IHJnYmEoMCwgMCwgMCwgMC4yMSk7XHJcbiAgICBtYXJnaW46IDAlIDIuNSU7XHJcbn1cclxuLmRvY3VtZW50X3VwbG9hZGVkID4gLmRveCA+IGlvbi1hdmF0YXJ7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogYXV0bztcclxuICAgIGJvcmRlcjogMnB4IHNvbGlkICMyMzM2NTg7XHJcbn1cclxuLmVucXVpcnl7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBtYXJnaW46IDBweCAwcHggMTBweCAwcHg7XHJcbn1cclxuLmVucXVpcnkgPiBpb24tYnV0dG9ue1xyXG4gICAgZm9udC1zaXplOiAxMXB4O1xyXG4gICAgdGV4dC10cmFuc2Zvcm06IGNhcGl0YWxpemU7XHJcbiAgICBmb250LXdlaWdodDogNDAwO1xyXG4gICAgLS1iYWNrZ3JvdW5kOiAjMjMzNjU4O1xyXG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/lawyer-detail/lawyer-detail.page.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/lawyer-detail/lawyer-detail.page.ts ***!
+  \*****************************************************/
+/*! exports provided: LawyerDetailPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LawyerDetailPage", function() { return LawyerDetailPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var LawyerDetailPage = /** @class */ (function () {
+    function LawyerDetailPage() {
+    }
+    LawyerDetailPage.prototype.ngOnInit = function () {
+    };
+    LawyerDetailPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-lawyer-detail',
+            template: __webpack_require__(/*! ./lawyer-detail.page.html */ "./src/app/lawyer-detail/lawyer-detail.page.html"),
+            styles: [__webpack_require__(/*! ./lawyer-detail.page.scss */ "./src/app/lawyer-detail/lawyer-detail.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], LawyerDetailPage);
+    return LawyerDetailPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=lawyer-detail-lawyer-detail-module.js.map

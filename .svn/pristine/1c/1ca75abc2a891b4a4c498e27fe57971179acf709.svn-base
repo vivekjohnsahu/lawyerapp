@@ -1,0 +1,63 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar class="sidemenu_toolbar">
+          <ion-title>{{user_name}}</ion-title>
+          <!-- <ion-title *ngIf="open_app=='lawyer'">Lawyer</ion-title> -->
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="background_sidemenu">
+        <ion-list no-padding>
+          <ion-menu-toggle>  
+            <div *ngIf="open_app=='user'">
+                
+                <!-- <ion-item no-padding routerLink="/firm-details">
+                  <ion-label><span><img src="assets/images/icons/law_firms.png"></span>Find Law Firms/Lawyers </ion-label>
+                </ion-item> -->
+                <!-- <ion-item no-padding routerLink="/register">
+                  <ion-label><span><img style="width:14px;" src="assets/images/icons/privacy.png"></span>Register</ion-label>
+                </ion-item> -->
+                
+            </div>
+            <div *ngIf="open_app=='lawyer'">
+                <ion-item no-padding routerLink="/manage-lawyer">
+                  <ion-label><span><img style="width:14px;" src="assets/images/icons/privacy.png"></span>Manage Lawyer</ion-label>
+                </ion-item>
+                <ion-item no-padding routerLink="/plan">
+                  <ion-label><span><img style="width:14px;" src="assets/images/icons/privacy.png"></span>See Plans</ion-label>
+                </ion-item>
+                <ion-item no-padding routerLink="/manage-enquiry">
+                  <ion-label><span><img style="width:14px;" src="assets/images/icons/privacy.png"></span>Manage enquiry</ion-label>
+                </ion-item>
+            </div>
+            <div>
+                <ion-item no-padding routerLink="/home">
+                  <ion-label><span><img src="assets/images/icons/home.png"></span>Home </ion-label>
+                </ion-item>
+                <!-- <ion-item no-padding routerLink="/home">
+                  <ion-label><span><img style="width:17px;" src="assets/images/icons/privacy.png"></span>Privacy Policy </ion-label>
+                </ion-item> -->
+                <ion-item no-padding routerLink="/about-us">
+                  <ion-label><span><img src="assets/images/icons/profile.png"></span>About Us </ion-label>
+                </ion-item>
+                <ion-item no-padding routerLink="/contact-us">
+                  <ion-label><span><img src="assets/images/icons/contact.png"></span>Contact Us </ion-label>
+                </ion-item>
+                <ion-item no-padding routerLink="/terms">
+                  <ion-label><span><img src="assets/images/icons/terms.png"></span>Terms & Condition </ion-label>
+                </ion-item>
+                <ion-item no-padding routerLink="/change-password">
+                  <ion-label><span><img style="width:14px;" src="assets/images/icons/privacy.png"></span>change passwords</ion-label>
+                </ion-item>
+                <ion-item no-padding (click)="logOut()">
+                  <ion-label style="color: #848b9d;;"><span><img style="width:17px;" src="assets\images\icons\sign_out.png"></span>Log Out</ion-label>
+                </ion-item>
+            </div>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

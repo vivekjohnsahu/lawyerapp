@@ -1,0 +1,79 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button>
+              
+            </ion-back-button>
+      </ion-buttons>
+      <ion-title>Contact Us</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+      <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+    <ion-grid class="no-padding">
+      <ion-row class="no-padding">
+        <ion-col size="12" class="no-padding relative_cls">
+          <div class="terms_bg"><img style="width:100%;" src="assets/images/terms/Contact_us.png">
+            <div class="overlay_image"></div>
+          </div>
+          <form novalidate (ngSubmit)="contact_us()" [formGroup]="contactData">
+          <div class="contact_us_form">
+              <div class="form_container">
+                <ion-label position="stacked">Name</ion-label>
+                <ion-input no-padding  placeholder="Enter Your Name" required type="text" [(ngModel)]="contact.firstName"  formControlName="firstName" [class.error1]="!contactData.controls.firstName.valid && contactData.controls.firstName.dirty" clearInput></ion-input>
+                <div class="abs_icon"><img style="width:15px" src="assets/images/name.png"></div>
+                <div class="error_cls" *ngIf="( contactData.get('firstName').hasError('required') ) && contactData.get('firstName').touched">
+                    <div class="error" *ngIf="contactData.get('firstName').hasError('required') && contactData.get('firstName').touched">
+                        Name cannot be blank
+                    </div>
+                </div>
+              </div>
+              <div class="form_container">
+                  <ion-label position="stacked">Email Address</ion-label>
+                  <ion-input no-padding  placeholder="Enter Your Email Address" type="email" [(ngModel)]="contact.email" formControlName="email" [class.error1]="!contactData.controls.email.valid && contactData.controls.email.dirty" clearInput required></ion-input>
+                  <div class="abs_icon"><img src="assets/images/email_icon.png"></div>
+                  <div class="error_cls" *ngIf="( contactData.get('email').hasError('minlength') || contactData.get('email').hasError('pattern') ||contactData.get('email').hasError('required') ) && contactData.get('email').touched">
+                      <div class="error" *ngIf="contactData.get('email').hasError('required') && contactData.get('email').touched">
+                          Email ID cannot be blank
+                      </div>
+                      <div class="error" *ngIf="contactData.get('email').hasError('pattern') && contactData.get('email').touched">
+                          Please enter a valid Email ID
+                      </div>
+                  </div>
+              </div>
+              <div class="form_container">
+                  <ion-label position="stacked">Contact Number</ion-label>
+                  <ion-input no-padding (keypress)="numberAccept($event)" placeholder="Enter Your Name" type="tel" [(ngModel)]="contact.number" formControlName="number" [class.error1]="!contactData.controls.number.valid && contactData.controls.number.dirty" clearInput required></ion-input>
+                  <div class="abs_icon"><img style="width:15px" src="assets/images/phone_icon.png"></div>
+                  <div class="error_cls" *ngIf="( contactData.get('number').hasError('minlength') || contactData.get('number').hasError('maxlength') ||contactData.get('number').hasError('required') ) && contactData.get('number').touched">
+                      <div class="error" *ngIf="contactData.get('number').hasError('required') && contactData.get('number').touched">
+                          Number cannot be blank
+                      </div>
+                      <div class="error" *ngIf="contactData.get('number').hasError('minlength') && contactData.get('number').touched">
+                          Minimum 8 characters
+                      </div>
+                      <div class="error" *ngIf="contactData.get('number').hasError('maxlength') && contactData.get('number').touched">
+                          Maximum 15 characters
+                      </div>
+                  </div>
+                </div>
+                <div class="form_container">
+                    <ion-label position="stacked">Your Message</ion-label>
+                    <ion-textarea no-padding  placeholder="Enter Your Message Here" type="text" [(ngModel)]="contact.msg"  formControlName="msg" required [class.error1]="!contactData.controls.msg.valid && contactData.controls.msg.dirty" clearInput></ion-textarea>
+                    <div class="abs_icon"><img src="assets/images/message.png"></div>
+                    <div class="error_cls" *ngIf="( contactData.get('msg').hasError('required') ) && contactData.get('msg').touched">
+                        <div class="error" *ngIf="contactData.get('msg').hasError('required') && contactData.get('msg').touched">
+                            Massage cannot be blank
+                        </div>
+                    </div>
+                </div>
+                <button slot="icon-only" class="contact_in_button" name="star" type="submit" [disabled]="contactData.invalid"><img src="assets/images/send.png"></button>
+                <!--<ion-button slot="icon-only" name="star" shape="round"><img src="assets/images/send.png"></ion-button>-->
+              </div>
+            </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content> 
+  

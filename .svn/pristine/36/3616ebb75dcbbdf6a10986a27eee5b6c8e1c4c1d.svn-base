@@ -1,0 +1,315 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["register-register-module"],{
+
+/***/ "./src/app/register/register.module.ts":
+/*!*********************************************!*\
+  !*** ./src/app/register/register.module.ts ***!
+  \*********************************************/
+/*! exports provided: RegisterPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _register_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./register.page */ "./src/app/register/register.page.ts");
+
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _register_page__WEBPACK_IMPORTED_MODULE_6__["RegisterPage"]
+    }
+];
+var RegisterPageModule = /** @class */ (function () {
+    function RegisterPageModule() {
+    }
+    RegisterPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"]
+            ],
+            declarations: [_register_page__WEBPACK_IMPORTED_MODULE_6__["RegisterPage"]],
+        })
+    ], RegisterPageModule);
+    return RegisterPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/register/register.page.html":
+/*!*********************************************!*\
+  !*** ./src/app/register/register.page.html ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n    <ion-toolbar>\n        <ion-buttons slot=\"start\">\n            <ion-back-button>\n            </ion-back-button>\n        </ion-buttons>\n        <ion-title>Register Firm</ion-title>\n    </ion-toolbar>\n</ion-header>\n<ion-content>\n    <ion-grid class=\"no-padding\">\n        <ion-row no-padding>\n            <ion-col no-padding>\n                <ion-text class=\"register_text\">\n                    <p>Please enter your personal details to create new accout</p>\n                </ion-text>\n                <form novalidate (ngSubmit)=\"signUp()\" class=\"loginFormMargin\" [formGroup]=\"signupUser\">\n                    <div class=\"form_container\"> \n                        <ion-label position=\"stacked\">Choose Option</ion-label>\n                        <div class=\"abs_icon\"><img style=\"position:relative;top:-28px;z-index:9;\" src=\"assets/images/register/name.png\"></div>\n                    </div>\n                    <ion-list style=\"margin-top: -25px;margin-bottom: -18px;margin-left: auto;margin-right: auto;width: 78%;\">\n                        <ion-radio-group required (ionChange)=\"checkValue($event.target)\" formControlName=\"mark_select\" [(ngModel)]=\"userData.mark_select\">\n                            <ion-item class=\"user_radio_item\">\n                                <ion-label class=\"user_radio\">User</ion-label>\n                                <ion-radio slot=\"start\" mode=\"md\" value=\"register_user\"></ion-radio>\n                            </ion-item>\n                            <ion-item class=\"user_radio_item\">\n                                <ion-label class=\"user_radio\">Lowyer Firm</ion-label>\n                                <ion-radio slot=\"start\" mode=\"md\"  value=\"rgister_lowyer_firm\"></ion-radio>\n                            </ion-item>\n                        </ion-radio-group>\n                    </ion-list>\n                    <div class=\"form_container\">\n                        <ion-label position=\"stacked\">Enter Your First Name</ion-label>\n                        <ion-input no-padding [(ngModel)]=\"userData.firstname\" formControlName=\"firstname\" placeholder=\"Enter Your First Name\" type=\"text\" required [class.error1]=\"!signupUser.controls.firstname.valid && signupUser.controls.firstname.dirty\" clearInput></ion-input>\n                        <div class=\"abs_icon\"><img src=\"assets/images/register/name.png\"></div>\n                        <div class=\"error_cls\" *ngIf=\"( signupUser.get('firstname').hasError('required') ) && signupUser.get('firstname').touched\">\n                            <div class=\"error\" *ngIf=\"signupUser.get('firstname').hasError('required') && signupUser.get('firstname').touched\">\n                                First name cannot be blank\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"form_container\">\n                        <ion-label position=\"stacked\" class=\"star_not\">Enter Your Last Name</ion-label>\n                        <ion-input no-padding [(ngModel)]=\"userData.lastname\" formControlName=\"lastname\"  placeholder=\"Enter Your Last Name\" type=\"text\"></ion-input>\n                        <div class=\"abs_icon\"><img src=\"assets/images/register/name.png\"></div>\n                    </div>\n                    <div class=\"form_container\">\n                        <ion-label position=\"stacked\">Email Address</ion-label>\n                        <ion-input no-padding  placeholder=\"Enter Your Email Address\" type=\"email\" [(ngModel)]=\"userData.email\" formControlName=\"email\" [class.error1]=\"!signupUser.controls.email.valid && signupUser.controls.email.dirty\" clearInput required></ion-input>\n                        <div class=\"abs_icon\"><img src=\"assets/images/email_icon.png\"></div>\n                        <div class=\"error_cls\" *ngIf=\"( signupUser.get('email').hasError('minlength') || signupUser.get('email').hasError('pattern') ||signupUser.get('email').hasError('required') ) && signupUser.get('email').touched\">\n                            <div class=\"error\" *ngIf=\"signupUser.get('email').hasError('required') && signupUser.get('email').touched\">\n                                Email ID cannot be blank\n                            </div>\n                            <div class=\"error\" *ngIf=\"signupUser.get('email').hasError('pattern') && signupUser.get('email').touched\">\n                                Please enter a valid Email ID\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"form_container\">\n                        <ion-label position=\"stacked\">Contact Number</ion-label>\n                        <ion-input no-padding (keypress)=\"numberAccept($event)\"  placeholder=\"Enter Your Name\" type=\"tel\" [(ngModel)]=\"userData.number\" formControlName=\"number\" [class.error1]=\"!signupUser.controls.number.valid && signupUser.controls.number.dirty\" clearInput required></ion-input>\n                        <div class=\"abs_icon\"><img style=\"width:15px;\" src=\"assets/images/phone_icon.png\"></div>\n                        <div class=\"error_cls\" *ngIf=\"( signupUser.get('number').hasError('minlength') || signupUser.get('number').hasError('maxlength') ||signupUser.get('number').hasError('required') ) && signupUser.get('number').touched\">\n                            <div class=\"error\" *ngIf=\"signupUser.get('number').hasError('required') && signupUser.get('number').touched\">\n                                Number cannot be blank\n                            </div>\n                            <div class=\"error\" *ngIf=\"signupUser.get('number').hasError('minlength') && signupUser.get('number').touched\">\n                                Minimum 8 characters\n                            </div>\n                            <div class=\"error\" *ngIf=\"signupUser.get('number').hasError('maxlength') && signupUser.get('number').touched\">\n                                Maximum 15 characters\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"form_container\">\n                        <ion-label position=\"stacked\">Date OF Birth</ion-label>\n                        <ion-item no-padding>\n                            <ion-datetime [(ngModel)]=\"userData.date\" formControlName=\"date\" [class.error1]=\"!signupUser.controls.date.valid && signupUser.controls.date.dirty\" clearInput required no-padding displayFormat=\"DD/MM/YY\" placeholder=\"Select Date\"></ion-datetime>\n                        </ion-item>\n                        <div class=\"abs_icon\"><img src=\"assets/images/register/dob.png\"></div>\n                        <div class=\"error_cls\" *ngIf=\"( signupUser.get('date').hasError('required') ) && signupUser.get('date').touched\">\n                            <div class=\"error\" *ngIf=\"signupUser.get('date').hasError('required') && signupUser.get('date').touched\">\n                                Date cannot be blank\n                            </div>\n                        </div>\n                    </div>\n                    <div class=\"form_container\">\n                        <ion-label position=\"stacked\">Country</ion-label>\n                        <ion-item no-padding>\n                            <ion-select no-padding [interfaceOptions]=\"customActionSheetOptions\" formControlName=\"country\" [(ngModel)]=\"userData.country\" [class.error1]=\"!signupUser.controls.country.valid && signupUser.controls.country.dirty\" required interface=\"action-sheet\" placeholder=\"Select Country\">\n                                <ion-select-option value=\"India\">India</ion-select-option>\n                                <ion-select-option value=\"Japan\">Japan</ion-select-option>\n                                <ion-select-option value=\"Isreal\">Isreal</ion-select-option>\n                                <ion-select-option value=\"Russia\">Russia</ion-select-option>\n                                <ion-select-option value=\"France\">France</ion-select-option>\n                            </ion-select>\n                        </ion-item>\n                        <div class=\"abs_icon\"><img src=\"assets/images/register/country.png\"></div>\n                        <div class=\"error error_cls\" *ngIf=\"signupUser.get('country').hasError('required') && signupUser.get('country').touched\">\n                            Select valid country\n                        </div>\n                    </div>\n                    <div class=\"form_container\">\n                        <ion-label position=\"stacked\">City</ion-label>\n                        <ion-item no-padding>\n                            <ion-select no-padding [interfaceOptions]=\"customActionSheetOptions\" formControlName=\"city\" [(ngModel)]=\"userData.city\" [class.error1]=\"!signupUser.controls.city.valid && signupUser.controls.city.dirty\" required interface=\"action-sheet\" placeholder=\"Select Country\">\n                                <ion-select-option value=\"1\">delhi</ion-select-option>\n                                <ion-select-option value=\"2\">Noida</ion-select-option>\n                                <ion-select-option value=\"3\">Gaziabad</ion-select-option>\n                                <ion-select-option value=\"4\">gurgaon</ion-select-option>\n                            </ion-select>\n                        </ion-item>\n                        <div class=\"abs_icon\"><img src=\"assets/images/register/city.png\"></div>\n                        <div class=\"error error_cls\" *ngIf=\"signupUser.get('city').hasError('required') && signupUser.get('city').touched\">\n                            Select valid city\n                        </div>\n                    </div>\n                    <div class=\"form_container\">\n                        <ion-label position=\"stacked\">Address</ion-label>\n                        <ion-textarea no-padding  placeholder=\"Enter Your Address Here\" type=\"text\" formControlName=\"address\" [(ngModel)]=\"userData.address\" [class.error1]=\"!signupUser.controls.address.valid && signupUser.controls.address.dirty\" required></ion-textarea>\n                        <div class=\"abs_icon\"><img src=\"assets/images/register/city.png\"></div>\n                        <div class=\"error error_cls\" *ngIf=\"signupUser.get('address').hasError('required') && signupUser.get('address').touched\">\n                            Address cannot be blank\n                        </div>\n                    </div>\n                    <div class=\"form_container\">\n                        <ion-label position=\"stacked\" class=\"star_not\">Upload Prfile Picture</ion-label>\n                        <div class=\"add_profile\">\n                            <ion-avatar item-start (click)=\"SelectPhoto()\">\n                            <div class=\"main-edit-profile\">\n                                <div class=\"round-profile\">\n                                    <img style=\"border-radius: 31px;\" id=\"camera-image\" src=\"{{ImageBind}}\"> \n                                </div>\n                            </div>\n                            </ion-avatar>\n                        </div>\n                        <div class=\"abs_icon\" style=\"top: 0px!important;\"><img src=\"assets/images/register/file.png\"></div>\n                    </div>\n                    <div style=\"text-align: center;\">\n                        <ion-col size=\"12\" class=\"sign_in_button\">\n                            <button shape=\"round\" type=\"submit\" [disabled]=\"signupUser.invalid\">Register</button>\n                        </ion-col>\n                    </div>\n                </form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>"
+
+/***/ }),
+
+/***/ "./src/app/register/register.page.scss":
+/*!*********************************************!*\
+  !*** ./src/app/register/register.page.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-toolbar {\n  --background: #233658; }\n\nion-title {\n  color: #fff;\n  font-size: 17px;\n  font-weight: 400;\n  font-family: Proxima-Nova-thin; }\n\nion-back-button {\n  color: #fff; }\n\n.no-padding {\n  padding: 0px; }\n\n.register_text > p {\n  padding: 0px 15px;\n  font-size: 15px;\n  color: #1f1f1f;\n  margin-top: 35px; }\n\n.abs_icon {\n  position: absolute;\n  top: 28px;\n  left: 4.5%; }\n\n.abs_icon > img {\n  width: 18px; }\n\n.form_container {\n  position: relative;\n  margin: 20px 0px;\n  padding-right: 15px; }\n\n.form_container > ion-label {\n  padding-left: 13%; }\n\n.form_container > ion-label::after {\n  content: \"*\";\n  color: red;\n  margin-left: 3px; }\n\n.form_container > .star_not::after {\n  content: \"\" !important;\n  color: red;\n  margin-left: 3px; }\n\n.form_container ion-input, .form_container ion-textarea {\n  width: 87%;\n  margin: 0 0 0 auto;\n  border-bottom: 1px solid #ccc;\n  font-size: 12px;\n  --padding-top: 8px;\n  --padding-bottom: 5px; }\n\n.user_radio_item {\n  color: #ccc;\n  font-size: 12px !important;\n  --padding-top: 8px!important;\n  --padding-bottom: 5px!important;\n  display: inline-block;\n  --border-color: #ffff; }\n\n.relative_cls {\n  position: relative; }\n\n.contact_us_form {\n  position: absolute;\n  width: 100%;\n  top: 75%;\n  background: #fff;\n  width: 90%;\n  left: 5%;\n  /* border: 1px solid #000; */\n  border-radius: 10px;\n  padding-bottom: 25px;\n  margin-bottom: 20px;\n  box-shadow: 0px 3px 18px 0px rgba(0, 0, 0, 0.53); }\n\n.contact_us_form > ion-button {\n  --border-radius: 50%;\n  width: 50px;\n  height: 50px;\n  --padding-start: 0px;\n  --padding-end: 0px;\n  --background: #fd8900;\n  position: absolute;\n  bottom: -25px;\n  left: calc(50% - 25px); }\n\n.contact_us_form > ion-button > img {\n  width: 24px; }\n\n.form_container ion-item {\n  width: 87%;\n  margin: 0 0 0 auto;\n  --min-height: 36px; }\n\n.form_container ion-item > ion-datetime {\n  font-size: 12px;\n  --padding-start: 0px !important; }\n\n.form_container ion-item > ion-datetime {\n  font-size: 12px;\n  --padding-start: 0px !important; }\n\n.form_container ion-item > ion-select {\n  min-width: 100%;\n  --padding-start: 0px;\n  font-size: 12px;\n  --padding-bottom: 0px; }\n\n.form_container ion-button {\n  font-weight: 300;\n  width: 80%;\n  box-shadow: 0px 4px 8px 1px #fed19c;\n  border-radius: 30px;\n  --background: #fd8900;\n  --background-activated: #fd8900; }\n\nion-input.file_input .native-input.sc-ion-input-md {\n  opacity: 0; }\n\n.form_container > .file_input .abs_upload {\n  position: absolute;\n  right: 5px;\n  bottom: 0; }\n\n.form_container > .file_input .abs_upload > img {\n  width: 22px; }\n\n.error_cls {\n  font-size: 13px;\n  padding-left: 46px;\n  color: red; }\n\n.sign_in_button > button {\n  width: 90%;\n  margin-top: 10px;\n  margin-bottom: 15px;\n  padding: 15px;\n  color: #fff;\n  box-shadow: 0px 4px 8px 1px #fed19c;\n  border-radius: 30px;\n  background: #fd8900; }\n\n.sign_in_button > button:focus {\n  outline: none; }\n\n.sign_in_button > button[disabled] {\n  background: rgba(253, 137, 0, 0.48); }\n\n.sign_in_button {\n  text-align: center; }\n\n.add_profile > ion-avatar {\n  margin: 20px auto;\n  border: 2px solid #fff;\n  box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.62);\n  width: 70px;\n  height: 70px;\n  overflow: hidden; }\n\n.round-profile img {\n  width: 80px;\n  height: 80px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVnaXN0ZXIvRDpcXHhhbXBwXFxodGRvY3NcXGxhd3llcmFwcFxcbGF3eWVyc0FwcC9zcmNcXGFwcFxccmVnaXN0ZXJcXHJlZ2lzdGVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFhLEVBQUE7O0FBSWpCO0VBRUksV0FBVTtFQUNWLGVBQWU7RUFDZixnQkFBZ0I7RUFDaEIsOEJBQThCLEVBQUE7O0FBRWxDO0VBQ0ksV0FBVyxFQUFBOztBQUVmO0VBQ0ksWUFBVyxFQUFBOztBQUVmO0VBQ0ksaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixjQUFjO0VBQ2QsZ0JBQWdCLEVBQUE7O0FBR3BCO0VBQ0ksa0JBQWtCO0VBQ2xCLFNBQVM7RUFDVCxVQUFVLEVBQUE7O0FBRWQ7RUFDSSxXQUFVLEVBQUE7O0FBRWQ7RUFDSSxrQkFBaUI7RUFDakIsZ0JBQWU7RUFDZixtQkFBbUIsRUFBQTs7QUFFdkI7RUFDSSxpQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxZQUFXO0VBQ1gsVUFBVTtFQUNWLGdCQUFnQixFQUFBOztBQUVwQjtFQUNJLHNCQUFvQjtFQUNwQixVQUFVO0VBQ1YsZ0JBQWdCLEVBQUE7O0FBRXBCO0VBQ0ksVUFBVTtFQUNWLGtCQUFrQjtFQUNsQiw2QkFBNkI7RUFDN0IsZUFBYztFQUNkLGtCQUFjO0VBQ2QscUJBQWlCLEVBQUE7O0FBUXJCO0VBQ0ksV0FBVztFQUNYLDBCQUEwQjtFQUUxQiw0QkFBYztFQUNkLCtCQUFpQjtFQUNqQixxQkFBcUI7RUFDckIscUJBQWUsRUFBQTs7QUFFbkI7RUFDSSxrQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxrQkFBa0I7RUFDbEIsV0FBVztFQUNYLFFBQVE7RUFDUixnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLFFBQVE7RUFDUiw0QkFBQTtFQUNBLG1CQUFtQjtFQUNuQixvQkFBb0I7RUFDcEIsbUJBQW1CO0VBQ25CLGdEQUFnRCxFQUFBOztBQUVwRDtFQUNJLG9CQUFnQjtFQUNoQixXQUFXO0VBQ1gsWUFBWTtFQUNaLG9CQUFnQjtFQUNoQixrQkFBYztFQUNkLHFCQUFhO0VBQ2Isa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixzQkFBc0IsRUFBQTs7QUFFMUI7RUFDSSxXQUFVLEVBQUE7O0FBRWQ7RUFDSSxVQUFVO0VBQ1Ysa0JBQWtCO0VBQ2xCLGtCQUFhLEVBQUE7O0FBRWpCO0VBQ0ksZUFBZTtFQUNmLCtCQUFnQixFQUFBOztBQUVwQjtFQUNJLGVBQWU7RUFDZiwrQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxlQUFlO0VBQ2Ysb0JBQWdCO0VBQ2hCLGVBQWU7RUFDZixxQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxnQkFBZ0I7RUFDaEIsVUFBVTtFQUNWLG1DQUFtQztFQUNuQyxtQkFBbUI7RUFDbkIscUJBQWE7RUFDYiwrQkFBdUIsRUFBQTs7QUFFM0I7RUFDSSxVQUFTLEVBQUE7O0FBRWI7RUFDSSxrQkFBa0I7RUFDbEIsVUFBVTtFQUNWLFNBQVMsRUFBQTs7QUFFYjtFQUNJLFdBQVUsRUFBQTs7QUFFZDtFQUNJLGVBQWU7RUFDZixrQkFBa0I7RUFDbEIsVUFBVSxFQUFBOztBQUVkO0VBQ0ksVUFBVTtFQUNWLGdCQUFnQjtFQUNoQixtQkFBbUI7RUFDbkIsYUFBWTtFQUNaLFdBQVU7RUFDVixtQ0FBbUM7RUFDbkMsbUJBQW1CO0VBQ25CLG1CQUFtQixFQUFBOztBQUV2QjtFQUNJLGFBQVksRUFBQTs7QUFFaEI7RUFDSSxtQ0FBbUMsRUFBQTs7QUFFdkM7RUFDSSxrQkFBaUIsRUFBQTs7QUFFckI7RUFDSSxpQkFBaUI7RUFDakIsc0JBQXNCO0VBQ3RCLGlEQUFpRDtFQUNqRCxXQUFXO0VBQ1gsWUFBWTtFQUNaLGdCQUFnQixFQUFBOztBQUVwQjtFQUNJLFdBQVc7RUFDWCxZQUFZLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tdG9vbGJhciB7XHJcbiAgICAtLWJhY2tncm91bmQ6ICMyMzM2NTg7XHJcbn1cclxuXHJcblxyXG5pb24tdGl0bGV7XHJcbiAgICAvLyB0ZXh0LWFsaWduOmxlZnQ7XHJcbiAgICBjb2xvcjojZmZmO1xyXG4gICAgZm9udC1zaXplOiAxN3B4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcclxuICAgIGZvbnQtZmFtaWx5OiBQcm94aW1hLU5vdmEtdGhpbjtcclxufVxyXG5pb24tYmFjay1idXR0b24ge1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbn1cclxuLm5vLXBhZGRpbmd7XHJcbiAgICBwYWRkaW5nOjBweDtcclxufVxyXG4ucmVnaXN0ZXJfdGV4dCA+IHB7XHJcbiAgICBwYWRkaW5nOiAwcHggMTVweDtcclxuICAgIGZvbnQtc2l6ZTogMTVweDtcclxuICAgIGNvbG9yOiAjMWYxZjFmO1xyXG4gICAgbWFyZ2luLXRvcDogMzVweDtcclxufVxyXG5cclxuLmFic19pY29ue1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiAyOHB4O1xyXG4gICAgbGVmdDogNC41JTtcclxufVxyXG4uYWJzX2ljb24gPiBpbWd7XHJcbiAgICB3aWR0aDoxOHB4O1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lcntcclxuICAgIHBvc2l0aW9uOnJlbGF0aXZlO1xyXG4gICAgbWFyZ2luOjIwcHggMHB4O1xyXG4gICAgcGFkZGluZy1yaWdodDogMTVweDtcclxufVxyXG4uZm9ybV9jb250YWluZXIgPiBpb24tbGFiZWx7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEzJTtcclxufVxyXG4uZm9ybV9jb250YWluZXIgPiBpb24tbGFiZWw6OmFmdGVye1xyXG4gICAgY29udGVudDpcIipcIjtcclxuICAgIGNvbG9yOiByZWQ7XHJcbiAgICBtYXJnaW4tbGVmdDogM3B4OyBcclxufVxyXG4uZm9ybV9jb250YWluZXIgPiAuc3Rhcl9ub3Q6OmFmdGVye1xyXG4gICAgY29udGVudDpcIlwiIWltcG9ydGFudDtcclxuICAgIGNvbG9yOiByZWQ7XHJcbiAgICBtYXJnaW4tbGVmdDogM3B4OyBcclxufVxyXG4uZm9ybV9jb250YWluZXIgaW9uLWlucHV0ICwgLmZvcm1fY29udGFpbmVyIGlvbi10ZXh0YXJlYXtcclxuICAgIHdpZHRoOiA4NyU7XHJcbiAgICBtYXJnaW46IDAgMCAwIGF1dG87XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2NjYztcclxuICAgIGZvbnQtc2l6ZToxMnB4O1xyXG4gICAgLS1wYWRkaW5nLXRvcDogOHB4O1xyXG4gICAgLS1wYWRkaW5nLWJvdHRvbTogNXB4O1xyXG59XHJcbi8vIC51c2VyX3JhZGlve1xyXG4vLyAgICAgY29sb3I6I2NjYzsgXHJcbi8vICAgICBmb250LXNpemU6IDEycHghaW1wb3J0YW50O1xyXG4vLyAgICAgLS1wYWRkaW5nLXRvcDogOHB4IWltcG9ydGFudDtcclxuLy8gICAgIC0tcGFkZGluZy1ib3R0b206IDVweCFpbXBvcnRhbnQ7XHJcbi8vIH1cclxuLnVzZXJfcmFkaW9faXRlbXtcclxuICAgIGNvbG9yOiAjY2NjO1xyXG4gICAgZm9udC1zaXplOiAxMnB4ICFpbXBvcnRhbnQ7XHJcbiAgICAvLyB3aWR0aDogNDUlICFpbXBvcnRhbnQ7XHJcbiAgICAtLXBhZGRpbmctdG9wOiA4cHghaW1wb3J0YW50O1xyXG4gICAgLS1wYWRkaW5nLWJvdHRvbTogNXB4IWltcG9ydGFudDtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIC0tYm9yZGVyLWNvbG9yOiAjZmZmZjtcclxufVxyXG4ucmVsYXRpdmVfY2xze1xyXG4gICAgcG9zaXRpb246cmVsYXRpdmU7XHJcbn1cclxuLmNvbnRhY3RfdXNfZm9ybXtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgdG9wOiA3NSU7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZmZmO1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICAgIGxlZnQ6IDUlO1xyXG4gICAgLyogYm9yZGVyOiAxcHggc29saWQgIzAwMDsgKi9cclxuICAgIGJvcmRlci1yYWRpdXM6IDEwcHg7XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogMjVweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbiAgICBib3gtc2hhZG93OiAwcHggM3B4IDE4cHggMHB4IHJnYmEoMCwgMCwgMCwgMC41Myk7XHJcbn1cclxuLmNvbnRhY3RfdXNfZm9ybSA+IGlvbi1idXR0b257XHJcbiAgICAtLWJvcmRlci1yYWRpdXM6IDUwJTtcclxuICAgIHdpZHRoOiA1MHB4O1xyXG4gICAgaGVpZ2h0OiA1MHB4O1xyXG4gICAgLS1wYWRkaW5nLXN0YXJ0OiAwcHg7XHJcbiAgICAtLXBhZGRpbmctZW5kOiAwcHg7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNmZDg5MDA7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICBib3R0b206IC0yNXB4O1xyXG4gICAgbGVmdDogY2FsYyg1MCUgLSAyNXB4KTtcclxufVxyXG4uY29udGFjdF91c19mb3JtID4gaW9uLWJ1dHRvbiA+IGltZ3tcclxuICAgIHdpZHRoOjI0cHg7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyIGlvbi1pdGVte1xyXG4gICAgd2lkdGg6IDg3JTtcclxuICAgIG1hcmdpbjogMCAwIDAgYXV0bztcclxuICAgIC0tbWluLWhlaWdodDogMzZweDtcclxufVxyXG4uZm9ybV9jb250YWluZXIgaW9uLWl0ZW0gPiBpb24tZGF0ZXRpbWV7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICAtLXBhZGRpbmctc3RhcnQ6IDBweCAhaW1wb3J0YW50O1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciBpb24taXRlbSA+IGlvbi1kYXRldGltZXtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIC0tcGFkZGluZy1zdGFydDogMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyIGlvbi1pdGVtID4gaW9uLXNlbGVjdHtcclxuICAgIG1pbi13aWR0aDogMTAwJTtcclxuICAgIC0tcGFkZGluZy1zdGFydDogMHB4O1xyXG4gICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgLS1wYWRkaW5nLWJvdHRvbTogMHB4O1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciBpb24tYnV0dG9ue1xyXG4gICAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICAgIHdpZHRoOiA4MCU7XHJcbiAgICBib3gtc2hhZG93OiAwcHggNHB4IDhweCAxcHggI2ZlZDE5YztcclxuICAgIGJvcmRlci1yYWRpdXM6IDMwcHg7XHJcbiAgICAtLWJhY2tncm91bmQ6ICNmZDg5MDA7XHJcbiAgICAtLWJhY2tncm91bmQtYWN0aXZhdGVkOiAjZmQ4OTAwO1xyXG59XHJcbmlvbi1pbnB1dC5maWxlX2lucHV0IC5uYXRpdmUtaW5wdXQuc2MtaW9uLWlucHV0LW1ke1xyXG4gICAgb3BhY2l0eTowO1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciA+IC5maWxlX2lucHV0IC5hYnNfdXBsb2Fke1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgcmlnaHQ6IDVweDtcclxuICAgIGJvdHRvbTogMDtcclxufVxyXG4uZm9ybV9jb250YWluZXIgPiAuZmlsZV9pbnB1dCAuYWJzX3VwbG9hZCA+IGltZ3tcclxuICAgIHdpZHRoOjIycHg7XHJcbn1cclxuLmVycm9yX2Nsc3tcclxuICAgIGZvbnQtc2l6ZTogMTNweDtcclxuICAgIHBhZGRpbmctbGVmdDogNDZweDtcclxuICAgIGNvbG9yOiByZWQ7XHJcbn1cclxuLnNpZ25faW5fYnV0dG9uID4gYnV0dG9ue1xyXG4gICAgd2lkdGg6IDkwJTtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xyXG4gICAgcGFkZGluZzoxNXB4O1xyXG4gICAgY29sb3I6I2ZmZjtcclxuICAgIGJveC1zaGFkb3c6IDBweCA0cHggOHB4IDFweCAjZmVkMTljO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcclxuICAgIGJhY2tncm91bmQ6ICNmZDg5MDA7XHJcbn1cclxuLnNpZ25faW5fYnV0dG9uID4gYnV0dG9uOmZvY3Vze1xyXG4gICAgb3V0bGluZTpub25lO1xyXG59XHJcbi5zaWduX2luX2J1dHRvbiA+IGJ1dHRvbltkaXNhYmxlZF17XHJcbiAgICBiYWNrZ3JvdW5kOiByZ2JhKDI1MywgMTM3LCAwLCAwLjQ4KTtcclxufVxyXG4uc2lnbl9pbl9idXR0b257XHJcbiAgICB0ZXh0LWFsaWduOmNlbnRlcjtcclxufVxyXG4uYWRkX3Byb2ZpbGUgPiBpb24tYXZhdGFye1xyXG4gICAgbWFyZ2luOiAyMHB4IGF1dG87XHJcbiAgICBib3JkZXI6IDJweCBzb2xpZCAjZmZmO1xyXG4gICAgYm94LXNoYWRvdzogMHB4IDBweCAxNHB4IC0xcHggcmdiYSgwLCAwLCAwLCAwLjYyKTtcclxuICAgIHdpZHRoOiA3MHB4O1xyXG4gICAgaGVpZ2h0OiA3MHB4O1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxufVxyXG4ucm91bmQtcHJvZmlsZSBpbWd7XHJcbiAgICB3aWR0aDogODBweDtcclxuICAgIGhlaWdodDogODBweDtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/register/register.page.ts":
+/*!*******************************************!*\
+  !*** ./src/app/register/register.page.ts ***!
+  \*******************************************/
+/*! exports provided: RegisterPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPage", function() { return RegisterPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic-native/camera/ngx */ "./node_modules/@ionic-native/camera/ngx/index.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _globalServices_global_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../globalServices/global.service */ "./src/globalServices/global.service.ts");
+
+
+
+
+
+
+
+var RegisterPage = /** @class */ (function () {
+    function RegisterPage(router, camera, actionSheetController, alertController, gobalService, menu) {
+        this.router = router;
+        this.camera = camera;
+        this.actionSheetController = actionSheetController;
+        this.alertController = alertController;
+        this.gobalService = gobalService;
+        this.menu = menu;
+        this.ImageBind = 'https://www.w3schools.com/howto/img_avatar.png';
+        this.userData = {
+            mark_select: "",
+            firstname: "",
+            lastname: "",
+            email: "",
+            number: "",
+            date: "",
+            country: "",
+            city: "",
+            address: "",
+            image: "",
+            register: ""
+        };
+        //  validation pattern start
+        var email_pattern = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+        this.signupUser = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            mark_select: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            firstname: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            lastname: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](),
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(email_pattern)]),
+            number: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(8), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(14)]),
+            date: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            country: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            city: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            address: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"]('', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+        });
+        //  validation pattern end
+    }
+    RegisterPage.prototype.ngOnInit = function () {
+    };
+    // manu bar hide
+    RegisterPage.prototype.ionViewWillEnter = function () {
+        this.menu.enable(false);
+    };
+    // manu bar show leave page
+    RegisterPage.prototype.ionViewDidLeave = function () {
+        this.menu.enable(true);
+    };
+    //  image popup start
+    RegisterPage.prototype.SelectPhoto = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var actionSheet;
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.actionSheetController.create({
+                            buttons: [{
+                                    text: 'Camera',
+                                    icon: 'Camera',
+                                    handler: function () {
+                                        _this.takePhoto(1);
+                                    }
+                                }, {
+                                    text: 'Gallery',
+                                    icon: 'images',
+                                    handler: function () {
+                                        _this.takePhoto(2);
+                                    }
+                                }, {
+                                    text: 'Cancel',
+                                    icon: 'close',
+                                    role: 'cancel',
+                                }]
+                        })];
+                    case 1:
+                        actionSheet = _a.sent();
+                        return [4 /*yield*/, actionSheet.present()];
+                    case 2:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    //  image popup end
+    //  get image path start
+    RegisterPage.prototype.takePhoto = function (sourceType) {
+        var _this = this;
+        var options = {
+            quality: 50,
+            destinationType: this.camera.DestinationType.DATA_URL,
+            encodingType: this.camera.EncodingType.JPEG,
+            mediaType: this.camera.MediaType.PICTURE,
+            correctOrientation: true,
+            sourceType: sourceType == 1 ? this.camera.PictureSourceType.CAMERA : this.camera.PictureSourceType.PHOTOLIBRARY,
+        };
+        this.camera.getPicture(options).then(function (imgData) {
+            _this.ImageBind = "data:image/jpg;base64," + imgData;
+        });
+    };
+    //  get image path end
+    // radio button start
+    RegisterPage.prototype.checkValue = function (e) {
+        this.userData.mark_select = e.value;
+    };
+    // radio button end
+    //  signUp function start
+    RegisterPage.prototype.signUp = function () {
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+            var _this = this;
+            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                this.userData = {
+                    "mark_select": this.userData.mark_select,
+                    "firstname": this.userData.firstname,
+                    "lastname": this.userData.firstname,
+                    "email": this.userData.email,
+                    "number": this.userData.number,
+                    "date": this.userData.date,
+                    "country": this.userData.country,
+                    "city": this.userData.city,
+                    "address": this.userData.city,
+                    "image": this.ImageBind,
+                    "register": "firm"
+                };
+                console.log(this.userData);
+                this.gobalService.register_user(this.userData)
+                    .then(function (data) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+                    var alert_1, alert_2, alert_3;
+                    var _this = this;
+                    return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                this._status = data['status'];
+                                if (!(this._status == '200')) return [3 /*break*/, 3];
+                                return [4 /*yield*/, this.alertController.create({
+                                        message: 'You have successfully registered and logged in.',
+                                        buttons: [{
+                                                text: 'Ok',
+                                                handler: function () {
+                                                    _this.router.navigateByUrl('/sign-in');
+                                                    // this.signupUser.reset();
+                                                }
+                                            }]
+                                    })];
+                            case 1:
+                                alert_1 = _a.sent();
+                                return [4 /*yield*/, alert_1.present()];
+                            case 2:
+                                _a.sent();
+                                return [3 /*break*/, 9];
+                            case 3:
+                                if (!(this._status == '400')) return [3 /*break*/, 6];
+                                return [4 /*yield*/, this.alertController.create({
+                                        message: 'you have already registered.',
+                                        buttons: [{ text: 'Ok', }]
+                                    })];
+                            case 4:
+                                alert_2 = _a.sent();
+                                return [4 /*yield*/, alert_2.present()];
+                            case 5:
+                                _a.sent();
+                                return [3 /*break*/, 9];
+                            case 6: return [4 /*yield*/, this.alertController.create({
+                                    message: 'You have not registered try again.',
+                                    buttons: [{ text: 'Close' }]
+                                })];
+                            case 7:
+                                alert_3 = _a.sent();
+                                return [4 /*yield*/, alert_3.present()];
+                            case 8:
+                                _a.sent();
+                                _a.label = 9;
+                            case 9: return [2 /*return*/];
+                        }
+                    });
+                }); });
+                return [2 /*return*/];
+            });
+        });
+    };
+    //  signUp function end
+    // number Accept only start
+    RegisterPage.prototype.numberAccept = function (event) {
+        var charCode = (event.which) ? event.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('slides'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonSlides"])
+    ], RegisterPage.prototype, "slides", void 0);
+    RegisterPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-register',
+            template: __webpack_require__(/*! ./register.page.html */ "./src/app/register/register.page.html"),
+            styles: [__webpack_require__(/*! ./register.page.scss */ "./src/app/register/register.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"],
+            _ionic_native_camera_ngx__WEBPACK_IMPORTED_MODULE_4__["Camera"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["ActionSheetController"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["AlertController"],
+            _globalServices_global_service__WEBPACK_IMPORTED_MODULE_6__["GlobalService"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["MenuController"]])
+    ], RegisterPage);
+    return RegisterPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=register-register-module.js.map

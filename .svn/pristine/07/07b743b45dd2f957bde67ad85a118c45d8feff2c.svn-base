@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-edit-profile-firm',
+  templateUrl: './edit-profile-firm.page.html',
+  styleUrls: ['./edit-profile-firm.page.scss'],
+})
+export class EditProfileFirmPage implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

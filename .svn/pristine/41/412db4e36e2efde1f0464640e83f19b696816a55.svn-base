@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-view-enquiry',
+  templateUrl: './view-enquiry.page.html',
+  styleUrls: ['./view-enquiry.page.scss'],
+})
+export class ViewEnquiryPage implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

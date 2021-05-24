@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-back-button slot="start" style="color: white;">      
+      </ion-back-button>
+    <ion-title> My profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+  <ion-grid no-padding>
+    <ion-row no-padding>
+      <ion-col no-padding size="12">
+        <div class="profile_img">
+          <div>
+            <ion-avatar>
+              <img src="assets/images/courses-selction.png">
+            </ion-avatar>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col no-padding size="12" *ngFor="let user of user_all_data">
+        <div class="profile_name">
+          <ion-text>{{user.first_name}} {{user.last_name}}</ion-text>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="details">
+          <div class="text">
+            <ion-text>Personal Details</ion-text>
+          </div>
+          <div class="edit" (click)="edit_user()">
+            <ion-text>edit</ion-text>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col no-padding *ngFor="let user of user_all_data">
+        <div class="main_container">
+          <div class="profile_bg">
+            <div class="type">
+              <img src="assets/images/email_icon.png" style="width: 18px;height: 14px;">
+              <ion-text>Email:</ion-text>
+            </div>
+            <div class="value">
+                <ion-text style="letter-spacing: 0.5px;">{{user.email}}</ion-text>
+            </div>
+          </div>
+          <div class="profile_bg">
+              <div class="type">
+                <img src="assets/images/phone_icon.png" style="width: 18px;height: 22px;">
+                <ion-text>Phone:</ion-text>
+              </div>
+              <div class="value">
+                  <ion-text style="letter-spacing: 0.5px;">{{user.contact_number1}}</ion-text>
+              </div>
+            </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> 

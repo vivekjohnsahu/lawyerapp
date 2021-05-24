@@ -1,0 +1,31 @@
+ion-toolbar {
+    --background: #233658;
+}
+
+ion-title{
+    text-align:left;
+    color:#fff;
+    font-size: 17px;
+    font-weight: 400;
+    font-family: Proxima-Nova-thin;
+}
+ion-back-button {
+    color: #fff;
+}
+.no-padding{
+    padding:0px;
+}
+.terms_para{
+    padding:10px;
+}
+.terms_para > p{
+    margin-top: 0px;
+    text-align: justify;
+    font-size: 13px;
+}
+.terms_para > ion-text > h3{
+    color: #fd8900;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: Proxima-Nova-Bold;
+}

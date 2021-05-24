@@ -1,0 +1,324 @@
+ion-toolbar {
+    --background: #233658;
+}
+
+ion-header{
+    z-index: 1;
+}
+ion-title{
+    text-align:center;
+    color:#fff;
+    font-size: 17px;
+    font-weight: 400;
+    font-family: Proxima-Nova-thin;
+}
+ion-back-button {
+    color: #fff;
+}
+ion-text p{
+    text-align: center;
+}
+
+#file_Input{
+    display: none;
+}
+.basic_plan_bg{
+    background: #233658;
+    z-index: 9;
+    position: relative;
+    height: 50px;
+    margin-bottom:50px;
+}
+ 
+.tabs_main{
+    padding: 10px 0px;
+    background: #fff;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.27);
+}
+.tabs_main > ul{
+    width: 95%;
+    margin: 0 auto;
+    border-bottom: 0;
+}
+.tabs_main > ul > li{
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+}
+.tabs_main > ul > li > a{
+    display: inline-block;
+    text-decoration: none;
+    color: rgba(31, 31, 31, 0.5);
+    font-size: 14px;
+}
+.tabs_main > ul > li > a > span{
+    display:block;
+}
+.tabs_main > ul > li > a > span > img{
+    width:30px;
+}
+.tabs_main > ul > li > a.active{
+    width: 100%;
+    background: none;
+    color: #f99521;
+    font-size: 14px;
+    padding: 3px;
+}
+.form_container{
+    position:relative;
+    margin:20px 0px;
+    padding-right: 15px;
+}
+.form_container > ion-label{
+    padding-left: 13%;
+}
+.form_container > ion-label::after{
+    content:"*";
+    color: red;
+    margin-left: 3px; 
+}
+.form_container > ion-label.not_asterisk::after{
+    content:"";
+}
+.form_container ion-input , .form_container ion-textarea{
+    width: 87%;
+    margin: 0 0 0 auto;
+    border-bottom: 1px solid #ccc;
+    font-size:12px;
+    --padding-top: 8px;
+    --padding-bottom: 5px;
+}
+.relative_cls{
+    position:relative;
+}
+.form_container ion-item > ion-select{
+    min-width: 100%;
+    --padding-start: 0px;
+    font-size: 12px;
+    --padding-bottom: 0px;
+}
+.form_container ion-button{
+    font-weight: 300;
+    width: 80%;
+    box-shadow: 0px 4px 8px 1px #fed19c;
+    border-radius: 30px;
+    --background: #fd8900;
+    --background-activated: #fd8900;
+    text-transform: capitalize;
+}
+.abs_icon{
+    position: absolute;
+    top: 28px;
+    left: 4.5%;
+}
+.abs_icon > img{
+    width:18px;
+}
+.form_container ion-item{
+    width: 87%;
+    margin: 0 0 0 auto;
+    --min-height: 36px;
+
+}
+.form_container ion-item > ion-datetime{
+    font-size: 12px;
+    --padding-start: 0px !important;
+}
+.form_container ion-item > ion-datetime{
+    font-size: 12px;
+    --padding-start: 0px !important;
+}
+.add_profile > ion-avatar{
+    margin: 20px auto;
+    border: 2px solid #fff;
+    box-shadow: 0px 0px 14px -1px rgba(0, 0, 0, 0.62);
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+}
+.round-profile img{
+    width: 80px;
+    height: 80px;
+}
+.text{
+    padding: 0px 15px;  
+}
+.text > ion-text{
+    font-size: 16px;
+    color: rgba(31, 31, 31, 1);  
+}
+.add_skills{
+    margin: 40px 0px 30px 0px;
+    padding: 0px 10px;
+}
+.add_skills > ion-text{
+    color: #1f1f1f;
+    font-size: 15px;
+}
+.add_skills > ion-text > p{
+    margin-bottom:0px;
+}
+.add_skills > .searchbar{
+    margin-top:15px;
+}
+.add_skills > .searchbar ion-searchbar{
+    padding: 0px;
+    --background: #fff;
+    border: 1px solid #efefef;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 35px;
+}
+.added_skill{
+    background: rgba(237, 197, 149, 0.48);
+    padding: 5px 10px;
+}
+.added_skill > p{
+    width: 70%;
+    display: inline-block;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.added_skill > .clear{
+    width: 30%;
+    display: inline-block;
+    text-align: right;
+}
+.added_skill > .clear > ion-chip{
+    margin: 0;
+    padding: 0px 15px;
+    --background: #fd9e2f;
+    color: #fff;
+    box-shadow: 0px 3px 12px -1px #f4a14e;
+    height: 25px;
+    font-size: 13px;
+}
+.selected_skills{
+    padding: 15px 10px;
+}
+.selected_skills > ion-chip{
+    width: max-content;
+    display: inline-flex;
+}
+.selected_skills > ion-chip:nth-child(3n+1){
+    --background: #fddab1;
+}
+.selected_skills > ion-chip:nth-child(3n+2){
+    --background: rgba(58, 92, 153, 0.28);
+}
+.selected_skills > ion-chip:nth-child(3n+3){
+    --background:#ddd;
+}
+.step_3, .last_step{
+    margin: 20px 0px 20px 0px;
+    text-align: center;
+    padding: 0px 20px;
+}
+.last_step{
+    margin-top:40px;
+}
+.step_3 > ion-button, .last_step > ion-button{
+    width: 100%;
+    --background: #fd9e2f;
+    box-shadow: 0px 5px 8px 0px #fddab1;
+    border-radius: 30px;
+    text-transform: capitalize;
+    font-weight: 300;
+}
+
+
+/*manage lawyer*/
+.avatar-upload {
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center;
+  }
+  .avatar-upload .avatar-edit {
+    position: absolute;
+    right: calc(50% - 50px);
+    z-index: 1;
+    bottom: 0;
+  }
+  .avatar-upload .avatar-edit input {
+    display: none;
+  }
+  .avatar-upload .avatar-edit input + label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+  }
+  .avatar-upload .avatar-edit input + label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+  }
+  .avatar-upload .avatar-edit input + label:after {
+    content: "\f040";
+    font-family: "FontAwesome";
+    color: #757575;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+  }
+  .avatar-upload .avatar-preview {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 100%;
+    border: 2px solid #ffffff;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.29);
+  }
+  .avatar-upload .avatar-preview > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .cls_red{
+    color: red;
+  }
+
+  .error_cls{
+    font-size: 13px;
+    padding-left: 46px;
+    color: red;
+}
+
+.manage_button > button{
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding:15px;
+    color:#fff;
+    box-shadow: 0px 4px 8px 1px #fed19c;
+    border-radius: 30px;
+    background: #fd8900;
+}
+.manage_button > button:focus{
+    outline:none;
+}
+.manage_button > button[disabled]{
+    background: rgba(253, 137, 0, 0.48);
+}
+.manage_button{
+    text-align:center;
+}

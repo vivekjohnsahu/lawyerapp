@@ -1,0 +1,16 @@
+ion-toolbar {
+    --background: #233658;
+}
+
+ion-header{
+    z-index: 1;
+}
+// ion-title{
+//     color:#fff;
+//     font-size: 17px;
+//     font-weight: 400;
+//     font-family: Proxima-Nova-thin;
+// }
+ion-back-button {
+    --color: #fff;
+}

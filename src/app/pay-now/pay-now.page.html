@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+			<ion-back-button>
+			</ion-back-button>
+		</ion-buttons>
+    <ion-title>
+      Payment
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+    <ion-grid>
+        <ion-row >
+          <ion-col class="width_set" *ngFor="let lawyer of obj;">
+              <div class="div">
+                  <strong>Plan</strong><span>{{lawyer.plan_name}}</span>
+              </div>
+              <div class="div">
+                  <strong>Price</strong><span>{{lawyer.price}}</span>
+              </div>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div (click)="Payment()" class="subscribe">
+        <ion-button>Pay Now</ion-button>
+    </div>
+    <div class="sus_msg_show">{{_sus_msg_show}}</div>
+</ion-content>

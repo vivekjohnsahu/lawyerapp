@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filter</ion-title>
+    <ion-buttons slot="end" class="">
+        <ion-icon routerLink="/home" name="close" class="close_circle"></ion-icon>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+		<ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+	<ion-grid class="no-padding">
+		<ion-row no-padding>
+			<ion-col no-padding>
+				<form novalidate (submit)="lawyerbtn()" [formGroup]="lowyerChek">
+					<ion-col size="12">
+						<ion-text class="select_text">
+						<h4>By Practice Area:</h4>
+						</ion-text>
+					</ion-col>
+					<ion-col size="12" class="mb-20">
+						<ion-item class="select_div">
+							<!-- <ion-label style="margin-right: 0px;">By Lawyer Type:</ion-label> -->
+							<ion-select no-padding placeholder="Select One"  formControlName="lawyerType"  [(ngModel)]="lawyerAdd.lawyerType" [class.error1]="!lowyerChek.controls.lawyerType.valid && lowyerChek.controls.lawyerType.dirty" required cancelText="Close" clearInput>
+								<ion-select-option *ngFor="let skill of skills" [value]="skill.id">{{skill.practice_area}}</ion-select-option>
+							
+							</ion-select>
+						</ion-item>
+						<div class="error error_cls" *ngIf="lowyerChek.get('lawyerType').hasError('required') && lowyerChek.get('lawyerType').touched">
+							Select Practice	 Area
+						</div>
+					</ion-col>
+					<ion-col size="12">
+						<ion-text class="select_text">
+						<h4>By Location:</h4>
+						</ion-text>
+					</ion-col>
+					<ion-col size="12">
+						<ion-item class="select_div">
+							<ion-input no-padding type="text" placeholder="Select location" formControlName="location" [(ngModel)]="lawyerAdd.location" (ionInput)="updateSearchResults()" [class.error1]="!lowyerChek.controls.location.valid && lowyerChek.controls.location.dirty" required></ion-input>
+						</ion-item>
+						
+						<div class="error error_cls" *ngIf="lowyerChek.get('location').hasError('required') && lowyerChek.get('location').touched">
+							Select location
+						</div>
+						<div class="auto-complete-list">
+							<ion-list [hidden]="autocompleteItems.length == 0">
+									<ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+											{{ item.description }}
+									</ion-item>
+							</ion-list>
+					</div>
+					</ion-col>
+					<div class="submit_filter">
+						<button shape="round" type="submit" [disabled]="lowyerChek.invalid">Submit</button>
+					</div>
+				</form>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button>
+           
+          </ion-back-button>
+    </ion-buttons>
+    <ion-title>search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ngx-spinner bdColor="rgba(138, 134, 134, 0.48);"size="medium"color="#233658"type="line-scale"></ngx-spinner>
+    <ion-searchbar [(ngModel)]="term" (keyup)="getISkill(term)"></ion-searchbar>
+      <ul *ngFor="let cmt of search_cmt" class="search_icon" (click)="go_to_all(cmt.id)" [hidden]="no_data==2">
+          <li class="icon_li_one"><img src="{{cmt.profile_image}}"></li>
+          <li class="icon_li_two" value="cmt.name"> {{ cmt.company_name }} </li>
+      </ul>
+      <div [hidden]="no_data==1" style="text-align: center;font-weight: 550;font-size: 18px;letter-spacing: 0.5px;">
+        Data not found
+      </div>
+</ion-content> 

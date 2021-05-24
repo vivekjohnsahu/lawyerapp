@@ -1,0 +1,114 @@
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["register-register-module"],{
+
+/***/ "./src/app/register/register.module.ts":
+/*!*********************************************!*\
+  !*** ./src/app/register/register.module.ts ***!
+  \*********************************************/
+/*! exports provided: RegisterPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
+/* harmony import */ var _register_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./register.page */ "./src/app/register/register.page.ts");
+
+
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: _register_page__WEBPACK_IMPORTED_MODULE_6__["RegisterPage"]
+    }
+];
+var RegisterPageModule = /** @class */ (function () {
+    function RegisterPageModule() {
+    }
+    RegisterPageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+                _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+                _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forChild(routes)
+            ],
+            declarations: [_register_page__WEBPACK_IMPORTED_MODULE_6__["RegisterPage"]]
+        })
+    ], RegisterPageModule);
+    return RegisterPageModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/register/register.page.html":
+/*!*********************************************!*\
+  !*** ./src/app/register/register.page.html ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n        <ion-back-button>\n            \n          </ion-back-button>\n    </ion-buttons>\n    <ion-title>Register</ion-title>\n  </ion-toolbar>\n</ion-header> \n\n<ion-content>\n  <ion-grid class=\"no-padding\">\n    <ion-row no-padding>\n      <ion-col no-padding>\n        <ion-text class=\"register_text\"><p>Please enter your personal details to create new accout</p></ion-text>\n        <div class=\"form_container\">\n          <ion-label position=\"stacked\">Enter Your First Name</ion-label>\n          <ion-input no-padding  placeholder=\"Enter Your First Name\" type=\"text\" required></ion-input>\n          <div class=\"abs_icon\"><img src=\"assets/images/register/name.png\"></div>\n        </div>\n        <div class=\"form_container\">\n            <ion-label position=\"stacked\">Enter Your Last Name</ion-label>\n            <ion-input no-padding  placeholder=\"Enter Your Last Name\" type=\"text\" required></ion-input>\n            <div class=\"abs_icon\"><img src=\"assets/images/register/name.png\"></div>\n          </div>\n        <div class=\"form_container\">\n            <ion-label position=\"stacked\">Email Address</ion-label>\n            <ion-input no-padding  placeholder=\"Enter Your Email Address\" type=\"email\" required></ion-input>\n            <div class=\"abs_icon\"><img src=\"assets/images/email_icon.png\"></div>\n        </div>\n        <div class=\"form_container\">\n            <ion-label position=\"stacked\">Contact Number</ion-label>\n            <ion-input no-padding  placeholder=\"Enter Your Name\" type=\"num\" required></ion-input>\n            <div class=\"abs_icon\"><img style=\"width:15px;\" src=\"assets/images/phone_icon.png\"></div>\n          </div>\n          \n          <div class=\"form_container\">\n              <ion-label position=\"stacked\">Date OF Birth</ion-label>\n              <ion-item no-padding>\n                  <ion-datetime no-padding displayFormat=\"DD/MM/YY\" placeholder=\"Select Date\"></ion-datetime>\n              </ion-item>\n              <div class=\"abs_icon\"><img src=\"assets/images/register/dob.png\"></div>\n          </div>\n          <div class=\"form_container\">\n            <ion-label position=\"stacked\">Country</ion-label>  \n            <ion-item no-padding>\n                  <ion-select no-padding [interfaceOptions]=\"customActionSheetOptions\" interface=\"action-sheet\" placeholder=\"Select Country\">\n                    <ion-select-option value=\"red\">India</ion-select-option>\n                    <ion-select-option value=\"purple\">Japan</ion-select-option>\n                    <ion-select-option value=\"yellow\">Isreal</ion-select-option>\n                    <ion-select-option value=\"orange\">Russia</ion-select-option>\n                    <ion-select-option value=\"green\">France</ion-select-option>\n                  </ion-select>\n              </ion-item>\n              <div class=\"abs_icon\"><img src=\"assets/images/register/country.png\"></div>\n          </div>\n          <div class=\"form_container\">\n              <ion-label position=\"stacked\">City</ion-label>  \n              <ion-item no-padding>\n                    <ion-select no-padding [interfaceOptions]=\"customActionSheetOptions\" interface=\"action-sheet\" placeholder=\"Select Country\">\n                      <ion-select-option value=\"1\">delhi</ion-select-option>\n                      <ion-select-option value=\"2\">Noida</ion-select-option>\n                      <ion-select-option value=\"3\">Gaziabad</ion-select-option>\n                      <ion-select-option value=\"4\">gurgaon</ion-select-option>\n                    </ion-select>\n                  </ion-item>\n                  <div class=\"abs_icon\"><img src=\"assets/images/register/city.png\"></div>\n            </div>\n\n            <div class=\"form_container\">\n                <ion-label position=\"stacked\">Address</ion-label>\n                <ion-textarea no-padding  placeholder=\"Enter Your Address Here\" type=\"text\" required></ion-textarea>\n                <div class=\"abs_icon\"><img src=\"assets/images/register/city.png\"></div>\n            </div>\n            <div class=\"form_container\">\n                <ion-label position=\"stacked\">Upload Prfile Picture</ion-label>\n                <ion-input no-padding  placeholder=\"Upload\" type=\"file\" required class=\"file_input\">\n                    <div class=\"abs_upload\"><img src=\"assets/images/register/upload.png\"></div>\n                </ion-input>\n                <div class=\"abs_icon\"><img src=\"assets/images/register/file.png\"></div>\n                \n            </div>\n            <div class=\"form_container\" style=\"text-align:center;padding-right: 0px;\">\n                <ion-button shape=\"round\">\n                  Register\n                </ion-button>\n            </div>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n"
+
+/***/ }),
+
+/***/ "./src/app/register/register.page.scss":
+/*!*********************************************!*\
+  !*** ./src/app/register/register.page.scss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "ion-toolbar {\n  --background: #233658; }\n\nion-title {\n  text-align: left;\n  color: #fff;\n  font-size: 17px;\n  font-weight: 400;\n  font-family: Proxima-Nova-thin; }\n\nion-back-button {\n  color: #fff; }\n\n.no-padding {\n  padding: 0px; }\n\n.register_text > p {\n  padding: 0px 15px;\n  font-size: 15px;\n  color: #1f1f1f;\n  margin-top: 35px; }\n\n.abs_icon {\n  position: absolute;\n  top: 28px;\n  left: 4.5%; }\n\n.abs_icon > img {\n  width: 18px; }\n\n.form_container {\n  position: relative;\n  margin: 20px 0px;\n  padding-right: 15px; }\n\n.form_container > ion-label {\n  padding-left: 13%; }\n\n.form_container > ion-label::after {\n  content: \"*\";\n  color: red;\n  margin-left: 3px; }\n\n.form_container ion-input, .form_container ion-textarea {\n  width: 87%;\n  margin: 0 0 0 auto;\n  border-bottom: 1px solid #ccc;\n  font-size: 12px;\n  --padding-top: 8px;\n  --padding-bottom: 5px; }\n\n.relative_cls {\n  position: relative; }\n\n.contact_us_form {\n  position: absolute;\n  width: 100%;\n  top: 75%;\n  background: #fff;\n  width: 90%;\n  left: 5%;\n  /* border: 1px solid #000; */\n  border-radius: 10px;\n  padding-bottom: 25px;\n  margin-bottom: 20px;\n  box-shadow: 0px 3px 18px 0px rgba(0, 0, 0, 0.53); }\n\n.contact_us_form > ion-button {\n  --border-radius: 50%;\n  width: 50px;\n  height: 50px;\n  --padding-start: 0px;\n  --padding-end: 0px;\n  --background: #fd8900;\n  position: absolute;\n  bottom: -25px;\n  left: calc(50% - 25px); }\n\n.contact_us_form > ion-button > img {\n  width: 24px; }\n\n.form_container ion-item {\n  width: 87%;\n  margin: 0 0 0 auto;\n  --min-height: 36px; }\n\n.form_container ion-item > ion-datetime {\n  font-size: 12px;\n  --padding-start: 0px !important; }\n\n.form_container ion-item > ion-datetime {\n  font-size: 12px;\n  --padding-start: 0px !important; }\n\n.form_container ion-item > ion-select {\n  min-width: 100%;\n  --padding-start: 0px;\n  font-size: 12px;\n  --padding-bottom: 0px; }\n\n.form_container ion-button {\n  font-weight: 300;\n  width: 80%;\n  box-shadow: 0px 4px 8px 1px #fed19c;\n  border-radius: 30px;\n  --background: #fd8900;\n  --background-activated: #fd8900; }\n\nion-input.file_input .native-input.sc-ion-input-md {\n  opacity: 0; }\n\n.form_container > .file_input .abs_upload {\n  position: absolute;\n  right: 5px;\n  bottom: 0; }\n\n.form_container > .file_input .abs_upload > img {\n  width: 22px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVnaXN0ZXIvRDpcXHhhbXBwXFxodGRvY3NcXGxhd2VyX2FwcC9zcmNcXGFwcFxccmVnaXN0ZXJcXHJlZ2lzdGVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHFCQUFhLEVBQUE7O0FBSWpCO0VBQ0ksZ0JBQWU7RUFDZixXQUFVO0VBQ1YsZUFBZTtFQUNmLGdCQUFnQjtFQUNoQiw4QkFBOEIsRUFBQTs7QUFFbEM7RUFDSSxXQUFXLEVBQUE7O0FBRWY7RUFDSSxZQUFXLEVBQUE7O0FBRWY7RUFDSSxpQkFBaUI7RUFDakIsZUFBZTtFQUNmLGNBQWM7RUFDZCxnQkFBZ0IsRUFBQTs7QUFHcEI7RUFDSSxrQkFBa0I7RUFDbEIsU0FBUztFQUNULFVBQVUsRUFBQTs7QUFFZDtFQUNJLFdBQVUsRUFBQTs7QUFFZDtFQUNJLGtCQUFpQjtFQUNqQixnQkFBZTtFQUNmLG1CQUFtQixFQUFBOztBQUV2QjtFQUNJLGlCQUFpQixFQUFBOztBQUVyQjtFQUNJLFlBQVc7RUFDWCxVQUFVO0VBQ1YsZ0JBQWdCLEVBQUE7O0FBRXBCO0VBQ0ksVUFBVTtFQUNWLGtCQUFrQjtFQUNsQiw2QkFBNkI7RUFDN0IsZUFBYztFQUNkLGtCQUFjO0VBQ2QscUJBQWlCLEVBQUE7O0FBRXJCO0VBQ0ksa0JBQWlCLEVBQUE7O0FBRXJCO0VBQ0ksa0JBQWtCO0VBQ2xCLFdBQVc7RUFDWCxRQUFRO0VBQ1IsZ0JBQWdCO0VBQ2hCLFVBQVU7RUFDVixRQUFRO0VBQ1IsNEJBQUE7RUFDQSxtQkFBbUI7RUFDbkIsb0JBQW9CO0VBQ3BCLG1CQUFtQjtFQUNuQixnREFBZ0QsRUFBQTs7QUFFcEQ7RUFDSSxvQkFBZ0I7RUFDaEIsV0FBVztFQUNYLFlBQVk7RUFDWixvQkFBZ0I7RUFDaEIsa0JBQWM7RUFDZCxxQkFBYTtFQUNiLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2Isc0JBQXNCLEVBQUE7O0FBRTFCO0VBQ0ksV0FBVSxFQUFBOztBQUVkO0VBQ0ksVUFBVTtFQUNWLGtCQUFrQjtFQUNsQixrQkFBYSxFQUFBOztBQUVqQjtFQUNJLGVBQWU7RUFDZiwrQkFBZ0IsRUFBQTs7QUFFcEI7RUFDSSxlQUFlO0VBQ2YsK0JBQWdCLEVBQUE7O0FBRXBCO0VBQ0ksZUFBZTtFQUNmLG9CQUFnQjtFQUNoQixlQUFlO0VBQ2YscUJBQWlCLEVBQUE7O0FBRXJCO0VBQ0ksZ0JBQWdCO0VBQ2hCLFVBQVU7RUFDVixtQ0FBbUM7RUFDbkMsbUJBQW1CO0VBQ25CLHFCQUFhO0VBQ2IsK0JBQXVCLEVBQUE7O0FBRTNCO0VBQ0ksVUFBUyxFQUFBOztBQUViO0VBQ0ksa0JBQWtCO0VBQ2xCLFVBQVU7RUFDVixTQUFTLEVBQUE7O0FBRWI7RUFDSSxXQUFVLEVBQUEiLCJmaWxlIjoic3JjL2FwcC9yZWdpc3Rlci9yZWdpc3Rlci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tdG9vbGJhciB7XHJcbiAgICAtLWJhY2tncm91bmQ6ICMyMzM2NTg7XHJcbn1cclxuXHJcblxyXG5pb24tdGl0bGV7XHJcbiAgICB0ZXh0LWFsaWduOmxlZnQ7XHJcbiAgICBjb2xvcjojZmZmO1xyXG4gICAgZm9udC1zaXplOiAxN3B4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcclxuICAgIGZvbnQtZmFtaWx5OiBQcm94aW1hLU5vdmEtdGhpbjtcclxufVxyXG5pb24tYmFjay1idXR0b24ge1xyXG4gICAgY29sb3I6ICNmZmY7XHJcbn1cclxuLm5vLXBhZGRpbmd7XHJcbiAgICBwYWRkaW5nOjBweDtcclxufVxyXG4ucmVnaXN0ZXJfdGV4dCA+IHB7XHJcbiAgICBwYWRkaW5nOiAwcHggMTVweDtcclxuICAgIGZvbnQtc2l6ZTogMTVweDtcclxuICAgIGNvbG9yOiAjMWYxZjFmO1xyXG4gICAgbWFyZ2luLXRvcDogMzVweDtcclxufVxyXG5cclxuLmFic19pY29ue1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiAyOHB4O1xyXG4gICAgbGVmdDogNC41JTtcclxufVxyXG4uYWJzX2ljb24gPiBpbWd7XHJcbiAgICB3aWR0aDoxOHB4O1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lcntcclxuICAgIHBvc2l0aW9uOnJlbGF0aXZlO1xyXG4gICAgbWFyZ2luOjIwcHggMHB4O1xyXG4gICAgcGFkZGluZy1yaWdodDogMTVweDtcclxufVxyXG4uZm9ybV9jb250YWluZXIgPiBpb24tbGFiZWx7XHJcbiAgICBwYWRkaW5nLWxlZnQ6IDEzJTtcclxufVxyXG4uZm9ybV9jb250YWluZXIgPiBpb24tbGFiZWw6OmFmdGVye1xyXG4gICAgY29udGVudDpcIipcIjtcclxuICAgIGNvbG9yOiByZWQ7XHJcbiAgICBtYXJnaW4tbGVmdDogM3B4OyBcclxufVxyXG4uZm9ybV9jb250YWluZXIgaW9uLWlucHV0ICwgLmZvcm1fY29udGFpbmVyIGlvbi10ZXh0YXJlYXtcclxuICAgIHdpZHRoOiA4NyU7XHJcbiAgICBtYXJnaW46IDAgMCAwIGF1dG87XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2NjYztcclxuICAgIGZvbnQtc2l6ZToxMnB4O1xyXG4gICAgLS1wYWRkaW5nLXRvcDogOHB4O1xyXG4gICAgLS1wYWRkaW5nLWJvdHRvbTogNXB4O1xyXG59XHJcbi5yZWxhdGl2ZV9jbHN7XHJcbiAgICBwb3NpdGlvbjpyZWxhdGl2ZTtcclxufVxyXG4uY29udGFjdF91c19mb3Jte1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICB0b3A6IDc1JTtcclxuICAgIGJhY2tncm91bmQ6ICNmZmY7XHJcbiAgICB3aWR0aDogOTAlO1xyXG4gICAgbGVmdDogNSU7XHJcbiAgICAvKiBib3JkZXI6IDFweCBzb2xpZCAjMDAwOyAqL1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTBweDtcclxuICAgIHBhZGRpbmctYm90dG9tOiAyNXB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMjBweDtcclxuICAgIGJveC1zaGFkb3c6IDBweCAzcHggMThweCAwcHggcmdiYSgwLCAwLCAwLCAwLjUzKTtcclxufVxyXG4uY29udGFjdF91c19mb3JtID4gaW9uLWJ1dHRvbntcclxuICAgIC0tYm9yZGVyLXJhZGl1czogNTAlO1xyXG4gICAgd2lkdGg6IDUwcHg7XHJcbiAgICBoZWlnaHQ6IDUwcHg7XHJcbiAgICAtLXBhZGRpbmctc3RhcnQ6IDBweDtcclxuICAgIC0tcGFkZGluZy1lbmQ6IDBweDtcclxuICAgIC0tYmFja2dyb3VuZDogI2ZkODkwMDtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGJvdHRvbTogLTI1cHg7XHJcbiAgICBsZWZ0OiBjYWxjKDUwJSAtIDI1cHgpO1xyXG59XHJcbi5jb250YWN0X3VzX2Zvcm0gPiBpb24tYnV0dG9uID4gaW1ne1xyXG4gICAgd2lkdGg6MjRweDtcclxufVxyXG4uZm9ybV9jb250YWluZXIgaW9uLWl0ZW17XHJcbiAgICB3aWR0aDogODclO1xyXG4gICAgbWFyZ2luOiAwIDAgMCBhdXRvO1xyXG4gICAgLS1taW4taGVpZ2h0OiAzNnB4O1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciBpb24taXRlbSA+IGlvbi1kYXRldGltZXtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIC0tcGFkZGluZy1zdGFydDogMHB4ICFpbXBvcnRhbnQ7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyIGlvbi1pdGVtID4gaW9uLWRhdGV0aW1le1xyXG4gICAgZm9udC1zaXplOiAxMnB4O1xyXG4gICAgLS1wYWRkaW5nLXN0YXJ0OiAwcHggIWltcG9ydGFudDtcclxufVxyXG4uZm9ybV9jb250YWluZXIgaW9uLWl0ZW0gPiBpb24tc2VsZWN0e1xyXG4gICAgbWluLXdpZHRoOiAxMDAlO1xyXG4gICAgLS1wYWRkaW5nLXN0YXJ0OiAwcHg7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICAtLXBhZGRpbmctYm90dG9tOiAwcHg7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyIGlvbi1idXR0b257XHJcbiAgICBmb250LXdlaWdodDogMzAwO1xyXG4gICAgd2lkdGg6IDgwJTtcclxuICAgIGJveC1zaGFkb3c6IDBweCA0cHggOHB4IDFweCAjZmVkMTljO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMzBweDtcclxuICAgIC0tYmFja2dyb3VuZDogI2ZkODkwMDtcclxuICAgIC0tYmFja2dyb3VuZC1hY3RpdmF0ZWQ6ICNmZDg5MDA7XHJcbn1cclxuaW9uLWlucHV0LmZpbGVfaW5wdXQgLm5hdGl2ZS1pbnB1dC5zYy1pb24taW5wdXQtbWR7XHJcbiAgICBvcGFjaXR5OjA7XHJcbn1cclxuLmZvcm1fY29udGFpbmVyID4gLmZpbGVfaW5wdXQgLmFic191cGxvYWR7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICByaWdodDogNXB4O1xyXG4gICAgYm90dG9tOiAwO1xyXG59XHJcbi5mb3JtX2NvbnRhaW5lciA+IC5maWxlX2lucHV0IC5hYnNfdXBsb2FkID4gaW1ne1xyXG4gICAgd2lkdGg6MjJweDtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/register/register.page.ts":
+/*!*******************************************!*\
+  !*** ./src/app/register/register.page.ts ***!
+  \*******************************************/
+/*! exports provided: RegisterPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPage", function() { return RegisterPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+// import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+var RegisterPage = /** @class */ (function () {
+    function RegisterPage(
+    // private camera: Camera
+    ) {
+    }
+    RegisterPage.prototype.ngOnInit = function () {
+    };
+    RegisterPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-register',
+            template: __webpack_require__(/*! ./register.page.html */ "./src/app/register/register.page.html"),
+            styles: [__webpack_require__(/*! ./register.page.scss */ "./src/app/register/register.page.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], RegisterPage);
+    return RegisterPage;
+}());
+
+
+
+/***/ })
+
+}]);
+//# sourceMappingURL=register-register-module.js.map

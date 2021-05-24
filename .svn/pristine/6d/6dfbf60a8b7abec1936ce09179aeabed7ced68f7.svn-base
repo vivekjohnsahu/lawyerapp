@@ -1,0 +1,151 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button>
+            </ion-back-button>
+        </ion-buttons>
+        <ion-title>Register Firm</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-grid class="no-padding">
+        <ion-row no-padding>
+            <ion-col no-padding>
+                <ion-text class="register_text">
+                    <p>Please enter your personal details to create new accout</p>
+                </ion-text>
+                <form novalidate (ngSubmit)="signUp()" class="loginFormMargin" [formGroup]="signupUser">
+                    <div class="form_container"> 
+                        <ion-label position="stacked">Choose Option</ion-label>
+                        <div class="abs_icon"><img style="position:relative;top:-28px;z-index:9;" src="assets/images/register/name.png"></div>
+                    </div>
+                    <ion-list style="margin-top: -25px;margin-bottom: -18px;margin-left: auto;margin-right: auto;width: 78%;">
+                        <ion-radio-group required (ionChange)="checkValue($event.target)" formControlName="mark_select" [(ngModel)]="userData.mark_select">
+                            <ion-item class="user_radio_item">
+                                <ion-label class="user_radio">User</ion-label>
+                                <ion-radio slot="start" mode="md" value="register_user"></ion-radio>
+                            </ion-item>
+                            <ion-item class="user_radio_item">
+                                <ion-label class="user_radio">Lowyer Firm</ion-label>
+                                <ion-radio slot="start" mode="md"  value="rgister_lowyer_firm"></ion-radio>
+                            </ion-item>
+                        </ion-radio-group>
+                    </ion-list>
+                    <div class="form_container">
+                        <ion-label position="stacked">Enter Your First Name</ion-label>
+                        <ion-input no-padding [(ngModel)]="userData.firstname" formControlName="firstname" placeholder="Enter Your First Name" type="text" required [class.error1]="!signupUser.controls.firstname.valid && signupUser.controls.firstname.dirty" clearInput></ion-input>
+                        <div class="abs_icon"><img src="assets/images/register/name.png"></div>
+                        <div class="error_cls" *ngIf="( signupUser.get('firstname').hasError('required') ) && signupUser.get('firstname').touched">
+                            <div class="error" *ngIf="signupUser.get('firstname').hasError('required') && signupUser.get('firstname').touched">
+                                First name cannot be blank
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_container">
+                        <ion-label position="stacked" class="star_not">Enter Your Last Name</ion-label>
+                        <ion-input no-padding [(ngModel)]="userData.lastname" formControlName="lastname"  placeholder="Enter Your Last Name" type="text"></ion-input>
+                        <div class="abs_icon"><img src="assets/images/register/name.png"></div>
+                    </div>
+                    <div class="form_container">
+                        <ion-label position="stacked">Email Address</ion-label>
+                        <ion-input no-padding  placeholder="Enter Your Email Address" type="email" [(ngModel)]="userData.email" formControlName="email" [class.error1]="!signupUser.controls.email.valid && signupUser.controls.email.dirty" clearInput required></ion-input>
+                        <div class="abs_icon"><img src="assets/images/email_icon.png"></div>
+                        <div class="error_cls" *ngIf="( signupUser.get('email').hasError('minlength') || signupUser.get('email').hasError('pattern') ||signupUser.get('email').hasError('required') ) && signupUser.get('email').touched">
+                            <div class="error" *ngIf="signupUser.get('email').hasError('required') && signupUser.get('email').touched">
+                                Email ID cannot be blank
+                            </div>
+                            <div class="error" *ngIf="signupUser.get('email').hasError('pattern') && signupUser.get('email').touched">
+                                Please enter a valid Email ID
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_container">
+                        <ion-label position="stacked">Contact Number</ion-label>
+                        <ion-input no-padding (keypress)="numberAccept($event)"  placeholder="Enter Your Name" type="tel" [(ngModel)]="userData.number" formControlName="number" [class.error1]="!signupUser.controls.number.valid && signupUser.controls.number.dirty" clearInput required></ion-input>
+                        <div class="abs_icon"><img style="width:15px;" src="assets/images/phone_icon.png"></div>
+                        <div class="error_cls" *ngIf="( signupUser.get('number').hasError('minlength') || signupUser.get('number').hasError('maxlength') ||signupUser.get('number').hasError('required') ) && signupUser.get('number').touched">
+                            <div class="error" *ngIf="signupUser.get('number').hasError('required') && signupUser.get('number').touched">
+                                Number cannot be blank
+                            </div>
+                            <div class="error" *ngIf="signupUser.get('number').hasError('minlength') && signupUser.get('number').touched">
+                                Minimum 8 characters
+                            </div>
+                            <div class="error" *ngIf="signupUser.get('number').hasError('maxlength') && signupUser.get('number').touched">
+                                Maximum 15 characters
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_container">
+                        <ion-label position="stacked">Date OF Birth</ion-label>
+                        <ion-item no-padding>
+                            <ion-datetime [(ngModel)]="userData.date" formControlName="date" [class.error1]="!signupUser.controls.date.valid && signupUser.controls.date.dirty" clearInput required no-padding displayFormat="DD/MM/YY" placeholder="Select Date"></ion-datetime>
+                        </ion-item>
+                        <div class="abs_icon"><img src="assets/images/register/dob.png"></div>
+                        <div class="error_cls" *ngIf="( signupUser.get('date').hasError('required') ) && signupUser.get('date').touched">
+                            <div class="error" *ngIf="signupUser.get('date').hasError('required') && signupUser.get('date').touched">
+                                Date cannot be blank
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_container">
+                        <ion-label position="stacked">Country</ion-label>
+                        <ion-item no-padding>
+                            <ion-select no-padding [interfaceOptions]="customActionSheetOptions" formControlName="country" [(ngModel)]="userData.country" [class.error1]="!signupUser.controls.country.valid && signupUser.controls.country.dirty" required interface="action-sheet" placeholder="Select Country">
+                                <ion-select-option value="India">India</ion-select-option>
+                                <ion-select-option value="Japan">Japan</ion-select-option>
+                                <ion-select-option value="Isreal">Isreal</ion-select-option>
+                                <ion-select-option value="Russia">Russia</ion-select-option>
+                                <ion-select-option value="France">France</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                        <div class="abs_icon"><img src="assets/images/register/country.png"></div>
+                        <div class="error error_cls" *ngIf="signupUser.get('country').hasError('required') && signupUser.get('country').touched">
+                            Select valid country
+                        </div>
+                    </div>
+                    <div class="form_container">
+                        <ion-label position="stacked">City</ion-label>
+                        <ion-item no-padding>
+                            <ion-select no-padding [interfaceOptions]="customActionSheetOptions" formControlName="city" [(ngModel)]="userData.city" [class.error1]="!signupUser.controls.city.valid && signupUser.controls.city.dirty" required interface="action-sheet" placeholder="Select Country">
+                                <ion-select-option value="1">delhi</ion-select-option>
+                                <ion-select-option value="2">Noida</ion-select-option>
+                                <ion-select-option value="3">Gaziabad</ion-select-option>
+                                <ion-select-option value="4">gurgaon</ion-select-option>
+                            </ion-select>
+                        </ion-item>
+                        <div class="abs_icon"><img src="assets/images/register/city.png"></div>
+                        <div class="error error_cls" *ngIf="signupUser.get('city').hasError('required') && signupUser.get('city').touched">
+                            Select valid city
+                        </div>
+                    </div>
+                    <div class="form_container">
+                        <ion-label position="stacked">Address</ion-label>
+                        <ion-textarea no-padding  placeholder="Enter Your Address Here" type="text" formControlName="address" [(ngModel)]="userData.address" [class.error1]="!signupUser.controls.address.valid && signupUser.controls.address.dirty" required></ion-textarea>
+                        <div class="abs_icon"><img src="assets/images/register/city.png"></div>
+                        <div class="error error_cls" *ngIf="signupUser.get('address').hasError('required') && signupUser.get('address').touched">
+                            Address cannot be blank
+                        </div>
+                    </div>
+                    <div class="form_container">
+                        <ion-label position="stacked" class="star_not">Upload Prfile Picture</ion-label>
+                        <div class="add_profile">
+                            <ion-avatar item-start (click)="SelectPhoto()">
+                            <div class="main-edit-profile">
+                                <div class="round-profile">
+                                    <img style="border-radius: 31px;" id="camera-image" src="{{ImageBind}}"> 
+                                </div>
+                            </div>
+                            </ion-avatar>
+                        </div>
+                        <div class="abs_icon" style="top: 0px!important;"><img src="assets/images/register/file.png"></div>
+                    </div>
+                    <div style="text-align: center;">
+                        <ion-col size="12" class="sign_in_button">
+                            <button shape="round" type="submit" [disabled]="signupUser.invalid">Register</button>
+                        </ion-col>
+                    </div>
+                </form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

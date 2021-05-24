@@ -1,0 +1,268 @@
+import { Component, OnInit } from '@angular/core';
+import { AlertController, Events, MenuController, Platform, IonSlides } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
+import { GlobalService } from '../../globalServices/global.service'
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router, Navigation } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
+// declare let paypal: any;
+
+@Component({
+  selector: 'app-pay-now',
+  templateUrl: './pay-now.page.html',
+  styleUrls: ['./pay-now.page.scss'],
+})
+export class PayNowPage implements OnInit {
+	plane_seleted: any;
+	user_id_get: any;
+	_status: any;
+	message: any;
+	userRep: any;
+	user_login: any;
+
+	constructor(
+		public alertCtrl: AlertController,
+		private storage:Storage,
+		public events: Events,
+		public globalService:GlobalService,
+		public spinner:NgxSpinnerService,
+		private router : Router,
+		public toastController: ToastController,
+		public alertController: AlertController,
+		private payPal: PayPal
+
+	) { }
+
+	paymentAmount: string = '3.33';
+  currency: string = 'USD';
+  currencyIcon: string = '$';
+
+
+	ngOnInit() {
+		this.pay_ccavenue()
+	}
+
+	// addScript: boolean = false;
+    // paypalLoad: boolean = true;
+
+	pay_ccavenue(){
+		this.storage.get('plane_seleted').then((val) => {
+			this.plane_seleted = val;
+		});
+		this.storage.get('user_id_set').then((val) => {
+			this.user_id_get = val;
+		});
+		this.storage.get('user_login').then((val) => {
+			this.user_login = val;
+		});	
+	}
+
+
+
+	// paypalPayment(){
+  //   this.payPal.init({
+	// 	PayPalEnvironmentProduction: 'AXYsRPxsTMkwxI6fDJTjjbs1sITwH_45GAk2fCSaHCkxykHQ4-5jASQ4Dbjwpv9L3G1iKDpFgZpuIUYej',
+	// 	PayPalEnvironmentSandbox: 'AaYYX3wO-1tiGgXBzFXY_o3dQI3nGHf3jG9nXkWNInHs8Cc4LPAcWofUbvBxQvbsukHh0FVzSGAGB6vj'
+  //   }).then(() => {
+
+  //     this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+
+  //     })).then(() => {
+  //       let payment = new PayPalPayment('3.33', 'USD', 'Description', 'sale');
+  //       this.payPal.renderSinglePaymentUI(payment).then((success) => {
+  //         console.log(success);
+  //       }, () => {
+  //         // Error or render dialog closed without being successful
+  //         console.log('error paypal')
+  //       });
+  //     }, () => {
+  //       // Error in configuration
+  //       console.log('error configuration paypal')
+  //     });
+  //   }, () => {
+  //     // Error in initialization, maybe PayPal isn't supported or something else
+  //     console.log('error last paypal')
+  //   });
+	// }
+	
+
+
+
+	Payment(){
+		alert('Vivek Go for Payment---->')
+		this.payPal.init({
+			PayPalEnvironmentProduction: 'AXYsRPxsTMkwxI6fDJTjjbs1sITwH_45GAk2fCSaHCkxykHQ4-5jASQ4Dbjwpv9L3G1iKDpFgZpuIUYej',
+			PayPalEnvironmentSandbox: 'AaYYX3wO-1tiGgXBzFXY_o3dQI3nGHf3jG9nXkWNInHs8Cc4LPAcWofUbvBxQvbsukHh0FVzSGAGB6vj'
+		}).then(() => {
+		
+			this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
+		 
+			})).then(() => {
+				let payment = new PayPalPayment('3.33', 'USD', 'Description', 'sale');
+				this.payPal.renderSinglePaymentUI(payment).then(() => {
+					// Successfully paid
+		
+					// Example sandbox response
+					//
+					// {
+					//   "client": {
+					//     "environment": "sandbox",
+					//     "product_name": "PayPal iOS SDK",
+					//     "paypal_sdk_version": "2.16.0",
+					//     "platform": "iOS"
+					//   },
+					//   "response_type": "payment",
+					//   "response": {
+					//     "id": "PAY-1AB23456CD789012EF34GHIJ",
+					//     "state": "approved",
+					//     "create_time": "2016-10-03T13:33:33Z",
+					//     "intent": "sale"
+					//   }
+					// }
+				}, () => {
+					// Error or render dialog closed without being successful
+				});
+			}, () => {
+				// Error in configuration
+			});
+		}, () => {
+			// Error in initialization, maybe PayPal isn't supported or something else
+		});
+	
+	
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//   paypalConfig = {
+	// 	env: 'sandbox',
+	// 	client: {
+	// 		sandbox: 'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R',
+	// 		production: '<your-production-key here>'
+	// 	},
+	// 	commit: true,
+	// 	payment: (data, actions) => {
+	// 		return actions.payment.create({
+	// 			payment: {
+	// 				transactions: [
+	// 					{ amount: { total: '200', currency: 'USD' },
+	// 						item_list: {
+	// 							items: [
+	// 								{
+	// 									name: "payment for lawyer",
+	// 									quantity: "1",
+	// 									price:'200',
+	// 									tax: "0",
+	// 									currency: "USD",
+	// 									sku: '12345',
+	// 								}
+	// 							]
+	// 						}
+	// 					}
+	// 				]
+	// 			}
+	// 		});
+	// 	},
+	// 	onAuthorize: (data, actions) => {
+	// 		var cmt=this;
+	// 		return actions.payment.execute().then(function(data){
+	// 			if(data.transactions[0].related_resources[0].sale.state=="completed"){
+    //                 $('#pay_fully_msg').html('Thank you for using <i class="fas fa-check-circle"></i>');
+	// 				var txn_id=data.transactions[0].related_resources[0].sale.id;
+	// 				cmt.paymentFill();
+	// 			}else{
+	// 				$('#pay_fully_msg').text("Internal error");
+	// 			}
+	// 		});	
+	// 	},
+	// 	style: {
+	// 		size:   'medium',
+	// 	}
+    // };
+   
+    // ngAfterViewChecked(): void {
+	// 	if (!this.addScript) {
+	// 		this.addPaypalScript().then(() => {
+	// 		paypal.Button.render(this.paypalConfig, '#paypal-checkout-btn');
+	// 		this.paypalLoad = false;
+	// 		})
+	// 	}
+    // }
+    
+    // addPaypalScript() {
+	// 	this.addScript = true;
+	// 	return new Promise((resolve, reject) => {
+	// 		let scripttagElement = document.createElement('script');    
+	// 		scripttagElement.src = 'https://www.paypalobjects.com/api/checkout.js';
+	// 		scripttagElement.onload = resolve;
+	// 		document.body.appendChild(scripttagElement);
+	// 	})
+	// }
+
+	// paymentFill(){
+	// 	let plan_data = {
+	// 		apikey:this.globalService.APIKey,
+	// 		user_id:this.user_id_get.user_id,
+	// 		plan_name:this.plane_seleted[0].plan_name,
+	// 		plan_id:this.plane_seleted[0].id,
+	// 		validity:this.plane_seleted[0].validity,
+	// 		price:this.plane_seleted[0].price,
+	// 		transaction_no:'12345',
+	// 		pay_pal_token:'123',
+	// 		payment_status:'1',
+	// 	}
+	// 	this.globalService.plan_activate(plan_data).then(
+	// 		data => {
+	// 			if(data['Status'] ='0'){
+	// 				let loginData={
+	// 					username:this.user_login.email,
+	// 					password:this.user_login.password,
+	// 				}
+	// 				this.spinner.show();
+	// 				this.globalService.login_user(loginData)
+	// 				.then(async data => {
+	// 					this.userRep = data
+	// 					this._status = data['ErrorCode']
+	// 					this.message = data['message']
+	// 					this.spinner.hide();
+	// 					if(this._status=='0'){
+	// 						this.storage.set('email', this.user_login.email);
+	// 						localStorage.setItem('details_user',JSON.stringify(this.userRep.data))	
+	// 						if(this.userRep.data[0].user_type=='2'){
+	// 							this.events.publish('open_app', 'lawyer');
+	// 							this.events.publish('userName',this.userRep.data);
+	// 							localStorage.setItem('open_app',JSON.stringify('lawyer'))
+	// 							this.router.navigateByUrl('/home')
+	// 							this.storage.set('user_login', '');
+	// 						}else{
+	// 							const alert = await this.alertController.create({
+	// 								message: this.message,
+	// 								buttons: ['OK']
+	// 							});
+	// 							await alert.present();
+	// 						}
+	// 					}
+	// 				})	
+	// 			}else if(data['status'] ='1') {
+	// 				// this.router.navigateByUrl('/home')
+	// 			}else{
+	// 				// do nothing;
+	// 			}
+	// 	});
+	// }
+
+}
